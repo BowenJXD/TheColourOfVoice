@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// The main colors used in the project.
+/// </summary>
 public enum MainColor
 {
     Null,

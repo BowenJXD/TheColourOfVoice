@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// A painter that paints the tiles in the splash grid with a specific color.
+/// </summary>
 public class Painter : MonoBehaviour
 {
     public MainColor paintColor;

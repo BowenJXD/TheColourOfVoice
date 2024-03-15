@@ -2,6 +2,9 @@
 using DG.Tweening;
 using UnityEngine;
 
+/// <summary>
+///  A tile in the splash grid.
+/// </summary>
 public class SplashTile : MonoBehaviour
 {
     private SpriteRenderer sp;

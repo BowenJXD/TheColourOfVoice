@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 
+/// <summary>
+/// The possible neighbors of a tile. They will change their shape individually when the tile is painted or erased.
+/// </summary>
 public enum Neighbor
 {
     Up,
@@ -13,6 +16,9 @@ public enum Neighbor
     Left,
 }
 
+/// <summary>
+/// A manager for the splash grid. It contains the tiles and the logic to paint them.
+/// </summary>
 public class SplashGrid : MonoBehaviour
 {
     public Vector2Int size;
