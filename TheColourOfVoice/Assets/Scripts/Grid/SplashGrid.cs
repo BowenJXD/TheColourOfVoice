@@ -19,7 +19,7 @@ public enum Neighbor
 /// <summary>
 /// A manager for the splash grid. It contains the tiles and the logic to paint them.
 /// </summary>
-public class SplashGrid : MonoBehaviour
+public class SplashGrid : Singleton<SplashGrid>
 {
     public Vector2Int size;
     
@@ -34,8 +34,9 @@ public class SplashGrid : MonoBehaviour
     
     SplashTile[,] tiles;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Init();
     }
 

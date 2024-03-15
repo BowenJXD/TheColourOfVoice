@@ -13,11 +13,6 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
     private AudioClip clip;
     private byte[] bytes;
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isRecording)
@@ -43,6 +38,9 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         bytes = EncodeAsWAV(samples, clip.frequency, clip.channels);
         isRecording = false;
         SendRecording();
+        
+        //
+        Debug.Log($"Volume: {GetVolume(samples)}");
     }
 
     private void SendRecording() {
@@ -53,6 +51,19 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         });
     }
 
+    float GetVolume(float[] samples)
+    {
+        // Calculate the RMS (Root Mean Square) of the samples
+        float sum = 0;
+        for (int i = 0; i < samples.Length; i++)
+        {
+            sum += samples[i] * samples[i];
+        }
+        float rms = Mathf.Sqrt(sum / samples.Length);
+
+        return rms;
+    }
+    
     /// <summary>
     /// Sample code given from Hugging Face's API documentation.
     /// </summary>

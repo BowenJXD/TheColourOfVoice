@@ -25,15 +25,15 @@ public class SplashTile : MonoBehaviour
     public Ease ease = Ease.OutBack;
     public bool aniOnSameColor = false;
     
-    private MainColor _color;
-    public MainColor Color
+    private PaintColor _color;
+    public PaintColor Color
     {
         get => _color;
         set
         {
             if (_color == value && !aniOnSameColor) return;
             _color = value;
-            if (value != MainColor.Null)
+            if (value != PaintColor.Null)
             {
                 sp.transform.localScale = Vector3.zero;
                 sp.transform.DOScale(originalScale, aniDuration).SetEase(ease);
@@ -78,23 +78,23 @@ public class SplashTile : MonoBehaviour
         transform.position = location;
     }
 
-    public void PaintTile(MainColor color)
+    public void PaintTile(PaintColor color)
     {
-        if (!IsPainted && color != MainColor.Null)
+        if (!IsPainted && color != PaintColor.Null)
         {
             ColorTile(color);
         }
-        else if (IsPainted && color != MainColor.Null)
+        else if (IsPainted && color != PaintColor.Null)
         {
             Color = color;
         }
-        else if (IsPainted && color == MainColor.Null)
+        else if (IsPainted && color == PaintColor.Null)
         {
             EraseTile(this);
         }
     }
     
-    public void ColorTile(MainColor color)
+    public void ColorTile(PaintColor color)
     {
         Color = color;
         Shape = Grid.GetTileShape(CellIndex);
@@ -105,7 +105,7 @@ public class SplashTile : MonoBehaviour
     
     public void EraseTile(SplashTile tile)
     {
-        Color = MainColor.Null;
+        Color = PaintColor.Null;
         IsPainted = false;
         
         Grid.ChangeNeighborTileShape(tile.CellIndex);

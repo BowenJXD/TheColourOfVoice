@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// The main colors used in the project.
 /// </summary>
-public enum MainColor
+public enum PaintColor
 {
     Null,
     Red,
@@ -19,33 +19,33 @@ public enum MainColor
 
 public static class MainColorExtension
 {
-    public static Color ToColor(this MainColor color)
+    public static Color ToColor(this PaintColor color)
     {
         Color result = Color.black;
         switch (color)
         {
-            case MainColor.Red:
+            case PaintColor.Red:
                 result = Color.red;
                 break;
-            case MainColor.Green:
+            case PaintColor.Green:
                 result = Color.green;
                 break;
-            case MainColor.Blue:
+            case PaintColor.Blue:
                 result = Color.blue;
                 break;
-            case MainColor.Yellow:
+            case PaintColor.Yellow:
                 result = Color.yellow;
                 break;
-            case MainColor.Cyan:
+            case PaintColor.Cyan:
                 result = Color.cyan;
                 break;
-            case MainColor.Magenta:
+            case PaintColor.Magenta:
                 result = Color.magenta;
                 break;
-            case MainColor.White:
+            case PaintColor.White:
                 result = Color.white;
                 break;
-            case MainColor.Black:
+            case PaintColor.Black:
                 result = Color.black;
                 break;
             default :

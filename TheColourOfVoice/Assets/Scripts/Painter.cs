@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 /// </summary>
 public class Painter : MonoBehaviour
 {
-    public MainColor paintColor;
+    public PaintColor paintColor;
     public Vector2Int CellIndex { get; set; }
     Vector2Int lastCellIndex;
 
