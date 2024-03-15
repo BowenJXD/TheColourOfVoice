@@ -64,25 +64,12 @@ public class SplashGrid : MonoBehaviour
         }
     }
 
-    public void PaintTile(SplashTile tile, MainColor color)
-    {
-        tile.Color = color;
-        tile.Shape = GetTileShape(tile.CellIndex);
-        tile.Sprite = tileSprites[tile.Shape];
-        tile.IsPainted = true;
-        
-        ChangeNeighborTileShape(tile.CellIndex);
-    }
-
-    public void EraseTile(SplashTile tile)
-    {
-        tile.Color = MainColor.Null;
-        tile.IsPainted = false;
-        
-        ChangeNeighborTileShape(tile.CellIndex);
-    }
-
     #region Shape
+    
+    public Sprite GetTileSprite(int cellIndex)
+    {
+        return tileSprites[cellIndex];
+    }
     
     public int GetTileShape(Vector2Int cellIndex)
     {
@@ -121,7 +108,6 @@ public class SplashGrid : MonoBehaviour
         int mask = 1 << (3 - (int)changedNeighbor);
         int result = tile.Shape ^ mask;
         tile.Shape = result;
-        tile.SetSprite(tileSprites[result]);
     }
     
     #endregion
@@ -152,7 +138,6 @@ public class SplashGrid : MonoBehaviour
         return TryGetTile(cellIndex, out SplashTile tile) && tile.IsPainted;
     }
     
-    #endregion
     
     public bool TryGetCellIndex(Vector3 position, out Vector2Int cellIndex)
     {
@@ -175,4 +160,6 @@ public class SplashGrid : MonoBehaviour
     {
         return transform.position + bottomLeftPosition + new Vector3(cellIndex.x * cellSize.x, cellIndex.y * cellSize.y, 0);
     }
+    
+    #endregion
 }

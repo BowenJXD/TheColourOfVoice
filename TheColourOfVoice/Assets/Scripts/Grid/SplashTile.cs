@@ -1,19 +1,45 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class SplashTile : MonoBehaviour
 {
     private SpriteRenderer sp;
 
-    public int Shape { get; set; }
+    private int _shape;
+    public int Shape
+    {
+        get => _shape;
+        set
+        {
+            _shape = value;
+            Sprite = Grid.GetTileSprite(value);
+        }
+    }
 
+    private Vector3 originalScale;
+    public float aniDuration = 0.3f;
+    public Ease ease = Ease.OutBack;
+    public bool aniOnSameColor = false;
+    
     private MainColor _color;
     public MainColor Color
     {
         get => _color;
-        set {
+        set
+        {
+            if (_color == value && !aniOnSameColor) return;
             _color = value;
-            sp.color = value.ToColor();
+            if (value != MainColor.Null)
+            {
+                sp.transform.localScale = Vector3.zero;
+                sp.transform.DOScale(originalScale, aniDuration).SetEase(ease);
+            }
+            else
+            {
+                sp.transform.DOScale(Vector3.zero, aniDuration).SetEase(Ease.InBack);
+            }
+            sp.DOColor(value.ToColor(), aniDuration).SetEase(ease);
         }
     }
 
@@ -34,21 +60,14 @@ public class SplashTile : MonoBehaviour
     
     public void Init()
     {
-        sp = GetComponent<SpriteRenderer>();
+        sp = GetComponentInChildren<SpriteRenderer>();
         gameObject.SetActive(true);
+        originalScale = sp.transform.localScale;
     }
 
     public void Deinit()
     {
         gameObject.SetActive(false);
-    }
-    
-    public void SetSprite(Sprite sprite)
-    {
-        if (sp)
-        {
-            sp.sprite = sprite;
-        }
     }
 
     public void SetLocation(Vector3 location)
@@ -60,7 +79,7 @@ public class SplashTile : MonoBehaviour
     {
         if (!IsPainted && color != MainColor.Null)
         {
-            Grid.PaintTile(this, color);
+            ColorTile(color);
         }
         else if (IsPainted && color != MainColor.Null)
         {
@@ -68,8 +87,25 @@ public class SplashTile : MonoBehaviour
         }
         else if (IsPainted && color == MainColor.Null)
         {
-            Grid.EraseTile(this);
+            EraseTile(this);
         }
+    }
+    
+    public void ColorTile(MainColor color)
+    {
+        Color = color;
+        Shape = Grid.GetTileShape(CellIndex);
+        IsPainted = true;
+        
+        Grid.ChangeNeighborTileShape(CellIndex);
+    }
+    
+    public void EraseTile(SplashTile tile)
+    {
+        Color = MainColor.Null;
+        IsPainted = false;
+        
+        Grid.ChangeNeighborTileShape(tile.CellIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
