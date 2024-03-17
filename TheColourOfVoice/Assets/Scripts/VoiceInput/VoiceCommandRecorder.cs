@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using HuggingFace.API;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
@@ -19,10 +20,11 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         {
             StartRecording();
         }
-        else if (!Input.GetKeyDown(KeyCode.Space) && isRecording)
+        else if (Input.GetKeyUp(KeyCode.Space) && isRecording)
         {
             StopRecording();
         }
+        
     }
 
     private void StartRecording() {
@@ -40,7 +42,7 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         SendRecording();
         
         //
-        Debug.Log($"Volume: {GetVolume(samples)}");
+        Debug.Log($"Volume: {GetAverageVolume(samples)}, Peak: {GetPeakVolume(samples)}");
     }
 
     private void SendRecording() {
@@ -51,7 +53,7 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         });
     }
 
-    float GetVolume(float[] samples)
+    float GetAverageVolume(float[] samples)
     {
         // Calculate the RMS (Root Mean Square) of the samples
         float sum = 0;
@@ -62,6 +64,21 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
         float rms = Mathf.Sqrt(sum / samples.Length);
 
         return rms;
+    }
+    
+    float GetPeakVolume(float[] samples)
+    {
+        return samples.Max();
+        float peak = 0;
+        for (int i = 0; i < samples.Length; i++)
+        {
+            float abs = Mathf.Abs(samples[i]);
+            if (abs > peak)
+            {
+                peak = abs;
+            }
+        }
+        return peak;
     }
     
     /// <summary>
