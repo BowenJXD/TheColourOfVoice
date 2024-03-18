@@ -25,6 +25,7 @@ public class BulletBase : MonoBehaviour
             // ObjectPool.Instance.PushGameObject(gameObject);
             Debug.Log("Hit something");
             other.GetComponent<Enemy>().Damage(1f);
+            other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized,7.0f);
             Destroy(gameObject);
         }
     }
