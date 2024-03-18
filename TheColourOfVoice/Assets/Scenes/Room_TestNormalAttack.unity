@@ -1189,6 +1189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHitTrailSmoke: {fileID: 7704264440861239332, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+  enemyDeathExplosion: {fileID: 8888770104942142744, guid: 524d3a89c2f476d47a6709ed95d9df2f, type: 3}
+  maxHealth: 3
 --- !u!50 &1307791958
 Rigidbody2D:
   serializedVersion: 4

@@ -21,10 +21,8 @@ public class BulletBase : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
-        {
-            // ObjectPool.Instance.PushGameObject(gameObject);
-            Debug.Log("Hit something");
-            other.GetComponent<Enemy>().Damage(1f);
+        {            
+            other.GetComponent<Enemy>().Damage(1, rb.velocity.normalized);
             other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized,7.0f);
             Destroy(gameObject);
         }

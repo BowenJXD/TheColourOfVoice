@@ -8,16 +8,31 @@ public class Enemy : MonoBehaviour
     private CinemachineImpulseSource impulseSource;
     private Rigidbody2D rg;
     public ParticleSystem enemyHitTrailSmoke;
+    public ParticleSystem enemyDeathExplosion;
+    public int maxHealth = 3;
+    private int currentHealth;
 
     private void Awake()
     {
         rg = GetComponent<Rigidbody2D>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-    
-    public void Damage(float damageAmount) 
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+    public void Damage(int damageAmount ,Vector3 dir) 
     {
         CameraShakeManager.Instance.CameraShake(impulseSource);
+        currentHealth = currentHealth - damageAmount;
+        if (currentHealth <= 0)
+        {
+            ParticleSystem deathExplosion = Instantiate(enemyDeathExplosion, this.transform.position, Quaternion.identity);        
+            deathExplosion.Play();
+           
+            Destroy(gameObject);
+        }
     }
 
     public void KnockBack(Vector2 direction, float impluse) 
@@ -26,5 +41,8 @@ public class Enemy : MonoBehaviour
         ParticleSystem dust = Instantiate(enemyHitTrailSmoke,this.transform);
         dust.transform.localPosition = new Vector3(0, 0, 0);
         dust.Play();
+        //dust.shape.rotation = Quaternion.identity;
     }
+
+   
 }
