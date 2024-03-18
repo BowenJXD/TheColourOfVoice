@@ -21,9 +21,9 @@ public class Fire : MonoBehaviour
     void Shoot() 
     {
         direction = (mousePos - new Vector2(transform.position.x, transform.position.y)).normalized;
-
+        float angel = Random.Range(-5f, 5f);
         GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
-        bullet.GetComponent<BulletBase>().SetDirection(Quaternion.AngleAxis(0, Vector3.forward) * direction);
+        bullet.GetComponent<BulletBase>().SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
        
     }
 
