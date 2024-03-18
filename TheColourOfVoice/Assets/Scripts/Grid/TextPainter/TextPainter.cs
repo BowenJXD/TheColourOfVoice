@@ -5,7 +5,6 @@ using UnityEngine;
 
 /// <summary>
 /// Takes a text and paints its characters onto the splash grid using <see cref="TextToTile"></see>.
-/// TODO: Add support for looping in different colors.
 /// </summary>
 public class TextPainter : Singleton<TextPainter>
 {
@@ -13,21 +12,40 @@ public class TextPainter : Singleton<TextPainter>
     
     SplashGrid grid;
 
+    public string text;
+    public Vector2Int center;
+    public PaintColor color;
+    public float interval = 0.1f;
+
     [Button()]
+    public void PaintText()
+    {
+        PaintText(text, center, color, interval);
+    }
+    
     public void PaintText(string text, Vector2Int center, PaintColor color, float interval)
     {
         if (paintingSequences.ContainsKey(text))
         {
             StopPainting(text);
         }
+
+        int totalWidth = 0;
+        for (int i = 0; i < text.Length; i++)
+        {
+            totalWidth += TextToTile.Instance.GetPatternWidth(text[i]) + 1;
+        }
+        totalWidth -= 1;
+        int x = center.x - totalWidth / 2;
+        
         Sequence sequence = DOTween.Sequence();
         for (int i = 0; i < text.Length; i++)
         {
-            int x = center.x + (-text.Length / 2 + i) * (TextToTile.patternWidth + 1) + (TextToTile.patternWidth / 2 + 1);
             Vector2Int charCenter = new Vector2Int(x, center.y);
             var i1 = i;
             sequence.AppendCallback(() => PaintChar(text[i1], charCenter, color));
             sequence.AppendInterval(interval);
+            x += TextToTile.Instance.GetPatternWidth(text[i]) + 1;
         }
         paintingSequences.Add(text, sequence);
         sequence.OnComplete(() => paintingSequences.Remove(text));
@@ -43,13 +61,13 @@ public class TextPainter : Singleton<TextPainter>
         }
     }
 
-    void PaintChar(char character, Vector2Int center, PaintColor color)
+    void PaintChar(char character, Vector2Int start, PaintColor color)
     {
         var pattern = TextToTile.Instance.GetPattern(character);
         if (!grid) grid = SplashGrid.Instance;
         foreach (var index in pattern)
         {
-            if (grid.TryGetTile(center + index, out SplashTile tile))
+            if (grid.TryGetTile(start + index, out SplashTile tile))
             {
                 tile.PaintTile(color);
             }

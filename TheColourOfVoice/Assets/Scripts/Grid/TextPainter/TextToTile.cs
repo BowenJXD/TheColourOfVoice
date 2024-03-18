@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Reads a file that converts characters to tile patterns.
+/// The index of patterns are from the left center of a character.
 /// TODO: Add support for different pattern width. 
 /// <example><br></br>
 /// a <br></br>
@@ -16,10 +18,13 @@ public class TextToTile : Singleton<TextToTile>
 {
     private Dictionary<char, List<Vector2Int>> charPatterns;
     
-    public static readonly int patternWidth = 5;
+    private Dictionary<char, int> charWidths;
+
     public static readonly int patternHeight = 5;
     
     public TextAsset csvFile;
+    
+    public int spaceWidth = 2;
 
     protected override void Awake()
     {
@@ -30,41 +35,56 @@ public class TextToTile : Singleton<TextToTile>
         }
     }
 
-    int patternStartWidth => - patternWidth / 2;
     int patternStartHeight => patternHeight / 2;
 
     void LoadConfig(string csv)
     {
-        charPatterns = new Dictionary<char, List<Vector2Int>>();
+        charPatterns = new ();
+        charPatterns.Add(' ', new ());
+        charWidths = new ();
+        charWidths.Add(' ', spaceWidth);
         string[] lines = csv.Split('\n');
-        char currentChar = ' ';
+        char[] currentChar = Array.Empty<char>();
         List<Vector2Int> pattern = new List<Vector2Int>();
-        int y = patternStartHeight;
+        int y = -patternStartHeight - 1;
+        int patternWidth = 0;
         
         foreach (var line in lines)
         {
             if (line == "") continue;
+            
+            // pattern content (trim the last char: "/r")
+            string[] values = line[..^1].Split(',');
+            
             // character indicator sign
-            if (!"01,".Contains(line[0]))
+            if (y < -patternStartHeight)
             {
                 if (pattern.Count > 0)
                 {
-                    charPatterns.Add(currentChar, pattern);
+                    foreach (char c in currentChar)
+                    {
+                        if (charPatterns.ContainsKey(c))
+                        {
+                            continue;
+                        }
+                        charPatterns.Add(c, pattern);
+                        charWidths.Add(c, patternWidth);
+                    }
                     pattern = new List<Vector2Int>();
                 }
-                currentChar = line[0];
+                currentChar = values[0].ToCharArray();
+                // width is the second char
+                patternWidth = int.Parse(values[1]);
                 y = patternStartHeight;
             }
             else
             {
-                // pattern content (trim the last char: "/r")
-                string[] values = line[..^1].Split(',');
-                for (int x = 0; x < values.Length; x++)
+                for (int x = 0; x < patternWidth; x++)
                 {
                     // if the cell is empty, put false, else true
                     if (values[x] != "")
                     {
-                        pattern.Add(new Vector2Int(x + patternStartWidth, y));
+                        pattern.Add(new Vector2Int(x, y));
                     }
                 }
             
@@ -76,5 +96,10 @@ public class TextToTile : Singleton<TextToTile>
     public List<Vector2Int> GetPattern(char character)
     {
         return charPatterns[character];
+    }
+    
+    public int GetPatternWidth(char character)
+    {
+        return charWidths[character];
     }
 }
