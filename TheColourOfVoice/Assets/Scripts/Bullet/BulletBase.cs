@@ -6,7 +6,7 @@ public class BulletBase : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-
+    System.Action<BulletBase> deactiveAction;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,7 +24,13 @@ public class BulletBase : MonoBehaviour
         {            
             other.GetComponent<Enemy>().Damage(1, rb.velocity.normalized);
             other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized,7.0f);
-            Destroy(gameObject);
+            this.deactiveAction?.Invoke(this);
+            //Destroy(gameObject);
         }
+    }
+
+    public void SetDeactiveAction(System.Action<BulletBase> deactiveAction) 
+    {
+        this.deactiveAction = deactiveAction;
     }
 }
