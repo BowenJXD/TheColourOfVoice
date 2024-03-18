@@ -20,9 +20,11 @@ public class BulletBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Bullet")
+        if (other.gameObject.tag == "Enemy")
         {
-            ObjectPool.Instance.PushGameObject(gameObject);
+            // ObjectPool.Instance.PushGameObject(gameObject);
+            Debug.Log("Hit something");
+            Destroy(gameObject);
         }
     }
 }
