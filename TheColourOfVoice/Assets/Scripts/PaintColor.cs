@@ -54,4 +54,12 @@ public static class MainColorExtension
         }
         return result;
     }
+
+    public static PaintColor Next(this PaintColor current)
+    {
+        PaintColor[] values = (PaintColor[])Enum.GetValues(typeof(PaintColor));
+        int index = Array.IndexOf(values, current);
+        index = (index + 1) % values.Length;
+        return values[index];
+    }
 }

@@ -27,7 +27,7 @@ public class Fire : MonoBehaviour
     {
         //获得鼠标位置的世界坐标
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        tryShoot();
+        TryShoot();
     }
 
     //发射子弹
@@ -38,11 +38,10 @@ public class Fire : MonoBehaviour
         //GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
         var bullet = pool.Get();
         bullet.transform.position = this.transform.position;
-        bullet.GetComponent<BulletBase>().SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
-       
+        bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
     }
 
-    void tryShoot() 
+    void TryShoot() 
     {
         if (timer != 0)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -9,30 +10,37 @@ using UnityEngine.Tilemaps;
 public class Painter : MonoBehaviour
 {
     public PaintColor paintColor;
-    public Vector2Int CellIndex { get; set; }
-    Vector2Int lastCellIndex;
+    List<Vector2Int> cellIndexes = new List<Vector2Int>();
+
+    private void Update()
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.TryGetComponent(out SplashTile tile))
         {
-            if (tile.CellIndex != CellIndex)
+            if (!cellIndexes.Contains(tile.CellIndex))
             {
                 tile.PaintTile(paintColor);
+                cellIndexes.Add(tile.CellIndex);
             }
-            CellIndex = tile.CellIndex;
+            else
+            {
+                Debug.Log("wnmd");
+            }
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
+    
+    private void OnTriggerExit2D(Collider2D col)
     {
-        if (other.TryGetComponent(out SplashTile tile))
+        if (col.TryGetComponent(out SplashTile tile))
         {
-            if (tile.CellIndex != CellIndex)
+            if (cellIndexes.Contains(tile.CellIndex))
             {
-                tile.PaintTile(paintColor);
+                cellIndexes.Remove(tile.CellIndex);
             }
-            CellIndex = tile.CellIndex;
         }
     }
 }

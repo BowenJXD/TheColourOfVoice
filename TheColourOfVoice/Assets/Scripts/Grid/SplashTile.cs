@@ -110,16 +110,4 @@ public class SplashTile : MonoBehaviour
         
         Grid.ChangeNeighborTileShape(tile.CellIndex);
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.TryGetComponent(out Painter painter))
-        {
-            if (painter.CellIndex != CellIndex)
-            {
-                PaintTile(painter.paintColor);
-            }
-            painter.CellIndex = CellIndex;
-        }
-    }
 }
