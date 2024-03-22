@@ -13,16 +13,17 @@ public class BulletBase : Entity
     public LoopTask durationTask;
 
     public float knockBack = 7.0f;
-    
+
     [Tooltip("The number of enemies the bullet can penetrate. \n" +
              "0 means it will destroy upon hitting first enemy. \n" +
              "-1 means it can penetrate all enemies.")]
     public int penetration;
+
     /// <summary>
     /// Avoid hitting the same enemy multiple times.
     /// </summary>
     List<Collider2D> hitEnemies = new List<Collider2D>();
-    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,28 +36,29 @@ public class BulletBase : Entity
         };
     }
 
-    private void OnEnable()
+    public override void Init()
     {
+        base.Init();
         durationTask.Start();
     }
-    
-    private void OnDisable()
+
+    public override void Deinit()
     {
-        durationTask.Stop();
+        base.Deinit();
+        durationTask?.Stop();
     }
 
     public void SetDirection(Vector2 direction)
     {
         rb.velocity = direction * speed;
     }
-
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy") && !hitEnemies.Contains(other))
-        {            
+        {
             other.GetComponent<Enemy>().Damage(1, rb.velocity.normalized);
-            other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized,knockBack);
+            other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized, knockBack);
             hitEnemies.Add(other);
             if (penetration >= 0 && hitEnemies.Count > penetration)
             {
@@ -65,10 +67,5 @@ public class BulletBase : Entity
             }
             //Destroy(gameObject);
         }
-    }
-
-    public void SetDeactiveAction(System.Action<BulletBase> deactiveAction) 
-    {
-        this.deactiveAction = deactiveAction;
     }
 }

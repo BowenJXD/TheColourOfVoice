@@ -9,12 +9,13 @@ public class Entity : MonoBehaviour
     public Action onInit;
 
     /// <summary>
-    /// Trigger from pool, before enabling
+    /// Will enable gameObject, need to be called manually
     /// </summary>
     public virtual void Init()
     {
         onInit?.Invoke();
         onInit = null;
+        gameObject.SetActive(true);
     }
 
     /// <summary>

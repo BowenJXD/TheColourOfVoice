@@ -1,45 +1,42 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace BehaviourSequence
+/// <summary>
+///  震动类型
+/// </summary>
+public enum ShakeType
 {
-    /// <summary>
-    ///  震动类型
-    /// </summary>
-    public enum ShakeType
-    {
-        Position,
-        Rotation,
-        Scale
-    }
+    Position,
+    Rotation,
+    Scale
+}
     
-    /// <summary>
-    ///  DoTween震动节点
-    /// </summary>
-    public class DoTweenShakeBehaviour : DoTweenBehaviour
-    {
-        public ShakeType shakeType = ShakeType.Position;
-        public float strength = 1;
-        public int vibrato = 10;
-        public float randomness = 90;
-        public bool snapping = false;
-        public bool fadeOut = false;
+/// <summary>
+///  DoTween震动节点
+/// </summary>
+public class DoTweenShakeBehaviour : DoTweenBehaviour
+{
+    public ShakeType shakeType = ShakeType.Position;
+    public float strength = 1;
+    public int vibrato = 10;
+    public float randomness = 90;
+    public bool snapping = false;
+    public bool fadeOut = false;
 
-        protected override void SetUpTween()
+    protected override void SetUpTween()
+    {
+        base.SetUpTween();
+        switch (shakeType)
         {
-            base.SetUpTween();
-            switch (shakeType)
-            {
-                case ShakeType.Position:
-                    tween = transform.DOShakePosition(duration, strength, vibrato, randomness, snapping, fadeOut);
-                    break;
-                case ShakeType.Rotation:
-                    tween = transform.DOShakeRotation(duration, strength, vibrato, randomness, fadeOut);
-                    break;
-                case ShakeType.Scale:
-                    tween = transform.DOShakeScale(duration, strength, vibrato, randomness, fadeOut);
-                    break;
-            }
+            case ShakeType.Position:
+                tween = target.DOShakePosition(duration, strength, vibrato, randomness, snapping, fadeOut);
+                break;
+            case ShakeType.Rotation:
+                tween = target.DOShakeRotation(duration, strength, vibrato, randomness, fadeOut);
+                break;
+            case ShakeType.Scale:
+                tween = target.DOShakeScale(duration, strength, vibrato, randomness, fadeOut);
+                break;
         }
     }
 }

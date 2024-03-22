@@ -6,9 +6,7 @@ using Sirenix.Utilities;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace BehaviourSequence
-{
-    public enum IndexConditionType
+public enum IndexConditionType
     {
         True,
         AfterFirst,
@@ -43,7 +41,7 @@ namespace BehaviourSequence
         public IndexConditionType indexCondition = IndexConditionType.True;
         protected bool indexCondMet = false;
         
-        LinkedList<BehaviourNode> nodes;
+        public LinkedList<BehaviourNode> nodes;
         List<BehaviourNode> currentNodes = new();
         public Action onFinish;
 
@@ -186,4 +184,3 @@ namespace BehaviourSequence
             indexCondMet = value;
         }
     }
-}

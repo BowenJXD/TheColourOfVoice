@@ -1,5 +1,4 @@
-﻿using BehaviourSequence;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 ///  
@@ -21,5 +20,6 @@ public class SpawnBehaviour : BehaviourNode
         base.OnExecute();
         Entity ent = pool.Get();
         sequence.Set(BBKey.ENTITY, ent);
+        sequence.Set(BBKey.SPAWNER, transform);
     }
 }

@@ -31,9 +31,7 @@ public class EntityPool<T> where T : Entity
     protected virtual T OnCreatePoolItem() => Object.Instantiate(prefab, parent);
     protected virtual void OnGetPoolItem(T obj)
     {
-        obj.transform.SetParent(parent);
-        obj.Init();
-        obj.gameObject.SetActive(true);
+        obj.transform.SetParent(parent, false);
         obj.onDeinit += () => Release(obj);
     }
     protected virtual void OnReleasePoolItem(T obj) => obj.gameObject.SetActive(false);
