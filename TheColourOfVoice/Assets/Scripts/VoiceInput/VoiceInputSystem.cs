@@ -9,12 +9,29 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
 {
     private Dictionary<string, KeywordRecognizer> keywordRecognizers = new();
 
+    public void SetActive(bool active)
+    {
+        if (active)
+        {
+            foreach (var recognizer in keywordRecognizers.Values)
+            {
+                recognizer.Start();
+            }
+        }
+        else
+        {
+            foreach (var recognizer in keywordRecognizers.Values)
+            {
+                recognizer.Stop();
+            }
+        }
+    }
+    
     public void Register(string key, Action<PhraseRecognizedEventArgs> action)
     {
         var recognizer = new KeywordRecognizer(new string[] { key });
         recognizer.OnPhraseRecognized += (e) => action(e);
         keywordRecognizers.Add(key, recognizer);
-        recognizer.Start();
     }
     
     public void Unregister(string key)

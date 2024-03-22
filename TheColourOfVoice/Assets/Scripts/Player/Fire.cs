@@ -21,14 +21,16 @@ public class Fire : MonoBehaviour
         pool = poolHolder.AddComponent<BulletPool>();
         pool.SetPrefab(bulletPrefab);
         poolHolder.SetActive(true);
+        
+        InvokeRepeating(nameof(Shoot), shootingInterval, shootingInterval);
 
     }
-    private void Update()
+    /*private void Update()
     {
         //获得鼠标位置的世界坐标
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         TryShoot();
-    }
+    }*/
 
     //发射子弹
     void Shoot() 
