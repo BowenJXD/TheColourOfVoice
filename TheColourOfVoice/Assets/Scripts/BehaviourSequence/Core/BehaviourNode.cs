@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeTao
+namespace BehaviourSequence
 {
     /// <summary>
     /// 行为节点，受行为数列控制。拥有一个IEnumerator，用于执行行为。

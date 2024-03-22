@@ -10,10 +10,10 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         get
         {
             if (instance) return instance;
-            instance = FindObjectOfType<T>();
-            if (instance) return instance;
-            instance = Instantiate(new GameObject(typeof(T).Name)).AddComponent<T>();
-            if (instance) return instance;
+            T inst = FindObjectOfType<T>();
+            if (inst) return inst;
+            inst = Instantiate(new GameObject(typeof(T).Name)).AddComponent<T>();
+            if (inst) return inst;
             Debug.LogError("Failed to create instance of " + typeof(T).Name);
             return null;
         }

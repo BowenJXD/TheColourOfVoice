@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace CodeTao
+namespace BehaviourSequence
 {
     /// <summary>
     ///  震动类型

@@ -6,7 +6,7 @@ using Sirenix.Utilities;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace CodeTao
+namespace BehaviourSequence
 {
     public enum IndexConditionType
     {

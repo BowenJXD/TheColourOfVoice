@@ -26,10 +26,6 @@ public class Painter : MonoBehaviour
                 tile.PaintTile(paintColor);
                 cellIndexes.Add(tile.CellIndex);
             }
-            else
-            {
-                Debug.Log("wnmd");
-            }
         }
     }
     

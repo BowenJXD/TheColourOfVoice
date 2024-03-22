@@ -4,7 +4,7 @@
 /// Delay a task for a certain amount of time and certain amount of loops.
 /// Based on DOTween.
 /// </summary>
-public class DelayTask
+public class LoopTask
 {
     public float time;
     

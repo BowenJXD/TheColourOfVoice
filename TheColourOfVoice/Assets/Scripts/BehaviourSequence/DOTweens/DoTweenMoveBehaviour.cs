@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace CodeTao
+namespace BehaviourSequence
 {
     /// <summary>
     ///  DoTween移动节点

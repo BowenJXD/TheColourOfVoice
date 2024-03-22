@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBase : MonoBehaviour
+public class BulletBase : Entity
 {
     public float speed;
     private Rigidbody2D rb;
     System.Action<BulletBase> deactiveAction;
-    
+
+    public float duration = 2.0f;
+    public LoopTask durationTask;
+
     public float knockBack = 7.0f;
     
     [Tooltip("The number of enemies the bullet can penetrate. \n" +
@@ -22,6 +26,23 @@ public class BulletBase : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        durationTask = new LoopTask
+        {
+            action = Deinit,
+            time = duration,
+            loop = 1,
+        };
+    }
+
+    private void OnEnable()
+    {
+        durationTask.Start();
+    }
+    
+    private void OnDisable()
+    {
+        durationTask.Stop();
     }
 
     public void SetDirection(Vector2 direction)

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Fire : MonoBehaviour
 {
@@ -8,29 +10,38 @@ public class Fire : MonoBehaviour
     public float shootingInterval;
     protected Vector2 mousePos;
     protected Vector2 direction;
-    private float timer;
+    
+    LoopTask shootTask;
+    
+    EntityPool<BulletBase> pool;
 
-    BulletPool pool;
-
-    private void Start()
+    private void Awake()
     {
-        var poolHolder = new GameObject($"Pool:{ bulletPrefab.name}");
-        poolHolder.transform.parent = transform;
-        poolHolder.transform.position = transform.position;
-        poolHolder.SetActive(false);
-        pool = poolHolder.AddComponent<BulletPool>();
-        pool.SetPrefab(bulletPrefab);
-        poolHolder.SetActive(true);
-        
-        InvokeRepeating(nameof(Shoot), shootingInterval, shootingInterval);
+        pool = new EntityPool<BulletBase>(bulletPrefab);
 
+        shootTask = new LoopTask
+        {
+            time = shootingInterval,
+            action = Shoot,
+            loop = -1,
+        };
     }
-    /*private void Update()
+
+    private void OnEnable()
+    {
+        shootTask.Start();
+    }
+
+    private void OnDisable()
+    {
+        shootTask.Stop();
+    }
+
+    private void Update()
     {
         //获得鼠标位置的世界坐标
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        TryShoot();
-    }*/
+    }
 
     //发射子弹
     void Shoot() 
@@ -41,27 +52,5 @@ public class Fire : MonoBehaviour
         var bullet = pool.Get();
         bullet.transform.position = this.transform.position;
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
-    }
-
-    void TryShoot() 
-    {
-        if (timer != 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                timer = 0;
-            }
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (timer == 0)
-            {
-                timer = shootingInterval;
-                Shoot();
-
-            }
-        }
     }
 }

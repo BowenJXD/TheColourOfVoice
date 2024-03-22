@@ -6,7 +6,7 @@ using UnityEngine.Windows.Speech;
 
 public struct CastConfig
 {
-    public float castTime;
+    public float chantTime;
     public float peakVolume;
     public ConfidenceLevel confidenceLevel;
 }
@@ -22,7 +22,7 @@ public class SpellManager : Singleton<SpellManager>
     
     AudioClip clip;
     
-    DelayTask chantTask;
+    LoopTask chantTask;
 
     enum CastState
     {
@@ -35,7 +35,7 @@ public class SpellManager : Singleton<SpellManager>
     protected override void Awake()
     {
         base.Awake();
-        chantTask = new DelayTask()
+        chantTask = new LoopTask()
         {
             time = timeTolerance,
             action = () =>
@@ -62,16 +62,19 @@ public class SpellManager : Singleton<SpellManager>
 
     void StartChanting()
     {
+        VoiceInputSystem.Instance.SetActive(true);
         clip = Microphone.Start(null, false, timeTolerance, 44100);
         castState = CastState.Chanting;
 
         chantTask.Start();
+        Debug.Log("Start chanting.");
     }
 
     void TryCast(PhraseRecognizedEventArgs recognizedEventArgs)
     {
         var position = Microphone.GetPosition(null);
         Microphone.End(null);
+        VoiceInputSystem.Instance.SetActive(false);
         var samples = new float[position * clip.channels];
         clip.GetData(samples, 0);
         var volume = samples.Max();
@@ -82,7 +85,7 @@ public class SpellManager : Singleton<SpellManager>
         {
             CastConfig config = new CastConfig
             {
-                castTime = (float)recognizedEventArgs.phraseDuration.TotalSeconds,
+                chantTime = (float)recognizedEventArgs.phraseDuration.TotalSeconds,
                 peakVolume = volume,
                 confidenceLevel = recognizedEventArgs.confidence
             };

@@ -69,16 +69,6 @@ public class VoiceCommandRecorder : Singleton<VoiceCommandRecorder>
     float GetPeakVolume(float[] samples)
     {
         return samples.Max();
-        float peak = 0;
-        for (int i = 0; i < samples.Length; i++)
-        {
-            float abs = Mathf.Abs(samples[i]);
-            if (abs > peak)
-            {
-                peak = abs;
-            }
-        }
-        return peak;
     }
     
     /// <summary>

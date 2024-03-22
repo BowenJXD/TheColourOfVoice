@@ -21,7 +21,8 @@ public class Spell : MonoBehaviour
 
     public virtual void StartCasting(CastConfig config)
     {
-        
+        Invoke(nameof(EndCasting), config.chantTime);
+        Debug.Log($"Start casting {spellName}.");
     }
 
     /// <summary>
@@ -37,6 +38,6 @@ public class Spell : MonoBehaviour
     
     public virtual void Execute()
     {
-        
+        Debug.Log($"Execute {spellName}.");
     }
 }
