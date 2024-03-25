@@ -23,7 +23,7 @@ public class DialogueManager: Singleton<DialogueManager>
     protected override void Awake()
     {
         base.Awake();
-        DialogueManager.Instance._pfbButtonA = Resources.Load<GameObject>("Prefab/TextPrefab/BiggerButton");       
+        //DialogueManager.Instance._pfbButtonA = Resources.Load<GameObject>("Prefab/TextPrefab/BiggerButton");       
     }
 
     private void Update()

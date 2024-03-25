@@ -23,7 +23,7 @@ public class DialogueTest : MonoBehaviour
 
                 testSequenceEventExecutor.Excute();
             }
-            else testSequenceEventExecutor.Excute();
+            
         }
        
     }
