@@ -6,7 +6,7 @@
 /// </summary>
 public class LoopTask
 {
-    public float duration;
+    public float interval;
     
     public int loop;
     
@@ -19,7 +19,7 @@ public class LoopTask
     public void Start()
     {
         sequence = DOTween.Sequence();
-        sequence.AppendInterval(duration);
+        sequence.AppendInterval(interval);
         sequence.OnStepComplete(FinishLoop);
         sequence.OnComplete(() => finishAction());
         sequence.SetLoops(loop);

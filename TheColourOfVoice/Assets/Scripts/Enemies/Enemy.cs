@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
     private CinemachineImpulseSource impulseSource;
     private Rigidbody2D rg;
@@ -14,14 +15,17 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        rg = GetComponent<Rigidbody2D>();
-        impulseSource = GetComponent<CinemachineImpulseSource>();
+        Init();
     }
 
-    private void Start()
+    public override void Init()
     {
+        base.Init();
+        rg = GetComponent<Rigidbody2D>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         currentHealth = maxHealth;
     }
+
     public void Damage(int damageAmount ,Vector3 dir) 
     {
         CameraShakeManager.Instance.CameraShake(impulseSource);
@@ -31,7 +35,7 @@ public class Enemy : MonoBehaviour
             ParticleSystem deathExplosion = Instantiate(enemyDeathExplosion, this.transform.position, Quaternion.identity);        
             deathExplosion.Play();
            
-            Destroy(gameObject);
+            Deinit();
         }
     }
 

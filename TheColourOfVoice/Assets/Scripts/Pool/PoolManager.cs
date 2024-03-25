@@ -16,6 +16,7 @@ public class PoolManager : Singleton<PoolManager>
         if (!pools.ContainsKey(prefabName))
         {
             var pool = new GameObject($"{prefabName} Pool");
+            pool.transform.SetParent(transform);
             pools.Add(prefabName, pool);
         }
         

@@ -11,6 +11,9 @@ public struct CastConfig
     public ConfidenceLevel confidenceLevel;
 }
 
+/// <summary>
+///  Spell manager that manages all the spells in the game.
+/// </summary>
 public class SpellManager : Singleton<SpellManager>
 {
     public Dictionary<string, Spell> spells = new();
@@ -37,7 +40,7 @@ public class SpellManager : Singleton<SpellManager>
         base.Awake();
         chantTask = new LoopTask()
         {
-            duration = timeTolerance,
+            interval = timeTolerance,
             loopAction = () =>
             {
                 Microphone.End(null);

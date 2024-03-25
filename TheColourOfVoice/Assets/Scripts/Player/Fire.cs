@@ -21,7 +21,7 @@ public class Fire : MonoBehaviour
 
         shootTask = new LoopTask
         {
-            duration = shootingInterval,
+            interval = shootingInterval,
             loopAction = Shoot,
             loop = -1,
         };
