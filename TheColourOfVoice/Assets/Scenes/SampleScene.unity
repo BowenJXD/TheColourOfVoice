@@ -782,8 +782,8 @@ Transform:
   m_GameObject: {fileID: 411926961}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: -2.243, y: -2.797, z: 0}
+  m_LocalScale: {x: 87.589806, y: 60.318214, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2100734691}
@@ -1882,9 +1882,11 @@ MonoBehaviour:
   - amount: 100
     duration: 10
   deathFX: {fileID: 0}
-  distanceRange: {x: 12.54902, y: 30.326805}
+  minDistance: 10
+  maxDistance: 20
   distributionVariationInterval: 5
-  distributionRange: {x: 35.764698, y: 128.94118}
+  minDistribution: 30
+  maxDistributionVariation: 60
 --- !u!4 &1240789705
 Transform:
   m_ObjectHideFlags: 0
