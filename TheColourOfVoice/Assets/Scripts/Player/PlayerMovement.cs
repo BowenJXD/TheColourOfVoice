@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float inputY;
     public bool isMoving;
 
+    public bool inDialogueArea = false;
+
     private Vector2 inputMovement;
 
     private void Awake()
@@ -20,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PlayerInput();
+
+        
     }
 
     private void FixedUpdate()
