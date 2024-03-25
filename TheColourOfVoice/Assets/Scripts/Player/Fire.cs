@@ -51,6 +51,7 @@ public class Fire : MonoBehaviour
         //GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
         var bullet = pool.Get();
         bullet.transform.position = this.transform.position;
+        bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
     }
 }
