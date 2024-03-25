@@ -30,8 +30,8 @@ public class BulletBase : Entity
 
         durationTask = new LoopTask
         {
-            action = Deinit,
-            time = duration,
+            loopAction = Deinit,
+            duration = duration,
             loop = 1,
         };
     }

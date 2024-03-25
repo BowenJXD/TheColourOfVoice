@@ -37,8 +37,8 @@ public class SpellManager : Singleton<SpellManager>
         base.Awake();
         chantTask = new LoopTask()
         {
-            time = timeTolerance,
-            action = () =>
+            duration = timeTolerance,
+            loopAction = () =>
             {
                 Microphone.End(null);
                 castState = CastState.Null;

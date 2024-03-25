@@ -6,19 +6,22 @@
 /// </summary>
 public class LoopTask
 {
-    public float time;
+    public float duration;
     
     public int loop;
     
-    public System.Action action;
+    public System.Action loopAction;
+    
+    public System.Action finishAction;
     
     Sequence sequence;
 
     public void Start()
     {
         sequence = DOTween.Sequence();
-        sequence.AppendInterval(time);
-        sequence.OnStepComplete(Finish);
+        sequence.AppendInterval(duration);
+        sequence.OnStepComplete(FinishLoop);
+        sequence.OnComplete(() => finishAction());
         sequence.SetLoops(loop);
         sequence.Play();
     }
@@ -47,8 +50,8 @@ public class LoopTask
         }
     }
 
-    public void Finish()
+    public void FinishLoop()
     {
-        action();
+        loopAction?.Invoke();
     }
 }
