@@ -16,7 +16,7 @@ public class EntityPool<T> where T : Entity
     public int InactiveCount => pool.CountInactive;
     public int TotalCount => pool.CountAll;
 
-    public EntityPool(T prefab, Transform parent = null, int defaultSize = 100, int maxSize = 500)
+    public EntityPool(T prefab, Transform parent = null, int defaultSize = 10, int maxSize = 100)
     {
         this.prefab = prefab;
         this.defaultSize = defaultSize;

@@ -1,8 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : MonoBehaviour, ISetUp
 {
+    public bool IsSet { get; set; }
+
+    /// <summary>
+    /// Called when the game starts, despite if the game object is active or not
+    /// </summary>
+    public virtual void SetUp()
+    {
+        IsSet = true;
+    }
+    
     /// <summary>
     /// Reset when trigger
     /// </summary>
@@ -13,6 +23,7 @@ public class Entity : MonoBehaviour
     /// </summary>
     public virtual void Init()
     {
+        if (!IsSet) SetUp();
         onInit?.Invoke();
         onInit = null;
         gameObject.SetActive(true);

@@ -3,19 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Pool;
 
 public class Enemy : Entity
 {
     private CinemachineImpulseSource impulseSource;
     private Rigidbody2D rg;
-    public ParticleSystem enemyHitTrailSmoke;
-    public ParticleSystem enemyDeathExplosion;
     public int maxHealth = 3;
     private int currentHealth;
+    
+    public ParticleController deathParticlePrefab;
+    public static EntityPool<ParticleController> deathParticlePool;
+    
+    public ParticleController hitParticlePrefab;
+    public static EntityPool<ParticleController> hitParticlePool;
+    
+    ChaseBehaviour chaseBehaviour;
 
-    private void Awake()
+    public override void SetUp()
     {
-        Init();
+        base.SetUp();
+        deathParticlePool = new EntityPool<ParticleController>(deathParticlePrefab);
+        hitParticlePool = new EntityPool<ParticleController>(hitParticlePrefab);
+        chaseBehaviour = GetComponent<ChaseBehaviour>();
     }
 
     public override void Init()
@@ -26,27 +36,37 @@ public class Enemy : Entity
         currentHealth = maxHealth;
     }
 
-    public void Damage(int damageAmount ,Vector3 dir) 
+    public void Damage(int damageAmount) 
     {
         CameraShakeManager.Instance.CameraShake(impulseSource);
-        currentHealth = currentHealth - damageAmount;
+        currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
-            ParticleSystem deathExplosion = Instantiate(enemyDeathExplosion, this.transform.position, Quaternion.identity);        
-            deathExplosion.Play();
-           
             Deinit();
         }
     }
 
-    public void KnockBack(Vector2 direction, float impluse) 
+    public override void Deinit()
     {
-        rg.AddForce(impluse * direction, ForceMode2D.Impulse);
-        ParticleSystem dust = Instantiate(enemyHitTrailSmoke,this.transform);
-        dust.transform.localPosition = new Vector3(0, 0, 0);
-        dust.Play();
-        //dust.shape.rotation = Quaternion.identity;
+        base.Deinit();
+        var fx = deathParticlePool.Get();
+        fx.transform.position = transform.position;
+        fx.transform.rotation = Quaternion.identity;
+        fx.Init();
     }
 
-   
+    public void KnockBack(Vector2 direction, float impulse) 
+    {
+        rg.AddForce(impulse * direction, ForceMode2D.Impulse);
+        if (chaseBehaviour) chaseBehaviour.enabled = false;
+        ParticleController dust = hitParticlePool.Get();
+        dust.transform.SetParent(transform);
+        dust.transform.localPosition = new Vector3(0, 0, 0);
+        dust.onDeinit += () =>
+        {
+            if (chaseBehaviour) chaseBehaviour.enabled = true;
+        };
+        dust.Init();
+        //dust.shape.rotation = Quaternion.identity;
+    }
 }

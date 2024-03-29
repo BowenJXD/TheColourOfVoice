@@ -57,7 +57,7 @@ public class BulletBase : Entity
     {
         if (other.gameObject.CompareTag("Enemy") && !hitEnemies.Contains(other))
         {
-            other.GetComponent<Enemy>().Damage(1, rb.velocity.normalized);
+            other.GetComponent<Enemy>().Damage(1);
             other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized, knockBack);
             hitEnemies.Add(other);
             if (penetration >= 0 && hitEnemies.Count > penetration)

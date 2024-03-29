@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3575500398317453958}
   - component: {fileID: 8888770104942142744}
   - component: {fileID: 1711251550125983924}
+  - component: {fileID: -6403434564918838934}
   m_Layer: 0
   m_Name: DeathExplosion
   m_TagString: Untagged
@@ -4897,3 +4898,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-6403434564918838934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580241667578392715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58740cbbf0044594b0e4ac702bde8d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoDeinit: 1

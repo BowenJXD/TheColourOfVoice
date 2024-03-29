@@ -22,11 +22,7 @@ public class EnemyGenerator : MonoBehaviour
 	public List<TaskConfig> taskConfigs;
 	public LoopTask task;
 	[NonSerialized] public List<Enemy> activeEnemies = new List<Enemy>();
-	
-	protected ObjectPool<ParticleSystem> deathFXPool;
-	public ParticleSystem deathFX;
-	protected float deathFXDuration;
-	
+
 	// 生成位置波动
 	[Tooltip("The minimum distance between the player and the spawning point.")]
 	public float minDistance = 10;
@@ -45,36 +41,16 @@ public class EnemyGenerator : MonoBehaviour
 	
 	EntityPool<Enemy> enemyPool;
 	
-	Transform playerTransform;
+	public Transform spawnTransform;
 	
 	private void Awake()
 	{
-		deathFXPool = new ObjectPool<ParticleSystem>(() =>
-		{
-			ParticleSystem particleSystem = Instantiate(deathFX);
-			return particleSystem;
-		}, prefab =>
-		{
-			prefab.gameObject.SetActive(true);
-			prefab.Play();
-		}
-		, prefab =>
-		{
-			prefab.gameObject.SetActive(false);
-			prefab.Stop();
-			prefab.Clear();
-		}
-		, prefab => { Destroy(prefab); }
-		, true, 100);
 		enemyPool = new EntityPool<Enemy>(enemyPrefab, transform);
-		deathFXDuration = deathFX.main.duration;
 	}
 
 	void Start()
 	{
 		NewTask();
-		// find player by tag
-		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	public void NewTask()
@@ -95,7 +71,7 @@ public class EnemyGenerator : MonoBehaviour
 
 	public void ProcessTask()
 	{
-		if (!playerTransform) return;
+		if (!spawnTransform) return;
 		
 		Vector3 spawnPosition = GetSpawnPosition();
 		Enemy enemy = enemyPool.Get();
@@ -104,15 +80,6 @@ public class EnemyGenerator : MonoBehaviour
 		onSpawn?.Invoke(enemy);
 		enemy.onDeinit += () =>
 		{
-			ParticleSystem ps = deathFXPool.Get();
-			ps.transform.position = enemy.transform.position;
-			ps.transform.parent = transform;
-			LoopTask loopTask = new LoopTask
-			{
-				interval = deathFXDuration,
-				loopAction = () => { deathFXPool.Release(ps); }
-			};
-			loopTask.Start();
 			activeEnemies.Remove(enemy);
 		};
 
@@ -126,10 +93,10 @@ public class EnemyGenerator : MonoBehaviour
 		                    * Mathf.Cos(Time.timeSinceLevelLoad / distributionVariationInterval);
 		int roundedAbsRange = Mathf.RoundToInt(Mathf.Abs(randomRange));
 		int distribution = (int)minDistribution + new System.Random().Next(0, roundedAbsRange);
-		distribution *= new System.Random().Next(1) == 0 ? 1 : -1;
+		distribution *= new System.Random().Next(2) == 0 ? 1 : -1;
 		lastSpawnedAngle += distribution;
 		Vector3 spawnDirection = Quaternion.Euler(0f, 0f, lastSpawnedAngle) * Vector2.right;
-		Vector3 spawnPosition = playerTransform.position + spawnDirection * randomDistance;
+		Vector3 spawnPosition = spawnTransform.position + spawnDirection * randomDistance;
 		return spawnPosition;
 	}
 	

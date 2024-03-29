@@ -1,27 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopSmokeTrailUnderSpeedControl : MonoBehaviour
+public class StopSmokeTrailUnderSpeedControl : MonoBehaviour, ISetUp
 {
     public float minVelocity = 0.1f;
     public float initTime = 0.2f;
+    private float initTimer = 0.2f;
 
-    private ParticleSystem smokeTrailParticalSystem;
+    private ParticleController smokeTrailParticleSystem;
     private Vector2 lastPos;
 
-    private void Start()
-    {
-        smokeTrailParticalSystem = GetComponent<ParticleSystem>();
-        lastPos = new Vector2(0,0);
+    public bool IsSet { get; set; }
 
+    public void SetUp()
+    {
+        IsSet = true;
+        smokeTrailParticleSystem = GetComponent<ParticleController>();
+    }
+
+    private void OnEnable()
+    {
+        if (!IsSet) SetUp();
+        lastPos = new Vector2(0, 0);
+        initTimer = initTime;
     }
 
     private void FixedUpdate()
     {
-        if (initTime >0)
+        if (initTimer > 0)
         {
-            initTime -= Time.deltaTime;
+            initTimer -= Time.deltaTime;
         }
         else
         {
@@ -29,8 +39,7 @@ public class StopSmokeTrailUnderSpeedControl : MonoBehaviour
             float v = d / Time.fixedDeltaTime;
             if (v < minVelocity)
             {
-                smokeTrailParticalSystem.Stop();
-                Destroy(this);
+                smokeTrailParticleSystem.Deinit();
             }
         }
 
