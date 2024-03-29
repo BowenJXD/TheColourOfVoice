@@ -12,13 +12,9 @@ public class Painter : MonoBehaviour
     public PaintColor paintColor;
     List<Vector2Int> cellIndexes = new List<Vector2Int>();
 
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (!enabled) return;
         if (col.TryGetComponent(out SplashTile tile))
         {
             if (!cellIndexes.Contains(tile.CellIndex))

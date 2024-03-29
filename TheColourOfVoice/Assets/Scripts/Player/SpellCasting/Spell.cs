@@ -11,17 +11,34 @@ public class Spell : MonoBehaviour
 
     private void OnEnable()
     {
+        Init();
+    }
+
+    protected virtual void Init()
+    {
         SpellManager.Instance.Register(this);
     }
     
     private void OnDisable()
+    {
+        Deinit();
+    }
+    
+    protected virtual void Deinit()
     {
         SpellManager.Instance.Unregister(this);
     }
 
     public virtual void StartCasting(CastConfig config)
     {
-        Invoke(nameof(EndCasting), config.chantTime);
+        if (needCasting)
+        {
+            Invoke(nameof(EndCasting), config.chantTime);
+        }
+        else
+        {
+            Execute();
+        }
         Debug.Log($"Start casting {spellName}.");
     }
 

@@ -16,6 +16,8 @@ public class LoopTask
     
     public bool isActive => sequence != null;
     
+    public bool isPlaying => sequence != null && sequence.IsPlaying();
+    
     Sequence sequence;
 
     public void Start()

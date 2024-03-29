@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8148822321831769645}
+  - {fileID: 2979509877283439348}
   - {fileID: 7018595417236645813}
   m_Father: {fileID: 7164204222964191310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,6 +64,7 @@ GameObject:
   - component: {fileID: 1076772995356088670}
   - component: {fileID: -1993808392126248497}
   - component: {fileID: -4292824264658561850}
+  - component: {fileID: 5866823119521272802}
   m_Layer: 7
   m_Name: TestPlayer
   m_TagString: Player
@@ -80,7 +82,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.46, y: -1.61, z: 0}
-  m_LocalScale: {x: 0.83955556, y: 0.83955556, z: 0.83955556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7875169839693260514}
@@ -185,7 +187,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -212,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216824f91e0bbae479db7e98dca4904e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 6
   isMoving: 0
   inDialogueArea: 0
 --- !u!114 &1076772995356088670
@@ -256,6 +258,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
+  hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+--- !u!114 &5866823119521272802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316224132156739773}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintColor: 4
 --- !u!1 &3999737313832567729
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,11 +316,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174dd7b90734429c8b337de1cce702c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellName: fire
+  spellName: fireball
   needCasting: 1
-  offset: 0
-  animPrefab: {fileID: 0}
+  offset: 2
+  animPrefab: {fileID: 8608156612741297312, guid: 670b708821a51234882c75f23d26908d, type: 3}
   bulletPrefab: {fileID: 8393773426448386475, guid: af686e234f96ab244b70c430e984adb5, type: 3}
+--- !u!1 &4894222858312823208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2979509877283439348}
+  - component: {fileID: 9108162488768980420}
+  m_Layer: 0
+  m_Name: Spell2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2979509877283439348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894222858312823208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7875169839693260514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9108162488768980420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894222858312823208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f633f40f2584bf0936ca7309d47e638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellName: pen
+  needCasting: 0
+  duration: 4
+  moveMultiplier: 1.5
+  movement: {fileID: 4113794111999803653}
+  painter: {fileID: 5866823119521272802}
 --- !u!1 &8959295292999557868
 GameObject:
   m_ObjectHideFlags: 0
