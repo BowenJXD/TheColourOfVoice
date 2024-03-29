@@ -46,6 +46,7 @@ public class Health : MonoBehaviour, ISetUp
 
     public void TakeDamage(int damage)
     {
+        if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
         currentHealth -= damage;
         TakeDamageAfter?.Invoke(damage);
         if (currentHealth <= 0)
@@ -63,10 +64,9 @@ public class Health : MonoBehaviour, ISetUp
             currentHealth = maxHealth;
         }
     }
-    
+
     public void TakeKnockBack(Vector2 direction, float magnitude)
     {
-        if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
         if (rb) rb.AddForce(magnitude * direction, ForceMode2D.Impulse);
         if (movement) movement.enabled = false;
         ParticleController dust = hitParticlePool.Get();

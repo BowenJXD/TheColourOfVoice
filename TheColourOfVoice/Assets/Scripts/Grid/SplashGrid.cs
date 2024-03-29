@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// The possible neighbors of a tile. They will change their shape individually when the tile is painted or erased.
@@ -21,8 +23,17 @@ public enum Neighbor
 /// </summary>
 public class SplashGrid : Singleton<SplashGrid>
 {
+    public bool useBound;
+    
+    [ShowIf("useBound")]
+    public Vector2 bottomLeftBound;
+    [ShowIf("useBound")]
+    public Vector2 upperRightBound;
+    
+    [HideIf("useBound")]
     public Vector2Int size;
     
+    [HideIf("useBound")]
     public Vector2 cellSize;
     
     [Tooltip("Local position of the bottom left corner of the grid.")]
@@ -33,6 +44,18 @@ public class SplashGrid : Singleton<SplashGrid>
     Sprite[] tileSprites;
     
     SplashTile[,] tiles;
+    
+    int _paintedCount;
+    [ReadOnly] public float paintedPercentage;
+    public int PaintedCount
+    {
+        get => _paintedCount;
+        set
+        {
+            _paintedCount = value;
+            paintedPercentage = value / (float)(size.x * size.y);
+        }
+    }
 
     protected override void Awake()
     {
@@ -51,6 +74,12 @@ public class SplashGrid : Singleton<SplashGrid>
             {
                 tileSprites[result] = sp;
             }
+        }
+        
+        if (useBound)
+        {
+            size = new Vector2Int((int)(upperRightBound.x - bottomLeftBound.x), (int)(upperRightBound.y - bottomLeftBound.y));
+            cellSize = new Vector2((upperRightBound.x - bottomLeftBound.x) / size.x, (upperRightBound.y - bottomLeftBound.y) / size.y);
         }
 
         bottomLeftPosition = - new Vector3(cellSize.x * size.x / 2, cellSize.y * size.y / 2, 0);

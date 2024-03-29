@@ -9,18 +9,20 @@ public class Enemy : Entity
 {
     public ParticleController deathParticlePrefab;
     public static EntityPool<ParticleController> deathParticlePool;
+    
+    private Health health;
 
     public override void SetUp()
     {
         base.SetUp();
         deathParticlePool = new EntityPool<ParticleController>(deathParticlePrefab);
-        Health health = GetComponent<Health>();
-        health.OnDeath += Deinit;
+        health = GetComponent<Health>();
     }
 
     public override void Init()
     {
         base.Init();
+        health.OnDeath += Deinit;
     }
 
     public override void Deinit()

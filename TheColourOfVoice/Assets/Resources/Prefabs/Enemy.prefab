@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4961256998949816231}
   - component: {fileID: 6602773672044416973}
   - component: {fileID: 4385042102656340858}
+  - component: {fileID: 4134991145288187956}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -352,3 +353,16 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 3
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+--- !u!114 &4134991145288187956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintColor: 0

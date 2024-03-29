@@ -98,6 +98,7 @@ public class SplashTile : MonoBehaviour
     {
         Color = color;
         Shape = Grid.GetTileShape(CellIndex);
+        if (!IsPainted) Grid.PaintedCount++;
         IsPainted = true;
         
         Grid.ChangeNeighborTileShape(CellIndex);
@@ -106,6 +107,7 @@ public class SplashTile : MonoBehaviour
     public void EraseTile(SplashTile tile)
     {
         Color = PaintColor.Null;
+        if (IsPainted) Grid.PaintedCount--;
         IsPainted = false;
         
         Grid.ChangeNeighborTileShape(tile.CellIndex);
