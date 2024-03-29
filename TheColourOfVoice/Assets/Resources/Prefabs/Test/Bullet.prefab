@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5450769973430698527}
   - component: {fileID: 8393773426448386475}
   - component: {fileID: 3193460567996462691}
+  - component: {fileID: -1438211202479607340}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -179,3 +180,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: 3
+--- !u!114 &-1438211202479607340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144049354887091650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  cooldown: 3.4028235e+38
+  resetCDOnExit: 1

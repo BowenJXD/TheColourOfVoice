@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 2664940203796196856}
   - component: {fileID: 4113794111999803653}
   - component: {fileID: 1076772995356088670}
+  - component: {fileID: -1993808392126248497}
+  - component: {fileID: -4292824264658561850}
   m_Layer: 7
   m_Name: TestPlayer
   m_TagString: Player
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 14
   isMoving: 0
+  inDialogueArea: 0
 --- !u!114 &1076772995356088670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +229,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8393773426448386475, guid: 74c964a0f10c54746add55c26aa7a308, type: 3}
   shootingInterval: 2
+--- !u!114 &-1993808392126248497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316224132156739773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7c497965964efc8f4ed53d069f96d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faintDuration: 3
+--- !u!114 &-4292824264658561850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316224132156739773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
 --- !u!1 &3999737313832567729
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,11 +302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: fire
   needCasting: 1
+  offset: 0
+  animPrefab: {fileID: 0}
   bulletPrefab: {fileID: 8393773426448386475, guid: af686e234f96ab244b70c430e984adb5, type: 3}
-  maxScale: 4
-  maxDuration: 4
-  shakeStrength: 0.5
-  shakeVibrato: 10
 --- !u!1 &8959295292999557868
 GameObject:
   m_ObjectHideFlags: 0

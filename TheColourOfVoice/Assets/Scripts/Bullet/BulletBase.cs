@@ -1,28 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BulletBase : Entity
 {
     public float speed;
     private Rigidbody2D rb;
-    System.Action<BulletBase> deactiveAction;
 
     public float duration = 2.0f;
     public LoopTask durationTask;
 
-    public float knockBack = 7.0f;
-
-    [Tooltip("The number of enemies the bullet can penetrate. \n" +
-             "0 means it will destroy upon hitting first enemy. \n" +
-             "-1 means it can penetrate all enemies.")]
-    public int penetration;
-
-    /// <summary>
-    /// Avoid hitting the same enemy multiple times.
-    /// </summary>
-    List<Collider2D> hitEnemies = new List<Collider2D>();
+    public bool doPenetrate = false;
 
     private void Awake()
     {
@@ -53,19 +43,14 @@ public class BulletBase : Entity
         rb.velocity = direction * speed;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private async void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") && !hitEnemies.Contains(other))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Damage(1);
-            other.GetComponent<Enemy>().KnockBack(rb.velocity.normalized, knockBack);
-            hitEnemies.Add(other);
-            if (penetration >= 0 && hitEnemies.Count > penetration)
+            if (!doPenetrate)
             {
-                hitEnemies.Clear();
-                deactiveAction?.Invoke(this);
+                Game.Instance.OnNextUpdate += Deinit;
             }
-            //Destroy(gameObject);
         }
     }
 }

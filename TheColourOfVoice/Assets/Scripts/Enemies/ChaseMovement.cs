@@ -1,18 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-public class ChaseBehaviour : MonoBehaviour, ISetUp
+public class ChaseMovement : Movement, ISetUp
 {
-    public float speed;
     public Transform target;
 
-    private Rigidbody2D rg;
+    private Rigidbody2D rb;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
-        rg = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -22,7 +21,8 @@ public class ChaseBehaviour : MonoBehaviour, ISetUp
     
     private void FixedUpdate()
     {
+        if (!target) return;
         Vector2 direction = (target.position - transform.position).normalized;
-        rg.velocity = direction * speed;
+        rb.velocity = direction * speed;
     }
 }

@@ -14,6 +14,8 @@ public class LoopTask
     
     public System.Action finishAction;
     
+    public bool isActive => sequence != null;
+    
     Sequence sequence;
 
     public void Start()
