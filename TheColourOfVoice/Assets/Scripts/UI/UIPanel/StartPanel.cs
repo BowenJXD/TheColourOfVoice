@@ -7,7 +7,7 @@ public class StartPanel:BasePanel
 {
     private static string name = "StartPanel";
 
-    private static string path = "Panels/StartPanel";
+    private static string path = "Panels/StartPanelTest1";
     public static readonly UIType uiType = new UIType(path, name);
 
     public StartPanel() :base(uiType)

@@ -58,6 +58,8 @@ public class BasePanel
         if (ActiveObj.GetComponent<CanvasGroup>() == null)
         {
             ActiveObj.AddComponent<CanvasGroup>();
+            Debug.Log($"{uiType.Name} Start to ues");
+            UIMethods.GetInstance().AddOrGetComponent<CanvasGroup>(ActiveObj).interactable = true;
         }
     }
 
