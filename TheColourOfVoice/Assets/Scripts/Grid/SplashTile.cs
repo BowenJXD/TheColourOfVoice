@@ -8,6 +8,8 @@ using UnityEngine;
 public class SplashTile : MonoBehaviour
 {
     private SpriteRenderer sp;
+    private SpriteRenderer blocking;
+    private Transform scaler;
 
     private int _shape;
     public int Shape
@@ -32,26 +34,27 @@ public class SplashTile : MonoBehaviour
         set
         {
             if (_color == value && !aniOnSameColor) return;
-            _color = value;
             if (value != PaintColor.Null)
             {
-                sp.transform.localScale = Vector3.zero;
-                sp.transform.DOScale(originalScale, aniDuration).SetEase(ease);
+                scaler.localScale = Vector3.zero;
+                scaler.DOScale(originalScale, aniDuration).SetEase(ease);
             }
             else
             {
-                sp.transform.DOScale(Vector3.zero, aniDuration).SetEase(Ease.InBack);
+                scaler.DOScale(Vector3.zero, aniDuration).SetEase(Ease.InBack);
             }
+            _color = value;
             sp.DOColor(value.ToColor(), aniDuration).SetEase(ease);
+            blocking.DOColor(value.ToColor(), aniDuration).SetEase(ease);
         }
     }
 
     public Sprite Sprite
     {
-        get => sp.sprite;
+        get => blocking.sprite;
         set
         {
-            if (sp) sp.sprite = value;
+            if (blocking) blocking.sprite = value;
         }
     }
 
@@ -63,9 +66,12 @@ public class SplashTile : MonoBehaviour
     
     public void Init()
     {
-        sp = GetComponentInChildren<SpriteRenderer>();
+        scaler = transform.GetChild(0);
+        var sps = GetComponentsInChildren<SpriteRenderer>();
+        blocking = sps[0];
+        sp = sps[1];
         gameObject.SetActive(true);
-        originalScale = sp.transform.localScale;
+        originalScale = scaler.localScale;
     }
 
     public void Deinit()
@@ -100,6 +106,7 @@ public class SplashTile : MonoBehaviour
         Shape = Grid.GetTileShape(CellIndex);
         if (!IsPainted) Grid.PaintedCount++;
         IsPainted = true;
+        sp.transform.rotation = Grid.GetTileRotation();
         
         Grid.ChangeNeighborTileShape(CellIndex);
     }

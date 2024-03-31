@@ -41,6 +41,9 @@ public class SplashGrid : Singleton<SplashGrid>
     
     public SplashTile tilePrefab;
 
+    [Tooltip("The number of segments to rotate the tile randomly.")]
+    public int randomRotationSegment = 4;
+
     Sprite[] tileSprites;
     
     SplashTile[,] tiles;
@@ -144,6 +147,12 @@ public class SplashGrid : Singleton<SplashGrid>
         int mask = 1 << (3 - (int)changedNeighbor);
         int result = tile.Shape ^ mask;
         tile.Shape = result;
+    }
+    
+    public Quaternion GetTileRotation()
+    {
+        int random = UnityEngine.Random.Range(0, randomRotationSegment);
+        return Quaternion.Euler(0, 0, random * (360 / randomRotationSegment));
     }
     
     #endregion

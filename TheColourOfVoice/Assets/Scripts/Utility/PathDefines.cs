@@ -3,6 +3,6 @@
 /// </summary>
 public static class PathDefines
 {
-    public static string SplashSprites = "Assets/Resources/SplashPSD.psd";
+    public static string SplashSprites = "Assets/Resources/Arts/GridTile/SplashPSD.psd";
     public static string TextToTileConfig = "Configs/CharToTiles.csv";
 }
