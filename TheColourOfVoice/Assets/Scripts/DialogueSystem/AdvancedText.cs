@@ -141,7 +141,7 @@ public class AdvancedText : TextMeshProUGUI
     #region 管理和自定义打字输出间隔
     private Coroutine _typingCoroutine;
     private int _typingIndex;
-    private float _defaultInterval = 0.06f;
+    private float _defaultInterval = 0.03f;
     #endregion
 
     //对话显示类型

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b10c659aec353c44b99aad25b9b7d23a, type: 3}
-  m_Name: Node_TestDialogue_01
+  m_Name: Node_TestDialogue_Re3_01
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   datas:
   - speaker: TestName
-    content: This is <style=Red>test sentense 1</style>!
+    content: You choose Re3
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: TestName
-    content: This is test sentense 2!
+    content: Re3,Re3,Re3,Re3
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: TestName
-    content: This is test sentense 3!
+    content: Re3,Re3,Re3,Re3,Re3,Re3,Re3,Re3
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1

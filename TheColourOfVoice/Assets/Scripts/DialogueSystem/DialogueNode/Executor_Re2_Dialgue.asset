@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3dfb130e3f1de4478b3b98431c9b443, type: 3}
-  m_Name: Executor_Dialogue_Test
+  m_Name: Executor_Re2_Dialgue
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 11400000, guid: ce17ad9231e1e0f48a63711ad3f3d0bc, type: 2}
-  - {fileID: 11400000, guid: ecf22515359e61e4fa1b2333d5a2e9ff, type: 2}
-  - {fileID: 11400000, guid: b54112ab58ba4b7489bc4505361fab25, type: 2}
+  - {fileID: 11400000, guid: 915a8659cc312404dadb350a03415450, type: 2}
+  - {fileID: 11400000, guid: a49e2004bf59dba4fb601855c2eac26a, type: 2}
