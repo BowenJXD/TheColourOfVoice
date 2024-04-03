@@ -381,7 +381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   period: 0.9
   rotationDelta: 0
-  scaleYDelta: 0.2
-  scaleXDelta: 0.2
+  scaleYDelta: 0.1
+  scaleXDelta: 0.1
   rotationEase: 13
   scaleEase: 13
+  minMoveSpeed: 2
+  maxMoveSpeed: 0

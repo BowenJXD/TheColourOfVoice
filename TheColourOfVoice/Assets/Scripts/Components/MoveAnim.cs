@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class MoveAnim : MonoBehaviour
+public class MoveAnim : MonoBehaviour, ISetUp
     {
         //
         public float period = 0.5f;
@@ -13,6 +13,7 @@ public class MoveAnim : MonoBehaviour
         public Ease rotationEase = Ease.InOutQuad;
         public Ease scaleEase = Ease.InOutQuad;
         
+        Movement movement;
         public float minMoveSpeed = 0.5f;
         public float maxMoveSpeed = 1.5f;
 
@@ -22,8 +23,16 @@ public class MoveAnim : MonoBehaviour
         Vector3 startRotation;
         Vector3 startScale;
 
+        public bool IsSet { get; set; }
+        public void SetUp()
+        {
+            movement = GetComponent<Movement>();
+            IsSet = true;
+        }
+
         private void OnEnable()
         {
+            if (!IsSet) SetUp();
             StartAnim();
         }
 
@@ -69,7 +78,9 @@ public class MoveAnim : MonoBehaviour
                     {
                         scaleSequence = DOTween.Sequence();
                         scaleSequence.Append(transform.DOScale(scale1, period / 2).SetEase(scaleEase));
+                        scaleSequence.Join(DOTween.To(() => movement.speed, x => movement.speed = x, minMoveSpeed, period / 2));
                         scaleSequence.Append(transform.DOScale(scale2, period / 2).SetEase(scaleEase));
+                        scaleSequence.Join(DOTween.To(() => movement.speed, x => movement.speed = x, maxMoveSpeed, period / 2));
                         scaleSequence.SetLoops(-1);
                     });
             }

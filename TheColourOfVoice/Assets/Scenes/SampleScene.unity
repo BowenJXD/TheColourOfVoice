@@ -10891,11 +10891,11 @@ MonoBehaviour:
   taskConfigs:
   - amount: 10
     duration: 10
-  minDistance: 25
-  maxDistance: 30
-  distributionVariationInterval: 5
-  minDistribution: 30
-  maxDistributionVariation: 60
+  minDistance: 20
+  maxDistance: 25
+  distributionVariationInterval: 1
+  minDistribution: 60
+  maxDistributionVariation: 120
   spawnTransform: {fileID: 1240789705}
 --- !u!4 &1240789705
 Transform:
