@@ -71,17 +71,21 @@ public class Health : MonoBehaviour, ISetUp
 
     public void TakeKnockBack(Vector2 direction, float magnitude)
     {
-        if(painter) painter.enabled = false;
+        
         if(col) col.enabled = false;
         if (rb) rb.AddForce(magnitude * direction, ForceMode2D.Impulse);
         if (movement) movement.enabled = false;
         ParticleController dust = hitParticlePool.Get();
         dust.transform.SetParent(transform);
         dust.transform.localPosition = new Vector3(0, 0, 0);
+        if (painter && painter.enabled)
+        {
+            painter.enabled = false;
+            dust.onDeinit += () => painter.enabled = true;
+        }
         dust.onDeinit += () =>
         {
             if (movement) movement.enabled = true;
-            if (painter) painter.enabled = true;
             if(col) col.enabled = true;
         };
         dust.Init();
