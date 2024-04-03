@@ -132,8 +132,8 @@ MonoBehaviour:
   ease: 1
   duration: 0
   target: {fileID: 0}
-  scaleSpeed: 1
-  maxScale: 3
+  scaleSpeed: 2
+  maxScale: 4
 --- !u!114 &-3302271437330581459
 MonoBehaviour:
   m_ObjectHideFlags: 0
