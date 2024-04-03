@@ -35,4 +35,9 @@ public class Painter : MonoBehaviour
             }
         }
     }
+    
+    public void SetColor(PaintColor color)
+    {
+        paintColor = color;
+    }
 }

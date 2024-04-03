@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8127169051362678238}
   - component: {fileID: 5135550614688739857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950292872556148622}
   - component: {fileID: 9070410791282079871}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blocking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 6574935357224774246}
   - component: {fileID: 6442359794640013193}
   - component: {fileID: 6433278730965310477}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SplashTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7110126962553622586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scaler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

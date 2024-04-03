@@ -112,6 +112,8 @@ GameObject:
   - component: {fileID: 4385042102656340858}
   - component: {fileID: 4134991145288187956}
   - component: {fileID: 2694323068028110331}
+  - component: {fileID: -4737817084367787813}
+  - component: {fileID: 1238373738725142145}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -387,3 +389,38 @@ MonoBehaviour:
   scaleEase: 13
   minMoveSpeed: 2
   maxMoveSpeed: 0
+--- !u!114 &-4737817084367787813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1104c79b391349549dc9881d918dc270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1238373738725142145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd436c742c734076ac1b70c37c781afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleCount: 8
+  angleVariation: 15
+  angleOffset: 45
+  offsetVariation: 15
+  speed: 15
+  speedVariation: 5
+  duration: 0.2
+  durationVariation: 0
+  color: 2
+  scale: 0.2
+  bulletPrefab: {fileID: 8393773426448386475, guid: 31b1469ce0200f444b7c6c4f4e80d533, type: 3}

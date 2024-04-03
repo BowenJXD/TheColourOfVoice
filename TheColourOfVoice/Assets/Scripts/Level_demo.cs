@@ -32,5 +32,6 @@ public class Level_demo : MonoBehaviour
         EnemyGenerator.Instance.NewTask();
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<Fire>().enabled = true;
+        TextPainter.Instance.PaintText();
     }
 }
