@@ -19,14 +19,8 @@ public class SpellManager : Singleton<SpellManager>
     public Dictionary<string, Spell> spells = new();
     private Spell currentSpell;
 
-    public int timeTolerance = 10;
-
     private CastState castState;
     
-    AudioClip clip;
-    
-    LoopTask chantTask;
-
     enum CastState
     {
         Null,
@@ -35,28 +29,13 @@ public class SpellManager : Singleton<SpellManager>
         ReleaseReady,
     }
 
-    protected override void Awake()
+    private void OnEnable()
     {
-        base.Awake();
-        chantTask = new LoopTask()
-        {
-            interval = timeTolerance,
-            loopAction = () =>
-            {
-                Microphone.End(null);
-                castState = CastState.Null;
-                Debug.LogWarning("Chanting time out.");
-            },
-            loop = 1,
-        };
+        StartChanting();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && castState == CastState.Null)
-        {
-            StartChanting();
-        }
         if (Input.GetKeyDown(KeyCode.Space) && castState == CastState.ReleaseReady)
         {
             Release();
@@ -66,30 +45,18 @@ public class SpellManager : Singleton<SpellManager>
     void StartChanting()
     {
         VoiceInputSystem.Instance.SetActive(true);
-        clip = Microphone.Start(null, false, timeTolerance, 44100);
         castState = CastState.Chanting;
-
-        chantTask.Start();
         Debug.Log("Start chanting.");
     }
 
     void TryCast(PhraseRecognizedEventArgs recognizedEventArgs)
     {
-        var position = Microphone.GetPosition(null);
-        Microphone.End(null);
-        VoiceInputSystem.Instance.SetActive(false);
-        var samples = new float[position * clip.channels];
-        clip.GetData(samples, 0);
-        var volume = samples.Max();
-        
-        chantTask.Stop();
-        
         if (spells.TryGetValue(recognizedEventArgs.text, out var spell))
         {
             CastConfig config = new CastConfig
             {
                 chantTime = (float)recognizedEventArgs.phraseDuration.TotalSeconds,
-                peakVolume = volume,
+                peakVolume = 0, // TODO: Implement peak volume
                 confidenceLevel = recognizedEventArgs.confidence
             };
             spell.StartCasting(config);
