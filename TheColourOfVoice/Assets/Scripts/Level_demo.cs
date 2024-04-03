@@ -6,10 +6,18 @@ public class Level_demo : MonoBehaviour
 {
     [SerializeField]
     public SequenceEventExecutor week6SequenceEventExcutor;
+    [SerializeField] private GameObject player;
     bool isDialogueInit = false;
     void Start()
-    {     
-            if (week6SequenceEventExcutor)
+    {
+        if (!player)
+        {
+            return;
+        }
+
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Fire>().enabled = false;
+        if (week6SequenceEventExcutor)
             {
             week6SequenceEventExcutor.Init(OnFinishedEvent);
             }
@@ -22,5 +30,7 @@ public class Level_demo : MonoBehaviour
     {
         Debug.Log(success);
         EnemyGenerator.Instance.NewTask();
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Fire>().enabled = true;
     }
 }

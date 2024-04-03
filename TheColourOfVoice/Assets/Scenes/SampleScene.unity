@@ -10184,6 +10184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
+  player: {fileID: 461082845}
 --- !u!114 &421179005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10198,6 +10199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advancedDialogueBox: {fileID: 1541513177}
   _choicePanel: {fileID: 1278402106}
+--- !u!1 &461082845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+  m_PrefabInstance: {fileID: 834556949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
