@@ -13,10 +13,12 @@ public class PlayerMovement : Movement
 
     private Vector2 inputMovement;
 
+    private Transform rotatingTransform;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        rotatingTransform = transform.GetChild(0);
     }
     private void Update()
     {
@@ -32,9 +34,9 @@ public class PlayerMovement : Movement
         
         // update rotation to face mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 lookDir = mousePos - transform.position;
+        Vector3 lookDir = mousePos - rotatingTransform.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        rotatingTransform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void PlayerInput()
