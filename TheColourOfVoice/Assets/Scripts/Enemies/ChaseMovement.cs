@@ -12,6 +12,8 @@ public class ChaseMovement : Movement, ISetUp
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
+
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     private void OnEnable()
