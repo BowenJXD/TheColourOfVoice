@@ -52,7 +52,7 @@ public class ScoreBar : MonoBehaviour
         if (fillImageScore != null)
         {
             fillImageScore.fillAmount = score / maxScore;
-            Debug.Log("score");
+            //Debug.Log("score");
         }
     }
 }

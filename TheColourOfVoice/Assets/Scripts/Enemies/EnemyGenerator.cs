@@ -16,7 +16,7 @@ public struct TaskConfig
 /// Generate enemies based on task configs.
 /// The spawn position will be distributed in a circle around the player.
 /// </summary>
-public class EnemyGenerator : MonoBehaviour
+public class EnemyGenerator : Singleton<EnemyGenerator>
 {
 	public Enemy enemyPrefab;
 	public List<TaskConfig> taskConfigs;
@@ -45,12 +45,13 @@ public class EnemyGenerator : MonoBehaviour
 	
 	private void Awake()
 	{
+		base.Awake();
 		enemyPool = new EntityPool<Enemy>(enemyPrefab, transform);
 	}
 
 	void Start()
 	{
-		NewTask();
+		//NewTask();
 	}
 
 	public void NewTask()

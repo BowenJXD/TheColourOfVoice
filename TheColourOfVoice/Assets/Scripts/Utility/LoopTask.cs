@@ -25,7 +25,7 @@ public class LoopTask
         sequence = DOTween.Sequence();
         sequence.AppendInterval(interval);
         sequence.OnStepComplete(FinishLoop);
-        sequence.OnComplete(() => finishAction());
+        sequence.OnComplete(() => finishAction?.Invoke());
         sequence.SetLoops(loop);
         sequence.Play();
     }

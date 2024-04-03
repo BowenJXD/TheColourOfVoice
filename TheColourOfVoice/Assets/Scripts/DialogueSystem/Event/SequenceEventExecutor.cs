@@ -47,9 +47,14 @@ public class SequenceEventExecutor : ScriptableObject
                 nodes[_index].Execute();
                 _index++;
             }
-            
+           
         }
         else
+        {
+            OnFinished(true);
+        }
+
+        if (_index >= nodes.Length)
         {
             OnFinished(true);
         }
