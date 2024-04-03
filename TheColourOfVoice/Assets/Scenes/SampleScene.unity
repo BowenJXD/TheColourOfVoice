@@ -10893,6 +10893,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 856502524, guid: d5d63476bc843654db5259d3b8283158, type: 3}
+    - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: spellName
+      value: fire
+      objectReference: {fileID: 0}
     - target: {fileID: 1076772995356088670, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: shootingInterval
       value: 1

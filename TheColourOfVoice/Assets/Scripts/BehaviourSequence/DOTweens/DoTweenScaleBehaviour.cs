@@ -8,7 +8,8 @@ public class DoTweenScaleBehaviour : DoTweenBehaviour
 
     protected override void SetUpTween()
     {
-        float finalScale = Mathf.Max(duration * scaleSpeed, maxScale);
+        float finalScale = Mathf.Min(duration * scaleSpeed, maxScale);
+        Debug.Log("finalScale: " + finalScale);
         tween = target.DOScale(finalScale, duration).SetEase(ease);
     }
 }

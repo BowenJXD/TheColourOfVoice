@@ -102,4 +102,16 @@ public class SpellManager : Singleton<SpellManager>
             VoiceInputSystem.Instance.Unregister(spell.spellName);
         }
     }
+
+    public void ChangeName(string oldName, string newName)
+    {
+        if (spells.ContainsKey(oldName))
+        {
+            Spell spell = spells[oldName];
+            spells.Remove(oldName);
+            spells.Add(newName, spell);
+            VoiceInputSystem.Instance.Unregister(oldName);
+            VoiceInputSystem.Instance.Register(newName, TryCast);
+        }
+    }
 }
