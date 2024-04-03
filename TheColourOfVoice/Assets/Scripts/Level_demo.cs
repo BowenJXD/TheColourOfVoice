@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Level_demo : MonoBehaviour
 {
-    [SerializeField]
-    public SequenceEventExecutor week6SequenceEventExcutor;
+    [SerializeField] public SequenceEventExecutor week6SequenceEventExcutor;
     [SerializeField] private GameObject player;
-    bool isDialogueInit = false;
+    public bool skip = false;
+
     void Start()
     {
         if (!player)
@@ -15,15 +15,20 @@ public class Level_demo : MonoBehaviour
             return;
         }
 
+        if (skip)
+        {
+            OnFinishedEvent(false);
+            return;
+        }
+
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<Fire>().enabled = false;
         if (week6SequenceEventExcutor)
-            {
+        {
             week6SequenceEventExcutor.Init(OnFinishedEvent);
-            }
+        }
 
         week6SequenceEventExcutor.Excute();
-        
     }
 
     void OnFinishedEvent(bool success)

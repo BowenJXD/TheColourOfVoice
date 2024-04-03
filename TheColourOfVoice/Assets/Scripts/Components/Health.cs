@@ -8,48 +8,49 @@ using UnityEngine;
 /// </summary>
 public class Health : MonoBehaviour, ISetUp
 {
-    public int maxHealth;
-    public int currentHealth;
-    
+    public float maxHealth;
+    public float currentHealth;
+    [Range(0, 1)]
+    [Tooltip("Percentage of damage reduced when taking damage")]
+    public float defence;
+    public bool invincible;
+    public float damageCooldown;
+    LoopTask damageCooldownTask;
+
+    private SpriteRenderer sp;
     private CinemachineImpulseSource impulseSource;
-    private Rigidbody2D rb;
-    private Movement movement;
-    private Painter painter;
-    private Collider2D col;
-    
-    public ParticleController hitParticlePrefab;
-    public static EntityPool<ParticleController> hitParticlePool;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
-        impulseSource = GetComponent<CinemachineImpulseSource>();
-        rb = GetComponent<Rigidbody2D>();
         IsSet = true;
-        hitParticlePool = new EntityPool<ParticleController>(hitParticlePrefab);
-        movement = GetComponent<Movement>();
-        painter = GetComponent<Painter>();
-        col = GetComponent<Collider2D>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        sp = GetComponent<SpriteRenderer>();
+        if (damageCooldown > 0)
+            damageCooldownTask = new LoopTask { interval = damageCooldown, loop = 1, finishAction = ResetCD };
     }
     
     /// <summary>
     /// Reset when disable
     /// </summary>
-    public Action<int> TakeDamageAfter;
+    public Action<float> TakeDamageAfter;
     
     private void OnEnable()
     {
         if (!IsSet) SetUp();
         ResetHealth();
     }
-    
-    public void ResetHealth()
-    {
-        currentHealth = maxHealth;
-    }
 
-    public void TakeDamage(int damage)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <returns>True if the damage is applied.</returns>
+    public bool TakeDamage(float damage)
     {
+        damage *= (1 - defence);
+        if (invincible || damage <= 0) return false;
+        
         if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
         currentHealth -= damage;
         TakeDamageAfter?.Invoke(damage);
@@ -57,7 +58,15 @@ public class Health : MonoBehaviour, ISetUp
         {
             OnDeath?.Invoke();
             OnDeath = null;
+            return true;
         }
+        if (damageCooldown > 0)
+        {
+            invincible = true;
+            damageCooldownTask.Start();
+            sp.FlashSprite(Color.clear, damageCooldown);
+        }
+        return true;
     }
     
     public void TakeHealing(int healing)
@@ -69,31 +78,24 @@ public class Health : MonoBehaviour, ISetUp
         }
     }
 
-    public void TakeKnockBack(Vector2 direction, float magnitude)
+    void ResetCD()
     {
-        
-        if(col) col.enabled = false;
-        if (rb) rb.AddForce(magnitude * direction, ForceMode2D.Impulse);
-        if (movement) movement.enabled = false;
-        ParticleController dust = hitParticlePool.Get();
-        dust.transform.SetParent(transform);
-        dust.transform.localPosition = new Vector3(0, 0, 0);
-        if (painter && painter.enabled)
-        {
-            painter.enabled = false;
-            dust.onDeinit += () => painter.enabled = true;
-        }
-        dust.onDeinit += () =>
-        {
-            if (movement) movement.enabled = true;
-            if(col) col.enabled = true;
-        };
-        dust.Init();
+        invincible = false;
+    }
+    
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 
     private void OnDisable()
     {
         TakeDamageAfter = null;
+        if (damageCooldownTask.isPlaying)
+        {
+            damageCooldownTask.Stop();
+            ResetCD();
+        }
     }
 
     /// <summary>

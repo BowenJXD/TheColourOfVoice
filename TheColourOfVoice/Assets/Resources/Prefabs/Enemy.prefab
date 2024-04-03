@@ -48,7 +48,8 @@ MonoBehaviour:
   damage: 1
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
-  knockBack: 7
+  knockBack: 4
+  rb: {fileID: 4961256998949816231}
 --- !u!61 &3449957541279419810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,6 +115,7 @@ GameObject:
   - component: {fileID: 2694323068028110331}
   - component: {fileID: -4737817084367787813}
   - component: {fileID: 1238373738725142145}
+  - component: {fileID: 1559659144169942989}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -355,7 +357,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 3
-  hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+  defence: 0
+  invincible: 0
+  damageCooldown: 1
 --- !u!114 &4134991145288187956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,3 +428,19 @@ MonoBehaviour:
   color: 2
   scale: 0.2
   bulletPrefab: {fileID: 8393773426448386475, guid: 31b1469ce0200f444b7c6c4f4e80d533, type: 3}
+--- !u!114 &1559659144169942989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c09899b28fa66643918f9d51fcecef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincible: 1
+  disablePainter: 1
+  disableCol: 1
+  hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Attack : MonoBehaviour, ISetUp
 {
-    public int damage = 1;
+    public float damage = 1;
     public float cooldown = float.MaxValue;
     public bool resetCDOnExit = true;
     public float knockBack = 7.0f;
@@ -15,14 +15,14 @@ public class Attack : MonoBehaviour, ISetUp
     LoopTask loopTask;
 
     private Health target;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
         
-        rb = GetComponent<Rigidbody2D>();
+        if (!rb) rb = GetComponent<Rigidbody2D>();
         
         loopTask = new LoopTask { interval = cooldown, loop = -1, loopAction = Damage };
         if (!resetCDOnExit) loopTask.Start();
@@ -69,10 +69,10 @@ public class Attack : MonoBehaviour, ISetUp
     void Damage()
     {
         if (!target) return;
-        target.TakeDamage(damage);
+        if (!target.TakeDamage(damage)) return;
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
-        target.TakeKnockBack(direction, knockBack);
+        target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
     }
 
 }

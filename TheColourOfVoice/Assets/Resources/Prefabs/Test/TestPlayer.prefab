@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b9a31a935548ed9a72369745f1d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTolerance: 10
 --- !u!1 &3316224132156739773
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 148925681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 856502524, guid: d5d63476bc843654db5259d3b8283158, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -201,7 +200,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4113794111999803653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8393773426448386475, guid: 74c964a0f10c54746add55c26aa7a308, type: 3}
-  shootingInterval: 2
+  shootingInterval: 1
 --- !u!114 &-1993808392126248497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100
   currentHealth: 0
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
 --- !u!114 &5866823119521272802
@@ -316,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174dd7b90734429c8b337de1cce702c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellName: fireball
+  spellName: fire
   needCasting: 1
   offset: 2
   animPrefab: {fileID: 8608156612741297312, guid: 670b708821a51234882c75f23d26908d, type: 3}
@@ -396,13 +395,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8959295292999557868}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7875169839693260514}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
 --- !u!212 &6370368581190031258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -441,11 +440,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 148925681
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.34117648, g: 0.16470589, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3d2f0a6664abdcc4e94badf89a95348b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

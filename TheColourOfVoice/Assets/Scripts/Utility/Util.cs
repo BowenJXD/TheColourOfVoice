@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public static class Util
@@ -70,5 +71,42 @@ public static class Util
         {
             // use average
             return (vector.x + vector.y + vector.z) / 3;
+        }
+        
+        /// <summary>
+        /// flash every 0.5s
+        /// </summary>
+        /// <param name="spriteRenderer"></param>
+        /// <param name="flashColor"></param>
+        /// <param name="flashDuration"></param>
+        public static void FlashSprite(this SpriteRenderer spriteRenderer, Color flashColor, float flashDuration)
+        {
+            // Create a sequence of tweens to flash the sprite
+            DG.Tweening.Sequence flashSequence = DOTween.Sequence();
+            const float flashInterval = 0.5f;
+            
+            int loopCount = Mathf.CeilToInt(flashDuration / flashInterval * 2);
+            int intervalCount = 2 * loopCount + 1;
+            float remainder = flashDuration % flashInterval;
+            float divisor = flashDuration - remainder;
+            
+            // wait for a short time before starting the flash
+            flashSequence.AppendInterval(remainder);
+            
+            for (int i = 0; i < loopCount; i++)
+            {
+                flashSequence.Append(spriteRenderer.DOColor(flashColor, divisor / intervalCount));
+                // exclude the last loop
+                if (i < loopCount - 1)
+                {
+                    flashSequence.Append(spriteRenderer.DOColor(Color.white, divisor /intervalCount));
+                }
+                else
+                {
+                    flashSequence.Append(spriteRenderer.DOColor(Color.white, 0));
+                }
+            }
+            
+            flashSequence.Play();
         }
 }
