@@ -14,6 +14,8 @@ public class Health : MonoBehaviour, ISetUp
     private CinemachineImpulseSource impulseSource;
     private Rigidbody2D rb;
     private Movement movement;
+    private Painter painter;
+    private Collider2D col;
     
     public ParticleController hitParticlePrefab;
     public static EntityPool<ParticleController> hitParticlePool;
@@ -26,6 +28,8 @@ public class Health : MonoBehaviour, ISetUp
         IsSet = true;
         hitParticlePool = new EntityPool<ParticleController>(hitParticlePrefab);
         movement = GetComponent<Movement>();
+        painter = GetComponent<Painter>();
+        col = GetComponent<Collider2D>();
     }
     
     /// <summary>
@@ -67,6 +71,8 @@ public class Health : MonoBehaviour, ISetUp
 
     public void TakeKnockBack(Vector2 direction, float magnitude)
     {
+        if(painter) painter.enabled = false;
+        if(col) col.enabled = false;
         if (rb) rb.AddForce(magnitude * direction, ForceMode2D.Impulse);
         if (movement) movement.enabled = false;
         ParticleController dust = hitParticlePool.Get();
@@ -75,6 +81,8 @@ public class Health : MonoBehaviour, ISetUp
         dust.onDeinit += () =>
         {
             if (movement) movement.enabled = true;
+            if (painter) painter.enabled = true;
+            if(col) col.enabled = true;
         };
         dust.Init();
     }
