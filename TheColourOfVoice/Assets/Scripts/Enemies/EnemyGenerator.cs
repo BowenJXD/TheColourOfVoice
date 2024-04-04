@@ -43,7 +43,7 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	
 	public Transform spawnTransform;
 	
-	private void Awake()
+	protected override void Awake()
 	{
 		base.Awake();
 		enemyPool = new EntityPool<Enemy>(enemyPrefab, transform);

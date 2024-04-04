@@ -43,7 +43,7 @@ public class BulletBase : Entity
         rb.velocity = direction * speed;
     }
     
-    private async void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {

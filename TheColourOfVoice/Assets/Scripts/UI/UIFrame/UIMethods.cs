@@ -27,7 +27,6 @@ public class UIMethods
             if (tra.gameObject.name == Find_Name)
             {
                 return tra.gameObject;
-                break;
             }
         }
 
@@ -68,7 +67,6 @@ public class UIMethods
             if (tra.gameObject.name == ComponentName)
             {
                 return tra.gameObject.GetComponent<T>();
-                break;
             }
         }
 
