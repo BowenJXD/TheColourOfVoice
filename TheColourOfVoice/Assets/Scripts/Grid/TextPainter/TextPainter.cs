@@ -23,12 +23,14 @@ public class TextPainter : Singleton<TextPainter>
         PaintText(text, center, color, interval);
     }
     
-    public void PaintText(string text, Vector2Int center, PaintColor color, float interval)
+    public void PaintText(string text, Vector2Int center, PaintColor inputColor, float interval)
     {
         if (paintingSequences.ContainsKey(text))
         {
             StopPainting(text);
         }
+        
+        PaintColor color = inputColor == PaintColor.Rainbow ? PaintColorExtension.NextRainbow() : inputColor;
 
         int totalWidth = 0;
         for (int i = 0; i < text.Length; i++)
@@ -43,7 +45,11 @@ public class TextPainter : Singleton<TextPainter>
         {
             Vector2Int charCenter = new Vector2Int(x, center.y);
             var i1 = i;
-            sequence.AppendCallback(() => PaintChar(text[i1], charCenter, color));
+            sequence.AppendCallback(() =>
+            {
+                PaintChar(text[i1], charCenter, color);
+                color = inputColor == PaintColor.Rainbow ? PaintColorExtension.NextRainbow() : inputColor;
+            });
             sequence.AppendInterval(interval);
             x += TextToTile.Instance.GetPatternWidth(text[i]) + 1;
         }

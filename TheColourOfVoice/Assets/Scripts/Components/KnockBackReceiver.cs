@@ -9,6 +9,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     private Collider2D col;
     private Health health;
     public bool invincible = true;
+    public bool disableMovement = true;
     public bool disablePainter = true;
     public bool disableCol = true;
 
@@ -43,7 +44,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
             rb.AddForce(direction * magnitude, ForceMode2D.Impulse);
             dust.onDeinit += () => rb.velocity = Vector2.zero;
         }
-        if (movement && movement.enabled)
+        if (disableMovement && movement && movement.enabled)
         {
             movement.enabled = false;
             dust.onDeinit += () => movement.enabled = true;

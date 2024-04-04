@@ -48,7 +48,7 @@ MonoBehaviour:
   damage: 1
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
-  knockBack: 4
+  knockBack: 10
   rb: {fileID: 4961256998949816231}
 --- !u!61 &3449957541279419810
 BoxCollider2D:
@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 1
+  disableMovement: 1
   disablePainter: 1
   disableCol: 1
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}

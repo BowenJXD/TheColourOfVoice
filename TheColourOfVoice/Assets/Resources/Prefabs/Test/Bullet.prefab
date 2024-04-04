@@ -195,3 +195,4 @@ MonoBehaviour:
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
   knockBack: 7
+  rb: {fileID: 0}

@@ -10086,9 +10086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c7350f1d934acd824e875b91402923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: first level
-  center: {x: 38, y: 21}
-  color: 6
+  text: the colour of voice
+  center: {x: 76, y: 42}
+  color: 9
   interval: 0.2
 --- !u!4 &294935621
 Transform:
@@ -10797,8 +10797,8 @@ MonoBehaviour:
   useBound: 0
   bottomLeftBound: {x: -40, y: -22.5}
   upperRightBound: {x: 40, y: 22.5}
-  size: {x: 76, y: 42}
-  cellSize: {x: 0.5, y: 0.5}
+  size: {x: 152, y: 84}
+  cellSize: {x: 0.25, y: 0.25}
   tilePrefab: {fileID: 6433278730965310477, guid: 2d758179aa1f2e4428d0c0728038c29c, type: 3}
   randomRotationSegment: 4
   paintedPercentage: 0
@@ -10991,13 +10991,25 @@ PrefabInstance:
       propertyPath: damageCooldown
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1076772995356088670, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: shootingInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2664940203796196856, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664940203796196856, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: m_LinearDrag
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113794111999803653, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: speed
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11065,6 +11077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
+  disableMovement: 0
   disablePainter: 1
   disableCol: 0
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
