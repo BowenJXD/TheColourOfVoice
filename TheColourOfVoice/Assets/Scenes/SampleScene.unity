@@ -11390,9 +11390,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b3abd180f243acbbd892a2afd2699c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
+  enemyPrefabs:
+  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
   taskConfigs:
-  - amount: 10
+  - amounts: 0a000000
     duration: 10
   minDistance: 20
   maxDistance: 25

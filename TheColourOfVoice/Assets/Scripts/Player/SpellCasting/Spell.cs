@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,7 +7,8 @@ public class Spell : MonoBehaviour
 {
     [Tooltip("The word to shout to trigger the spell.")]
     public string spellName;
-
+    public float cooldown;
+    [ReadOnly] bool isInCD; 
     public bool needCasting;
 
     protected CastConfig currentConfig;
@@ -19,6 +21,7 @@ public class Spell : MonoBehaviour
     protected virtual void Init()
     {
         SpellManager.Instance.Register(this);
+        isInCD = false;
     }
     
     private void OnDisable()
@@ -33,6 +36,11 @@ public class Spell : MonoBehaviour
 
     public virtual void StartCasting(CastConfig config)
     {
+        if (isInCD)
+        {
+            Debug.LogWarning("Spell is in cooldown.");
+            return;
+        }
         currentConfig = config;
         if (needCasting)
         {
@@ -59,5 +67,12 @@ public class Spell : MonoBehaviour
     public virtual void Execute()
     {
         Debug.Log($"Execute {spellName}.");
+        isInCD = true;
+        Invoke(nameof(EndCD), cooldown);
+    }
+    
+    void EndCD()
+    {
+        isInCD = false;
     }
 }

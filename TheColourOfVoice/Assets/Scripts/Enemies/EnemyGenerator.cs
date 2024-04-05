@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -8,8 +9,20 @@ using Random = UnityEngine.Random;
 [Serializable]
 public struct TaskConfig
 {
-	public int amount;
+	public List<int> amounts;
 	public float duration;
+	public int TotalAmount => amounts.Sum();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns> The index of the popped amount. </returns>
+	public int Pop()
+	{
+		var result = amounts.GetRandomWeightedIndex();
+		amounts[result]--;
+		return result;
+	}
 }
 
 /// <summary>
@@ -18,10 +31,15 @@ public struct TaskConfig
 /// </summary>
 public class EnemyGenerator : Singleton<EnemyGenerator>
 {
-	public Enemy enemyPrefab;
-	public List<TaskConfig> taskConfigs;
-	public LoopTask task;
+	public List<Enemy> enemyPrefabs;
+	Dictionary<Enemy, EntityPool<Enemy>> enemyPools;
 	[NonSerialized] public List<Enemy> activeEnemies = new List<Enemy>();
+	
+	public List<TaskConfig> taskConfigs;
+	public int currentTaskIndex = 0;
+	
+	public LoopTask task;
+	
 
 	// 生成位置波动
 	[Tooltip("The minimum distance between the player and the spawning point.")]
@@ -39,14 +57,17 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 
 	public Action<Enemy> onSpawn;
 	
-	EntityPool<Enemy> enemyPool;
 	
 	public Transform spawnTransform;
 	
 	protected override void Awake()
 	{
 		base.Awake();
-		enemyPool = new EntityPool<Enemy>(enemyPrefab, transform);
+		enemyPools = new();
+		foreach (Enemy enemyPrefab in enemyPrefabs)
+		{
+			enemyPools.Add(enemyPrefab, new EntityPool<Enemy>(enemyPrefab, transform));
+		}
 	}
 
 	void Start()
@@ -56,26 +77,38 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 
 	public void NewTask()
 	{
-		if (taskConfigs.Count > 0)
+		if (taskConfigs.Count > currentTaskIndex)
 		{
+			int index = currentTaskIndex;
 			task = new LoopTask
 			{
-				interval = taskConfigs[0].duration / taskConfigs[0].amount,
-				loop = taskConfigs[0].amount,
-				loopAction = ProcessTask,
+				interval = taskConfigs[index].duration / taskConfigs[index].TotalAmount,
+				loop = taskConfigs[index].TotalAmount,
+				loopAction = () => ProcessTask(taskConfigs[index]),
 				finishAction = NewTask,
 			};
-			taskConfigs.RemoveAt(0);
 			task.Start();
 		}
+		currentTaskIndex++;
 	}
 
-	public void ProcessTask()
+	public void ProcessTask(TaskConfig taskConfig)
 	{
 		if (!spawnTransform) return;
+
+		if (enemyPrefabs.Count <= taskConfig.Pop())
+		{
+			return;
+		}
+		Enemy enemyPrefab = enemyPrefabs[taskConfig.Pop()];
+		if (!enemyPools.ContainsKey(enemyPrefab))
+		{
+			Debug.LogError("Enemy prefab not found in the pool.");
+			return;
+		}
 		
+		Enemy enemy = enemyPools[enemyPrefab].Get();
 		Vector3 spawnPosition = GetSpawnPosition();
-		Enemy enemy = enemyPool.Get();
 		activeEnemies.Add(enemy);
 		enemy.transform.position = spawnPosition;
 		onSpawn?.Invoke(enemy);

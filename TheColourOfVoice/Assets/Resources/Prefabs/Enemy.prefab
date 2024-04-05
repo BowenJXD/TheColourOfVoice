@@ -385,14 +385,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a661c30d4bd7446a990cd7c6942e3edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 0.9
+  period: 2.5
   rotationDelta: 0
   scaleYDelta: 0.1
   scaleXDelta: 0.1
   rotationEase: 13
   scaleEase: 13
-  minMoveSpeed: 2
-  maxMoveSpeed: 0
+  minMoveSpeed: 0
+  maxMoveSpeed: 3
 --- !u!114 &-4737817084367787813
 MonoBehaviour:
   m_ObjectHideFlags: 0
