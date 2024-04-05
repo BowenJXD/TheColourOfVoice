@@ -30,9 +30,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7018595417236645813}
   - {fileID: 8148822321831769645}
   - {fileID: 2979509877283439348}
-  - {fileID: 7018595417236645813}
   m_Father: {fileID: 7164204222964191310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7302184725533621400
@@ -257,7 +257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+  defence: 0
+  invincible: 0
+  damageCooldown: 0
 --- !u!114 &5866823119521272802
 MonoBehaviour:
   m_ObjectHideFlags: 0

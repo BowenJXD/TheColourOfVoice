@@ -9,6 +9,8 @@ public class Spell : MonoBehaviour
 
     public bool needCasting;
 
+    protected CastConfig currentConfig;
+
     private void OnEnable()
     {
         Init();
@@ -31,6 +33,7 @@ public class Spell : MonoBehaviour
 
     public virtual void StartCasting(CastConfig config)
     {
+        currentConfig = config;
         if (needCasting)
         {
             Invoke(nameof(EndCasting), config.chantTime);

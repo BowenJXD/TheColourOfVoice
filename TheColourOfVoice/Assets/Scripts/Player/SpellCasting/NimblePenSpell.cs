@@ -1,4 +1,6 @@
-﻿public class NimblePenSpell : Spell, ISetUp
+﻿using UnityEngine;
+
+public class NimblePenSpell : Spell, ISetUp
 {
     public int duration = 5;
     public float moveMultiplier = 1.5f;
@@ -31,6 +33,8 @@
             painter.enabled = true;
             if (movement) movement.speed *= moveMultiplier;
         }
+        loopTask.interval = duration * (1 + currentConfig.peakVolume);
+        Debug.Log($"Execute {spellName} with duration {loopTask.interval}.");        
         loopTask.Start();
     }
 

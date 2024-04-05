@@ -8,7 +8,7 @@ public class LoopTask
 {
     public float interval;
     
-    public int loop;
+    public int loop = 1;
     
     public System.Action loopAction;
     
