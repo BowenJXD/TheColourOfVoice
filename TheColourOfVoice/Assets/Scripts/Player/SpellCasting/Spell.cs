@@ -50,7 +50,6 @@ public class Spell : MonoBehaviour
         {
             Execute();
         }
-        Debug.Log($"Start casting {spellName}.");
     }
 
     /// <summary>

@@ -7,7 +7,8 @@ public class NimblePenSpell : Spell, ISetUp
 
     public Movement movement;
     public Painter painter;
-    
+    public GameObject effect;
+
     LoopTask loopTask;
 
     protected override void Init()
@@ -21,6 +22,7 @@ public class NimblePenSpell : Spell, ISetUp
     {
         IsSet = true;
         if (!painter) painter = GetComponent<Painter>();
+        if (!effect) effect = transform.GetChild(0).gameObject;
         loopTask = new LoopTask { interval = duration, loop = 1, loopAction = EndBuff };
     }
 
@@ -30,18 +32,25 @@ public class NimblePenSpell : Spell, ISetUp
         
         if (!loopTask.isPlaying)
         {
-            painter.enabled = true;
-            if (movement) movement.speed *= moveMultiplier;
+            StartBuff();
         }
         loopTask.interval = duration * (1 + currentConfig.peakVolume);
         Debug.Log($"Execute {spellName} with duration {loopTask.interval}.");        
         loopTask.Start();
     }
 
+    void StartBuff()
+    {
+        painter.enabled = true;
+        if (movement) movement.speed *= moveMultiplier;
+        if (effect) effect.SetActive(true);
+    }
+
     void EndBuff()
     {
         painter.enabled = false;
         if (movement) movement.speed /= moveMultiplier;
+        if (effect) effect.SetActive(false);
     }
 
 }

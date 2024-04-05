@@ -95,12 +95,13 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	public void ProcessTask(TaskConfig taskConfig)
 	{
 		if (!spawnTransform) return;
-
-		if (enemyPrefabs.Count <= taskConfig.Pop())
+		
+		int enemyIndex = taskConfig.Pop();
+		if (enemyPrefabs.Count <= enemyIndex)
 		{
 			return;
 		}
-		Enemy enemyPrefab = enemyPrefabs[taskConfig.Pop()];
+		Enemy enemyPrefab = enemyPrefabs[enemyIndex];
 		if (!enemyPools.ContainsKey(enemyPrefab))
 		{
 			Debug.LogError("Enemy prefab not found in the pool.");

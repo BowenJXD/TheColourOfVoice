@@ -61,7 +61,7 @@ public class PlayerMovement : Movement
 
     private void Movement()
     {
-        rb.AddForce(inputMovement * (speed * Time.fixedDeltaTime));
+        rb.AddForce(inputMovement * speed);
     }
 
 }

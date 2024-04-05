@@ -9,7 +9,7 @@ public static class Util
     /// </summary>
     /// <param name="dir"></param>
     /// <returns>Angle in degrees 0 - 360</returns>
-    public static float GetAngleFromVector(Vector2 dir)
+    public static float GetAngle(this Vector2 dir)
     {
         return Vector2.SignedAngle(Vector2.right, dir);
     }
@@ -26,8 +26,8 @@ public static class Util
 
     public static Vector2 AddAnglesInV2(Vector2 v1, Vector2 v2)
     {
-        float angle1 = GetAngleFromVector(v1);
-        float angle2 = GetAngleFromVector(v2);
+        float angle1 = v1.GetAngle();
+        float angle2 = v2.GetAngle();
         float angle = angle1 + angle2;
         return GetVectorFromAngle(angle);
     }

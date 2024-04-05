@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class ChaseMovement : Movement, ISetUp
 {
+    [Tooltip("The maximum angle to rotate in one second.")]
+    public float angularSpeed = 120;
     public Transform target;
-
+    public Vector2 lastDirection = Vector2.zero;
     private Rigidbody2D rb;
     
     public bool IsSet { get; set; }
@@ -12,8 +14,9 @@ public class ChaseMovement : Movement, ISetUp
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
+        if (!target) target = GameObject.FindWithTag("Player").transform;
+        if (target) lastDirection = (target.position - transform.position).normalized * speed;
 
-        target = GameObject.FindWithTag("Player").transform;
     }
 
     private void OnEnable()
@@ -24,7 +27,12 @@ public class ChaseMovement : Movement, ISetUp
     private void FixedUpdate()
     {
         if (!target) return;
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * speed;
+        Vector2 targetDirection = (target.position - transform.position).normalized;
+        Vector2 currentDirection = lastDirection;
+        float angle = Vector2.SignedAngle(currentDirection, targetDirection);
+        float rotateAngle = Mathf.Sign(angle) * Mathf.Min(angularSpeed * Time.fixedDeltaTime, Mathf.Abs(angle));
+        Vector2 newDirection = Util.GetVectorFromAngle(currentDirection.GetAngle() + rotateAngle);
+        rb.velocity = newDirection * speed;
+        lastDirection = newDirection;
     }
 }
