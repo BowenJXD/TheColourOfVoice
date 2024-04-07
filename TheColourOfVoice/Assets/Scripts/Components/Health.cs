@@ -98,6 +98,17 @@ public class Health : MonoBehaviour, ISetUp
         }
     }
 
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+
+
     /// <summary>
     /// Reset when trigger
     /// </summary>

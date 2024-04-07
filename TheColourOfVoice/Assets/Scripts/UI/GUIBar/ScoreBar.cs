@@ -8,10 +8,15 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] Image fillImageScore;
     [SerializeField] SplashGrid splashGrid;
     [SerializeField] float maxScore = 1f; 
-    float percentage;
+    protected float percentage;
     float score;
+    [SerializeField] Text percentText;
 
     Canvas canvas;
+    void SetPercentText()
+    {
+        percentText.text = Mathf.RoundToInt(percentage * 10000f).ToString();
+    }
 
     void Awake()
     {
@@ -20,6 +25,7 @@ public class ScoreBar : MonoBehaviour
         UpdateScore(0);
         StartCoroutine(UpdatePercentageEverySecond());
     }
+
     IEnumerator UpdatePercentageEverySecond()
     {
         while (true) 
@@ -29,20 +35,22 @@ public class ScoreBar : MonoBehaviour
         }
     }
 
-    public void Initialize(SplashGrid splashGrid)
+    protected virtual void Initialize(SplashGrid splashGrid)
     {
         percentage = splashGrid.paintedPercentage;
-        UpdateScore(percentage); 
+        UpdateScore(percentage);
+        SetPercentText();
 
     }
 
 
-    void UpdateScore(float newPercentage)
+    protected virtual void UpdateScore(float newPercentage)
     {
         float addedScore = newPercentage * maxScore;
 
         score += addedScore;
         score = Mathf.Min(score, maxScore);
+        SetPercentText();
 
         UpdateUI();
     }

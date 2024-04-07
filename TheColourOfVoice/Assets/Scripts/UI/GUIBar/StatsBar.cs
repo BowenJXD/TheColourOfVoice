@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class StatsBar : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+
     [SerializeField] Image fillImageBack;
     [SerializeField] Image fillImageFront;
     [SerializeField] bool delayFill = true;
     [SerializeField] float fillDelay = 0.5f;
     [SerializeField] float fillspeed = 0.1f;
     float currentFillAmount;
-    float targetFillAmount;
+    protected float targetFillAmount;
     float t;
     WaitForSeconds waitForDelayFill;
-
+    float maxValue;
+    float currentValue;
     Coroutine bufferedFillingCoroutine;
 
     Canvas canvas;
@@ -25,10 +28,17 @@ public class StatsBar : MonoBehaviour
         canvas.worldCamera = Camera.main;
 
         waitForDelayFill = new WaitForSeconds(fillDelay);
+        Initialize(player);
     }
 
-    public void Initialize(float currentValue,float maxValue)
+    public void Initialize(GameObject player)
     {
+        currentValue=player.GetComponent<Health>().GetCurrentHealth();
+        Debug.Log("InicurrentValue"+currentValue);
+
+        maxValue = player.GetComponent<Health>().GetMaxHealth();
+        Debug.Log("InimaxtValue"+ maxValue);
+
         currentFillAmount = currentValue/maxValue;
         targetFillAmount = currentFillAmount;
         fillImageBack.fillAmount = currentFillAmount;
@@ -36,8 +46,19 @@ public class StatsBar : MonoBehaviour
 
     }
 
-    public void UpdateStats(float currentValue, float maxValue)
+
+    void Update()
     {
+        UpdateStats(player);
+    }
+    public void UpdateStats(GameObject player)
+    {
+        currentValue = player.GetComponent<Health>().GetCurrentHealth();
+        Debug.Log("UpcurrentValue" + currentValue);
+
+        maxValue = player.GetComponent<Health>().GetMaxHealth();
+        Debug.Log("UpmaxtValue" + maxValue);
+
         targetFillAmount = currentValue/maxValue;
 
         if(bufferedFillingCoroutine != null)
