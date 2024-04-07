@@ -13,10 +13,12 @@ public class PlayerMovement : Movement
 
     private Vector2 inputMovement;
 
+    private Animator ani;
     private Transform rotatingTransform;
 
     private void Awake()
     {
+        ani = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rotatingTransform = transform.GetChild(0);
     }
@@ -62,6 +64,9 @@ public class PlayerMovement : Movement
     private void Movement()
     {
         rb.AddForce(inputMovement * speed);
+        ani.SetFloat("moveX", Mathf.Clamp(rb.velocity.x, -1, 1));
+        ani.SetFloat("moveY", Mathf.Clamp(rb.velocity.y, -1, 1));
+        ani.SetBool("isMoving", isMoving);
     }
 
 }

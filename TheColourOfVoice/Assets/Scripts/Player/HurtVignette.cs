@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
@@ -45,5 +46,10 @@ public class HurtVignette : MonoBehaviour
         if (damage <= 0) return;
         float intensityPercentage = Mathf.Clamp01(damage / maxIntensityDamage);
         vignette.intensity.value = Mathf.Lerp(minIntensity, maxIntensity, intensityPercentage);
+    }
+
+    private void OnDestroy()
+    {
+        vignette.intensity.value = 0;
     }
 }
