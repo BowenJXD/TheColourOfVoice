@@ -61,8 +61,14 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
         }
         if (disableCol && col && col.enabled)
         {
-            col.enabled = false;
-            dust.onDeinit += () => col.enabled = true;
+            LayerMask inCache = col.includeLayers;
+            LayerMask exCache = col.excludeLayers;
+            col.ExcludeAllLayers(ELayer.Bound);
+            dust.onDeinit += () =>
+            {
+                col.includeLayers = inCache;
+                col.excludeLayers = exCache;
+            };
         }
         dust.Init();
     }

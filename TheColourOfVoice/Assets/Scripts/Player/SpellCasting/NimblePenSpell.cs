@@ -6,8 +6,9 @@ public class NimblePenSpell : Spell, ISetUp
     public float moveMultiplier = 1.5f;
 
     public Movement movement;
+    public Health health;
     public Painter painter;
-    public GameObject effect;
+    public LightAnim effect;
 
     LoopTask loopTask;
 
@@ -22,7 +23,7 @@ public class NimblePenSpell : Spell, ISetUp
     {
         IsSet = true;
         if (!painter) painter = GetComponent<Painter>();
-        if (!effect) effect = transform.GetChild(0).gameObject;
+        if (!effect) effect = GetComponentInChildren<LightAnim>(true);
         loopTask = new LoopTask { interval = duration, loop = 1, loopAction = EndBuff };
     }
 
@@ -30,11 +31,11 @@ public class NimblePenSpell : Spell, ISetUp
     {
         base.Execute();
         
+        loopTask.interval = duration * (1 + currentConfig.peakVolume);
         if (!loopTask.isPlaying)
         {
             StartBuff();
         }
-        loopTask.interval = duration * (1 + currentConfig.peakVolume);
         Debug.Log($"Execute {spellName} with duration {loopTask.interval}.");        
         loopTask.Start();
     }
@@ -43,14 +44,20 @@ public class NimblePenSpell : Spell, ISetUp
     {
         painter.enabled = true;
         if (movement) movement.speed *= moveMultiplier;
-        if (effect) effect.SetActive(true);
+        if (effect)
+        {
+            effect.gameObject.SetActive(true);
+            new LoopTask{finishAction = effect.Execute, interval = Mathf.Max(loopTask.interval - effect.duration, 0)}.Start();
+        }
+        if (health) health.invincible = true;
     }
 
     void EndBuff()
     {
         painter.enabled = false;
         if (movement) movement.speed /= moveMultiplier;
-        if (effect) effect.SetActive(false);
+        if (effect) effect.gameObject.SetActive(false);
+        if (health) health.invincible = false;
     }
 
 }
