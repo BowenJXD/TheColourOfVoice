@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: -4737817084367787813}
   - component: {fileID: 1238373738725142145}
   - component: {fileID: 1559659144169942989}
+  - component: {fileID: -4890945634325155649}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -180,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 148925681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fd4d3c6df0bc82e499dabbafdb2640ed, type: 3}
+  m_Sprite: {fileID: 1184699091, guid: 2db670f6a78182b4d82acc9ebe12e66b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -227,7 +228,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4, y: 1.4}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -328,7 +329,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6602773672044416973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2155c028445f4d188b5a2bf19c3de079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   angularSpeed: 120
   target: {fileID: 0}
   lastDirection: {x: 0, y: 0}
@@ -357,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 3
+  maxHealth: 2
+  currentHealth: 2
   defence: 0
   invincible: 0
   damageCooldown: 1
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885559008707167969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a661c30d4bd7446a990cd7c6942e3edb, type: 3}
   m_Name: 
@@ -447,3 +448,24 @@ MonoBehaviour:
   disablePainter: 1
   disableCol: 1
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
+--- !u!95 &-4890945634325155649
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b88c359c32fba24e94615951472d140, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

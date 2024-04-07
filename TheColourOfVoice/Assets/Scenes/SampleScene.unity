@@ -10992,6 +10992,10 @@ PrefabInstance:
       propertyPath: recoil
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2664940203796196856, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -11345,9 +11349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
+  - {fileID: 4184870022919412751, guid: 7d96b9b1c38c96846a34836150ee7bce, type: 3}
   taskConfigs:
-  - amounts: 0a000000
-    duration: 10
+  - amounts: 0a0000000a000000
+    duration: 60
   currentTaskIndex: 0
   minDistance: 20
   maxDistance: 25

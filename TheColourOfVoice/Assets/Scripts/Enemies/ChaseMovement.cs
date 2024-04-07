@@ -8,15 +8,19 @@ public class ChaseMovement : Movement, ISetUp
     public Transform target;
     public Vector2 lastDirection = Vector2.zero;
     private Rigidbody2D rb;
+    private SpriteRenderer sp;
+    bool initialFlipX;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
+        sp = GetComponentInChildren<SpriteRenderer>();
+        initialFlipX = sp.flipX;
         if (!target) target = GameObject.FindWithTag("Player").transform;
         if (target) lastDirection = (target.position - transform.position).normalized * speed;
-
+        
     }
 
     private void OnEnable()
@@ -33,6 +37,7 @@ public class ChaseMovement : Movement, ISetUp
         float rotateAngle = Mathf.Sign(angle) * Mathf.Min(angularSpeed * Time.fixedDeltaTime, Mathf.Abs(angle));
         Vector2 newDirection = Util.GetVectorFromAngle(currentDirection.GetAngle() + rotateAngle);
         rb.velocity = newDirection * speed;
+        sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
         lastDirection = newDirection;
     }
 }
