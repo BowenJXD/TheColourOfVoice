@@ -14,13 +14,13 @@ public class PlayerMovement : Movement
     private Vector2 inputMovement;
 
     private Animator ani;
-    private Transform rotatingTransform;
+    public Transform rotatingTransform;
 
     private void Awake()
     {
         ani = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        rotatingTransform = transform.GetChild(0);
+        if (!rotatingTransform) rotatingTransform = transform.GetChild(1);
     }
     private void Update()
     {

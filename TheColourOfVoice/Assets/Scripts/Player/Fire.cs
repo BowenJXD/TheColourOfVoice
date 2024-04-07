@@ -8,6 +8,8 @@ public class Fire : MonoBehaviour
 {
     public BulletBase bulletPrefab;
     public float shootingInterval;
+    public Rigidbody2D rb;
+    public float recoil;
     protected Vector2 mousePos;
     protected Vector2 direction;
     
@@ -53,5 +55,6 @@ public class Fire : MonoBehaviour
         bullet.transform.position = this.transform.position;
         bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
+        if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
     }
 }

@@ -8,8 +8,9 @@ public class Spell : MonoBehaviour
     [Tooltip("The word to shout to trigger the spell.")]
     public string spellName;
     public float cooldown;
-    [ReadOnly] bool isInCD; 
+    [ReadOnly] public bool isInCD; 
     public bool needCasting;
+    public float recoil;
 
     protected CastConfig currentConfig;
 

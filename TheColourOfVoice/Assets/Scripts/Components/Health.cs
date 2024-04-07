@@ -25,7 +25,7 @@ public class Health : MonoBehaviour, ISetUp
     {
         IsSet = true;
         impulseSource = GetComponent<CinemachineImpulseSource>();
-        sp = GetComponent<SpriteRenderer>();
+        sp = GetComponentInChildren<SpriteRenderer>();
         if (damageCooldown > 0)
             damageCooldownTask = new LoopTask { interval = damageCooldown, loop = 1, finishAction = ResetCD };
     }

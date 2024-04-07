@@ -44,7 +44,9 @@ public class SpellManager : Singleton<SpellManager>
 {
     public Dictionary<string, Spell> spells = new();
     public float cooldownTime = 0.5f;
-    
+
+    public Fire defaultSpell;
+    public Rigidbody2D rb;
     [ReadOnly]public Spell currentSpell;
 
     private CastState _castState;
@@ -79,7 +81,13 @@ public class SpellManager : Singleton<SpellManager>
     {
         VoiceInputSystem.Instance.SetActive(true);
         CastState = CastState.Chanting;
-        coolDownTask = new LoopTask{ finishAction = () => CastState = CastState.Chanting, interval = cooldownTime};
+        coolDownTask = new LoopTask{ finishAction = EndCD, interval = cooldownTime};
+    }
+    
+    void EndCD()
+    {
+        CastState = CastState.Chanting;
+        defaultSpell.enabled = true;
     }
 
     void TryCast(PhraseRecognizedEventArgs recognizedEventArgs)
@@ -99,6 +107,12 @@ public class SpellManager : Singleton<SpellManager>
         if (currentSpell != null && spell.needCasting)
         {
             Debug.LogWarning("Another spell is casting.");
+            return;
+        }
+
+        if (spell.isInCD)
+        {
+            Debug.LogWarning($"Spell {recognizedEventArgs.text} is in cooldown.");
             return;
         }
             
@@ -122,6 +136,7 @@ public class SpellManager : Singleton<SpellManager>
         {
             CastState = CastState.Casting;
             currentSpell = spell;
+            defaultSpell.enabled = false;
         }
         else
         {
@@ -141,7 +156,10 @@ public class SpellManager : Singleton<SpellManager>
             return;
         }
         currentSpell.Execute();
+        Vector2 direction = transform.right;
+        if (rb) rb.AddForce(-direction * currentSpell.recoil, ForceMode2D.Impulse);
         currentSpell = null;
+        
         CastState = CastState.Null;
         coolDownTask.Start();
     }
