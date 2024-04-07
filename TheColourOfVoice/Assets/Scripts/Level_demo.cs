@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Level_demo : MonoBehaviour
@@ -7,6 +8,8 @@ public class Level_demo : MonoBehaviour
     [SerializeField] public SequenceEventExecutor week6SequenceEventExcutor;
     [SerializeField] private GameObject player;
     public bool skip = false;
+    public int totalTime = 60;
+    public TextMeshProUGUI text;
 
     void Start()
     {
@@ -21,8 +24,9 @@ public class Level_demo : MonoBehaviour
             return;
         }
 
+        
         player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<Fire>().enabled = false;
+        player.GetComponentInChildren<Fire>().enabled = false;
         if (week6SequenceEventExcutor)
         {
             week6SequenceEventExcutor.Init(OnFinishedEvent);
@@ -35,8 +39,20 @@ public class Level_demo : MonoBehaviour
     {
         Debug.Log(success);
         EnemyGenerator.Instance.NewTask();
+        StartCoroutine(Time());
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponentInChildren<Fire>().enabled = true;
         TextPainter.Instance.PaintText();
+    }
+
+    IEnumerator Time()
+    {
+        while (totalTime >= 0)
+        {
+            text.GetComponent<TextMeshProUGUI>().text = totalTime.ToString();
+            yield return new WaitForSeconds(1);
+            Debug.Log(totalTime.ToString());
+            totalTime--;
+        }
     }
 }

@@ -34,10 +34,10 @@ public class StatsBar : MonoBehaviour
     public void Initialize(GameObject player)
     {
         currentValue=player.GetComponent<Health>().GetCurrentHealth();
-        Debug.Log("InicurrentValue"+currentValue);
+        //Debug.Log("InicurrentValue"+currentValue);
 
         maxValue = player.GetComponent<Health>().GetMaxHealth();
-        Debug.Log("InimaxtValue"+ maxValue);
+        //Debug.Log("InimaxtValue"+ maxValue);
 
         currentFillAmount = currentValue/maxValue;
         targetFillAmount = currentFillAmount;
@@ -54,10 +54,10 @@ public class StatsBar : MonoBehaviour
     public void UpdateStats(GameObject player)
     {
         currentValue = player.GetComponent<Health>().GetCurrentHealth();
-        Debug.Log("UpcurrentValue" + currentValue);
+        //Debug.Log("UpcurrentValue" + currentValue);
 
         maxValue = player.GetComponent<Health>().GetMaxHealth();
-        Debug.Log("UpmaxtValue" + maxValue);
+        //Debug.Log("UpmaxtValue" + maxValue);
 
         targetFillAmount = currentValue/maxValue;
 
