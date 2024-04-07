@@ -13,9 +13,9 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] Text percentText;
 
     Canvas canvas;
-    void SetPercentText()
+    void SetPercentText(float score)
     {
-        percentText.text = Mathf.RoundToInt(percentage * 10000f).ToString();
+        percentText.text = Mathf.RoundToInt(score * 100f).ToString();
     }
 
     void Awake()
@@ -39,8 +39,8 @@ public class ScoreBar : MonoBehaviour
     {
         percentage = splashGrid.paintedPercentage;
         UpdateScore(percentage);
-        SetPercentText();
-
+/*        SetPercentText(0);
+*/
     }
 
 
@@ -50,7 +50,7 @@ public class ScoreBar : MonoBehaviour
 
         score += addedScore;
         score = Mathf.Min(score, maxScore);
-        SetPercentText();
+        SetPercentText(score);
 
         UpdateUI();
     }
