@@ -46,7 +46,7 @@ public class ScoreBar : MonoBehaviour
 
     protected virtual void UpdateScore(float newPercentage)
     {
-        float addedScore = newPercentage * maxScore;
+        float addedScore = newPercentage * maxScore / 100;
 
         score += addedScore;
         score = Mathf.Min(score, maxScore);

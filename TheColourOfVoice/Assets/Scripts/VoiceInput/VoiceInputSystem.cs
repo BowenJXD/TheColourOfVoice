@@ -9,6 +9,16 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
 {
     private Dictionary<string, KeywordRecognizer> keywordRecognizers = new();
 
+    protected override void Awake()
+    {
+        base.Awake();
+        new LoopTask{loop = -1, loopAction = () =>
+        {
+            SetActive(false);
+            SetActive(true);
+        }, interval = 10}.Start();
+    }
+
     public void SetActive(bool active)
     {
         if (active)

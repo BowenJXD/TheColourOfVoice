@@ -10299,9 +10299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
   player: {fileID: 461082845}
-  skip: 0
+  skip: 1
   totalTime: 60
-  text: {fileID: 1650146107}
+  text: {fileID: 0}
 --- !u!114 &421179005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11049,6 +11049,10 @@ PrefabInstance:
       propertyPath: recoil
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: spellName
+      value: fireball is coming
+      objectReference: {fileID: 0}
     - target: {fileID: 2664940203796196856, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Mass
       value: 2
@@ -11071,7 +11075,11 @@ PrefabInstance:
       objectReference: {fileID: 834556957}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: recoil
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: shootingInterval
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11123,7 +11131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellName
-      value: shine
+      value: let there be light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
