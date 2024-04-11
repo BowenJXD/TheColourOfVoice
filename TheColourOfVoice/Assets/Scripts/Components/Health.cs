@@ -1,5 +1,6 @@
 ﻿using System;
 using Cinemachine;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 /// <summary>
@@ -9,7 +10,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, ISetUp
 {
     public float maxHealth;
-    public float currentHealth;
+    [ReadOnly] public float currentHealth;
     [Range(0, 1)]
     [Tooltip("Percentage of damage reduced when taking damage")]
     public float defence;

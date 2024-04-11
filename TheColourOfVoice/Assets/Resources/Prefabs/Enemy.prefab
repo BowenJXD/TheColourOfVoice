@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
-  currentHealth: 2
+  maxHealth: 4
+  currentHealth: 6
   defence: 0
   invincible: 0
   damageCooldown: 1

@@ -11,7 +11,7 @@ public struct TaskConfig
 {
 	public List<int> amounts;
 	public float duration;
-	public int TotalAmount => amounts.Sum();
+	public int TotalAmount => amounts?.Sum() ?? 0;
 
 	/// <summary>
 	/// 
@@ -70,24 +70,30 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 		}
 	}
 
-	void Start()
-	{
-		//NewTask();
-	}
-
 	public void NewTask()
 	{
 		if (taskConfigs.Count > currentTaskIndex)
 		{
 			int index = currentTaskIndex;
-			task = new LoopTask
+			if (taskConfigs[index].TotalAmount == 0)
 			{
-				interval = taskConfigs[index].duration / taskConfigs[index].TotalAmount,
-				loop = taskConfigs[index].TotalAmount,
-				loopAction = () => ProcessTask(taskConfigs[index]),
-				finishAction = NewTask,
-			};
-			task.Start();
+				task = new LoopTask
+				{
+					interval = taskConfigs[index].duration,
+					finishAction = NewTask,
+				};
+			}
+			else
+			{
+				task = new LoopTask
+				{
+					interval = taskConfigs[index].duration / taskConfigs[index].TotalAmount,
+					loop = taskConfigs[index].TotalAmount,
+					loopAction = () => ProcessTask(taskConfigs[index]),
+					finishAction = NewTask,
+				};
+			}
+			task?.Start();
 		}
 		currentTaskIndex++;
 	}
@@ -95,6 +101,8 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	public void ProcessTask(TaskConfig taskConfig)
 	{
 		if (!spawnTransform) return;
+
+		if (taskConfig.TotalAmount == 0) return;
 		
 		int enemyIndex = taskConfig.Pop();
 		if (enemyPrefabs.Count <= enemyIndex)

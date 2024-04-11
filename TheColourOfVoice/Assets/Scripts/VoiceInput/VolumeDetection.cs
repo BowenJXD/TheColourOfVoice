@@ -49,7 +49,7 @@ public class VolumeDetection : Singleton<VolumeDetection>
         
         if (decibel && peakVolume > 0 && decibelScale > 1)
         {
-            float decibelVolume = Mathf.Log10(Mathf.Pow(10, decibelScale) * peakVolume + 1) / decibelScale;
+            float decibelVolume = (decibelScale + Mathf.Log10(peakVolume + 1)) / decibelScale;
             decibelVolume = Mathf.Clamp(decibelVolume, 0, 1);
             return decibelVolume;
         }

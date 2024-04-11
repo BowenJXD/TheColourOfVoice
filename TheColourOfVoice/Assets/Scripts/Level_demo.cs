@@ -39,20 +39,22 @@ public class Level_demo : MonoBehaviour
     {
         Debug.Log(success);
         EnemyGenerator.Instance.NewTask();
-        StartCoroutine(Time());
+        StartCoroutine(Timer());
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponentInChildren<Fire>().enabled = true;
         TextPainter.Instance.PaintText();
     }
 
-    IEnumerator Time()
+    IEnumerator Timer()
     {
         while (totalTime >= 0)
         {
             text.GetComponent<TextMeshProUGUI>().text = totalTime.ToString();
             yield return new WaitForSeconds(1);
-            Debug.Log(totalTime.ToString());
             totalTime--;
         }
+
+        Debug.Log("Time's up!");
+        Time.timeScale = 0;
     }
 }

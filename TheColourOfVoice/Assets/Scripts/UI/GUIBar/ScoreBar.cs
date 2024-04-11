@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,15 +8,15 @@ public class ScoreBar : MonoBehaviour
 {
     [SerializeField] Image fillImageScore;
     [SerializeField] SplashGrid splashGrid;
-    [SerializeField] float maxScore = 1f; 
+    [SerializeField] float maxScore = 10000f; 
     protected float percentage;
-    float score;
+    public float score;
     [SerializeField] Text percentText;
 
     Canvas canvas;
-    void SetPercentText(float score)
+    void SetScoreText(float score)
     {
-        percentText.text = Mathf.RoundToInt(score * 100f).ToString();
+        percentText.text = Mathf.RoundToInt(score).ToString();
     }
 
     void Awake()
@@ -42,15 +43,17 @@ public class ScoreBar : MonoBehaviour
 /*        SetPercentText(0);
 */
     }
-
+    
+    public Action<float> OnScoreChanged;
 
     protected virtual void UpdateScore(float newPercentage)
     {
-        float addedScore = newPercentage * maxScore / 100;
+        float addedScore = newPercentage * 100;
 
         score += addedScore;
         score = Mathf.Min(score, maxScore);
-        SetPercentText(score);
+        SetScoreText(score);
+        OnScoreChanged?.Invoke(newPercentage);
 
         UpdateUI();
     }
