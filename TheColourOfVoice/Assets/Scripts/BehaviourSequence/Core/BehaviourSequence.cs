@@ -19,7 +19,7 @@ public enum IndexConditionType
     /// 包括一个黑板，用于存储行为节点之间的数据交互。
     /// 基于QFramework的ActionKit实现。
     /// </summary>
-    public class BehaviourSequence : MonoBehaviour
+    public class BehaviourSequence : MonoBehaviour, IExecutor
     {
         /// <summary>
         ///  循环间隔条件。0: 无时间条件。
@@ -45,8 +45,7 @@ public enum IndexConditionType
         List<BehaviourNode> currentNodes = new();
         public Action onFinish;
 
-        [SerializeField]
-        public Dictionary<string, object> blackboard = new();
+        public Dictionary<string, object> Blackboard { get; set; }
 
         private void OnEnable()
         {
@@ -97,7 +96,7 @@ public enum IndexConditionType
         {
             if (prev)
             {
-                StopCoroutine(prev.Execute());
+                StopCoroutine(prev.Execute(this));
                 currentNodes.Remove(prev);
             }
             
@@ -124,7 +123,7 @@ public enum IndexConditionType
 
             if (next)
             {
-                StartCoroutine(next.Execute());
+                StartCoroutine(next.Execute(this));
                 currentNodes.Add(next);
             }
         }
@@ -137,35 +136,35 @@ public enum IndexConditionType
         
         public void Set(string key, object value)
         {
-            blackboard[key] = value;
+            Blackboard[key] = value;
         }
         
         public T Get<T>(string key)
         {
-            if (!blackboard.ContainsKey(key))
+            if (!Blackboard.ContainsKey(key))
             {
                 return default;
             }
-            return (T) blackboard[key];
+            return (T) Blackboard[key];
         }
         
         public bool TryGet<T>(string key, out T value)
         {
-            if (!blackboard.ContainsKey(key))
+            if (Blackboard == null || !Blackboard.ContainsKey(key))
             {
                 value = default;
                 return false;
             }
             
-            if (blackboard[key] is T)
+            if (Blackboard[key] is T)
             {
-                value = (T) blackboard[key];
+                value = (T) Blackboard[key];
                 return true;
             }
             
             try
             {
-                value = (T)Convert.ChangeType(blackboard[key], typeof(T));
+                value = (T)Convert.ChangeType(Blackboard[key], typeof(T));
                 return true;
             }
             catch (InvalidCastException)

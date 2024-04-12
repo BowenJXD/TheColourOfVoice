@@ -13,11 +13,11 @@ public class Spell : MonoBehaviour, ISetUp
     public float recoil;
 
     protected CastConfig currentConfig;
-
     
     public bool IsSet { get; set; }
-    public void SetUp()
+    public virtual void SetUp()
     {
+        IsSet = true;
         SpellManager.Instance.Register(this);
     }
     

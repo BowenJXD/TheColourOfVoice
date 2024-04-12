@@ -10263,6 +10263,8 @@ GameObject:
   - component: {fileID: 421179003}
   - component: {fileID: 421179004}
   - component: {fileID: 421179005}
+  - component: {fileID: 421179007}
+  - component: {fileID: 421179006}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -10316,6 +10318,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advancedDialogueBox: {fileID: 1541513177}
   _choicePanel: {fileID: 1278402106}
+--- !u!114 &421179006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421179002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b5be443f4945bc9056c7673e4b1c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerInterval: 5
+  force: 2
+--- !u!114 &421179007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421179002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mechanic: {fileID: 421179006}
 --- !u!1 &461082845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
@@ -11129,7 +11158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: shootingInterval
-      value: 2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11482,6 +11511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
+  - {fileID: 4184870022919412751, guid: e0c6a7239bf2d004cab1e2d2c55d747b, type: 3}
   - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
   - {fileID: 4184870022919412751, guid: 7d96b9b1c38c96846a34836150ee7bce, type: 3}
   - {fileID: 4184870022919412751, guid: 53c8981e723d90b43baa2d3a66545109, type: 3}
@@ -11802,7 +11832,7 @@ Transform:
   m_GameObject: {fileID: 1372575261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1371.18, y: 761.733, z: -14.562248}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17272,6 +17302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807768091}
+  - component: {fileID: 1807768092}
   m_Layer: 7
   m_Name: ChaseTarget
   m_TagString: Untagged
@@ -17294,6 +17325,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 834556950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807768092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807768090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e16b4c79b554acca9d8d6718e0dd13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874047049
 GameObject:
   m_ObjectHideFlags: 0

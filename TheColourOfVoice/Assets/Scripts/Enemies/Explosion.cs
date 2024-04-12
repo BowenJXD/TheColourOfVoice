@@ -18,14 +18,13 @@ public class Explosion : MonoBehaviour, ISetUp
     public float scale;
     
     public BulletBase bulletPrefab;
-    EntityPool<BulletBase> bulletPool;
 
     public bool IsSet { get; set; }
     public void SetUp()
     {
-        bulletPool = new EntityPool<BulletBase>(bulletPrefab);
-        angles = GetAngles();
         IsSet = true;
+        PoolManager.Instance.Register(bulletPrefab);
+        angles = GetAngles();
     }
     
     private void OnEnable()
@@ -38,7 +37,7 @@ public class Explosion : MonoBehaviour, ISetUp
         if (angleVariation > 0) angles =  GetAngles();
         for (int i = 0; i < particleCount; i++)
         {
-            BulletBase bullet = bulletPool.Get();
+            BulletBase bullet = PoolManager.Instance.New(bulletPrefab);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, angles[i]);
             bullet.transform.localScale = Vector3.one * scale;

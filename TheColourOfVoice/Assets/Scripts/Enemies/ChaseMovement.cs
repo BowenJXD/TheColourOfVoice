@@ -18,7 +18,7 @@ public class ChaseMovement : Movement, ISetUp
         rb = GetComponent<Rigidbody2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
         initialFlipX = sp.flipX;
-        if (!target) target = GameObject.Find("ChaseTarget");
+        if (!target) target = FindObjectOfType<ChaseTarget>(true).gameObject;
         if (target) lastDirection = (target.transform.position - transform.position).normalized;
         
     }
@@ -31,7 +31,7 @@ public class ChaseMovement : Movement, ISetUp
     private void FixedUpdate()
     {
         Vector2 newDirection = lastDirection;
-        if (target.activeSelf)
+        if (target && target.activeSelf)
         {
             Vector2 targetDirection = (target.transform.position - transform.position).normalized;
             Vector2 currentDirection = lastDirection;
@@ -39,7 +39,8 @@ public class ChaseMovement : Movement, ISetUp
             float rotateAngle = Mathf.Sign(angle) * Mathf.Min(angularSpeed * Time.fixedDeltaTime, Mathf.Abs(angle));
             newDirection = Util.GetVectorFromAngle(currentDirection.GetAngle() + rotateAngle);
         }
-        rb.velocity = newDirection * speed;
+
+        rb.AddForce(newDirection * speed);
         sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
         lastDirection = newDirection;
     }

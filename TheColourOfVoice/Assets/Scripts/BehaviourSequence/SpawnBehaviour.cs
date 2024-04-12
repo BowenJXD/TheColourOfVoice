@@ -7,18 +7,16 @@ public class SpawnBehaviour : BehaviourNode
 {
     public Entity prefab;
 
-    protected EntityPool<Entity> pool;
-
     public override void Init()
     {
         base.Init();
-        pool = new EntityPool<Entity>(prefab);
+        PoolManager.Instance.Register(prefab);
     }
 
-    protected override void OnExecute()
+    protected override void OnStart()
     {
-        base.OnExecute();
-        Entity ent = pool.Get();
+        base.OnStart();
+        Entity ent = PoolManager.Instance.New(prefab);
         sequence.Set(BBKey.ENTITY, ent);
         sequence.Set(BBKey.SPAWNER, transform);
     }

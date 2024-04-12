@@ -32,7 +32,6 @@ public struct TaskConfig
 public class EnemyGenerator : Singleton<EnemyGenerator>
 {
 	public List<Enemy> enemyPrefabs;
-	Dictionary<Enemy, EntityPool<Enemy>> enemyPools;
 	[NonSerialized] public List<Enemy> activeEnemies = new List<Enemy>();
 	
 	public List<TaskConfig> taskConfigs;
@@ -55,6 +54,9 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	
 	protected float lastSpawnedAngle = 0;
 
+	/// <summary>
+	/// Reset on disable
+	/// </summary>
 	public Action<Enemy> onSpawn;
 	
 	
@@ -63,10 +65,9 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	protected override void Awake()
 	{
 		base.Awake();
-		enemyPools = new();
 		foreach (Enemy enemyPrefab in enemyPrefabs)
 		{
-			enemyPools.Add(enemyPrefab, new EntityPool<Enemy>(enemyPrefab, transform));
+			PoolManager.Instance.Register(enemyPrefab, transform);
 		}
 	}
 
@@ -110,23 +111,23 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 			return;
 		}
 		Enemy enemyPrefab = enemyPrefabs[enemyIndex];
-		if (!enemyPools.ContainsKey(enemyPrefab))
-		{
-			Debug.LogError("Enemy prefab not found in the pool.");
-			return;
-		}
 		
-		Enemy enemy = enemyPools[enemyPrefab].Get();
 		Vector3 spawnPosition = GetSpawnPosition();
+		Spawn(enemyPrefab, spawnPosition);
+	}
+
+	public Enemy Spawn(Enemy prefab, Vector3 position)
+	{
+		Enemy enemy = PoolManager.Instance.New(prefab);
+		enemy.transform.position = position;
 		activeEnemies.Add(enemy);
-		enemy.transform.position = spawnPosition;
-		onSpawn?.Invoke(enemy);
 		enemy.onDeinit += () =>
 		{
 			activeEnemies.Remove(enemy);
 		};
-
 		enemy.Init();
+		onSpawn?.Invoke(enemy);
+		return enemy;
 	}
 
 	Vector3 GetSpawnPosition()

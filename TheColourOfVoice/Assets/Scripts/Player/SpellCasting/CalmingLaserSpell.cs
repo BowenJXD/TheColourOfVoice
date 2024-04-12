@@ -8,24 +8,20 @@ public class CalmingLaserSpell : Spell
     
     public BulletBase bulletPrefab;
 
-    EntityPool<AnimEntity> animPool;
-
-    EntityPool<BulletBase> bulletPool;
-    
     AnimEntity currentAnim;
     
     BulletBase currentBullet;
     
     void Awake()
     {
-        animPool = new EntityPool<AnimEntity>(animPrefab, transform);
-        bulletPool = new EntityPool<BulletBase>(bulletPrefab);
+        PoolManager.Instance.Register(animPrefab, transform);
+        PoolManager.Instance.Register(bulletPrefab);
     }
 
     public override void StartCasting(CastConfig config)
     {
         base.StartCasting(config);
-        currentAnim = animPool.Get();
+        currentAnim = PoolManager.Instance.New(animPrefab);
         currentAnim.animDuration = config.chantTime;
         currentAnim.transform.position = transform.position;
         currentAnim.transform.localPosition += new Vector3(offset, 0);
@@ -36,7 +32,7 @@ public class CalmingLaserSpell : Spell
     public override void Execute()
     {
         base.Execute();
-        currentBullet = bulletPool.Get();
+        currentBullet = PoolManager.Instance.New(bulletPrefab);
         currentBullet.transform.position = currentAnim.transform.position;
         currentBullet.transform.rotation = currentAnim.transform.rotation;
         Vector3 direction = currentBullet.transform.position - transform.position;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Fire : MonoBehaviour
+public class Fire : MonoBehaviour, ISetUp
 {
     public BulletBase bulletPrefab;
     public float shootingInterval;
@@ -15,12 +15,11 @@ public class Fire : MonoBehaviour
     
     LoopTask shootTask;
     
-    EntityPool<BulletBase> pool;
-
-    private void Awake()
+    public bool IsSet { get; set; }
+    public void SetUp()
     {
-        pool = new EntityPool<BulletBase>(bulletPrefab);
-
+        IsSet = true;
+        PoolManager.Instance.Register(bulletPrefab);
         shootTask = new LoopTask
         {
             interval = shootingInterval,
@@ -28,9 +27,10 @@ public class Fire : MonoBehaviour
             loop = -1,
         };
     }
-
+    
     private void OnEnable()
     {
+        if (!IsSet) SetUp();
         shootTask.Start();
     }
 
@@ -51,7 +51,7 @@ public class Fire : MonoBehaviour
         direction = (mousePos - new Vector2(transform.position.x, transform.position.y)).normalized;
         float angel = Random.Range(-5f, 5f);
         //GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
-        var bullet = pool.Get();
+        var bullet = PoolManager.Instance.New(bulletPrefab);
         bullet.transform.position = this.transform.position;
         bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);

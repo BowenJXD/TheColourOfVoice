@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class NimblePenSpell : Spell, ISetUp
+public class NimblePenSpell : Spell
 {
     public int duration = 5;
     public float moveMultiplier = 1.5f;
@@ -12,16 +12,9 @@ public class NimblePenSpell : Spell, ISetUp
 
     LoopTask loopTask;
 
-    protected override void Init()
+    public override void SetUp()
     {
-        base.Init();
-        if (!IsSet) SetUp();
-    }
-
-    public bool IsSet { get; set; }
-    public void SetUp()
-    {
-        IsSet = true;
+        base.SetUp();
         if (!painter) painter = GetComponent<Painter>();
         if (!effect) effect = GetComponentInChildren<LightAnim>(true);
         loopTask = new LoopTask { interval = duration, loop = 1, loopAction = EndBuff };

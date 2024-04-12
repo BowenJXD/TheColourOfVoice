@@ -14,14 +14,13 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     public bool disableCol = true;
 
     public ParticleController hitParticlePrefab;
-    public static EntityPool<ParticleController> hitParticlePool;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
-        hitParticlePool = new EntityPool<ParticleController>(hitParticlePrefab);
+        PoolManager.Instance.Register(hitParticlePrefab);
         movement = GetComponent<Movement>();
         painter = GetComponent<Painter>();
         col = GetComponent<Collider2D>();
@@ -35,7 +34,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     
     public void TakeKnockBack(Vector2 direction, float magnitude)
     {
-        ParticleController dust = hitParticlePool.Get();
+        ParticleController dust = PoolManager.Instance.New(hitParticlePrefab);
         dust.transform.SetParent(transform);
         dust.transform.localPosition = Vector3.zero;
         if (rb)

@@ -26,8 +26,8 @@ public class MoveAnim : MonoBehaviour, ISetUp
         public bool IsSet { get; set; }
         public void SetUp()
         {
-            movement = GetComponent<Movement>();
             IsSet = true;
+            movement = GetComponent<Movement>();
         }
 
         private void OnEnable()

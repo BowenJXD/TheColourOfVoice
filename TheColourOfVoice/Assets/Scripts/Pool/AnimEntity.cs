@@ -13,10 +13,11 @@ public class AnimEntity : Entity
     
     public override void Init()
     {
-        sequence = GetComponent<BehaviourSequence>();
-        sequence.Set(BBKey.DURATION, animDuration);
-        sequence.onFinish += onFinish;
-
+        if (TryGetComponent(out sequence))
+        {
+            sequence.Set(BBKey.DURATION, animDuration);
+            sequence.onFinish += onFinish;
+        }
         base.Init();
         
         originScale = transform.localScale;
