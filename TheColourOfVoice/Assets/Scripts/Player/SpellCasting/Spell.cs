@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Spell : MonoBehaviour
+public class Spell : MonoBehaviour, ISetUp
 {
     [Tooltip("The word to shout to trigger the spell.")]
     public string spellName;
@@ -14,23 +14,25 @@ public class Spell : MonoBehaviour
 
     protected CastConfig currentConfig;
 
+    
+    public bool IsSet { get; set; }
+    public void SetUp()
+    {
+        SpellManager.Instance.Register(this);
+    }
+    
     private void OnEnable()
     {
+        if (!IsSet) SetUp();
         Init();
     }
 
     protected virtual void Init()
     {
-        SpellManager.Instance.Register(this);
         isInCD = false;
     }
     
-    private void OnDisable()
-    {
-        Deinit();
-    }
-    
-    protected virtual void Deinit()
+    protected virtual void Unregister()
     {
         SpellManager.Instance.Unregister(this);
     }

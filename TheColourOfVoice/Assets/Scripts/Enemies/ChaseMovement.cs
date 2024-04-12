@@ -5,7 +5,7 @@ public class ChaseMovement : Movement, ISetUp
 {
     [Tooltip("The maximum angle to rotate in one second.")]
     public float angularSpeed = 120;
-    public Transform target;
+    public GameObject target;
     public Vector2 lastDirection = Vector2.zero;
     private Rigidbody2D rb;
     private SpriteRenderer sp;
@@ -18,8 +18,8 @@ public class ChaseMovement : Movement, ISetUp
         rb = GetComponent<Rigidbody2D>();
         sp = GetComponentInChildren<SpriteRenderer>();
         initialFlipX = sp.flipX;
-        if (!target) target = GameObject.FindWithTag("Player").transform;
-        if (target) lastDirection = (target.position - transform.position).normalized * speed;
+        if (!target) target = GameObject.Find("ChaseTarget");
+        if (target) lastDirection = (target.transform.position - transform.position).normalized;
         
     }
 
@@ -30,12 +30,15 @@ public class ChaseMovement : Movement, ISetUp
     
     private void FixedUpdate()
     {
-        if (!target) return;
-        Vector2 targetDirection = (target.position - transform.position).normalized;
-        Vector2 currentDirection = lastDirection;
-        float angle = Vector2.SignedAngle(currentDirection, targetDirection);
-        float rotateAngle = Mathf.Sign(angle) * Mathf.Min(angularSpeed * Time.fixedDeltaTime, Mathf.Abs(angle));
-        Vector2 newDirection = Util.GetVectorFromAngle(currentDirection.GetAngle() + rotateAngle);
+        Vector2 newDirection = lastDirection;
+        if (target.activeSelf)
+        {
+            Vector2 targetDirection = (target.transform.position - transform.position).normalized;
+            Vector2 currentDirection = lastDirection;
+            float angle = Vector2.SignedAngle(currentDirection, targetDirection);
+            float rotateAngle = Mathf.Sign(angle) * Mathf.Min(angularSpeed * Time.fixedDeltaTime, Mathf.Abs(angle));
+            newDirection = Util.GetVectorFromAngle(currentDirection.GetAngle() + rotateAngle);
+        }
         rb.velocity = newDirection * speed;
         sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
         lastDirection = newDirection;

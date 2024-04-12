@@ -63,9 +63,7 @@ public class Health : MonoBehaviour, ISetUp
         }
         if (damageCooldown > 0)
         {
-            invincible = true;
-            damageCooldownTask.Start();
-            sp.FlashSprite(Color.clear, damageCooldown);
+            StartCD();
         }
         return true;
     }
@@ -79,6 +77,13 @@ public class Health : MonoBehaviour, ISetUp
         }
     }
 
+    public void StartCD()
+    {
+        invincible = true;
+        damageCooldownTask.Start();
+        sp.FlashSprite(Color.clear, damageCooldown);
+    }
+    
     void ResetCD()
     {
         invincible = false;

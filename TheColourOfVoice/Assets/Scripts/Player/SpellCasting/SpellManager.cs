@@ -69,6 +69,11 @@ public class SpellManager : Singleton<SpellManager>
         StartChanting();
     }
 
+    private void OnDisable()
+    {
+        VoiceInputSystem.Instance.SetActive(false);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && CastState == CastState.ReleaseReady)
