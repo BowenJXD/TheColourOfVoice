@@ -11082,45 +11082,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: currentHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: recoil
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: spellName
-      value: fireball is coming
-      objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 4601661393226104139, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: disableCol
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4884521792146207828, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: LightsModule.light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 834556957}
-    - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: recoil
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: shootingInterval
-      value: 0.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11162,50 +11130,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 834556961}
-    - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: cooldown
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: spellName
-      value: let there be light
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3567984169735197036, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2000561936}
-    - targetCorrespondingSourceObject: {fileID: 3567984169735197036, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2000561935}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
 --- !u!4 &834556950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
   m_PrefabInstance: {fileID: 834556949}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &834556957 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2664940203796196856, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &834556961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461082845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &841037713
 GameObject:
   m_ObjectHideFlags: 0
@@ -17531,53 +17465,6 @@ MonoBehaviour:
   increaseSpeed: 0.1
   initialVolumeThreshold: 0.1
   maxSizeScale: 0.5
---- !u!1 &2000561930 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3567984169735197036, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2000561932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2018612730857222037, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000561930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2000561935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000561930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e05c54eae2486797cba5dc5c469e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light2D: {fileID: 2000561932}
-  duration: 2
-  intensity: 0
-  intervalCount: 4
---- !u!111 &2000561936
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000561930}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &2097381180
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,5 +56,6 @@ public class Level_demo : MonoBehaviour
 
         Debug.Log("Time's up!");
         Time.timeScale = 0;
+        LogUtil.Instance.LogCSV();
     }
 }

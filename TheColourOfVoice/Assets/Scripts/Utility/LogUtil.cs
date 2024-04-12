@@ -53,9 +53,8 @@ public class LogUtil : Singleton<LogUtil>
         });
     }
 
-    protected override void OnDestroy()
+    public void LogCSV()
     {
-        base.OnDestroy();
         foreach (var logs in CSVLogs)
         {
             string directory = Application.dataPath + $"/Logs/{logs.Key}/";

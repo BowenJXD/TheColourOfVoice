@@ -32,8 +32,9 @@ Transform:
   m_Children:
   - {fileID: 7018595417236645813}
   - {fileID: 8128506548571107834}
-  - {fileID: 8148822321831769645}
+  - {fileID: 9215086783419200255}
   - {fileID: 2979509877283439348}
+  - {fileID: 8148822321831769645}
   m_Father: {fileID: 7164204222964191310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7302184725533621400
@@ -203,7 +204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8393773426448386475, guid: 74c964a0f10c54746add55c26aa7a308, type: 3}
-  shootingInterval: 1
+  shootingInterval: 0.3
+  rb: {fileID: 2664940203796196856}
+  recoil: 0
 --- !u!1 &3316224132156739773
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  maxHealth: 10
+  currentHealth: 10
   defence: 0
   invincible: 0
   damageCooldown: 2
@@ -380,7 +383,7 @@ MonoBehaviour:
   invincible: 0
   disableMovement: 0
   disablePainter: 1
-  disableCol: 0
+  disableCol: 1
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
 --- !u!1 &3567984169735197036
 GameObject:
@@ -394,6 +397,8 @@ GameObject:
   - component: {fileID: 4884521792146207828}
   - component: {fileID: 925525683402632541}
   - component: {fileID: 2018612730857222037}
+  - component: {fileID: 3668466832805871949}
+  - component: {fileID: 8690883990815900638}
   m_Layer: 0
   m_Name: Effect
   m_TagString: Untagged
@@ -5263,6 +5268,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!111 &3668466832805871949
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567984169735197036}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &8690883990815900638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567984169735197036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e05c54eae2486797cba5dc5c469e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2D: {fileID: 2018612730857222037}
+  duration: 2
+  intensity: 0
+  intervalCount: 4
 --- !u!1 &3999737313832567729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5307,11 +5343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174dd7b90734429c8b337de1cce702c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellName: fire
+  spellName: fireball is coming
   cooldown: 6
   isInCD: 0
   needCasting: 1
-  recoil: 5
+  recoil: 8
   offset: 2
   animPrefab: {fileID: 8608156612741297312, guid: 670b708821a51234882c75f23d26908d, type: 3}
   bulletPrefab: {fileID: 8393773426448386475, guid: af686e234f96ab244b70c430e984adb5, type: 3}
@@ -5360,16 +5396,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f633f40f2584bf0936ca7309d47e638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellName: light
-  cooldown: 10
+  spellName: let there be light
+  cooldown: 16
   isInCD: 0
   needCasting: 0
   recoil: 0
   duration: 3
   moveMultiplier: 1.5
   movement: {fileID: 4113794111999803653}
+  health: {fileID: -4292824264658561850}
   painter: {fileID: 5866823119521272802}
   effect: {fileID: 0}
+--- !u!1 &5439287672127023772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9215086783419200255}
+  - component: {fileID: 3933090114248652506}
+  m_Layer: 0
+  m_Name: The Calming Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9215086783419200255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439287672127023772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7875169839693260514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3933090114248652506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439287672127023772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaba18b5e5c46d298b885f359770624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellName: calm down
+  cooldown: 0
+  isInCD: 0
+  needCasting: 1
+  recoil: 6
+  offset: 2
+  animPrefab: {fileID: 8608156612741297312, guid: dc7f4df2052fb43458f764060cc62de3, type: 3}
+  bulletPrefab: {fileID: 4166959021339073686, guid: 9be187fd4d4204449babb7e127f02b9d, type: 3}
 --- !u!1 &8959295292999557868
 GameObject:
   m_ObjectHideFlags: 0
