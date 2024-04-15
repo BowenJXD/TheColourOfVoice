@@ -11118,7 +11118,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: invincible
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: ani

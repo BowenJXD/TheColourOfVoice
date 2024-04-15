@@ -22,6 +22,7 @@ public class VolumeDetection : Singleton<VolumeDetection>
     /// 
     /// </summary>
     /// <param name="duration">In seconds</param>
+    /// <param name="decibel">Whether to return the volume in decibel scale</param>
     /// <returns></returns>
     public float GetPeakVolume(float duration, bool decibel = true)
     {
@@ -49,7 +50,10 @@ public class VolumeDetection : Singleton<VolumeDetection>
         
         if (decibel && peakVolume > 0 && decibelScale > 1)
         {
-            float decibelVolume = (decibelScale + Mathf.Log10(peakVolume + 1)) / decibelScale;
+            // db = 20 * log10(amp)
+            // db = (s + log(x)) / s
+            // 0.001f to avoid log(0) (undefined)
+            float decibelVolume = (decibelScale + Mathf.Log10(peakVolume + 0.001f)) / decibelScale;
             decibelVolume = Mathf.Clamp(decibelVolume, 0, 1);
             return decibelVolume;
         }
