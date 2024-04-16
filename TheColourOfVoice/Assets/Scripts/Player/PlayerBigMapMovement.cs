@@ -57,10 +57,10 @@ public class PlayerBigMapMovement : MonoBehaviour
 
     private void Movement()
     {
-        //rb.AddForce(inputMovement * speed);
-        rb.MovePosition(rb.position + inputMovement * speed * Time.fixedDeltaTime);
-        //ani.SetFloat("moveX", Mathf.Clamp(rb.velocity.x, -1, 1));
-        //ani.SetFloat("moveY", Mathf.Clamp(rb.velocity.y, -1, 1));
-        //ani.SetBool("isMoving", isMoving);
+        rb.AddForce(inputMovement * speed);
+        //rb.MovePosition(rb.position + inputMovement * speed * Time.fixedDeltaTime);
+        ani.SetFloat("moveX", Mathf.Clamp(rb.velocity.x, -1, 1));
+        ani.SetFloat("moveY", Mathf.Clamp(rb.velocity.y, -1, 1));
+        ani.SetBool("isMoving", isMoving);
     }
 }
