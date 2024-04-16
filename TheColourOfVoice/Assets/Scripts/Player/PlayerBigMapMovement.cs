@@ -14,12 +14,11 @@ public class PlayerBigMapMovement : MonoBehaviour
 
     private Vector2 inputMovement;
 
-    private Animator ani;
+    public Animator ani;
    
 
     private void Awake()
     {
-        ani = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         
     }
