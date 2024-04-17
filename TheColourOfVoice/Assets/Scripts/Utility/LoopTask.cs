@@ -16,7 +16,7 @@ public class LoopTask
     
     public bool isActive => sequence != null;
     
-    public bool isPlaying => sequence != null && sequence.IsPlaying();
+    public bool isPlaying = false;
     
     Sequence sequence;
 
@@ -27,7 +27,15 @@ public class LoopTask
         sequence.OnStepComplete(FinishLoop);
         sequence.OnComplete(() => finishAction?.Invoke());
         sequence.SetLoops(loop);
-        if (playImmediately) sequence.Play();
+        if (playImmediately)
+        {
+            sequence.Play();
+            isPlaying = true;
+        }
+        else
+        {
+            sequence.Pause();
+        }
     }
 
     public void Pause()
@@ -35,6 +43,7 @@ public class LoopTask
         if (sequence != null && sequence.IsPlaying())
         {
             sequence.Pause();
+            isPlaying = false;
         }
     }
 
@@ -43,6 +52,7 @@ public class LoopTask
         if (sequence != null && !sequence.IsPlaying())
         {
             sequence.Play();
+            isPlaying = true;
         }
     }
     
@@ -51,6 +61,8 @@ public class LoopTask
         if (sequence != null && sequence.IsPlaying())
         {
             sequence.Kill();
+            sequence = null;
+            isPlaying = false;
         }
     }
 

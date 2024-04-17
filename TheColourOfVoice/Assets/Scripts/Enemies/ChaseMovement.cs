@@ -11,11 +11,11 @@ public class ChaseMovement : Movement, ISetUp
     public float startRange = 1;
 
     /// <summary>
-    /// Reset on deinit
+    /// Never reset
     /// </summary>
     public Action OnEnterRange;
     /// <summary>
-    /// Reset on deinit
+    /// Never reset
     /// </summary>
     public Action OnExitRange;
     [ReadOnly] public bool isInRange;
@@ -89,7 +89,5 @@ public class ChaseMovement : Movement, ISetUp
     
     private void OnDisable()
     {
-        OnEnterRange = null;
-        OnExitRange = null;
     }
 }

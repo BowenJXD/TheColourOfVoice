@@ -76,7 +76,7 @@ public class SpellManager : Singleton<SpellManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && CastState == CastState.ReleaseReady)
+        if (Input.GetMouseButtonDown(0) && CastState == CastState.ReleaseReady)
         {
             Release();
         }

@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 1559659144169942989}
   - component: {fileID: -4890945634325155649}
   - component: {fileID: 7765916616282241307}
+  - component: {fileID: 4655306787641739624}
   m_Layer: 9
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -346,8 +347,8 @@ MonoBehaviour:
   speed: 1
   target: {fileID: 0}
   angularSpeed: 120
-  stopRange: 4
-  startRange: 6
+  stopRange: 7
+  startRange: 10
   isInRange: 0
 --- !u!114 &4385042102656340858
 MonoBehaviour:
@@ -484,8 +485,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1bb1b0e76545d4aa58802d68eff902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  shootInterval: 2
   bulletPrefab: {fileID: 8393773426448386475, guid: 8412edee0f4a4ad4eb12d2a94d39cc8e, type: 3}
   offset: 1
   spread: 2
-  recoil: 2
+  recoil: 0
+--- !u!114 &4655306787641739624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2139c18578834da7940ecc4cb51b5d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthDecay: 1
+  isRage: 0
+  multiplier: 8

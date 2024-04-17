@@ -40,9 +40,23 @@ public class FireBallSpell : Spell
         currentBullet.transform.localScale = currentAnim.transform.localScale;
         Vector3 direction = currentBullet.transform.position - transform.position;
         direction = direction.normalized;
+
+        if (currentBullet.TryGetComponent(out Attack attack))
+        {
+            attack.OnDamage += OnDamage;
+        }
+        
         currentBullet.Init();
         currentBullet.SetDirection(direction);
         
         currentAnim.Deinit();
+    }
+    
+    void OnDamage(Health health)
+    {
+        if (health.TryGetComponent(out RageBehaviour rage))
+        {
+            rage.Ignite();
+        }
     }
 }

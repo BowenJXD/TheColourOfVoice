@@ -23,6 +23,8 @@ public class ChaseShoot : MonoBehaviour, ISetUp
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
         chaseMovement = GetComponent<ChaseMovement>();
+        chaseMovement.OnEnterRange += StartShoot;
+        chaseMovement.OnExitRange += StopShoot;
         shootTask = new LoopTask
         {
             interval = shootInterval,
@@ -35,8 +37,6 @@ public class ChaseShoot : MonoBehaviour, ISetUp
     private void OnEnable()
     {
         if (!IsSet) SetUp();
-        chaseMovement.OnEnterRange += StartShoot;
-        chaseMovement.OnExitRange += StopShoot;
     }
 
     private void StartShoot()
@@ -65,4 +65,22 @@ public class ChaseShoot : MonoBehaviour, ISetUp
         shootTask.Pause();
     }
 
+    private void OnDisable()
+    {
+        shootTask.Pause();
+    }
+
+    public void SetInterval(float newInterval)
+    {
+        shootInterval = newInterval;
+        bool isPlaying = shootTask.isPlaying;
+        shootTask.Stop();
+        shootTask = new LoopTask
+        {
+            interval = shootInterval,
+            loopAction = Shoot,
+            loop = -1,
+        };
+        shootTask.Start(isPlaying);
+    }
 }

@@ -43,6 +43,28 @@ public class Health : MonoBehaviour, ISetUp
     }
 
     /// <summary>
+    /// Change the health directly (without damage nor healing)
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns>False if reaches 0 or the max.</returns>
+    public bool AlterHealth(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+            OnDeath = null;
+            return false;
+        }
+        else if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+            return false;
+        }
+        return true;
+    }
+    
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="damage"></param>
@@ -53,15 +75,9 @@ public class Health : MonoBehaviour, ISetUp
         if (invincible || damage <= 0) return false;
         
         if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
-        currentHealth -= damage;
+        bool isAlive = AlterHealth(-damage);
         TakeDamageAfter?.Invoke(damage);
-        if (currentHealth <= 0)
-        {
-            OnDeath?.Invoke();
-            OnDeath = null;
-            return true;
-        }
-        if (damageCooldown > 0)
+        if (isAlive && damageCooldown > 0)
         {
             StartCD();
         }
@@ -70,11 +86,7 @@ public class Health : MonoBehaviour, ISetUp
     
     public void TakeHealing(int healing)
     {
-        currentHealth += healing;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
+        AlterHealth(healing);
     }
 
     public void StartCD()

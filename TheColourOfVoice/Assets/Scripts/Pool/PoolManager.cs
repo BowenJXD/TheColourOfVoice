@@ -28,6 +28,7 @@ public class PoolRegistry
         Entity obj = pool.Get();
         if (poolList.Count < pool.TotalCount) poolList.Add(obj);
         activeList.Add(obj);
+        obj.onDeinit += () => Release(obj);
         OnGet?.Invoke(obj);
         return obj as T;
     }
@@ -35,7 +36,6 @@ public class PoolRegistry
     public void Release(Entity obj)
     {
         activeList.Remove(obj);
-        pool.Release(obj);
     }
 }
 
@@ -56,7 +56,10 @@ public class PoolManager : Singleton<PoolManager>
         {
             if (!parent)
             {
-                parent = new GameObject($"{prefab.name} Pool").transform;
+                parent = new GameObject($"{prefab.name} Pool")
+                {
+                    transform = { parent = transform }
+                }.transform;
             }
             poolDict.Add(prefab, new PoolRegistry(prefab, parent, capacity));
             if (pendingGetActions.ContainsKey(typeof(T)))
@@ -79,41 +82,41 @@ public class PoolManager : Singleton<PoolManager>
 
     #region Get
     
-    public void AddGetAction<T>(Action<T> action) where T : Entity
+    public void AddGetAction<T>(Action<Entity> action)
     {
         Type type = typeof(T);
         foreach (PoolRegistry registry in poolDict.Values)
         {
             if (registry.type == type)
             {
-                registry.OnGet += entity => action(entity as T);
+                registry.OnGet += action;
             }
         }
 
         if (!pendingGetActions.ContainsKey(type))
         {
-            pendingGetActions.Add(type, entity => action(entity as T));
+            pendingGetActions.Add(type, action);
         }
         else
         {
-            pendingGetActions[type] += entity => action(entity as T);
+            pendingGetActions[type] += action;
         }
     }
-    
-    public void RemoveGetAction<T>(Action<T> action) where T : Entity
+
+    public void RemoveGetAction<T>(Action<Entity> action)
     {
         Type type = typeof(T);
         foreach (PoolRegistry registry in poolDict.Values)
         {
             if (registry.type == type)
             {
-                registry.OnGet -= entity => action(entity as T);
+                registry.OnGet -= action;
             }
         }
         
         if (pendingGetActions.ContainsKey(type))
         {
-            pendingGetActions[type] -= entity => action(entity as T);
+            pendingGetActions[type] -= action;
         }
     }
 

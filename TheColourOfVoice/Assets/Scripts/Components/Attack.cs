@@ -66,13 +66,27 @@ public class Attack : MonoBehaviour, ISetUp
         }
     }
 
+    /// <summary>
+    /// Reset when deinit
+    /// </summary>
+    public Action<Health> OnDamage;
+    
     void Damage()
     {
         if (!target) return;
         if (!target.TakeDamage(damage)) return;
+        OnDamage?.Invoke(target);
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
         target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
     }
 
+    private void OnDisable()
+    {
+        if (resetCDOnExit)
+        {
+            loopTask.Stop();
+        }
+        OnDamage = null;
+    }
 }

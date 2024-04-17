@@ -17,6 +17,11 @@ public class MechanicLoader : Singleton<MechanicLoader>, ISetUp
         mechanic.Init();
     }
     
+    void Update()
+    {
+        mechanic.OnUpdate();
+    }
+    
     private void OnDisable()
     {
         mechanic.Deinit();

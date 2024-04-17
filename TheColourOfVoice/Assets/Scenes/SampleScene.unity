@@ -10264,7 +10264,7 @@ GameObject:
   - component: {fileID: 421179004}
   - component: {fileID: 421179005}
   - component: {fileID: 421179007}
-  - component: {fileID: 421179006}
+  - component: {fileID: 421179008}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -10318,20 +10318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advancedDialogueBox: {fileID: 1541513177}
   _choicePanel: {fileID: 1278402106}
---- !u!114 &421179006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421179002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b5be443f4945bc9056c7673e4b1c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerInterval: 5
-  force: 2
 --- !u!114 &421179007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10344,7 +10330,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mechanic: {fileID: 421179006}
+  mechanic: {fileID: 421179008}
+--- !u!114 &421179008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421179002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba64bf671694d868e09265f4c45af86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageValue: 0
+  rageLimit: 10
+  detectionInterval: 1
+  rageDecay: 2
+  isRageMode: 0
 --- !u!1 &461082845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
@@ -10640,6 +10643,64 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619394800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &678743131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678743133}
+  - component: {fileID: 678743132}
+  m_Layer: 0
+  m_Name: Test EnemyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &678743132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678743131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b3abd180f243acbbd892a2afd2699c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
+  - {fileID: 4184870022919412751, guid: 7d96b9b1c38c96846a34836150ee7bce, type: 3}
+  - {fileID: 4184870022919412751, guid: 53c8981e723d90b43baa2d3a66545109, type: 3}
+  taskConfigs:
+  - amounts: 010000000100000001000000
+    duration: 1
+  currentTaskIndex: 0
+  minDistance: 8
+  maxDistance: 10
+  distributionVariationInterval: 1
+  minDistribution: 60
+  maxDistributionVariation: 120
+  spawnTransform: {fileID: 834556950}
+--- !u!4 &678743133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678743131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -11515,7 +11576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: e0c6a7239bf2d004cab1e2d2c55d747b, type: 3}
   - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
   - {fileID: 4184870022919412751, guid: 7d96b9b1c38c96846a34836150ee7bce, type: 3}
   - {fileID: 4184870022919412751, guid: 53c8981e723d90b43baa2d3a66545109, type: 3}
@@ -17706,6 +17766,7 @@ SceneRoots:
   - {fileID: 2100734691}
   - {fileID: 554931747}
   - {fileID: 1240789705}
+  - {fileID: 678743133}
   - {fileID: 286612310}
   - {fileID: 1270552134}
   - {fileID: 421179003}
