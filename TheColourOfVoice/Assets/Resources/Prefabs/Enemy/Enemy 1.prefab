@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1238373738725142145}
   - component: {fileID: 1559659144169942989}
   - component: {fileID: -4890945634325155649}
+  - component: {fileID: 7765916616282241307}
   m_Layer: 9
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -343,9 +344,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  angularSpeed: 120
   target: {fileID: 0}
-  lastDirection: {x: 0, y: 0}
+  angularSpeed: 120
+  stopRange: 4
+  startRange: 6
+  isInRange: 0
 --- !u!114 &4385042102656340858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,3 +472,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7765916616282241307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1bb1b0e76545d4aa58802d68eff902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootInterval: 4
+  bulletPrefab: {fileID: 8393773426448386475, guid: 8412edee0f4a4ad4eb12d2a94d39cc8e, type: 3}
+  offset: 1
+  spread: 2
+  recoil: 2

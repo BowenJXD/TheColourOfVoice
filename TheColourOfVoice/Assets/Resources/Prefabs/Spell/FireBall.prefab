@@ -158,7 +158,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -249,3 +249,4 @@ MonoBehaviour:
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
   knockBack: 7
+  rb: {fileID: 0}

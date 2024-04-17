@@ -66,8 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eeeff7951943119e6a9cfcad24c6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
   sequence: {fileID: 0}
-  nextOnFinish: 1
   ease: 1
   duration: 0.1
   target: {fileID: 0}
@@ -84,8 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eeeff7951943119e6a9cfcad24c6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
   sequence: {fileID: 0}
-  nextOnFinish: 1
   ease: 1
   duration: 0.1
   target: {fileID: 0}
@@ -118,7 +120,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

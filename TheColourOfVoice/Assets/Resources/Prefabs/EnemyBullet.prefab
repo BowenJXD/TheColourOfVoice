@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3193460567996462691}
   - component: {fileID: -1438211202479607340}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,7 +104,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18315fc734577314eac1f47a6efe4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  duration: 0.1
+  speed: 5
+  duration: 10
   doPenetrate: 0
 --- !u!114 &3193460567996462691
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: 4
+  paintColor: 0
 --- !u!114 &-1438211202479607340
 MonoBehaviour:
   m_ObjectHideFlags: 0

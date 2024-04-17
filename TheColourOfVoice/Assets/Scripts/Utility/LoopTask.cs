@@ -20,14 +20,14 @@ public class LoopTask
     
     Sequence sequence;
 
-    public void Start()
+    public void Start(bool playImmediately = true)
     {
         sequence = DOTween.Sequence();
         sequence.AppendInterval(interval);
         sequence.OnStepComplete(FinishLoop);
         sequence.OnComplete(() => finishAction?.Invoke());
         sequence.SetLoops(loop);
-        sequence.Play();
+        if (playImmediately) sequence.Play();
     }
 
     public void Pause()
