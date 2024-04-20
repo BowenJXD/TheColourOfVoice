@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c8b6530379453aa2d897004839a987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
   sequence: {fileID: 0}
-  nextOnFinish: 0
   ease: 1
   duration: 0
   target: {fileID: 0}
@@ -146,8 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481123b4421849b58ef3565590f05481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
   sequence: {fileID: 0}
-  nextOnFinish: 1
   ease: 1
   duration: 0
   target: {fileID: 0}

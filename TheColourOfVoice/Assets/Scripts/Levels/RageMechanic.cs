@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RageMechanic : LevelMechanic
 {
@@ -11,12 +13,15 @@ public class RageMechanic : LevelMechanic
     public float rageDecay;
     [ReadOnly] public bool isRageMode;
     public GameObject rageEffect;
+    public float fadeTime = 0.5f;
+    Image[] rageEffectImages;
     
     LoopTask loopTask;
 
     public override void Init()
     {
         rageValue = 0;
+        rageEffectImages = rageEffect.GetComponentsInChildren<Image>(true);
         loopTask = new LoopTask{loopAction = IncreaseRage, interval = 1, loop = -1};
         loopTask.Start();
     }
@@ -61,6 +66,13 @@ public class RageMechanic : LevelMechanic
         PoolManager.Instance.AddGetAction<Enemy>(SetUpRage);
         
         rageEffect.SetActive(true);
+        foreach (var image in rageEffectImages)
+        {
+            float alpha = image.color.a;
+            image.color -= new Color(0, 0, 0, alpha);
+            image.DOFade(alpha, fadeTime).Play();
+        }
+        
         OnEnterRage?.Invoke();
     }
 
@@ -94,7 +106,16 @@ public class RageMechanic : LevelMechanic
         }
         PoolManager.Instance.RemoveGetAction<Enemy>(SetUpRage);
         
-        rageEffect.SetActive(false);
+        foreach (var image in rageEffectImages)
+        {
+            float alpha = image.color.a;
+            image.DOFade(0, fadeTime).OnComplete(() =>
+            {
+                image.color += new Color(0, 0, 0, alpha);
+                image.gameObject.SetActive(false);
+            }).Play();
+        }
+        
         OnExitRage?.Invoke();
     }
     

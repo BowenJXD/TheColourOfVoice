@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18315fc734577314eac1f47a6efe4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  duration: 10
+  speed: 3
+  duration: 2
   doPenetrate: 0
 --- !u!114 &3193460567996462691
 MonoBehaviour:
