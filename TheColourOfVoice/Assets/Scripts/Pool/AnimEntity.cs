@@ -19,9 +19,8 @@ public class AnimEntity : Entity
             sequence.Set(BBKey.DURATION, animDuration);
             sequence.onFinish += onFinish;
         }
-        base.Init();
-        
         originScale = transform.localScale;
+        base.Init();
     }
 
     public override void Deinit()

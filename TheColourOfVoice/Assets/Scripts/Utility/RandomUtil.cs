@@ -71,12 +71,27 @@ public static class RandomUtil
     public static int GetRandomWeightedIndex(this List<int> list)
     {
         int totalWeight = list.Sum();
+        if (totalWeight == 0)
+        {
+            Debug.LogWarning("The total weight is 0.");
+            return 0;
+        }
         int randomValue = rand.Next(totalWeight);
-
+        int result = 0;
+        
         for (int i = 0; i < list.Count; i++)
         {
             randomValue -= list[i];
             if (randomValue <= 0)
+            {
+                result = i;
+                break;
+            }
+        }
+        
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != 0)
             {
                 return i;
             }
