@@ -9,6 +9,7 @@ public class ChaseMovement : Movement, ISetUp
     public float angularSpeed = 120;
     public float stopRange = 1;
     public float startRange = 1;
+    public bool faceTarget = false;
 
     /// <summary>
     /// Never reset
@@ -45,18 +46,17 @@ public class ChaseMovement : Movement, ISetUp
     private void FixedUpdate()
     {
         Vector2 newDirection = lastDirection;
+        
         if (target && target.activeSelf)
         {
             float distance = Vector2.Distance(transform.position, target.transform.position);
             if (!isInRange && distance < stopRange)
             {
                 EnterRange();
-                return;
             }
             if (isInRange)
             {
                 if (distance > startRange) ExitRange();
-                else return;
             }
             
             Vector2 targetDirection = (target.transform.position - transform.position).normalized;
@@ -70,8 +70,16 @@ public class ChaseMovement : Movement, ISetUp
             ExitRange();
         }
         
-        rb.AddForce(newDirection * speed);
-        sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
+        if (faceTarget)
+        {
+            transform.up = newDirection;
+        }
+        else
+        {
+            sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
+        }
+        
+        if (!isInRange) rb.AddForce(newDirection * speed);
         lastDirection = newDirection;
     }
 

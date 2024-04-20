@@ -10345,9 +10345,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rageValue: 0
-  rageLimit: 1
+  rageLimit: 10
   detectionInterval: 1
-  rageDecay: 0.3
+  rageDecay: 2
   isRageMode: 0
   rageEffect: {fileID: 544027545}
   fadeTime: 1

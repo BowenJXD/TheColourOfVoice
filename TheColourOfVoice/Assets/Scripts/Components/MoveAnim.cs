@@ -43,7 +43,7 @@ public class MoveAnim : MonoBehaviour, ISetUp
 
         public void StartAnim()
         {
-            if (rotationSequence == null)
+            if (rotationSequence == null && rotationDelta != 0)
             {
                 rotationSequence = DOTween.Sequence();
                 rotationSequence.Kill();
@@ -62,7 +62,7 @@ public class MoveAnim : MonoBehaviour, ISetUp
                         rotationSequence.SetLoops(-1);
                     });
             }
-            if (scaleSequence == null)
+            if (scaleSequence == null && (scaleXDelta != 0 || scaleYDelta != 0))
             {
                 scaleSequence = DOTween.Sequence();
                 scaleSequence.Kill();
