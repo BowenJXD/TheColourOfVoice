@@ -9,6 +9,7 @@ public class CalmingLaserSpell : Spell
     public BulletBase bulletPrefab;
 
     AnimEntity currentAnim;
+    private Animator ani;
     
     BulletBase currentBullet;
     
@@ -26,6 +27,8 @@ public class CalmingLaserSpell : Spell
         currentAnim.transform.position = transform.position;
         currentAnim.transform.localPosition += new Vector3(offset, 0);
         currentAnim.onFinish += EndCasting;
+        ani = currentAnim.GetComponentInChildren<Animator>();
+        if (ani) ani.SetBool("Release", false);
         currentAnim.Init();
     }
 
@@ -41,6 +44,7 @@ public class CalmingLaserSpell : Spell
         currentBullet.Init();
         currentBullet.SetDirection(direction);
         
-        currentAnim.Deinit();
+        if (ani) ani.SetBool("Release", true);
+        new LoopTask{interval = 1, finishAction = currentAnim.Deinit}.Start();
     }
 }

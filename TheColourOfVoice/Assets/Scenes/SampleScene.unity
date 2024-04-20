@@ -10667,7 +10667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10681,11 +10681,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
-  - {fileID: 4184870022919412751, guid: 7d96b9b1c38c96846a34836150ee7bce, type: 3}
+  - {fileID: 4184870022919412751, guid: 65f07f8263c1a22419b9584bd00944d1, type: 3}
   - {fileID: 4184870022919412751, guid: 53c8981e723d90b43baa2d3a66545109, type: 3}
+  - {fileID: 4184870022919412751, guid: 590447d135e704741849150a64cf2821, type: 3}
   taskConfigs:
-  - amounts: 010000000100000001000000
+  - amounts: 020000000200000002000000
     duration: 1
   currentTaskIndex: 0
   minDistance: 8
@@ -11562,7 +11562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1240789704
 MonoBehaviour:
   m_ObjectHideFlags: 0
