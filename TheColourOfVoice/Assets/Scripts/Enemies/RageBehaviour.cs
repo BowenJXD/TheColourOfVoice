@@ -10,14 +10,20 @@ public class RageBehaviour : MonoBehaviour, ISetUp
     [Tooltip("Per second")]
     public float healthDecay;
     [ReadOnly] public bool isRage;
-
+    
     private Health health;
+    private SpriteRenderer sp;
+    private Animator ani;
+    Sprite defaultSprite;
     
     public bool IsSet { get; set; }
     public virtual void SetUp()
     {
         IsSet = true;
         health = GetComponent<Health>();
+        sp = GetComponentInChildren<SpriteRenderer>();
+        ani = GetComponent<Animator>();
+        ani.enabled = isRage;
     }
     
     private void OnEnable()
@@ -31,8 +37,14 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         isRage = true;
         StartRage();
     }
-    
-    protected virtual void StartRage () { }
+
+    protected virtual void StartRage()
+    {
+        if (ani)
+        {
+            ani.enabled = true;
+        }
+    }
 
     private void Update()
     {
@@ -49,5 +61,12 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         FinishRage();
     }
 
-    protected virtual void FinishRage() { }
+    protected virtual void FinishRage()
+    {
+        if (sp && ani)
+        {
+            ani.enabled = false;
+            sp.sprite = defaultSprite;
+        }
+    }
 }

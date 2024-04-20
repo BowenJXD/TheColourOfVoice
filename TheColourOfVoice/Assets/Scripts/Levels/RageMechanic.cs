@@ -9,7 +9,8 @@ public class RageMechanic : LevelMechanic
     public float rageLimit;
     public float detectionInterval = 1;
     public float rageDecay;
-    [ReadOnly] public bool isRageMode; 
+    [ReadOnly] public bool isRageMode;
+    public GameObject rageEffect;
     
     LoopTask loopTask;
 
@@ -59,6 +60,7 @@ public class RageMechanic : LevelMechanic
         }
         PoolManager.Instance.AddGetAction<Enemy>(SetUpRage);
         
+        rageEffect.SetActive(true);
         OnEnterRage?.Invoke();
     }
 
@@ -92,6 +94,7 @@ public class RageMechanic : LevelMechanic
         }
         PoolManager.Instance.RemoveGetAction<Enemy>(SetUpRage);
         
+        rageEffect.SetActive(false);
         OnExitRage?.Invoke();
     }
     
