@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1559659144169942989}
   - component: {fileID: -4890945634325155649}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: L1-Doughnut
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

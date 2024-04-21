@@ -46,13 +46,7 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp, IExecutor
         Deinit();
     }
 
-    protected virtual void Init()
-    {
-        
-    }
+    protected virtual void Init() { }
 
-    protected virtual void Deinit()
-    {
-        
-    }
+    protected virtual void Deinit() { }
 }
