@@ -17,7 +17,7 @@ public class NimblePenSpell : Spell
         base.SetUp();
         if (!painter) painter = GetComponent<Painter>();
         if (!effect) effect = GetComponentInChildren<LightAnim>(true);
-        loopTask = new LoopTask { interval = duration, loop = 1, loopAction = EndBuff };
+        loopTask = new LoopTask { interval = duration, finishAction = EndBuff };
     }
 
     public override void Execute()
