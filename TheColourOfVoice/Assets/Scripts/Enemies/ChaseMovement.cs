@@ -9,7 +9,14 @@ public class ChaseMovement : Movement, ISetUp
     public float angularSpeed = 120;
     public float stopRange = 1;
     public float startRange = 1;
-    public bool faceTarget = false;
+
+    public enum FaceMode
+    {
+        None,
+        Flip,
+        Rotate
+    }
+    public FaceMode faceTarget = FaceMode.Flip;
 
     /// <summary>
     /// Never reset
@@ -70,16 +77,21 @@ public class ChaseMovement : Movement, ISetUp
             ExitRange();
         }
         
-        if (faceTarget)
+        switch (faceTarget)
         {
-            transform.up = newDirection;
-        }
-        else
-        {
-            sp.flipX = initialFlipX ? rb.velocity.x > 0 : rb.velocity.x < 0;
+            case FaceMode.Flip:
+                sp.flipX = initialFlipX ? newDirection.x > 0 : newDirection.x < 0;
+                break;
+            case FaceMode.Rotate:
+                transform.up = newDirection;
+                break;
         }
         
-        if (!isInRange) rb.AddForce(newDirection * speed);
+        if (!isInRange)
+        {
+            rb.AddForce(newDirection * speed);
+            OnMove?.Invoke(newDirection);
+        }
         lastDirection = newDirection;
     }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Attack system for game objects, will deal damage to <see cref="Health"/> component when colliding
@@ -74,8 +76,8 @@ public class Attack : MonoBehaviour, ISetUp
     void Damage()
     {
         if (!target) return;
-        if (!target.TakeDamage(damage)) return;
         OnDamage?.Invoke(target);
+        if (!target.TakeDamage(damage)) return;
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
         target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);

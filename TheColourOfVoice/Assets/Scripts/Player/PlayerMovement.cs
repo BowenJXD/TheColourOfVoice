@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,15 @@ public class PlayerMovement : Movement
     private Rigidbody2D rb;
     private float inputX;
     private float inputY;
-    public bool isMoving;
 
     public bool inDialogueArea = false;
 
     private Vector2 inputMovement;
 
-    private Animator ani;
     public Transform rotatingTransform;
 
     private void Awake()
     {
-        ani = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         if (!rotatingTransform) rotatingTransform = transform.GetChild(1);
     }
@@ -57,16 +55,15 @@ public class PlayerMovement : Movement
         // }
 
         inputMovement = new Vector2(inputX, inputY);
-
-        isMoving = inputMovement != Vector2.zero;
     }
-
+    
     private void Movement()
     {
         rb.AddForce(inputMovement * speed);
-        ani.SetFloat("moveX", Mathf.Clamp(rb.velocity.x, -1, 1));
-        ani.SetFloat("moveY", Mathf.Clamp(rb.velocity.y, -1, 1));
-        ani.SetBool("isMoving", isMoving);
+        Vector2 moveParam = inputMovement == Vector2.zero
+            ? Vector2.zero
+            : new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1), Mathf.Clamp(rb.velocity.y, -1, 1));
+        OnMove?.Invoke(moveParam);
     }
 
 }
