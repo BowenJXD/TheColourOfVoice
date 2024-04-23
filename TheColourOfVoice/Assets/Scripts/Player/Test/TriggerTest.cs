@@ -19,4 +19,6 @@ public class TriggerTest : MonoBehaviour
             collision.gameObject.GetComponent<DialogueTest>().isInDialogueArea = false;
         }
     }
+
+
 }

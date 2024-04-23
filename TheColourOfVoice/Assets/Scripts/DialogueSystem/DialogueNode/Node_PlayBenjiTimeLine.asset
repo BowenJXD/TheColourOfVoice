@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dfb130e3f1de4478b3b98431c9b443, type: 3}
-  m_Name: Executor_LevelTrigger_True
+  m_Script: {fileID: 11500000, guid: 9613013814698cc448d681a47919adee, type: 3}
+  m_Name: Node_PlayBenjiTimeLine
   m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 11400000, guid: 62fec291b6b477b418763f927513c31b, type: 2}
+  state: 0
+  trigger_Type: 0

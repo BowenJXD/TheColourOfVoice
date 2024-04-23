@@ -133,10 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 88466850}
   - component: {fileID: 88466851}
-  - component: {fileID: 88466853}
   - component: {fileID: 88466852}
+  - component: {fileID: 88466854}
   m_Layer: 0
-  m_Name: Trigger_Level1 (5)
+  m_Name: Trigger_Level_Benj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7556725, y: 1.71789}
   m_EdgeRadius: 0
---- !u!114 &88466853
+--- !u!114 &88466854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,9 +267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 88466849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1470e8ffa98be41922c29e2a972432, type: 3}
+  m_Script: {fileID: 11500000, guid: a4eea8f50c5e35347bf82b876ffa575e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testSequenceEventExecutor: {fileID: 11400000, guid: c1ca91ef545273c448344fbb6a955d45, type: 2}
+  isInDialogueArea: 0
 --- !u!1 &106350739
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &106350740
 Transform:
   m_ObjectHideFlags: 0
@@ -417,7 +419,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -448,6 +450,7 @@ GameObject:
   - component: {fileID: 245404509}
   - component: {fileID: 245404508}
   - component: {fileID: 245404511}
+  - component: {fileID: 245404512}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -563,6 +566,50 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &245404512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245404507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1001 &252638080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,7 +1739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f8e8dcdda2556438c14e723da93c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  benj_timeline: {fileID: 11400000, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
   benj_preSequence: {fileID: 11400000, guid: 385fd07aede9cda449f0b2c6c7b3b898, type: 2}
+  playableDirector: {fileID: 236439213}
 --- !u!1 &1274294568
 GameObject:
   m_ObjectHideFlags: 0

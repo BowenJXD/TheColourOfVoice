@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,30 +7,35 @@ using UnityEngine.Timeline;
 
 public class LevelTrigger : MonoBehaviour
 {
-    public PlayableDirector playableDirector;
-    public PlayableAsset playableAsset;
+    public SequenceEventExecutor testSequenceEventExecutor;
     [SerializeField] private bool isInDialogueArea = false;
+    bool isDialogueInit = false;
+
     void Start()
     {
         
     }
-
+   
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && isInDialogueArea) 
+        if (Input.GetKeyDown(KeyCode.F) && isInDialogueArea)
         {
-            playTimeline();
+            if (!isDialogueInit)
+            {
+                Debug.Log("Show dialogue");
+                isDialogueInit = true;
+                if (testSequenceEventExecutor)
+                {
+                    testSequenceEventExecutor.Init(OnFinishedEvent);
+                }
+
+                testSequenceEventExecutor.Excute();
+            }
+
         }
     }
-    public void playTimeline() 
-    {
-        if (playableAsset == null) return;
-        if (playableDirector == null) return;
 
-        playableDirector.playableAsset = this.playableAsset;
-        playableDirector.Play();
-    }
-
+  
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") 
@@ -44,5 +50,10 @@ public class LevelTrigger : MonoBehaviour
         {
             isInDialogueArea = false;
         }
+    }
+
+    void OnFinishedEvent(bool success)
+    {
+        Debug.Log(success);
     }
 }
