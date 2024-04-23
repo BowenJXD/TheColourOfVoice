@@ -433,7 +433,7 @@ PlayableDirector:
   - key: {fileID: -8641108185302820322, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
     value: {fileID: 2130148263}
   - key: {fileID: 340490816093383435, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1112782008}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &245404507
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: efe379bef987ecd468e89b94dd091b03, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:

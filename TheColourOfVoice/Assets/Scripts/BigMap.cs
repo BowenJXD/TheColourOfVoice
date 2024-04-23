@@ -6,6 +6,11 @@ public class BigMap : MonoBehaviour
 {
     [Header("Dialogue for Benj")]
     public SequenceEventExecutor benj_preSequence;
+
+    private void Start()
+    {
+        
+    }
     public void StartDialogueSequence(SequenceEventExecutor sequenceEventExecutor) 
     {
         Debug.Log("Start Benji Dialogue");

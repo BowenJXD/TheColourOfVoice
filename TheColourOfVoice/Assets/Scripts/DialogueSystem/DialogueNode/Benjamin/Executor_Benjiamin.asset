@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dfb130e3f1de4478b3b98431c9b443, type: 3}
   m_Name: Executor_Benjiamin
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - {fileID: 11400000, guid: 4f15ff5b74d866a46980b139b6be4b56, type: 2}
+  - {fileID: 11400000, guid: a49e2004bf59dba4fb601855c2eac26a, type: 2}

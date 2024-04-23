@@ -6,23 +6,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Executor_", menuName = "Event/Sequence Excutor")]
 public class SequenceEventExecutor : ScriptableObject
 {
-    public Action<bool> OnFinished; //bool²ÎÊý´ú±íÖ´ÐÐÆ÷Ö´ÐÐÊÇ·ñ³É¹¦
+    public Action<bool> OnFinished; //boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 
-    private int _index; //Ö´ÐÐµ½µÚ¼¸¸ö½Úµã
+    private int _index; //Ö´ï¿½Ðµï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½Úµï¿½
     public EventNodeBase[] nodes;
     public void Init(Action<bool> onFinishEvent) 
     {
         _index = 0;
         foreach (EventNodeBase item in nodes) 
         {
-            item.Init(OnNodeFinished); //½ÚµãµÄ»Øµ÷º¯ÊýºÍInitº¯Êý
+            item.Init(OnNodeFinished); //ï¿½Úµï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Initï¿½ï¿½ï¿½ï¿½
         }
 
-        OnFinished = onFinishEvent; //Ö´ÐÐÆ÷µÄ»Øµ÷º¯Êý
+        OnFinished = onFinishEvent; //Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     /// <summary>
-    /// ÅÐ¶ÏÒ»¸ö½ÚµãÊÇ·ñ³É¹¦Íê³É£¬Èç¹ûÍê³ÉÔòµ÷ÓÃÕâ¸ö»Øµ÷º¯Êý
+    /// ï¿½Ð¶ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="bIsNodeSuccess"></param>
     private void OnNodeFinished(bool bIsNodeSuccess) 
