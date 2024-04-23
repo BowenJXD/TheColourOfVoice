@@ -6,8 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ½Å±¾¹ÒÔØÔÚ¶Ô»°¿òÉÏ
-/// Õâ¸ö½Å±¾µÄ×÷ÓÃÊÇ½ÓÊÕÎÄ×ÖÈ»ºóÏÔÊ¾ÔÚ¶Ô»°¿òÉÏ
+/// ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½
+/// ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ú¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class AdvancedDialogueBox : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class AdvancedDialogueBox : MonoBehaviour
 
     private bool CanQuickShow => _canQuickShow && !_printFinished;
     private bool CanNext => _printFinished;
-    public Action<bool> OnNext; //bool ²ÎÊý±íÊ¾ÏÂÒ»¾ä»°ÊÇ·ñÇ¿ÖÆÖ±½ÓÏÔÊ¾
+    public Action<bool> OnNext; //bool ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ò»ï¿½ä»°ï¿½Ç·ï¿½Ç¿ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ê¾
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class AdvancedDialogueBox : MonoBehaviour
     }
 
     /// <summary>
-    /// °ó¶¨¸øOnfinished event
+    /// ï¿½ó¶¨¸ï¿½Onfinished event
     /// </summary>
     private void PrintFinished() 
     {
@@ -64,13 +64,13 @@ public class AdvancedDialogueBox : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ÓÊÕÍæ¼ÒÊäÈë
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     private void UpdateInput() 
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            //1.Íê³ÉÕâ¾ä»°µÄÊäÈë
+            //1.ï¿½ï¿½ï¿½ï¿½ï¿½ä»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (CanQuickShow)
             {
                 _content.QuickShowRemainingText();
@@ -101,13 +101,13 @@ public class AdvancedDialogueBox : MonoBehaviour
     }
 
     /// <summary>
-    /// ´ò¿ª¶Ô»°¿ò
+    /// ï¿½ò¿ª¶Ô»ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="nextEvent">»Øµ÷ÊÂ¼þ£¬°ó¶¨¶Ô»°¿òÏÔÊ¾Ö®ºó¸ÉÊ²Ã´</param>
-    /// <param name="boxStyle">¶Ô»°¿ò±³¾°µÄspriteÊ¹ÓÃÄÄÒ»¸ö£¬¿ÉÒÔ´æÈë¶à¸öÈ»ºóÑ¡ÓÃ</param>
+    /// <param name="nextEvent">ï¿½Øµï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ó¶¨¶Ô»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ö®ï¿½ï¿½ï¿½Ê²Ã´</param>
+    /// <param name="boxStyle">ï¿½Ô»ï¿½ï¿½ò±³¾ï¿½ï¿½ï¿½spriteÊ¹ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½Ñ¡ï¿½ï¿½</param>
     public void Open(Action<bool> nextEvent, int boxStyle = 0) 
     {
-        OnNext = nextEvent; //»Øµ÷
+        OnNext = nextEvent; //ï¿½Øµï¿½
         _background.sprite = _backgroundStyles[boxStyle];
         
 
@@ -125,11 +125,12 @@ public class AdvancedDialogueBox : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ø±Õ¶Ô»°¿ò
+    /// ï¿½Ø±Õ¶Ô»ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="onClosed">»Øµ÷º¯Êý</param>
+    /// <param name="onClosed">ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½</param>
     public void Close(Action onClosed) 
     {
+        gameObject.SetActive(false);
         _widget.Fade(0, 0.2f, () => 
         {
             onClosed?.Invoke();
@@ -137,13 +138,13 @@ public class AdvancedDialogueBox : MonoBehaviour
     }
 
     /// <summary>
-    /// ¿ªÊ¼Êä³ö¶Ô»°ÄÚÈÝ
+    /// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="content">¶Ô»°µÄÄÚÈÝ</param>
-    /// <param name="speaker">¶Ô»°ÈËµÄÐÕÃû</param>
-    /// <param name="needTyping">ÊÇ·ñÐèÒªÖð×Ö´ò³ö£¬Èç¹ûÎª·ñµÄ»°¾Í½¥±ä³öÏÖ</param>
-    /// <param name="autoNext">ÊÇ·ñÐèÒª×Ô¶¯ÏÂÒ»¾ä»°</param>
-    /// <param name="canQuickShow">ÊÇ·ñ¿ÉÒÔÔÚ¶Ô»°Öð×Ö´òÓ¡µÄÊ±ºòÊ¹ÓÃesc¿ìËÙÏÔÊ¾Ê£Óà²¿·Ö</param>
+    /// <param name="content">ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="speaker">ï¿½Ô»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="needTyping">ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ä»ï¿½ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="autoNext">ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½Ô¶ï¿½ï¿½ï¿½Ò»ï¿½ä»°</param>
+    /// <param name="canQuickShow">ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶Ô»ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ó¡ï¿½ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½escï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ê£ï¿½à²¿ï¿½ï¿½</param>
     /// <returns></returns>
     public IEnumerator PrintDialogue(string content, string speaker, bool needTyping = true,
         bool autoNext = false, bool canQuickShow = true) 

@@ -20,6 +20,7 @@ public class EN_PlayPreLevelTImeLine : EventNodeBase
     {
         base.Execute();
         Debug.Log("Trigger_Type:Benj");
+        GameObject.Find("LevelTriggers").SetActive(false);
         DialogueManager.CloseDialogueBox();
         BigMap.Instance.playTimeline(trigger_Type);
         

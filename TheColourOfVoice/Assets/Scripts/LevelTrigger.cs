@@ -31,7 +31,7 @@ public class LevelTrigger : MonoBehaviour
 
                 testSequenceEventExecutor.Excute();
             }
-
+            //BigMap.Instance.playTimeline(Trigger_Type.Trigger_Benj);
         }
     }
 

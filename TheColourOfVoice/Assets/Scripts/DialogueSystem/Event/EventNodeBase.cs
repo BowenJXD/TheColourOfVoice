@@ -5,14 +5,14 @@ using UnityEngine;
 
 public enum NodeState 
 {
-    Waiting, //´ý»ú
-    Excuting, //Ö´ÐÐÖÐ
-    Finished //Íê³É
+    Waiting, //ï¿½ï¿½ï¿½ï¿½
+    Excuting, //Ö´ï¿½ï¿½ï¿½ï¿½
+    Finished //ï¿½ï¿½ï¿½
 }
 
 public class EventNodeBase : ScriptableObject
 {
-    protected Action<bool> Onfinished; //»Øµ÷£¬bool´ú±íÕâ¸ö½ÚµãÊÇ·ñÒÑ¾­Íê³É
+    protected Action<bool> Onfinished; //ï¿½Øµï¿½ï¿½ï¿½boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½
     [HideInInspector] public NodeState state;
     public virtual void Init(Action<bool> onFinishedEvent) 
     {

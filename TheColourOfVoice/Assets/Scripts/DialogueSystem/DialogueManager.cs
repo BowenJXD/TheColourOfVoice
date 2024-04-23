@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager: Singleton<DialogueManager>
 {
-    [Header("对话系统")]
+    [Header("锟皆伙拷系统")]
     [SerializeField]
     private AdvancedDialogueBox advancedDialogueBox;
     private Selectable _currentSelectable;
