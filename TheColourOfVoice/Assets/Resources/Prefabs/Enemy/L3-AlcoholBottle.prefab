@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7765916616282241307}
   - component: {fileID: 4655306787641739624}
   - component: {fileID: 4271041332400585980}
+  - component: {fileID: -3360592862011363990}
   m_Layer: 9
   m_Name: L3-AlcoholBottle
   m_TagString: Enemy
@@ -506,3 +507,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3360592862011363990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  resistingBuffs: []

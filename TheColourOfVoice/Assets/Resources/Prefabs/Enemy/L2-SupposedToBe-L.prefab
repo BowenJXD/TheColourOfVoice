@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 160077595834419196}
   - component: {fileID: 8987763020753853413}
   - component: {fileID: -7987274157233409977}
+  - component: {fileID: 7291733817417033763}
   m_Layer: 9
   m_Name: L2-SupposedToBe-L
   m_TagString: Enemy
@@ -364,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 100
   currentHealth: 12
   defence: 0
   invincible: 0
@@ -519,3 +520,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad0a12ce77461495ccf0ecf99a1392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7291733817417033763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resistingBuffs: []

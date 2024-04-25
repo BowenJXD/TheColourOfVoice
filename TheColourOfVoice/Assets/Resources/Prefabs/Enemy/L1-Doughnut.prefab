@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 1238373738725142145}
   - component: {fileID: 1559659144169942989}
   - component: {fileID: -4890945634325155649}
+  - component: {fileID: 5329604113281727092}
   m_Layer: 9
   m_Name: L1-Doughnut
   m_TagString: Enemy
@@ -327,6 +328,7 @@ MonoBehaviour:
   angularSpeed: 120
   stopRange: 1
   startRange: 1
+  faceTarget: 1
   isInRange: 0
 --- !u!114 &4385042102656340858
 MonoBehaviour:
@@ -451,3 +453,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5329604113281727092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  resistingBuffs: []

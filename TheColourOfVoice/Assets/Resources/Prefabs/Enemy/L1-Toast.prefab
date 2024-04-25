@@ -118,8 +118,9 @@ GameObject:
   - component: {fileID: 1559659144169942989}
   - component: {fileID: -4890945634325155649}
   - component: {fileID: 7765916616282241307}
+  - component: {fileID: -5794457238514501195}
   m_Layer: 9
-  m_Name: Enemy 1
+  m_Name: L1-Toast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,6 +349,7 @@ MonoBehaviour:
   angularSpeed: 120
   stopRange: 7
   startRange: 10
+  faceTarget: 1
   isInRange: 0
 --- !u!114 &4385042102656340858
 MonoBehaviour:
@@ -489,3 +491,17 @@ MonoBehaviour:
   offset: 1
   spread: 2
   recoil: 0
+--- !u!114 &-5794457238514501195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  resistingBuffs: []
