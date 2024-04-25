@@ -44,6 +44,11 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         {
             ani.enabled = true;
         }
+
+        if (sp)
+        {
+            defaultSprite = sp.sprite;
+        }
     }
 
     private void Update()

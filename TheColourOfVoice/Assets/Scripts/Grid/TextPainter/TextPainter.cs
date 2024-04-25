@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class TextPainter : Singleton<TextPainter>
         PaintText(text, center, color, interval);
     }
     
-    public void PaintText(string text, Vector2Int center, PaintColor inputColor, float interval)
+    public void PaintText(string text, Vector2Int center, PaintColor inputColor, float interval, Action<SplashTile> callback = null)
     {
         if (paintingSequences.ContainsKey(text))
         {
@@ -47,7 +48,7 @@ public class TextPainter : Singleton<TextPainter>
             var i1 = i;
             sequence.AppendCallback(() =>
             {
-                PaintChar(text[i1], charCenter, color);
+                PaintChar(text[i1], charCenter, color, callback);
                 color = inputColor == PaintColor.Rainbow ? PaintColorExtension.NextRainbow() : inputColor;
             });
             sequence.AppendInterval(interval);
@@ -67,7 +68,7 @@ public class TextPainter : Singleton<TextPainter>
         }
     }
 
-    void PaintChar(char character, Vector2Int start, PaintColor color)
+    void PaintChar(char character, Vector2Int start, PaintColor color, Action<SplashTile> callback = null)
     {
         var pattern = TextToTile.Instance.GetPattern(character);
         if (!grid) grid = SplashGrid.Instance;
@@ -76,6 +77,7 @@ public class TextPainter : Singleton<TextPainter>
             if (grid.TryGetTile(start + index, out SplashTile tile))
             {
                 tile.PaintTile(color);
+                callback?.Invoke(tile);
             }
         }
     }

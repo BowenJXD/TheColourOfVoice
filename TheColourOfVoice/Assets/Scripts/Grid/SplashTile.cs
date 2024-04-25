@@ -83,7 +83,19 @@ public class SplashTile : MonoBehaviour
     {
         transform.position = location;
     }
+    
+    /// <summary>
+    /// Reset after trigger
+    /// </summary>
+    public Action<Painter> OnPainted;
 
+    public void PaintTile(Painter painter)
+    {
+        PaintTile(painter.paintColor);
+        OnPainted?.Invoke(painter);
+        OnPainted = null;
+    }
+    
     public void PaintTile(PaintColor color)
     {
         if (!IsPainted && color != PaintColor.Null)

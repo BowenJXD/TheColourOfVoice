@@ -19,7 +19,7 @@ public class Painter : MonoBehaviour
         {
             if (!cellIndexes.Contains(tile.CellIndex))
             {
-                tile.PaintTile(paintColor);
+                tile.PaintTile(this);
                 cellIndexes.Add(tile.CellIndex);
             }
         }

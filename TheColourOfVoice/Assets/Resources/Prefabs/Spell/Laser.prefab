@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5346364098940725260}
   - component: {fileID: 428919741961892516}
   m_Layer: 8
-  m_Name: Buff
+  m_Name: FreezeBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e839ed0d3f4d01ae583e2b2c0b5f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 6
+  duration: 1
   isStackable: 0
   multiplier: 0.00001
 --- !u!1 &5410537372036957664
