@@ -17,7 +17,7 @@ public class BuffOwner : MonoBehaviour
         if (!buffs.ContainsKey(buffName))
         {
             Buff buff = buffPrefab.buffPool.Get();
-            buff.transform.SetParent(transform);
+            buff.transform.SetParent(transform, false);
             buff.buffPool = buffPrefab.buffPool;
             buff.name = buffName;
             buffs.Add(buffName, buff);

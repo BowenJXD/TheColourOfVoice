@@ -77,7 +77,7 @@ public class Attack : MonoBehaviour, ISetUp
     {
         if (!target) return;
         OnDamage?.Invoke(target);
-        if (!target.TakeDamage(damage)) return;
+        if (!target || !target.TakeDamage(damage)) return;
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
         target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);

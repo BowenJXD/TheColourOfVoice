@@ -18,7 +18,7 @@ public class Buff : MonoBehaviour, ISetUp
         Init();
     }
 
-    public void Init()
+    public virtual void Init()
     {
         if (buffPool == null) buffPool = new ObjectPool<Buff>(() => Instantiate(this), buff => buff.gameObject.SetActive(true),
             buff => buff.gameObject.SetActive(false), buff => Destroy(buff.gameObject));
