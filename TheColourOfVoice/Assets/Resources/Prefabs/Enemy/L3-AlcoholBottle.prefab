@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2155c028445f4d188b5a2bf19c3de079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   target: {fileID: 0}
   angularSpeed: 120
   stopRange: 7
@@ -466,11 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1bb1b0e76545d4aa58802d68eff902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  shootInterval: 2
   bulletPrefab: {fileID: 8393773426448386475, guid: 8412edee0f4a4ad4eb12d2a94d39cc8e, type: 3}
   offset: 1
   spread: 2
-  recoil: 4
+  recoil: 2
 --- !u!114 &4655306787641739624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,5 +519,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
   resistingBuffs: []

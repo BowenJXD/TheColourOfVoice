@@ -10830,7 +10830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11335,9 +11335,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: cooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: cooldown
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113794111999803653, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: shootingInterval
@@ -11382,6 +11398,10 @@ PrefabInstance:
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: cooldown
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17785,18 +17805,12 @@ MonoBehaviour:
   - {fileID: 4184870022919412751, guid: 776cb4f48ac9cb247aac45f884f236e0, type: 3}
   - {fileID: 4184870022919412751, guid: dfc7a2fd34cde154f83f7e084d7b4874, type: 3}
   taskConfigs:
-  - amounts: 0500000002000000
-    duration: 30
-  - amounts: 
-    duration: 30
-  - amounts: 0600000002000000
-    duration: 30
-  - amounts: 
-    duration: 30
-  - amounts: 0600000003000000
-    duration: 30
-  - amounts: 
-    duration: 30
+  - amounts: 0a00000000000000
+    duration: 60
+  - amounts: 0800000003000000
+    duration: 60
+  - amounts: 0a00000005000000
+    duration: 40
   currentTaskIndex: 0
   minDistance: 20
   maxDistance: 25
@@ -17998,7 +18012,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: thank you
   cooldown: 1
-  isInCD: 0
   needCasting: 0
   recoil: 0
   paintColor: 5

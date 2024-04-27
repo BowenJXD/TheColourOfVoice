@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2155c028445f4d188b5a2bf19c3de079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   target: {fileID: 0}
   angularSpeed: 120
   stopRange: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDecay: 1
   isRage: 0
-  multiplier: 2
+  multiplier: 3
 --- !u!95 &-6859413502835512728
 Animator:
   serializedVersion: 5
@@ -481,5 +481,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
   resistingBuffs: []
