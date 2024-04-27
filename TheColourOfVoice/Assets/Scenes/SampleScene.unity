@@ -10830,7 +10830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17788,7 +17788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1941293287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17805,12 +17805,12 @@ MonoBehaviour:
   - {fileID: 4184870022919412751, guid: 776cb4f48ac9cb247aac45f884f236e0, type: 3}
   - {fileID: 4184870022919412751, guid: dfc7a2fd34cde154f83f7e084d7b4874, type: 3}
   taskConfigs:
-  - amounts: 0a00000005000000
-    duration: 40
   - amounts: 0a00000000000000
     duration: 60
   - amounts: 0800000003000000
     duration: 60
+  - amounts: 0a00000005000000
+    duration: 40
   currentTaskIndex: 0
   minDistance: 20
   maxDistance: 25
