@@ -68,37 +68,31 @@ public static class RandomUtil
         return Util.GetVectorFromAngle(angle);
     }
 
-    public static int GetRandomWeightedIndex(this List<int> list)
+    public static int GetRandomWeightedIndex(this List<int> weights)
     {
-        int totalWeight = list.Sum();
-        if (totalWeight == 0)
+        // Calculate the total sum of weights
+        int totalWeight = 0;
+        foreach (int weight in weights)
         {
-            Debug.LogWarning("The total weight is 0.");
-            return 0;
+            totalWeight += weight;
         }
+
+        // Generate a random number between 0 and totalWeight
         int randomValue = rand.Next(totalWeight);
-        int result = 0;
-        
-        for (int i = 0; i < list.Count; i++)
+
+        // Iterate through the weights and find the corresponding index
+        int currentSum = 0;
+        for (int i = 0; i < weights.Count; i++)
         {
-            randomValue -= list[i];
-            if (randomValue <= 0)
-            {
-                result = i;
-                break;
-            }
-        }
-        
-        for (int i = 0; i < list.Count; i++)
-        {
-            if (list[i] != 0)
+            currentSum += weights[i];
+            if (randomValue < currentSum)
             {
                 return i;
             }
         }
 
-        // This should not happen if the total weight is correct
-        throw new InvalidOperationException("Unable to retrieve a random key.");
+        // If all weights are zero, return a random index
+        return rand.Next(weights.Count);
     }
 
     /// <summary>

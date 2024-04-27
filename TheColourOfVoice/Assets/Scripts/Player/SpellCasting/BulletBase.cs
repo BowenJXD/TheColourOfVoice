@@ -41,6 +41,7 @@ public class BulletBase : Entity
     public void SetDirection(Vector2 direction)
     {
         rb.velocity = direction * speed;
+        transform.rotation = Quaternion.Euler(0, 0, direction.GetAngle());
     }
     
     private void OnTriggerEnter2D(Collider2D other)
