@@ -66,6 +66,13 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         FinishRage();
     }
 
+    public void Extinguish()
+    {
+        if (!isRage) return;
+        isRage = false;
+        FinishRage();
+    }
+    
     protected virtual void FinishRage()
     {
         if (sp && ani)

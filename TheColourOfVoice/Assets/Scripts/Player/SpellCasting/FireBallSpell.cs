@@ -19,6 +19,11 @@ public class FireBallSpell : Spell
         PoolManager.Instance.Register(animPrefab, transform);
         PoolManager.Instance.Register(bulletPrefab);
     }
+    
+    private void OnDisable()
+    {
+        if (currentAnim) currentAnim.Deinit();
+    }
 
     public override void StartCasting(CastConfig config)
     {

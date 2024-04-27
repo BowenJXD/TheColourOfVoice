@@ -13,13 +13,13 @@ public class SpeedBuff : Buff
         if (buffOwner.TryGetComponent(out Movement movement))
         {
             this.movement = movement;
-            movement.speed *= multiplier;
+            movement.Speed *= multiplier;
         }
     }
 
     public override void OnRemove()
     {
         base.OnRemove();
-        if (movement) movement.speed /= multiplier;
+        if (movement) movement.Speed /= multiplier;
     }
 }

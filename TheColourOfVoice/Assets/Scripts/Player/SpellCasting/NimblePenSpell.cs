@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class NimblePenSpell : Spell
 {
@@ -36,7 +37,7 @@ public class NimblePenSpell : Spell
     void StartBuff()
     {
         painter.enabled = true;
-        if (movement) movement.speed *= moveMultiplier;
+        if (movement) movement.Speed *= moveMultiplier;
         if (effect)
         {
             effect.gameObject.SetActive(true);
@@ -48,9 +49,17 @@ public class NimblePenSpell : Spell
     void EndBuff()
     {
         painter.enabled = false;
-        if (movement) movement.speed /= moveMultiplier;
+        if (movement) movement.Speed /= moveMultiplier;
         if (effect) effect.gameObject.SetActive(false);
         if (health) health.invincible = false;
     }
 
+    private void OnDisable()
+    {
+        if (loopTask.isPlaying)
+        {
+            loopTask.Stop();
+            EndBuff();
+        }
+    }
 }

@@ -13,12 +13,12 @@
     protected override void StartRage()
     {
         base.StartRage();
-        movement.speed *= multiplier;
+        movement.Speed *= multiplier;
     }
 
     protected override void FinishRage()
     {
         base.FinishRage();
-        movement.speed /= multiplier;
+        movement.Speed /= multiplier;
     }
 }

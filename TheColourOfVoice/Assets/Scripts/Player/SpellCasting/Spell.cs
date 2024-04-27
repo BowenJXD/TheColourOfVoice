@@ -8,7 +8,8 @@ public class Spell : MonoBehaviour, ISetUp
     [Tooltip("The word to shout to trigger the spell.")]
     public string spellName;
     public float cooldown;
-    [ReadOnly] public bool isInCD; 
+    [ShowInInspector] [ReadOnly] float remainingCD;
+    public bool isInCD => remainingCD > 0;
     public bool needCasting;
     public float recoil;
 
@@ -27,9 +28,18 @@ public class Spell : MonoBehaviour, ISetUp
         Init();
     }
 
+    private void Update()
+    {
+        if (isInCD)
+        {
+            remainingCD -= Time.deltaTime;
+            Lebug.Log(name + " CD", remainingCD);
+        }
+    }
+
     protected virtual void Init()
     {
-        isInCD = false;
+        remainingCD = 0;
     }
     
     protected virtual void Unregister()
@@ -41,7 +51,7 @@ public class Spell : MonoBehaviour, ISetUp
     {
         if (isInCD)
         {
-            Debug.LogWarning("Spell is in cooldown.");
+            Debug.LogWarning($"Spell is in cooldown. Remaining time: {remainingCD}");
             return;
         }
         currentConfig = config;
@@ -59,7 +69,7 @@ public class Spell : MonoBehaviour, ISetUp
     /// Reset on trigger
     /// </summary>
     public Action onEndCasting;
-    
+
     protected virtual void EndCasting()
     {
         onEndCasting?.Invoke();
@@ -69,12 +79,6 @@ public class Spell : MonoBehaviour, ISetUp
     public virtual void Execute()
     {
         Debug.Log($"Execute {spellName}.");
-        isInCD = true;
-        Invoke(nameof(EndCD), cooldown);
-    }
-    
-    void EndCD()
-    {
-        isInCD = false;
+        remainingCD = cooldown;
     }
 }

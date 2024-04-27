@@ -380,7 +380,7 @@ MonoBehaviour:
   rotationEase: 13
   scaleEase: 13
   minMoveSpeed: 0
-  maxMoveSpeed: 3
+  maxMoveSpeed: 1
 --- !u!114 &-4737817084367787813
 MonoBehaviour:
   m_ObjectHideFlags: 0

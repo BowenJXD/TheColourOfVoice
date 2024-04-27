@@ -28,6 +28,7 @@ public class MoveAnim : MonoBehaviour, ISetUp
         {
             IsSet = true;
             movement = GetComponent<Movement>();
+            movement.speedModifiers.Add(name, 1);
         }
 
         private void OnEnable()
@@ -78,9 +79,11 @@ public class MoveAnim : MonoBehaviour, ISetUp
                     {
                         scaleSequence = DOTween.Sequence();
                         scaleSequence.Append(transform.DOScale(scale1, period / 2).SetEase(scaleEase));
-                        scaleSequence.Join(DOTween.To(() => movement.speed, x => movement.speed = x, maxMoveSpeed, period / 2).SetEase(scaleEase));
+                        scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
+                            x => movement.speedModifiers[name] = x, maxMoveSpeed, period / 2).SetEase(scaleEase));
                         scaleSequence.Append(transform.DOScale(scale2, period / 2).SetEase(scaleEase));
-                        scaleSequence.Join(DOTween.To(() => movement.speed, x => movement.speed = x, minMoveSpeed, period / 2).SetEase(scaleEase));
+                        scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
+                            x => movement.speedModifiers[name] = x, minMoveSpeed, period / 2).SetEase(scaleEase));
                         scaleSequence.SetLoops(-1);
                     });
             }

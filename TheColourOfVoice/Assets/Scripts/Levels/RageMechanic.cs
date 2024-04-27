@@ -29,7 +29,7 @@ public class RageMechanic : LevelMechanic
     public override void OnUpdate()
     {
         base.OnUpdate();
-
+        Lebug.Log("Rage Value", rageValue, "Rage");
         if (!isRageMode) return;
         rageValue -= rageDecay * Time.deltaTime;
         if (rageValue <= 0)

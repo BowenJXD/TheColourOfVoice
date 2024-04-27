@@ -89,7 +89,8 @@ public class ChaseMovement : Movement, ISetUp
         
         if (!isInRange)
         {
-            if (Mathf.Abs(speed) > 0.0001) rb.AddForce(newDirection * speed);
+            if (Mathf.Abs(Speed) > 0.0001) rb.AddForce(newDirection * Speed);
+                // rb.velocity = newDirection * speed;
             OnMove?.Invoke(newDirection);
         }
         lastDirection = newDirection;

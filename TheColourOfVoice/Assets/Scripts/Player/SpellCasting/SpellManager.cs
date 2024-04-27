@@ -60,6 +60,9 @@ public class SpellManager : Singleton<SpellManager>
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public Action<CastState> OnCastStateChange;
     
     LoopTask coolDownTask;
@@ -72,6 +75,8 @@ public class SpellManager : Singleton<SpellManager>
     private void OnDisable()
     {
         VoiceInputSystem.Instance.SetActive(false);
+        currentSpell = null;
+        OnCastStateChange = null;
     }
 
     private void Update()

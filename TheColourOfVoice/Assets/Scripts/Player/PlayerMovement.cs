@@ -59,7 +59,8 @@ public class PlayerMovement : Movement
     
     private void Movement()
     {
-        rb.AddForce(inputMovement * speed);
+        // rb.velocity = inputMovement * speed;
+        rb.AddForce(inputMovement * (Speed * 2));
         Vector2 moveParam = inputMovement == Vector2.zero
             ? Vector2.zero
             : new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1), Mathf.Clamp(rb.velocity.y, -1, 1));

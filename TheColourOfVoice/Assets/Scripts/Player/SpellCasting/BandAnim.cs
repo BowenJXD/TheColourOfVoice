@@ -51,4 +51,9 @@ public class BandAnim : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
     }
+
+    private void OnDisable()
+    {
+        shakeSequence?.Kill();
+    }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CalmingLaserSpell : Spell
 {
@@ -17,6 +18,11 @@ public class CalmingLaserSpell : Spell
     {
         PoolManager.Instance.Register(animPrefab, transform);
         PoolManager.Instance.Register(bulletPrefab);
+    }
+
+    private void OnDisable()
+    {
+        if (currentAnim) currentAnim.Deinit();
     }
 
     public override void StartCasting(CastConfig config)
@@ -41,10 +47,24 @@ public class CalmingLaserSpell : Spell
         Vector3 direction = currentBullet.transform.position - transform.position;
         direction = direction.normalized;
         direction *= currentConfig.chantTime;
+        
+        if (currentBullet.TryGetComponent(out Attack attack))
+        {
+            attack.OnDamage += OnDamage;
+        }
+        
         currentBullet.Init();
         currentBullet.SetDirection(direction);
         
         if (ani) ani.SetBool("Release", true);
         new LoopTask{interval = 1, finishAction = currentAnim.Deinit}.Start();
+    }
+
+    private void OnDamage(Health obj)
+    {
+        if (obj.TryGetComponent(out RageBehaviour rage))
+        {
+            rage.Extinguish();
+        }
     }
 }
