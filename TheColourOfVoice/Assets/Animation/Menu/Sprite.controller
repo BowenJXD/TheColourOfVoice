@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staticCount: 3
   minWaitTime: 0
-  maxWaitTime: 1
+  maxWaitTime: 3
 --- !u!1101 &7071517351160942573
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

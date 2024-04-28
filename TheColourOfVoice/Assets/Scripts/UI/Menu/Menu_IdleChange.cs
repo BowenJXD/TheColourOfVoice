@@ -22,12 +22,10 @@ public class Menu_IdleChange : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Normalized Time: " + stateInfo.normalizedTime + ", Interval: " + m_Interval);
 
         if (stateInfo.normalizedTime>m_Interval && !animator.IsInTransition(0))
         {
-            m_NextState = Random.Range(0, staticCount);  // 在需要更新状态前重新计算
-            Debug.Log("Triggering state change to: " + m_NextState);
+            m_NextState = Random.Range(0, staticCount);  
             animator.SetInteger(m_HashRandomIdle, m_NextState);
 
             m_Interval = stateInfo.normalizedTime + Random.Range(minWaitTime, maxWaitTime);
