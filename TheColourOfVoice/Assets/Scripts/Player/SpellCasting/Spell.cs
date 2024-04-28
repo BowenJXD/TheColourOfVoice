@@ -81,4 +81,14 @@ public class Spell : MonoBehaviour, ISetUp
         Debug.Log($"Execute {spellName}.");
         remainingCD = cooldown;
     }
+
+    public virtual float GetCooldownTime()
+    {
+        return cooldown;
+    }
+
+    public virtual float GetRemainingCD()
+    {
+        return remainingCD;
+    }
 }
