@@ -2,12 +2,15 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Spell : MonoBehaviour, ISetUp
 {
     [Tooltip("The word to shout to trigger the spell.")]
+    public Sprite spellImage;
     public string spellName;
     public float cooldown;
+    [Multiline]public string spellDescription;
     [ShowInInspector] [ReadOnly] float remainingCD;
     public bool isInCD => remainingCD > 0;
     public bool needCasting;
