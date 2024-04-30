@@ -18,6 +18,7 @@ public class SubSpellPanel : MonoBehaviour
         spellIntro.text = spell.spellDescription;
         spellName.text = spell.spellName;
         coolDown = spell.cooldown;
+        gameObject.SetActive(false);
     }
 
     public void UpdateSpellName(string spellName) 

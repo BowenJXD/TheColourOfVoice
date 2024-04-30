@@ -32,7 +32,10 @@ public class SpellPanel : MonoBehaviour
     private List<String> spellNameList;
     [SerializeField]
     private List<SubSpellPanelData> spellDataList;
-    private void Start()
+   
+
+    
+    private void Awake()
     {
         if (SpellManager.Instance == null) return;
         
@@ -58,9 +61,12 @@ public class SpellPanel : MonoBehaviour
         subSpellPanelList.Add(sub.GetComponent<SubSpellPanel>());
         sub.spell = spell;
         sub.InitSubSpellPanel();
-        //sub.gameObject.SetActive(false);
         
     }
 
-  
+    public void OpenSpellPanel() 
+    {
+        this.gameObject.SetActive(true);
+        subSpellPanelList[0].gameObject.SetActive(true);
+    }
 }
