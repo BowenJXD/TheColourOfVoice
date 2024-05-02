@@ -13,6 +13,7 @@ public class CalmingLaserSpell : Spell
     private Animator ani;
     
     BulletBase currentBullet;
+
     
     void Awake()
     {

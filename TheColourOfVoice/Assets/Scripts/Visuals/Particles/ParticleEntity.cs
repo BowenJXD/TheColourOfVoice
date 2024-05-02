@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class ParticleController : Entity
+public class ParticleEntity : Entity
 {
     private ParticleSystem ps;
     public bool autoDeinit = true;
+    public ParticleSystemStopBehavior stopBehavior; 
     
     public override void SetUp()
     {
@@ -25,7 +26,6 @@ public class ParticleController : Entity
     public override void Deinit()
     {
         base.Deinit();
-        ps.Stop();
-        ps.Clear();
+        ps.Stop(false, stopBehavior);
     }
 }

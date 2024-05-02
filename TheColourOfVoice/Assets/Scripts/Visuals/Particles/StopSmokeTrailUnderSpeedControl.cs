@@ -9,7 +9,7 @@ public class StopSmokeTrailUnderSpeedControl : MonoBehaviour, ISetUp
     public float initTime = 0.2f;
     private float initTimer = 0.2f;
 
-    private ParticleController smokeTrailParticleSystem;
+    private ParticleEntity smokeTrailParticleSystem;
     private Vector2 lastPos;
 
     public bool IsSet { get; set; }
@@ -17,7 +17,7 @@ public class StopSmokeTrailUnderSpeedControl : MonoBehaviour, ISetUp
     public void SetUp()
     {
         IsSet = true;
-        smokeTrailParticleSystem = GetComponent<ParticleController>();
+        smokeTrailParticleSystem = GetComponent<ParticleEntity>();
     }
 
     private void OnEnable()

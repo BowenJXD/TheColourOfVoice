@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 
 public class Enemy : Entity
 {
-    public ParticleController deathParticlePrefab;
+    public ParticleEntity deathParticlePrefab;
     
     private Health health;
 

@@ -17,12 +17,14 @@ public class Spell : MonoBehaviour, ISetUp
     public float recoil;
 
     protected CastConfig currentConfig;
+    public ParticleSystem ps;
     
     public bool IsSet { get; set; }
     public virtual void SetUp()
     {
         IsSet = true;
         SpellManager.Instance.Register(this);
+        if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
     }
     
     private void OnEnable()
@@ -83,6 +85,12 @@ public class Spell : MonoBehaviour, ISetUp
     {
         Debug.Log($"Execute {spellName}.");
         remainingCD = cooldown;
+        
+        if (ps)
+        {
+            ps.gameObject.SetActive(true);
+            ps.Play();
+        }
     }
 
     public virtual float GetCooldownTime()

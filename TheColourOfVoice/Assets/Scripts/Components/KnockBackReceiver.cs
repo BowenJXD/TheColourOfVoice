@@ -14,7 +14,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     public bool disablePainter = true;
     public bool disableCol = true;
 
-    public ParticleController hitParticlePrefab;
+    public ParticleEntity hitParticlePrefab;
     private CinemachineImpulseSource impulseSource;
     
     public bool IsSet { get; set; }
@@ -37,7 +37,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     
     public void TakeKnockBack(Vector2 direction, float magnitude)
     {
-        ParticleController dust = PoolManager.Instance.New(hitParticlePrefab);
+        ParticleEntity dust = PoolManager.Instance.New(hitParticlePrefab);
         dust.transform.SetParent(transform);
         dust.transform.localPosition = Vector3.zero;
         if (rb)

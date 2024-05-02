@@ -115,4 +115,41 @@ public static class Util
         component = gameObject.GetComponentInChildren<T>(includeInactive);
         return component;
     }
+    
+    public static Gradient GetGradient(this Color inputColor, float hueVariance, float saturationVariance, float valueVariance)
+    {
+        // Convert input color from RGB to HSV
+        Color.RGBToHSV(inputColor, out float h, out float s, out float v);
+        
+        // Create a new Gradient
+        Gradient gradient = new Gradient();
+
+        // Calculate the hue, saturation, and value ranges
+        float hueMin = Mathf.Clamp01(h - hueVariance);
+        float hueMax = Mathf.Clamp01(h + hueVariance);
+        float saturationMin = Mathf.Clamp01(s - saturationVariance);
+        float saturationMax = Mathf.Clamp01(s + saturationVariance);
+        float valueMin = Mathf.Clamp01(v - valueVariance);
+        float valueMax = Mathf.Clamp01(v + valueVariance);
+
+        // Generate two colors with adjusted hue, saturation, and value
+        Color colorMin = Color.HSVToRGB(hueMin, saturationMin, valueMin);
+        Color colorMax = Color.HSVToRGB(hueMax, saturationMax, valueMax);
+
+        // Define the color keys for the gradient
+        GradientColorKey[] colorKeys = new GradientColorKey[2];
+        colorKeys[0] = new GradientColorKey(colorMin, 0f); // Start of the gradient
+        colorKeys[1] = new GradientColorKey(colorMax, 1f); // End of the gradient
+
+        // Define the alpha keys for the gradient (both fully opaque)
+        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
+        alphaKeys[0] = new GradientAlphaKey(1f, 0f); // Start alpha
+        alphaKeys[1] = new GradientAlphaKey(1f, 1f); // End alpha
+
+        // Assign the color and alpha keys to the gradient
+        gradient.SetKeys(colorKeys, alphaKeys);
+
+        // Return the generated gradient
+        return gradient;
+    }
 }

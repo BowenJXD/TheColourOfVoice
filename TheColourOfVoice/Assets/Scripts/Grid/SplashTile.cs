@@ -89,18 +89,21 @@ public class SplashTile : MonoBehaviour
     /// </summary>
     public Action<Painter> OnPainted;
 
-    public void PaintTile(Painter painter)
+    public bool PaintTile(Painter painter)
     {
-        PaintTile(painter.paintColor);
+        bool result = PaintTile(painter.paintColor);
         OnPainted?.Invoke(painter);
         OnPainted = null;
+        return result;
     }
     
-    public void PaintTile(PaintColor color)
+    public bool PaintTile(PaintColor color)
     {
+        bool result = false;
         if (!IsPainted && color != PaintColor.Null)
         {
             ColorTile(color);
+            result = true;
         }
         else if (IsPainted && color != PaintColor.Null)
         {
@@ -109,7 +112,9 @@ public class SplashTile : MonoBehaviour
         else if (IsPainted && color == PaintColor.Null)
         {
             EraseTile(this);
+            result = true;
         }
+        return result;
     }
     
     public void ColorTile(PaintColor color)

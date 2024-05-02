@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Fire : MonoBehaviour, ISetUp
 {
+    public PaintColor color;
     public BulletBase bulletPrefab;
     public float shootingInterval;
     public Rigidbody2D rb;
@@ -15,10 +16,22 @@ public class Fire : MonoBehaviour, ISetUp
     
     LoopTask shootTask;
     
+    public ParticleSystem ps;
+    public Vector3 colorShift;
+    
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
+        if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
+        if (ps)
+        {
+            Color rgba = color.ToColor();
+            var startColor = ps.main.startColor;
+            startColor.gradient = rgba.GetGradient(colorShift.x, colorShift.y, colorShift.z);
+            var main = ps.main;
+            main.startColor = startColor;
+        }
         PoolManager.Instance.Register(bulletPrefab);
         shootTask = new LoopTask
         {
@@ -26,6 +39,13 @@ public class Fire : MonoBehaviour, ISetUp
             loopAction = Shoot,
             loop = -1,
         };
+        if (bulletPrefab)
+        {
+            if (bulletPrefab.TryGetComponent(out Painter painter))
+            {
+                painter.paintColor = color;
+            }
+        }
     }
     
     private void OnEnable()
@@ -56,5 +76,7 @@ public class Fire : MonoBehaviour, ISetUp
         bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
         if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
+        
+        if (ps) ps.Play();
     }
 }

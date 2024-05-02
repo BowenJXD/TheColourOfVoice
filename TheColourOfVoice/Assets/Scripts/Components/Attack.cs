@@ -47,7 +47,17 @@ public class Attack : MonoBehaviour, ISetUp
             StartAttack();
         }
     }
-    
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Health health = other.GetComponent<Health>();
+        if (health != null)
+        {
+            target = health;
+            StartAttack();
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         target = null;
@@ -59,7 +69,7 @@ public class Attack : MonoBehaviour, ISetUp
         if (resetCDOnExit)
         {
             Damage();
-            loopTask.Start();
+            loopTask?.Start();
         }
     }
     
@@ -67,7 +77,7 @@ public class Attack : MonoBehaviour, ISetUp
     {
         if (resetCDOnExit)
         {
-            loopTask.Stop();
+            loopTask?.Stop();
         }
     }
 
@@ -83,7 +93,7 @@ public class Attack : MonoBehaviour, ISetUp
         if (!target || !target.TakeDamage(damage)) return;
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
-        target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
+        if (knockBack > 0) target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
         if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
     }
 
