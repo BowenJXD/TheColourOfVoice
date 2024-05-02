@@ -532,5 +532,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df5db88548b441791c74ab9ff57a3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffs: []
   resistingBuffs: []

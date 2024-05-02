@@ -1,4 +1,5 @@
 ﻿using System;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -18,6 +19,7 @@ public class Attack : MonoBehaviour, ISetUp
 
     private Health target;
     public Rigidbody2D rb;
+    CinemachineImpulseSource impulseSource;
     
     public bool IsSet { get; set; }
     public void SetUp()
@@ -25,6 +27,7 @@ public class Attack : MonoBehaviour, ISetUp
         IsSet = true;
         
         if (!rb) rb = GetComponent<Rigidbody2D>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         
         loopTask = new LoopTask { interval = cooldown, loop = -1, loopAction = Damage };
         if (!resetCDOnExit) loopTask.Start();
@@ -81,6 +84,7 @@ public class Attack : MonoBehaviour, ISetUp
         if (!target) return;
         Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
         target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
+        if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
     }
 
     private void OnDisable()
