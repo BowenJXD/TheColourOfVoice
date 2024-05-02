@@ -19,13 +19,11 @@ public class Health : MonoBehaviour, ISetUp
     LoopTask damageCooldownTask;
 
     private SpriteRenderer sp;
-    private CinemachineImpulseSource impulseSource;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
-        impulseSource = GetComponent<CinemachineImpulseSource>();
         sp = GetComponentInChildren<SpriteRenderer>();
         if (damageCooldown > 0)
             damageCooldownTask = new LoopTask { interval = damageCooldown, loop = 1, finishAction = ResetCD };
@@ -74,7 +72,6 @@ public class Health : MonoBehaviour, ISetUp
         damage *= (1 - defence);
         if (invincible || damage <= 0) return false;
         
-        if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
         bool isAlive = AlterHealth(-damage);
         TakeDamageAfter?.Invoke(damage);
         if (isAlive && damageCooldown > 0)

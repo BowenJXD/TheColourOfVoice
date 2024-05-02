@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class Explosion : MonoBehaviour, ISetUp
 {
@@ -18,11 +19,13 @@ public class Explosion : MonoBehaviour, ISetUp
     public float scale;
     
     public BulletBase bulletPrefab;
+    CinemachineImpulseSource impulseSource;
 
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         PoolManager.Instance.Register(bulletPrefab);
         angles = GetAngles();
     }
@@ -47,6 +50,7 @@ public class Explosion : MonoBehaviour, ISetUp
             bullet.Init();
             bullet.SetDirection(bullet.transform.up);
         }
+        if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
     }
     
     float[] GetAngles()

@@ -11219,7 +11219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11233,11 +11233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: 2e2abb55c938b564093c50e33616ef6e, type: 3}
-  - {fileID: 4184870022919412751, guid: c827c4dd97b292946aa954641a638796, type: 3}
-  - {fileID: 4184870022919412751, guid: 5349159639566884c84b842b26779158, type: 3}
+  - {fileID: 4184870022919412751, guid: 776cb4f48ac9cb247aac45f884f236e0, type: 3}
   taskConfigs:
-  - amounts: 020000000200000002000000
+  - amounts: 02000000
     duration: 1
   currentTaskIndex: 0
   minDistance: 8
@@ -11730,7 +11728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: cooldown
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellImage
@@ -11746,7 +11744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: cooldown
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellImage
@@ -11762,7 +11760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: shootingInterval
-      value: 2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18523,7 +18521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1934495122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18614,7 +18612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1941293287
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
-﻿public class RageAccelerate : RageBehaviour
+﻿using UnityEngine;
+
+public class RageAccelerate : RageBehaviour
 {
     public float multiplier = 2f;
     
@@ -13,12 +15,12 @@
     protected override void StartRage()
     {
         base.StartRage();
-        movement.Speed *= multiplier;
+        movement.speed *= multiplier;
     }
 
     protected override void FinishRage()
     {
         base.FinishRage();
-        movement.Speed /= multiplier;
+        movement.speed /= multiplier;
     }
 }

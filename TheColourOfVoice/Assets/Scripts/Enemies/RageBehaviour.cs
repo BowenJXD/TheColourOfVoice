@@ -62,8 +62,8 @@ public class RageBehaviour : MonoBehaviour, ISetUp
     
     private void OnDisable()
     {
+        if (isRage) FinishRage();
         isRage = false;
-        FinishRage();
     }
 
     public void Extinguish()

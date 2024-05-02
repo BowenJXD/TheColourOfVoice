@@ -12,11 +12,16 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
     protected override void Awake()
     {
         base.Awake();
-        new LoopTask{loop = -1, loopAction = () =>
+        /*new LoopTask{loop = -1, loopAction = () =>
         {
             SetActive(false);
             SetActive(true);
-        }, interval = 10}.Start();
+        }, interval = 10}.Start();*/
+    }
+
+    private void Start()
+    {
+        SetActive(true);
     }
 
     public void SetActive(bool active)

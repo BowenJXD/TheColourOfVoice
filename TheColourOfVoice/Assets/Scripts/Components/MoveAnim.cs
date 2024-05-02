@@ -3,118 +3,122 @@ using DG.Tweening;
 using UnityEngine;
 
 public class MoveAnim : MonoBehaviour, ISetUp
+{
+    //
+    public float period = 0.5f;
+    public float rotationDelta = 30;
+    public float scaleYDelta = 0.2f;
+    public float scaleXDelta = 0.2f;
+
+    public Ease rotationEase = Ease.InOutQuad;
+    public Ease scaleEase = Ease.InOutQuad;
+
+    Movement movement;
+    public float minMoveSpeed = 0.5f;
+    public float maxMoveSpeed = 1.5f;
+
+    private Sequence rotationSequence;
+    private Sequence scaleSequence;
+
+    Vector3 startRotation;
+    Vector3 startScale;
+
+    public bool IsSet { get; set; }
+
+    public void SetUp()
     {
-        //
-        public float period = 0.5f;
-        public float rotationDelta = 30;
-        public float scaleYDelta = 0.2f;
-        public float scaleXDelta = 0.2f;
-        
-        public Ease rotationEase = Ease.InOutQuad;
-        public Ease scaleEase = Ease.InOutQuad;
-        
-        Movement movement;
-        public float minMoveSpeed = 0.5f;
-        public float maxMoveSpeed = 1.5f;
+        IsSet = true;
+        movement = GetComponent<Movement>();
+        movement.speedModifiers.Add(name, 1);
+    }
 
-        private Sequence rotationSequence;
-        private Sequence scaleSequence;
-        
-        Vector3 startRotation;
-        Vector3 startScale;
+    private void OnEnable()
+    {
+        if (!IsSet) SetUp();
+        StartAnim();
+    }
 
-        public bool IsSet { get; set; }
-        public void SetUp()
+    private void OnDisable()
+    {
+        EndAnim(true);
+    }
+
+    public void StartAnim()
+    {
+        if (rotationSequence == null && rotationDelta != 0)
         {
-            IsSet = true;
-            movement = GetComponent<Movement>();
-            movement.speedModifiers.Add(name, 1);
+            rotationSequence = DOTween.Sequence();
+            rotationSequence.Kill();
+            startRotation = transform.eulerAngles;
         }
 
-        private void OnEnable()
+        if (!rotationSequence.IsActive())
         {
-            if (!IsSet) SetUp();
-            StartAnim();
+            Vector3 rotation1 = new Vector3(startRotation.x, startRotation.y, startRotation.z + rotationDelta);
+            Vector3 rotation2 = new Vector3(startRotation.x, startRotation.y, startRotation.z - rotationDelta);
+            transform.DORotate(rotation2, period / 2).OnComplete(
+                () =>
+                {
+                    rotationSequence = DOTween.Sequence();
+                    rotationSequence.Append(transform.DORotate(rotation1, period).SetEase(rotationEase));
+                    rotationSequence.Append(transform.DORotate(rotation2, period).SetEase(rotationEase));
+                    rotationSequence.SetLoops(-1);
+                });
         }
 
-        private void OnDisable()
+        if (scaleSequence == null && (scaleXDelta != 0 || scaleYDelta != 0))
         {
-            EndAnim(true);
+            scaleSequence = DOTween.Sequence();
+            scaleSequence.Kill();
+            startScale = transform.localScale;
         }
 
-        public void StartAnim()
+        if (!scaleSequence.IsActive())
         {
-            if (rotationSequence == null && rotationDelta != 0)
+            startScale = transform.localScale;
+            Vector3 scale1 = new Vector3(startScale.x * (1 - scaleXDelta), startScale.y * (1 + scaleYDelta), 1);
+            Vector3 scale2 = new Vector3(startScale.x * (1 + scaleXDelta), startScale.y * (1 - scaleYDelta), 1);
+            transform.DOScale(scale2, period / 2).OnComplete(
+                () =>
+                {
+                    scaleSequence = DOTween.Sequence();
+                    scaleSequence.Append(transform.DOScale(scale1, period / 2).SetEase(scaleEase));
+                    scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
+                        x => movement.speedModifiers[name] = x, maxMoveSpeed, period / 2).SetEase(scaleEase));
+                    scaleSequence.Append(transform.DOScale(scale2, period / 2).SetEase(scaleEase));
+                    scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
+                        x => movement.speedModifiers[name] = x, minMoveSpeed, period / 2).SetEase(scaleEase));
+                    scaleSequence.SetLoops(-1);
+                });
+        }
+    }
+
+    public void EndAnim(bool immediate = false)
+    {
+        if (rotationSequence != null)
+        {
+            rotationSequence?.Kill();
+            if (immediate)
             {
-                rotationSequence = DOTween.Sequence();
-                rotationSequence.Kill();
-                startRotation = transform.eulerAngles;
+                transform.eulerAngles = startRotation;
             }
-            if (!rotationSequence.IsActive())
+            else
             {
-                Vector3 rotation1 = new Vector3(startRotation.x, startRotation.y, startRotation.z + rotationDelta);
-                Vector3 rotation2 = new Vector3(startRotation.x, startRotation.y, startRotation.z - rotationDelta);
-                transform.DORotate(rotation2, period / 2).OnComplete(
-                    () =>
-                    {
-                        rotationSequence = DOTween.Sequence();
-                        rotationSequence.Append(transform.DORotate(rotation1, period).SetEase(rotationEase));
-                        rotationSequence.Append(transform.DORotate(rotation2, period).SetEase(rotationEase));
-                        rotationSequence.SetLoops(-1);
-                    });
-            }
-            if (scaleSequence == null && (scaleXDelta != 0 || scaleYDelta != 0))
-            {
-                scaleSequence = DOTween.Sequence();
-                scaleSequence.Kill();
-                startScale = transform.localScale;
-            }
-            if (!scaleSequence.IsActive())
-            {
-                startScale = transform.localScale;
-                Vector3 scale1 = new Vector3(startScale.x * (1 - scaleXDelta), startScale.y * (1 + scaleYDelta), 1);
-                Vector3 scale2 = new Vector3(startScale.x * (1 + scaleXDelta), startScale.y * (1 - scaleYDelta), 1);
-                transform.DOScale(scale2, period / 2).OnComplete(
-                    () =>
-                    {
-                        scaleSequence = DOTween.Sequence();
-                        scaleSequence.Append(transform.DOScale(scale1, period / 2).SetEase(scaleEase));
-                        scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
-                            x => movement.speedModifiers[name] = x, maxMoveSpeed, period / 2).SetEase(scaleEase));
-                        scaleSequence.Append(transform.DOScale(scale2, period / 2).SetEase(scaleEase));
-                        scaleSequence.Join(DOTween.To(() => movement.speedModifiers[name],
-                            x => movement.speedModifiers[name] = x, minMoveSpeed, period / 2).SetEase(scaleEase));
-                        scaleSequence.SetLoops(-1);
-                    });
+                transform.DORotate(startRotation, period / 2).SetEase(rotationEase);
             }
         }
 
-        public void EndAnim(bool immediate = false)
+        if (scaleSequence != null)
         {
-            if (rotationSequence != null)
+            scaleSequence?.Kill();
+            if (immediate)
             {
-                rotationSequence?.Kill();
-                if (immediate)
-                {
-                    transform.eulerAngles = startRotation;
-                }
-                else
-                {
-                    transform.DORotate(startRotation, period / 2).SetEase(rotationEase);
-                }
+                transform.localScale = startScale;
             }
-            
-            if (scaleSequence != null)
+            else
             {
-                scaleSequence?.Kill();
-                if (immediate)
-                {
-                    transform.localScale = startScale;
-                }
-                else
-                {
-                    transform.DOScale(startScale, period / 2).SetEase(scaleEase);
-                }
+                transform.DOScale(startScale, period / 2).SetEase(scaleEase);
             }
         }
     }
+}

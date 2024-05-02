@@ -1,4 +1,5 @@
 ﻿using System;
+using Cinemachine;
 using UnityEngine;
 
 public class KnockBackReceiver : MonoBehaviour, ISetUp
@@ -14,6 +15,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
     public bool disableCol = true;
 
     public ParticleController hitParticlePrefab;
+    private CinemachineImpulseSource impulseSource;
     
     public bool IsSet { get; set; }
     public void SetUp()
@@ -25,6 +27,7 @@ public class KnockBackReceiver : MonoBehaviour, ISetUp
         painter = GetComponent<Painter>();
         col = GetComponent<Collider2D>();
         health = GetComponent<Health>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void OnEnable()
