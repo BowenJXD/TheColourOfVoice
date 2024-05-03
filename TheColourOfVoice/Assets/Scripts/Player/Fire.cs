@@ -17,7 +17,6 @@ public class Fire : MonoBehaviour, ISetUp
     LoopTask shootTask;
     
     public ParticleSystem ps;
-    public Vector3 colorShift;
     
     public bool IsSet { get; set; }
     public void SetUp()
@@ -26,9 +25,8 @@ public class Fire : MonoBehaviour, ISetUp
         if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
         if (ps)
         {
-            Color rgba = color.ToColor();
             var startColor = ps.main.startColor;
-            startColor.gradient = rgba.GetGradient(colorShift.x, colorShift.y, colorShift.z);
+            startColor.gradient = ColorManager.Instance.GetGradient(color/*, colorShift.x, colorShift.y, colorShift.z*/);
             var main = ps.main;
             main.startColor = startColor;
         }
@@ -72,11 +70,25 @@ public class Fire : MonoBehaviour, ISetUp
         float angel = Random.Range(-5f, 5f);
         //GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
         var bullet = PoolManager.Instance.New(bulletPrefab);
-        bullet.transform.position = this.transform.position;
+        bullet.transform.position = transform.position;
+        if (color == PaintColor.Rainbow && TryGetComponent(out Painter painter))
+        {
+            painter.paintColor = ColorManager.Instance.NextRainbow();
+        }
         bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
         if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
         
-        if (ps) ps.Play();
+        if (ps)
+        {
+            if (color == PaintColor.Rainbow)
+            {
+                var startColor = ps.main.startColor;
+                startColor.gradient = ColorManager.Instance.GetGradient(ColorManager.Instance.NextRainbow());
+                var main = ps.main;
+                main.startColor = startColor;
+            }
+            ps.Play();
+        }
     }
 }

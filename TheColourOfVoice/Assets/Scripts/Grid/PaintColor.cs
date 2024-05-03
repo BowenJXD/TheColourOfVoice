@@ -13,10 +13,10 @@ public enum PaintColor
     /// </summary>
     Null,
     Red,
-    Green,
-    Blue,
     Yellow,
+    Green,
     Cyan,
+    Blue,
     Magenta,
     White,
     Black,
@@ -26,60 +26,4 @@ public enum PaintColor
     /// </summary>
     Rainbow,
     Random,
-}
-
-public static class PaintColorExtension
-{
-    public static Dictionary<PaintColor, Color> colorDict = new Dictionary<PaintColor, Color>
-    {
-        { PaintColor.Null, Color.clear },
-        { PaintColor.Red, Color.red },
-        { PaintColor.Green, Color.green },
-        { PaintColor.Blue, Color.blue },
-        { PaintColor.Yellow, Color.yellow },
-        { PaintColor.Cyan, Color.cyan },
-        { PaintColor.Magenta, Color.magenta },
-        { PaintColor.White, Color.white },
-        { PaintColor.Black, Color.black },
-    };
-    
-    public static PaintColor[] rainbowColors = { PaintColor.Red, PaintColor.Yellow, PaintColor.Green, PaintColor.Cyan, PaintColor.Blue, PaintColor.Magenta };
-    public static PaintColor rainbowCurrent = PaintColor.Null;
-
-    public static Color ToColor(this PaintColor color)
-    {
-        Color result = Color.black;
-        if (colorDict.ContainsKey(color))
-        {
-            result = colorDict[color];
-        }
-        else if (color == PaintColor.Rainbow)
-        {
-            result = colorDict[rainbowCurrent];
-        }
-        return result;
-    }
-
-    public static PaintColor Next(this PaintColor current)
-    {
-        PaintColor[] values = (PaintColor[])Enum.GetValues(typeof(PaintColor));
-        int index = Array.IndexOf(values, current);
-        index = (index + 1) % values.Length;
-        return values[index];
-    }
-    
-    public static PaintColor NextRainbow()
-    {
-        if (!rainbowColors.Contains(rainbowCurrent))
-        {
-            rainbowCurrent = PaintColor.Red;
-        }
-        else
-        {
-            int index = Array.IndexOf(rainbowColors, rainbowCurrent);
-            index = (index + 1) % rainbowColors.Length;
-            rainbowCurrent = rainbowColors[index];
-        }
-        return rainbowCurrent;
-    }
 }

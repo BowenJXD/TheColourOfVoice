@@ -431,7 +431,7 @@ MonoBehaviour:
   speedVariation: 5
   duration: 0.2
   durationVariation: 0
-  color: 2
+  color: 5
   scale: 0.2
   bulletPrefab: {fileID: 8393773426448386475, guid: 31b1469ce0200f444b7c6c4f4e80d533, type: 3}
 --- !u!114 &1559659144169942989

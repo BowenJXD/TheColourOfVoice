@@ -44,8 +44,9 @@ public class SplashTile : MonoBehaviour
                 scaler.DOScale(Vector3.zero, aniDuration).SetEase(Ease.InBack);
             }
             _color = value;
-            sp.DOColor(value.ToColor(), aniDuration).SetEase(ease);
-            blocking.DOColor(value.ToColor(), aniDuration).SetEase(ease);
+            var rgb = ColorManager.Instance.GetColor(value);
+            sp.DOColor(rgb, aniDuration).SetEase(ease);
+            blocking.DOColor(rgb, aniDuration).SetEase(ease);
         }
     }
 

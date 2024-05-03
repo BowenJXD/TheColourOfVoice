@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// Reads a file that converts characters to tile patterns.
 /// The index of patterns are from the left center of a character.
-/// TODO: Add support for different pattern width. 
 /// <example><br></br>
 /// a <br></br>
 /// 0 0 1 0 0 <br></br>

@@ -31,7 +31,7 @@ public class TextPainter : Singleton<TextPainter>
             StopPainting(text);
         }
         
-        PaintColor color = inputColor == PaintColor.Rainbow ? PaintColorExtension.NextRainbow() : inputColor;
+        PaintColor color = inputColor == PaintColor.Rainbow ? ColorManager.Instance.NextRainbow() : inputColor;
 
         int totalWidth = 0;
         for (int i = 0; i < text.Length; i++)
@@ -49,7 +49,7 @@ public class TextPainter : Singleton<TextPainter>
             sequence.AppendCallback(() =>
             {
                 PaintChar(text[i1], charCenter, color, callback);
-                color = inputColor == PaintColor.Rainbow ? PaintColorExtension.NextRainbow() : inputColor;
+                color = inputColor == PaintColor.Rainbow ? ColorManager.Instance.NextRainbow() : inputColor;
             });
             sequence.AppendInterval(interval);
             x += TextToTile.Instance.GetPatternWidth(text[i]) + 1;
