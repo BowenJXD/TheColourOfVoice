@@ -10,11 +10,17 @@
     
     protected override void Init()
     {
-        attack.OnDamage += _ => StartCoroutine(Execute());
+        attack.OnDamage += OnDamage;
     }
-    
+
+    private void OnDamage(Health health)
+    {
+        blackboard.Set(BBKey.TARGET, health.gameObject);
+        StartCoroutine(Execute());
+    }
+
     protected override void Deinit()
     {
-        attack.OnDamage -= _ => StartCoroutine(Execute());
+        attack.OnDamage -= OnDamage;
     }
 }

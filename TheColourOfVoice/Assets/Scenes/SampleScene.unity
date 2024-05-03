@@ -25404,7 +25404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509669480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
   m_Name: 
@@ -30790,7 +30790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30808,6 +30808,8 @@ MonoBehaviour:
   taskConfigs:
   - amounts: 02000000
     duration: 1
+  - amounts: 0a000000
+    duration: 30
   currentTaskIndex: 0
   minDistance: 8
   maxDistance: 10
@@ -31308,7 +31310,7 @@ PrefabInstance:
       objectReference: {fileID: 333606272}
     - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: cooldown
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1038200500861642669, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellImage
@@ -31328,7 +31330,11 @@ PrefabInstance:
       objectReference: {fileID: 409544781}
     - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: cooldown
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: spellName
+      value: calm down
       objectReference: {fileID: 0}
     - target: {fileID: 3933090114248652506, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellImage
@@ -31352,7 +31358,7 @@ PrefabInstance:
       objectReference: {fileID: 509669482}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: color
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6144319786411679607, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: hueShift
@@ -38563,7 +38569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1941293287
 MonoBehaviour:
   m_ObjectHideFlags: 0

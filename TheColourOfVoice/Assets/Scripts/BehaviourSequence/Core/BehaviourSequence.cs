@@ -19,7 +19,7 @@ public enum IndexConditionType
     /// 包括一个黑板，用于存储行为节点之间的数据交互。
     /// 基于QFramework的ActionKit实现。
     /// </summary>
-    public class BehaviourSequence : MonoBehaviour, IExecutor
+    public class BehaviourSequence : MonoBehaviour, ISetUp
     {
         /// <summary>
         ///  循环间隔条件。0: 无时间条件。
@@ -41,16 +41,28 @@ public enum IndexConditionType
         public IndexConditionType indexCondition = IndexConditionType.True;
         protected bool indexCondMet = false;
         
-        public LinkedList<BehaviourNode> nodes;
+        public List<BehaviourNode> nodes;
         List<BehaviourNode> currentNodes = new();
         public Action onFinish;
 
-        public Dictionary<string, object> Blackboard { get; set; }
-
+        [Tooltip("Need to be initialized before use.")]
+        public Blackboard blackboard;
+        
+        public bool IsSet { get; set; }
+        public void SetUp()
+        {
+            IsSet = true;
+            if (nodes == null || nodes.Count == 0)
+            {
+                nodes = new ();
+                nodes.AddRange(GetComponents<ExecutableBehaviour>());
+            }
+            nodes.ForEach(e => e.Init());
+        }
+        
         private void OnEnable()
         {
-            nodes = new();
-            nodes.AddRange(this.GetComponentsInChildren<BehaviourNode>());
+            if (!IsSet) SetUp();
             foreach (var node in nodes)
             {
                 node.sequence = this;
@@ -96,7 +108,7 @@ public enum IndexConditionType
         {
             if (prev)
             {
-                StopCoroutine(prev.Execute(this));
+                StopCoroutine(prev.Execute(blackboard));
                 currentNodes.Remove(prev);
             }
             
@@ -104,18 +116,21 @@ public enum IndexConditionType
             
             if (!prev)
             {
-                next = nodes.First.Value;
+                next = nodes.FirstOrDefault();
             }
             else
             {
-                next = nodes.Find(prev)?.Next?.Value;
+                if (!prev == nodes.LastOrDefault())
+                {
+                    next = nodes[nodes.IndexOf(prev) + 1];
+                }
             }
             
-            if (prev == nodes.First.Value)
+            if (prev == nodes.FirstOrDefault())
             {
                 if (indexCondition == IndexConditionType.AfterFirst) indexCondMet = true;
             }
-            if (prev == nodes.Last.Value)
+            if (prev == nodes.LastOrDefault())
             {
                 if (indexCondition == IndexConditionType.AfterLast) indexCondMet = true;
                 onFinish?.Invoke();
@@ -123,7 +138,7 @@ public enum IndexConditionType
 
             if (next)
             {
-                StartCoroutine(next.Execute(this));
+                StartCoroutine(next.Execute(blackboard));
                 currentNodes.Add(next);
             }
         }
@@ -136,46 +151,27 @@ public enum IndexConditionType
         
         public void Set(string key, object value)
         {
-            Blackboard[key] = value;
+            if (blackboard == null)
+            {
+                blackboard = new();
+            }
+            blackboard.Set(key, value);
         }
         
         public T Get<T>(string key)
         {
-            if (!Blackboard.ContainsKey(key))
-            {
-                return default;
-            }
-            return (T) Blackboard[key];
+            if (blackboard == null) return default;
+            return blackboard.Get<T>(key);
         }
         
         public bool TryGet<T>(string key, out T value)
         {
-            if (Blackboard == null || !Blackboard.ContainsKey(key))
+            if (blackboard == null)
             {
                 value = default;
                 return false;
             }
-            
-            if (Blackboard[key] is T)
-            {
-                value = (T) Blackboard[key];
-                return true;
-            }
-            
-            try
-            {
-                value = (T)Convert.ChangeType(Blackboard[key], typeof(T));
-                return true;
-            }
-            catch (InvalidCastException)
-            {
-                value = default;
-            }
-            catch (FormatException)
-            {
-                value = default;
-            }
-            return false;
+            return blackboard.TryGet(key, out value);
         }
         
         public void SetIndexConditionMet(bool value)

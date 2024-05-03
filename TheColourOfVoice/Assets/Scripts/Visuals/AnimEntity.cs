@@ -15,7 +15,7 @@ public class AnimEntity : Entity
     {
         if (TryGetComponent(out sequence))
         {
-            sequence.Blackboard = new();
+            sequence.blackboard = new();
             sequence.Set(BBKey.DURATION, animDuration);
             sequence.onFinish += onFinish;
         }

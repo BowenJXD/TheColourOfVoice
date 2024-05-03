@@ -6,19 +6,19 @@ using UnityEngine;
 /// <summary>
 /// Contains a list of <see cref="ExecutableBehaviour"/> that will be executed in order, when the condition is met.
 /// </summary>
-public abstract class ConditionBehaviour : MonoBehaviour, ISetUp, IExecutor
+public abstract class ConditionBehaviour : MonoBehaviour, ISetUp
 {
     public List<ExecutableBehaviour> executables;
     public IExecutable currentExecutable;
-    
-    public Dictionary<string, object> Blackboard { get; set; }
+
+    public Blackboard blackboard;
 
     public virtual IEnumerator Execute()
     {
         foreach (var executable in executables)
         {
             currentExecutable = executable;
-            yield return executable.Execute(this);
+            yield return executable.Execute(blackboard);
         }
     }
 
@@ -26,13 +26,13 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp, IExecutor
     public virtual void SetUp()
     {
         IsSet = true;
-        Blackboard = new Dictionary<string, object>();
+        blackboard = new();
         if (executables == null || executables.Count == 0)
         {
             executables = new ();
             executables.AddRange(GetComponents<ExecutableBehaviour>());
-            executables.ForEach(e => e.Init());
         }
+        executables.ForEach(e => e.Init());
     }
     
     private void OnEnable()

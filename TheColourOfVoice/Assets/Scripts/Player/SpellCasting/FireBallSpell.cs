@@ -30,6 +30,10 @@ public class FireBallSpell : Spell
         base.StartCasting(config);
         currentAnim = PoolManager.Instance.New(animPrefab);
         currentAnim.animDuration = config.chantTime;
+        if (currentAnim.TryGetComponent(out DoTweenScale1Behaviour scale1Behaviour))
+        {
+            scale1Behaviour.scaleSpeed = currentConfig.chantTime;
+        }
         currentAnim.transform.position = transform.position;
         currentAnim.transform.localPosition += new Vector3(offset, 0);
         currentAnim.onFinish += EndCasting;
@@ -49,6 +53,11 @@ public class FireBallSpell : Spell
         if (currentBullet.TryGetComponent(out Attack attack))
         {
             attack.OnDamage += OnDamage;
+        }
+        
+        if (currentBullet.TryGetComponent(out DoTweenScale1Behaviour scale1Behaviour))
+        {
+            scale1Behaviour.scaleSpeed = currentConfig.chantTime / 2;
         }
         
         currentBullet.Init();

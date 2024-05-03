@@ -9,7 +9,7 @@ public abstract class BehaviourNode : ExecutableBehaviour
 {
     [HideInInspector] public BehaviourSequence sequence;
 
-    public override IEnumerator Execute(IExecutor newExecutor)
+    public override IEnumerator Execute(Blackboard newExecutor)
     {
         yield return base.Execute(newExecutor);
         if (sequence) sequence.Continue(this);

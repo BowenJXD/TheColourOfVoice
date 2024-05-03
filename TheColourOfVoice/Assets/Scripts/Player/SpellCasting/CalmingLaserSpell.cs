@@ -35,7 +35,11 @@ public class CalmingLaserSpell : Spell
         currentAnim.transform.localPosition += new Vector3(offset, 0);
         currentAnim.onFinish += EndCasting;
         ani = currentAnim.GetComponentInChildren<Animator>();
-        if (ani) ani.SetBool("Release", false);
+        if (ani)
+        {
+            ani.SetBool("Release", false);
+            ani.SetFloat("ChantingSpeed", 1 / config.chantTime);
+        }
         currentAnim.Init();
     }
 

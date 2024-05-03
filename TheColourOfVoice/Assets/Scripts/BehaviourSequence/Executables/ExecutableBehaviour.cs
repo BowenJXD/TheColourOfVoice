@@ -13,7 +13,7 @@ public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
     [HorizontalGroup()] public bool skip;
     [HorizontalGroup()] public bool next; 
 
-    protected IExecutor executor;
+    protected Blackboard executor;
 
     public bool IsSet { get; set; }
     public virtual void SetUp()
@@ -47,7 +47,7 @@ public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
     
     protected virtual void OnFinish() { }
     
-    public virtual IEnumerator Execute(IExecutor newExecutor)
+    public virtual IEnumerator Execute(Blackboard newExecutor)
     {
         executor = newExecutor;
         OnStart();

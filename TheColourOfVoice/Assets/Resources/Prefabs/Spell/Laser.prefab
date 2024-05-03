@@ -150,6 +150,8 @@ GameObject:
   - component: {fileID: 2812144874977168013}
   - component: {fileID: 1540558513656204530}
   - component: {fileID: 6509847031878421931}
+  - component: {fileID: 6972671971489955718}
+  - component: {fileID: 5390683646594540462}
   m_Layer: 8
   m_Name: Laser
   m_TagString: Untagged
@@ -188,6 +190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopInterval: 0
   indexCondition: 3
+  nodes:
+  - {fileID: 8723858730303291425}
+  - {fileID: 2119723310510066942}
 --- !u!114 &8723858730303291425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +413,37 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.3, y: -0.3, z: 0}
+--- !u!114 &6972671971489955718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5410537372036957664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98be7f7b128e4e77ab295177c63719d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: 5390683646594540462}
+--- !u!114 &5390683646594540462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5410537372036957664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f937a0e955d44dbab23ea85cde1f732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  prefab: {fileID: 7179938763103737207, guid: 4611adf54a2db1e439f346223a86c997, type: 3}
+  painter: {fileID: 0}
+  attacker: {fileID: 0}
 --- !u!1 &5752264257689008339
 GameObject:
   m_ObjectHideFlags: 0

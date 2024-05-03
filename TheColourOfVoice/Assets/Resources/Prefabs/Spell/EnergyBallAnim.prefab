@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3740996899107591307}
   - component: {fileID: -1056130655036345579}
   - component: {fileID: 8608156612741297312}
-  - component: {fileID: -8802263088422145753}
+  - component: {fileID: 7748822488607655251}
   - component: {fileID: -3302271437330581459}
   m_Layer: 0
   m_Name: EnergyBallAnim
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopInterval: -1
   indexCondition: 3
+  nodes: []
 --- !u!114 &8608156612741297312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animDuration: 0
---- !u!114 &-8802263088422145753
+--- !u!114 &7748822488607655251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,17 +179,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5746376196784695891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c8b6530379453aa2d897004839a987, type: 3}
+  m_Script: {fileID: 11500000, guid: 50eeeff7951943119e6a9cfcad24c6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
   next: 0
   sequence: {fileID: 0}
-  ease: 1
+  ease: 27
   duration: 0
   target: {fileID: 0}
-  scaleSpeed: 3
-  scaleLimit: 10
+  targetScale: {x: 3, y: 3, z: 1}
 --- !u!114 &-3302271437330581459
 MonoBehaviour:
   m_ObjectHideFlags: 0

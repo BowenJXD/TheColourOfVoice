@@ -17,4 +17,9 @@ public static class BBKey
     /// float
     /// </summary>
     public static readonly string DURATION = "DURATION";
+    
+    /// <summary>
+    /// GameObject
+    /// </summary>
+    public static readonly string TARGET = "TARGET";
 }

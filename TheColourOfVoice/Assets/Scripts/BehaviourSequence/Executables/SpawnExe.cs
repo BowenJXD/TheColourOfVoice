@@ -26,7 +26,7 @@ public class SpawnExe : ExecutableBehaviour
         }
     }
 
-    public override IEnumerator Execute(IExecutor blackboard)
+    public override IEnumerator Execute(Blackboard blackboard)
     {
         Split();
         yield return null;
