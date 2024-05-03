@@ -38,7 +38,6 @@ public class Level_demo : MonoBehaviour
     void OnFinishedEvent(bool success)
     {
         Debug.Log(success);
-        EnemyGenerator.Instance.NewTask();
         StartCoroutine(Timer());
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponentInChildren<Fire>().enabled = true;

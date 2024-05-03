@@ -11,7 +11,7 @@ public class EN_StartDemo : EventNodeBase
     {
         base.Execute();
         DialogueManager.CloseDialogueBox();
-        EnemyGenerator.Instance.NewTask();
+        LevelManager.Instance.Init();
         state = NodeState.Finished;
 
 

@@ -29,7 +29,7 @@ public struct TaskConfig
 /// Generate enemies based on task configs.
 /// The spawn position will be distributed in a circle around the player.
 /// </summary>
-public class EnemyGenerator : Singleton<EnemyGenerator>
+public class EnemyGenerator : MonoBehaviour
 {
 	public List<Enemy> enemyPrefabs;
 	[NonSerialized] public List<Enemy> activeEnemies = new List<Enemy>();
@@ -38,7 +38,6 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	public int currentTaskIndex = 0;
 	
 	public LoopTask task;
-	
 
 	// 生成位置波动
 	[Tooltip("The minimum distance between the player and the spawning point.")]
@@ -54,22 +53,12 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 	
 	protected float lastSpawnedAngle = 0;
 
-	/// <summary>
-	/// Reset on disable
-	/// </summary>
-	public Action<Enemy> onSpawn;
-	
-	
-	public Transform spawnTransform;
-	
-	protected override void Awake()
+	private void OnEnable()
 	{
-		base.Awake();
-		foreach (Enemy enemyPrefab in enemyPrefabs)
-		{
-			PoolManager.Instance.Register(enemyPrefab, transform);
-		}
+		NewTask();
 	}
+
+	public Transform spawnTransform;
 
 	public void NewTask()
 	{
@@ -115,6 +104,11 @@ public class EnemyGenerator : Singleton<EnemyGenerator>
 		Vector3 spawnPosition = GetSpawnPosition();
 		Spawn(enemyPrefab, spawnPosition);
 	}
+
+	/// <summary>
+	/// Reset on disable
+	/// </summary>
+	public Action<Enemy> onSpawn;
 
 	public Enemy Spawn(Enemy prefab, Vector3 position)
 	{

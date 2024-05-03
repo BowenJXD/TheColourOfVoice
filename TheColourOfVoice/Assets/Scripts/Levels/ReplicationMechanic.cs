@@ -12,7 +12,7 @@ public class ReplicationMechanic : LevelMechanic
     public override void Init()
     {
         base.Init();
-        enemies = EnemyGenerator.Instance.enemyPrefabs;
+        enemies = LevelManager.Instance.enemyGenerator.enemyPrefabs;
         loopTask = new LoopTask{loopAction = Replicate, interval = triggerInterval, loop = -1};
         loopTask.Start();
     }
@@ -26,7 +26,7 @@ public class ReplicationMechanic : LevelMechanic
             
             Enemy randomEnemy = entities.GetRandomItem();
             Vector3 spawnPosition = randomEnemy.transform.position;
-            Enemy newEnemy = EnemyGenerator.Instance.Spawn(enemy, spawnPosition);
+            Enemy newEnemy = LevelManager.Instance.enemyGenerator.Spawn(enemy, spawnPosition);
             
             if (force == 0) continue;
             if (!randomEnemy.TryGetComponent(out Rigidbody2D oldRb)) continue;

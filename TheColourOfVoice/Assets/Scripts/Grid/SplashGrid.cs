@@ -33,7 +33,6 @@ public class SplashGrid : Singleton<SplashGrid>
     [HideIf("useBound")]
     public Vector2Int size;
     
-    [HideIf("useBound")]
     public Vector2 cellSize;
     
     [Tooltip("Local position of the bottom left corner of the grid.")]
@@ -78,11 +77,14 @@ public class SplashGrid : Singleton<SplashGrid>
                 tileSprites[result] = sp;
             }
         }
-        
+
+        SpriteRenderer spriteRenderer = tilePrefab.GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = LevelManager.Instance.tileSprite;
+
         if (useBound)
         {
-            size = new Vector2Int((int)(upperRightBound.x - bottomLeftBound.x), (int)(upperRightBound.y - bottomLeftBound.y));
-            cellSize = new Vector2((upperRightBound.x - bottomLeftBound.x) / size.x, (upperRightBound.y - bottomLeftBound.y) / size.y);
+            size = new Vector2Int((int)((upperRightBound.x - bottomLeftBound.x) / cellSize.x), 
+                (int)((upperRightBound.y - bottomLeftBound.y) / cellSize.y));
         }
 
         bottomLeftPosition = - new Vector3(cellSize.x * size.x / 2, cellSize.y * size.y / 2, 0);

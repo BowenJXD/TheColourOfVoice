@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Fire : MonoBehaviour, ISetUp
 {
-    public PaintColor color;
+    [ReadOnly] public PaintColor color;
     public BulletBase bulletPrefab;
     public float shootingInterval;
     public Rigidbody2D rb;
@@ -22,12 +23,13 @@ public class Fire : MonoBehaviour, ISetUp
     public void SetUp()
     {
         IsSet = true;
+        color = LevelManager.Instance.levelColor;
         if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
         if (ps)
         {
-            var startColor = ps.main.startColor;
-            startColor.gradient = ColorManager.Instance.GetGradient(color/*, colorShift.x, colorShift.y, colorShift.z*/);
             var main = ps.main;
+            var startColor = main.startColor;
+            startColor.gradient = ColorManager.Instance.GetGradient(color/*, colorShift.x, colorShift.y, colorShift.z*/);
             main.startColor = startColor;
         }
         PoolManager.Instance.Register(bulletPrefab);
@@ -67,7 +69,7 @@ public class Fire : MonoBehaviour, ISetUp
     void Shoot() 
     {
         direction = (mousePos - new Vector2(transform.position.x, transform.position.y)).normalized;
-        float angel = Random.Range(-5f, 5f);
+        float angle = Random.Range(-5f, 5f);
         //GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
         var bullet = PoolManager.Instance.New(bulletPrefab);
         bullet.transform.position = transform.position;
@@ -76,7 +78,7 @@ public class Fire : MonoBehaviour, ISetUp
             painter.paintColor = ColorManager.Instance.NextRainbow();
         }
         bullet.Init();
-        bullet.SetDirection(Quaternion.AngleAxis(angel, Vector3.forward) * direction);
+        bullet.SetDirection(Quaternion.AngleAxis(angle, Vector3.forward) * direction);
         if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
         
         if (ps)
