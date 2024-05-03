@@ -1,7 +1,7 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour, ISetUp
+public class Explosion : ParticleEntity
 {
     public int particleCount;
     public float angleVariation;
@@ -21,20 +21,28 @@ public class Explosion : MonoBehaviour, ISetUp
     public BulletBase bulletPrefab;
     CinemachineImpulseSource impulseSource;
 
-    public bool IsSet { get; set; }
-    public void SetUp()
+    public override void SetUp()
     {
+        base.SetUp();
         IsSet = true;
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        if (ps)
+        {
+            var main = ps.main;
+            var startColor = main.startColor;
+            startColor.gradient = ColorManager.Instance.GetGradient(color);
+            main.startColor = startColor;
+        }
         PoolManager.Instance.Register(bulletPrefab);
         angles = GetAngles();
     }
-    
-    private void OnEnable()
+
+    public override void Init()
     {
-        if (!IsSet) SetUp();
+        base.Init();
+        Execute();
     }
-    
+
     public void Execute()
     {
         if (angleVariation > 0) angles =  GetAngles();
@@ -50,6 +58,7 @@ public class Explosion : MonoBehaviour, ISetUp
             bullet.Init();
             bullet.SetDirection(bullet.transform.up);
         }
+
         if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
     }
     

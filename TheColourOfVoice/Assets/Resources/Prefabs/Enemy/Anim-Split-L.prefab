@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4222946095265542511}
   - component: {fileID: 7350515060046099572}
   m_Layer: 0
-  m_Name: L2-SplitAnim-L
+  m_Name: Anim-Split-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

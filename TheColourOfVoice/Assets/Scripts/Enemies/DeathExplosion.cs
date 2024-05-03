@@ -1,17 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DeathExplosion : MonoBehaviour, ISetUp
 {
     Entity entity;
-    Explosion explosion;
+    public Explosion prefab;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
         entity = GetComponent<Entity>();
-        explosion = GetComponent<Explosion>();
+        if (!prefab) prefab = GetComponentInChildren<Explosion>(true);
     }
 
     private void OnEnable()
@@ -22,6 +23,9 @@ public class DeathExplosion : MonoBehaviour, ISetUp
     
     void ExecuteExplosion()
     {
-        if (explosion) explosion.Execute();
+        Explosion exp = PoolManager.Instance.New(prefab);
+        exp.transform.position = transform.position;
+        exp.color = LevelManager.Instance.levelColor;
+        exp.Init();
     }
 }

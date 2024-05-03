@@ -48,7 +48,7 @@ public class Attack : MonoBehaviour, ISetUp
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    /*private void OnParticleCollision(GameObject other)
     {
         Health health = other.GetComponent<Health>();
         if (health != null)
@@ -56,11 +56,11 @@ public class Attack : MonoBehaviour, ISetUp
             target = health;
             StartAttack();
         }
-    }
+    }*/
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        target = null;
+        if (target && other.gameObject == target.gameObject) target = null;
         StopAttack();
     }
 

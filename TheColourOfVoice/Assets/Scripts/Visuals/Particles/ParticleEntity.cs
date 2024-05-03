@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ParticleEntity : Entity
 {
-    private ParticleSystem ps;
+    protected ParticleSystem ps;
     public bool autoDeinit = true;
     public ParticleSystemStopBehavior stopBehavior; 
     
     public override void SetUp()
     {
         base.SetUp();
-        ps = GetComponent<ParticleSystem>();
+        ps = GetComponentInChildren<ParticleSystem>(true);
     }
 
     public override void Init()
@@ -19,13 +20,16 @@ public class ParticleEntity : Entity
         if (autoDeinit)
         {
             float time = ps.main.duration;
-            Invoke(nameof(Deinit), time);
+            new LoopTask{finishAction = () =>
+            {
+                Deinit();
+                ps.Stop(false, stopBehavior);
+            }}.Start();
         }
     }
-    
-    public override void Deinit()
+
+    private void OnParticleSystemStopped()
     {
-        base.Deinit();
-        ps.Stop(false, stopBehavior);
+        Deinit();
     }
 }
