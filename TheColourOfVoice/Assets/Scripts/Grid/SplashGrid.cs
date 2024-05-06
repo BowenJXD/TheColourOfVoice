@@ -78,8 +78,8 @@ public class SplashGrid : Singleton<SplashGrid>
             }
         }
 
-        SpriteRenderer spriteRenderer = tilePrefab.GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.sprite = LevelManager.Instance.tileSprite;
+        SpriteRenderer spriteRenderer = tilePrefab.GetComponentsInChildren<SpriteRenderer>().LastOrDefault();
+        if (spriteRenderer != null) spriteRenderer.sprite = LevelManager.Instance.tileSprite;
 
         if (useBound)
         {

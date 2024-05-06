@@ -54,9 +54,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
             {
                 var main = ps.main;
                 var startColor = main.startColor;
-                var cachedAlphaKeys = startColor.gradient.alphaKeys;
-                startColor.gradient = ColorManager.Instance.GetGradient(levelColor);
-                startColor.gradient.alphaKeys = cachedAlphaKeys;
+                startColor.gradient.colorKeys = ColorManager.Instance.GetGradient(levelColor).colorKeys;
                 main.startColor = startColor;
                 ps.Play();
             }
@@ -65,11 +63,11 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     
     void Update()
     {
-        mechanic.OnUpdate();
+        if (mechanic) mechanic.OnUpdate();
     }
     
     private void OnDisable()
     {
-        mechanic.Deinit();
+        if (mechanic) mechanic.Deinit();
     }
 }

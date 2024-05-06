@@ -20368,11 +20368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: d533a188cbf597049893fcd8a0660065, type: 2}
-  levelColor: 1
-  tileSprite: {fileID: 21300000, guid: 16ce33c431c28074fa89652136f5894e, type: 3}
-  enemyGenerator: {fileID: 5869229225314584533, guid: ec8dc225f90080a4c8e91e8ebf0ffa19, type: 3}
-  mechanic: {fileID: -2400236107960218809, guid: 1f072146b86288440be589ce0611f9fb, type: 3}
+  config: {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
+  levelColor: 9
+  tileSprite: {fileID: 21300000, guid: 24ac7801f79ccf6439c8bbb8feb4055f, type: 3}
+  enemyGenerator: {fileID: 3808112070387729887, guid: 670b4f67b37b09046a996e2c044ee487, type: 3}
+  mechanic: {fileID: 0}
   backgroundParticleParent: {fileID: 753415076}
 --- !u!1 &461082845 stripped
 GameObject:
@@ -30742,7 +30742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32675,7 +32675,7 @@ MonoBehaviour:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 0, g: 0, b: 0, a: 1}
   gradientDict:
-    keys: 000000000100000004000000020000000500000003000000060000000700000008000000
+    keys: 00000000010000000400000002000000050000000300000006000000070000000800000009000000
     values:
     - serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0}
@@ -32937,6 +32937,35 @@ MonoBehaviour:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
+      key1: {r: 1, g: 0.98039216, b: 0.54509807, a: 1}
+      key2: {r: 0.96685994, g: 0.9820659, b: 0.5434243, a: 0}
+      key3: {r: 0.6117647, g: 1, b: 0.5254902, a: 0}
+      key4: {r: 0.5372549, g: 0.84705883, b: 1, a: 0}
+      key5: {r: 0, g: 0.6, b: 1, a: 0}
+      key6: {r: 1, g: 0.6, b: 1, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 13030
+      ctime2: 13107
+      ctime3: 26214
+      ctime4: 39321
+      ctime5: 52428
+      ctime6: 65535
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 7
       m_NumAlphaKeys: 2
   rainbowColors: 010000000200000003000000040000000500000006000000
   rainbowCurrent: 0
