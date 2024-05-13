@@ -12,6 +12,7 @@ public class SubSpellPanelData
 {
    public SubSpellPanelData(Sprite spellImage,float coolDown, string intro, string spellName)
     {
+
         this.spellImage = spellImage;
         this.coolDown = coolDown;
         this.Intro = intro;
