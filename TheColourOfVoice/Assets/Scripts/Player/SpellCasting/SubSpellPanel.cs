@@ -26,11 +26,6 @@ public class SubSpellPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateSpellName(string spellName) 
-    {
-
-    }
-    
     public void OpenSubSpellPanel() 
     {
         gameObject.SetActive(true);
@@ -62,9 +57,18 @@ public class SubSpellPanel : MonoBehaviour
         string tempSpellName = spellInputField.text;
         spell.spellName = tempSpellName;
         SpellManager.Instance.ChangeName(currentSpellName,tempSpellName);
+        spellName.text = tempSpellName;
         spellInputField.gameObject.SetActive(false);
         Debug.Log("Edit End, new spellName: " + spell.spellName);
     }
     
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    public void NextPage() 
+    {
+        //gameObject.SetActive(false);
+        //subSpellPanelList[1].gameObject.SetActive(true);
+        //subSpellPanelList[1].OpenSubSpellPanel();
+    }
 }
