@@ -76,9 +76,46 @@ public class SpellPanel : MonoBehaviour
        // subSpellPanelList[0].gameObject.SetActive(true);
         subSpellPanelList[0].OpenSubSpellPanel();
     }
-    
-    public void OpenInputfield() 
+
+    public void NextPage()
     {
-        //spellNameUGUI.gameObject.SetActive(true);
+        foreach (var spellPanel in subSpellPanelList)
+        {
+            if (spellPanel.gameObject.activeSelf)
+            {
+                spellPanel.gameObject.SetActive(false);
+                int index = subSpellPanelList.IndexOf(spellPanel);
+                if (index == subSpellPanelList.Count - 1)
+                {
+                    subSpellPanelList[0].OpenSubSpellPanel();
+                }
+                else
+                {
+                    subSpellPanelList[index + 1].OpenSubSpellPanel();
+                }
+                break;
+            }
+        }
+    }
+    
+    public void LastPage()
+    {
+        foreach (var spellPanel in subSpellPanelList)
+        {
+            if (spellPanel.gameObject.activeSelf)
+            {
+                spellPanel.gameObject.SetActive(false);
+                int index = subSpellPanelList.IndexOf(spellPanel);
+                if (index == 0)
+                {
+                    subSpellPanelList[subSpellPanelList.Count - 1].OpenSubSpellPanel();
+                }
+                else
+                {
+                    subSpellPanelList[index - 1].OpenSubSpellPanel();
+                }
+                break;
+            }
+        }
     }
 }

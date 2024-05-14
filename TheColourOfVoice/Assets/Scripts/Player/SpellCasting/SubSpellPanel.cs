@@ -30,11 +30,13 @@ public class SubSpellPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         //隐藏InputField
-        spellInputField.gameObject.SetActive(false); 
-        
-        
+        spellInputField.gameObject.SetActive(false);
     }
     
+    public void CloseSubSpellPanel() 
+    {
+        gameObject.SetActive(false);
+    }
     public void OpenInputField() 
     {
         spellInputField.gameObject.SetActive(true);
@@ -61,14 +63,5 @@ public class SubSpellPanel : MonoBehaviour
         spellInputField.gameObject.SetActive(false);
         Debug.Log("Edit End, new spellName: " + spell.spellName);
     }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    public void NextPage() 
-    {
-        //gameObject.SetActive(false);
-        //subSpellPanelList[1].gameObject.SetActive(true);
-        //subSpellPanelList[1].OpenSubSpellPanel();
-    }
+  
 }
