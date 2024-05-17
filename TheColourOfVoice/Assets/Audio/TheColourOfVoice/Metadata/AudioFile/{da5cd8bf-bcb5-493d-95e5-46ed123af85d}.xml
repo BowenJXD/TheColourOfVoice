@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{da5cd8bf-bcb5-493d-95e5-46ed123af85d}">
+		<property name="assetPath">
+			<value>SFX- The Ultimate 2017 8 bit sound Mini pack/Pickup/Pickup__001.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.14185941043083899</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{076dab75-dbcb-4156-a3db-c66077d025b8}">
+		<property name="assetPath">
+			<value>SFX- The Ultimate 2017 8 bit sound Mini pack/Powerup/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

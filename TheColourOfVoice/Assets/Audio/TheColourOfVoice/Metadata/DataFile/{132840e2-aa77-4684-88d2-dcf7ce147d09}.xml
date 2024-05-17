@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{132840e2-aa77-4684-88d2-dcf7ce147d09}">
+		<property name="assetPath">
+			<value>Socapex - Evol Online SFX - Punches and hits/.DS_Store</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

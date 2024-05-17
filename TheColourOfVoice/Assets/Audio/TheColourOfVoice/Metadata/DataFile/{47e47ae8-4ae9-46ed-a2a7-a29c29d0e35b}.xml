@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{47e47ae8-4ae9-46ed-a2a7-a29c29d0e35b}">
+		<property name="assetPath">
+			<value>interface 界面/关闭金币窗口－xh20070419.sfk</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

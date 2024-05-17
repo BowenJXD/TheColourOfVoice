@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{24437b7a-1df2-400d-b353-1a1311cea062}">
+		<property name="assetPath">
+			<value>interface 界面/PickUp/放好/把羊皮纸放在背包里－xh20070419.sfk</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>
