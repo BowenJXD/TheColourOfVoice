@@ -209,6 +209,7 @@ public class SpellManager : Singleton<SpellManager>
             spells.Add(newName, spell);
             VoiceInputSystem.Instance.Unregister(oldName);
             VoiceInputSystem.Instance.Register(newName, TryCast);
+            Debug.Log($"Spell with name {oldName} changed to {newName}.");
             return true;
         }
         Debug.LogWarning($"Spell with name {oldName} not found.");

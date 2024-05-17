@@ -17,11 +17,13 @@ public class SubSpellPanelData
         this.coolDown = coolDown;
         this.Intro = intro;
         this.spellName = spellName;
+        //this.spellInputField.text = spellName;
     }
     public Sprite spellImage;
     public float coolDown;
     public string Intro;
     public string spellName;
+    //public InputField spellInputField;
 }
 
 public class SpellPanel : MonoBehaviour
@@ -65,9 +67,55 @@ public class SpellPanel : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 打开SubPanel的第一面
+    /// </summary>
     public void OpenSpellPanel() 
     {
         this.gameObject.SetActive(true);
-        subSpellPanelList[0].gameObject.SetActive(true);
+       // subSpellPanelList[0].gameObject.SetActive(true);
+        subSpellPanelList[0].OpenSubSpellPanel();
+    }
+
+    public void NextPage()
+    {
+        foreach (var spellPanel in subSpellPanelList)
+        {
+            if (spellPanel.gameObject.activeSelf)
+            {
+                spellPanel.gameObject.SetActive(false);
+                int index = subSpellPanelList.IndexOf(spellPanel);
+                if (index == subSpellPanelList.Count - 1)
+                {
+                    subSpellPanelList[0].OpenSubSpellPanel();
+                }
+                else
+                {
+                    subSpellPanelList[index + 1].OpenSubSpellPanel();
+                }
+                break;
+            }
+        }
+    }
+    
+    public void LastPage()
+    {
+        foreach (var spellPanel in subSpellPanelList)
+        {
+            if (spellPanel.gameObject.activeSelf)
+            {
+                spellPanel.gameObject.SetActive(false);
+                int index = subSpellPanelList.IndexOf(spellPanel);
+                if (index == 0)
+                {
+                    subSpellPanelList[subSpellPanelList.Count - 1].OpenSubSpellPanel();
+                }
+                else
+                {
+                    subSpellPanelList[index - 1].OpenSubSpellPanel();
+                }
+                break;
+            }
+        }
     }
 }
