@@ -19,9 +19,14 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
         }, interval = 10}.Start();*/
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SetActive(true);
+    }
+    
+    private void OnDisable()
+    {
+        SetActive(false);
     }
 
     public void SetActive(bool active)
@@ -56,6 +61,7 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
             recognizer.Stop();
             recognizer.Dispose();
             keywordRecognizers.Remove(key);
+            recognizer.Start();
         }
     }
     
