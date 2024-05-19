@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreBar : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] float maxScore = 10000f; 
     protected float percentage;
     public float score;
-    [SerializeField] Text percentText;
+/*    [SerializeField] Text percentText;*/
+    [SerializeField] TMP_Text percentText;
 
     Canvas canvas;
     void SetScoreText(float score)
@@ -56,6 +58,8 @@ public class ScoreBar : MonoBehaviour
         OnScoreChanged?.Invoke(newPercentage);
 
         UpdateUI();
+        StartCoroutine(FlashScoreText());
+
     }
 
     void UpdateUI()
@@ -65,6 +69,60 @@ public class ScoreBar : MonoBehaviour
             fillImageScore.fillAmount = score / maxScore;
             //Debug.Log("score");
         }
+    }
+
+    IEnumerator FlashScoreText()
+    {
+        TMP_Text text = percentText;
+
+        Color originalColor = text.color;
+        Color flashColor = Color.yellow; 
+
+        text.color = flashColor;
+
+        // 形变效果
+        text.ForceMeshUpdate();
+        Mesh mesh = text.mesh;
+        Vector3[] vertices = mesh.vertices;
+        Vector3[] originalVertices = (Vector3[])vertices.Clone();
+
+        float duration = 0.2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                Vector3 offset = Wobble(Time.time + i);
+                vertices[i] = originalVertices[i] + offset * (1 - t); // 渐变回原始位置
+            }
+
+            mesh.vertices = vertices;
+            text.canvasRenderer.SetMesh(mesh);
+
+            yield return null;
+        }
+
+
+
+
+        // 恢复到原始颜色和形变
+        text.color = originalColor;
+        text.ForceMeshUpdate();
+        mesh.vertices = originalVertices;
+        text.canvasRenderer.SetMesh(mesh);
+
+
+
+    }
+
+
+    Vector2 Wobble(float time)
+    {
+        return new Vector2(Mathf.Sin(time * 330f), Mathf.Cos(time * 250f)) * 25f; // 控制形变的幅度
     }
 }
 
