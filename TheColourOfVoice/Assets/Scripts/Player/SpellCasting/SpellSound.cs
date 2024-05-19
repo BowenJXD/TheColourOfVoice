@@ -20,6 +20,11 @@ public class SpellSound : MonoBehaviour, ISetUp
         IsSet = true;
         emitter = GetComponent<FMODUnity.StudioEventEmitter>();
         spell = GetComponent<Spell>();
+    }
+    
+    private void OnEnable()
+    {
+        if (!IsSet) SetUp();
         SpellManager.Instance.onCastStateChange += OnCastStateChange;
         SpellManager.Instance.onRelease += OnRelease;
     }
@@ -38,7 +43,8 @@ public class SpellSound : MonoBehaviour, ISetUp
                     fmodState = FMODCastState.ReleaseReady;
                     break;
                 default:
-                    return;
+                    fmodState = FMODCastState.None;
+                    break;
             }
             emitter.SetParameter("CastState", (int)fmodState);
             // emitter.Play();
@@ -53,11 +59,4 @@ public class SpellSound : MonoBehaviour, ISetUp
             // emitter.Play();
         }
     }
-
-    private void OnEnable()
-    {
-        if (!IsSet) SetUp();
-    }
-    
-    
 }

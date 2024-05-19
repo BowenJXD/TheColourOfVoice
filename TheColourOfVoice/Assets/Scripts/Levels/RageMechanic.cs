@@ -17,6 +17,7 @@ public class RageMechanic : LevelMechanic
     Image[] rageEffectImages;
     
     LoopTask loopTask;
+    BurningBuff burningBuff;
 
     public override void Init()
     {
@@ -24,6 +25,9 @@ public class RageMechanic : LevelMechanic
         rageEffectImages = rageEffect.GetComponentsInChildren<Image>(true);
         loopTask = new LoopTask{loopAction = IncreaseRage, interval = 1, loop = -1};
         loopTask.Start();
+        
+        burningBuff = GetComponentInChildren<BurningBuff>(true);
+        if (burningBuff) burningBuff.Init();
     }
 
     public override void OnUpdate()
@@ -78,14 +82,18 @@ public class RageMechanic : LevelMechanic
 
     void SetUpRage(Entity enemy)
     {
+        if (enemy.TryGetComponent(out RageBehaviour rageBehaviour))
+        {
+            if (rageBehaviour.isRage) return;
+            if (enemy.TryGetComponent(out BuffOwner buffOwner))
+            {
+                buffOwner.ApplyBuff(burningBuff);
+            }
+        }
         if (enemy.TryGetComponent(out Health health))
         {
             health.invincible = true;
             enemy.onDeinit += () => FinishRage(enemy);
-        }
-        if (enemy.TryGetComponent(out RageBehaviour rageBehaviour))
-        {
-            rageBehaviour.Ignite();
         }
     }
 

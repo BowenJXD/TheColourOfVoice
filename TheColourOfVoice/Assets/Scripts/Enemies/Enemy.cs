@@ -7,14 +7,11 @@ using UnityEngine.Pool;
 
 public class Enemy : Entity
 {
-    public ParticleEntity deathParticlePrefab;
-    
     private Health health;
 
     public override void SetUp()
     {
         base.SetUp();
-        PoolManager.Instance.Register(deathParticlePrefab);
         health = GetComponent<Health>();
     }
 
@@ -22,14 +19,5 @@ public class Enemy : Entity
     {
         base.Init();
         health.OnDeath += Deinit;
-    }
-
-    public override void Deinit()
-    {
-        base.Deinit();
-        var fx = PoolManager.Instance.New(deathParticlePrefab);
-        fx.transform.position = transform.position;
-        fx.transform.rotation = Quaternion.identity;
-        fx.Init();
     }
 }

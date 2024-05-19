@@ -4968,6 +4968,86 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4223553392527657853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7949537689861482362}
+  - component: {fileID: 783099347184608372}
+  - component: {fileID: 1401943983071090186}
+  m_Layer: 0
+  m_Name: BurningBuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7949537689861482362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223553392527657853}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64703155, y: 0.10874368, z: -0.009971413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5649600132699465244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783099347184608372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223553392527657853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc7fc75b9a84b22b5cac06a50024254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  isStackable: 0
+--- !u!114 &1401943983071090186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223553392527657853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -98573174
+      Data2: 1175135204
+      Data3: 201060755
+      Data4: -922940365
+    Path: event:/Combat/BurnEffect
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: EffectState
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6144049354887091650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,6 +5067,7 @@ GameObject:
   - component: {fileID: 6123044165744114827}
   - component: {fileID: -189206238256337458}
   - component: {fileID: 1404843335401291282}
+  - component: {fileID: 440882433085044120}
   m_Layer: 8
   m_Name: FireBall
   m_TagString: Untagged
@@ -5009,6 +5090,7 @@ Transform:
   m_Children:
   - {fileID: 7921143425712959083}
   - {fileID: 7932811324044094209}
+  - {fileID: 7949537689861482362}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2468119043511216803
@@ -5236,3 +5318,15 @@ MonoBehaviour:
   target: {fileID: 0}
   scaleSpeed: 1
   scaleLimit: 8
+--- !u!114 &440882433085044120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144049354887091650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1f70bac69643fb853ed546c2e922a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

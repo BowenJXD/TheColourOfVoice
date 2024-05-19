@@ -4911,3 +4911,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoDeinit: 1
+  stopBehavior: 0

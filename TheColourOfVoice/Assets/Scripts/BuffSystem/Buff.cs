@@ -1,6 +1,14 @@
 ﻿using System;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Pool;
+
+public enum FMODEffectState
+{
+    None,
+    Start,
+    End,
+}
 
 public class Buff : MonoBehaviour, ISetUp
 {
@@ -9,12 +17,14 @@ public class Buff : MonoBehaviour, ISetUp
     BuffOwner owner;
     LoopTask loopTask;
     
-    public ObjectPool<Buff> buffPool;
+    [HideInInspector] public ObjectPool<Buff> buffPool;
+    StudioEventEmitter emitter;
 
     public bool IsSet { get; set; }
     public virtual void SetUp()
     {
         IsSet = true;
+        emitter = GetComponent<StudioEventEmitter>();
         Init();
     }
 
@@ -22,23 +32,29 @@ public class Buff : MonoBehaviour, ISetUp
     {
         if (buffPool == null) buffPool = new ObjectPool<Buff>(() => Instantiate(this), buff => buff.gameObject.SetActive(true),
             buff => buff.gameObject.SetActive(false), buff => Destroy(buff.gameObject));
-        if (loopTask == null) loopTask = new LoopTask{interval = duration, finishAction = () => buffPool.Release(this)};
+        if (duration > 0) loopTask = new LoopTask{interval = duration, finishAction = () => buffPool.Release(this)};
     }
 
     public void Remove()
     {
-        owner.RemoveBuff(this);
+        if (owner) owner.RemoveBuff(this);
     }
 
     private void OnEnable()
     {
         if (!IsSet) SetUp();
     }
+    
+    public virtual bool CanApply(BuffOwner buffOwner)
+    {
+        return true;
+    }
 
     public virtual void OnApply(BuffOwner buffOwner)
     {
         owner = buffOwner;
-        loopTask.Start();
+        if (emitter) emitter.SetParameter("EffectState", (int)FMODEffectState.Start);
+        loopTask?.Start();
     }
 
     public virtual void OnStack()
@@ -48,7 +64,8 @@ public class Buff : MonoBehaviour, ISetUp
 
     public virtual void OnRemove()
     {
-        loopTask.Stop();
+        loopTask?.Stop();
+        if (emitter) emitter.SetParameter("EffectState", (int)FMODEffectState.End);
     }
 
     private void OnDisable()

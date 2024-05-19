@@ -14,7 +14,7 @@ public class BuffOwner : MonoBehaviour
         string buffName = buffPrefab.name;
         if (!gameObject.activeSelf) return false;
         if (resistingBuffs.Contains(buffName)) return false;
-        if (!buffs.ContainsKey(buffName))
+        if (!buffs.ContainsKey(buffName) && buffPrefab.CanApply(this))
         {
             Buff buff = buffPrefab.buffPool.Get();
             buff.transform.SetParent(transform, false);
@@ -42,5 +42,14 @@ public class BuffOwner : MonoBehaviour
     {
         buffs.Remove(buff.name);
         buff.OnRemove();
+    }
+
+    private void OnDisable()
+    {
+        var buffList = new List<Buff>(buffs.Values);
+        for (int i = buffList.Count - 1; i >= 0; i--)
+        {
+            buffList[i].Remove();
+        }
     }
 }

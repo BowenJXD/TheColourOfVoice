@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5346364098940725260}
   - component: {fileID: 7782837980442305606}
+  - component: {fileID: 7744296342038263498}
   m_Layer: 8
   m_Name: FreezeBuff
   m_TagString: Untagged
@@ -45,8 +46,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3147a8151344dc802c24cb56e53948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 2
   isStackable: 0
+--- !u!114 &7744296342038263498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5127946931797305903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 451666157
+      Data2: 1263156647
+      Data3: -1966304589
+      Data4: 2132335781
+    Path: event:/Combat/FreezeEffect
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: EffectState
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5347973191232971278
 GameObject:
   m_ObjectHideFlags: 0

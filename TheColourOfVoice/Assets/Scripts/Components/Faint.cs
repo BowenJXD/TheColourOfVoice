@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Faint system for game objects, will freeze the game object for a certain amount of time when dead and reset <see cref="Health"/>
@@ -33,8 +34,11 @@ public class Faint : MonoBehaviour, ISetUp
         col = GetComponent<Collider2D>();
     }
     
+    public UnityEvent onFaint;
+    
     void StartFaint()
     {
+        onFaint?.Invoke();
         inactivatingGameObjects.ForEach(go => go.SetActive(false));
         disablingComponents.ForEach(comp => comp.enabled = false);
         
@@ -54,6 +58,7 @@ public class Faint : MonoBehaviour, ISetUp
         inactivatingGameObjects.ForEach(go => go.SetActive(true));
         disablingComponents.ForEach(comp => comp.enabled = true);
         
+        health.ResetHealth();
         health.StartCD();
         health.OnDeath += StartFaint;
         

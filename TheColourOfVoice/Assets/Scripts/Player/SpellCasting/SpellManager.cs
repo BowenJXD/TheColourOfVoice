@@ -172,13 +172,13 @@ public class SpellManager : Singleton<SpellManager>
             Debug.LogWarning("No spell to release.");
             return;
         }
+        CastState = CastState.Null;
         currentSpell.Execute();
         onRelease?.Invoke();
         Vector2 direction = transform.right;
         if (rb) rb.AddForce(-direction * currentSpell.recoil, ForceMode2D.Impulse);
         currentSpell = null;
         
-        CastState = CastState.Null;
         coolDownTask.Start();
     }
 

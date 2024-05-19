@@ -50,11 +50,6 @@ public class FireBallSpell : Spell
         Vector3 direction = currentBullet.transform.position - transform.position;
         direction = direction.normalized;
 
-        if (currentBullet.TryGetComponent(out Attack attack))
-        {
-            attack.OnDamage += OnDamage;
-        }
-        
         if (currentBullet.TryGetComponent(out DoTweenScale1Behaviour scale1Behaviour))
         {
             scale1Behaviour.scaleSpeed = currentConfig.chantTime / 2;
@@ -64,13 +59,5 @@ public class FireBallSpell : Spell
         currentBullet.SetDirection(direction);
         
         currentAnim.Deinit();
-    }
-    
-    void OnDamage(Health health)
-    {
-        if (health.TryGetComponent(out RageBehaviour rage))
-        {
-            rage.Ignite();
-        }
     }
 }

@@ -44,10 +44,14 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         {
             ani.enabled = true;
         }
-
         if (sp)
         {
             defaultSprite = sp.sprite;
+        }
+        var freezeBuff = GetComponentInChildren<FreezeBuff>();
+        if (freezeBuff)
+        {
+            freezeBuff.Remove();
         }
     }
 
@@ -66,10 +70,16 @@ public class RageBehaviour : MonoBehaviour, ISetUp
         isRage = false;
     }
 
+    /// <summary>
+    /// Reset on trigger
+    /// </summary>
+    public Action onExtinguish;
+    
     public void Extinguish()
     {
         if (!isRage) return;
         isRage = false;
+        onExtinguish?.Invoke();
         FinishRage();
     }
     

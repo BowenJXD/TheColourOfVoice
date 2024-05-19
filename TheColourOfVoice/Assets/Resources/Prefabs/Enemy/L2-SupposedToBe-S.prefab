@@ -514,7 +514,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params:
   - Name: EntityType
-    Value: 0
+    Value: 2
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
