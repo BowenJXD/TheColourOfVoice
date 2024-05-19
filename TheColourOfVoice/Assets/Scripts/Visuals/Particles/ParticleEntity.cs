@@ -24,12 +24,15 @@ public class ParticleEntity : Entity
             {
                 Deinit();
                 ps.Stop(false, stopBehavior);
-            }}.Start();
+            }, interval = time}.Start();
         }
     }
 
     private void OnParticleSystemStopped()
     {
-        Deinit();
+        if (!autoDeinit)
+        {
+            Deinit();
+        }
     }
 }
