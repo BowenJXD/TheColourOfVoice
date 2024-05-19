@@ -7,16 +7,15 @@ public class HealthUIManager : MonoBehaviour
 {
     [SerializeField] GameObject player;
 
-    public GameObject heartPrefab;  // 心型预制体
-    public Transform heartContainer;  // 包含心型的容器
+    public GameObject heartPrefab;  
+    public Transform heartContainer;  
     private List<GameObject> hearts = new List<GameObject>();
 
     private float currentHealth;
     private float maxHealth;
     void Start()
     {
-        // 在游戏开始时获取 TestPlayer 对象
-        player = GameObject.FindWithTag("Player");  // 假设 TestPlayer 对象有一个 "Player" 标签
+        player = GameObject.FindWithTag("Player"); 
         if (player != null)
         {
             SetHealth(player);
@@ -35,14 +34,14 @@ public class HealthUIManager : MonoBehaviour
     {
 
 
-        // 清空现有的心型
+
         foreach (GameObject heart in hearts)
         {
             Destroy(heart);
         }
         hearts.Clear();
 
-        // 根据当前血量和最大血量重新生成心型
+
 
         for (int i = 0; i < maxHealth; i++)
         {
@@ -70,7 +69,7 @@ public class HealthUIManager : MonoBehaviour
         Debug.Log("Total hearts created: " + hearts.Count);
     }
 
-    // 新增方法：更新心型图标的颜色
+
     public void UpdateHeartColor()
     {
         if (hearts.Count == 0)
@@ -99,21 +98,42 @@ public class HealthUIManager : MonoBehaviour
             float newHealth = player.GetComponent<Health>().GetCurrentHealth();
             if (newHealth != currentHealth)
             {
+                if (newHealth < currentHealth)  
+                {
+                    StartCoroutine(FlashHeart((int)newHealth));
+                }
                 currentHealth = newHealth;
                 UpdateHeartColor();
             }
-/*            if (currentHealth <= 0)
-            {
-                RestoreHealth();
-            }*/
+
         }
     }
-
-/*    public void RestoreHealth()
+    private IEnumerator FlashHeart(int index)
     {
-        currentHealth = maxHealth;
-        player.GetComponent<Health>().SetCurrentHealth(currentHealth);
-        UpdateHeartColor();
-        Debug.Log("Health restored to max.");
-    }*/
+        Image heartImage = hearts[index].transform.Find("Image").GetComponent<Image>();
+        if (heartImage == null)
+        {
+            yield break;
+        }
+
+        Color originalColor = heartImage.color;
+        Color flashColor = Color.black;
+
+        for (int i = 0; i < 5; i++)  
+        {
+            heartImage.color = flashColor;
+            yield return new WaitForSeconds(0.1f);
+            heartImage.color = originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        heartImage.color = Color.grey; 
+    }
+    /*    public void RestoreHealth()
+        {
+            currentHealth = maxHealth;
+            player.GetComponent<Health>().SetCurrentHealth(currentHealth);
+            UpdateHeartColor();
+            Debug.Log("Health restored to max.");
+        }*/
 }
