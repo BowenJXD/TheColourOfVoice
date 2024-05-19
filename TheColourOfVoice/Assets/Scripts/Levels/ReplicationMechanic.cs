@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using UnityEngine;
 
 public class ReplicationMechanic : LevelMechanic
@@ -8,10 +9,12 @@ public class ReplicationMechanic : LevelMechanic
     public float force;
     List<Enemy> enemies;
     LoopTask loopTask;
+    private StudioEventEmitter emitter;
     
     public override void Init()
     {
         base.Init();
+        emitter = GetComponent<StudioEventEmitter>();
         enemies = LevelManager.Instance.enemyGenerator.enemyPrefabs;
         loopTask = new LoopTask{loopAction = Replicate, interval = triggerInterval, loop = -1};
         loopTask.Start();
@@ -37,5 +40,6 @@ public class ReplicationMechanic : LevelMechanic
                 newRb.AddForce(-direction * force, ForceMode2D.Impulse);
             }
         }
+        if (emitter) emitter.Play();
     }
 }

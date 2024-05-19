@@ -12,9 +12,13 @@ GameObject:
   - component: {fileID: -1781841275830731952}
   - component: {fileID: 8632100207604455617}
   - component: {fileID: 1203561748834695029}
+  - component: {fileID: -7577441747312387810}
+  - component: {fileID: -6260295280013115907}
   - component: {fileID: 6166580557165399037}
   - component: {fileID: -1188011397712498322}
   - component: {fileID: 4222946095265542511}
+  - component: {fileID: -5272934733358270780}
+  - component: {fileID: 863064092693611944}
   - component: {fileID: 7350515060046099572}
   m_Layer: 0
   m_Name: Anim-Split-M
@@ -116,6 +120,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables: []
+--- !u!114 &-7577441747312387810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991396578962145229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  next: 0
+  emitters:
+  - {fileID: -6260295280013115907}
+--- !u!114 &-6260295280013115907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991396578962145229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1941853756
+      Data2: 1295960442
+      Data3: -659542854
+      Data4: 1988801245
+    Path: event:/Combat/Spliting
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &6166580557165399037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +235,53 @@ MonoBehaviour:
   - 90
   - -90
   prefab: {fileID: 4184870022919412751, guid: 2e2abb55c938b564093c50e33616ef6e, type: 3}
+--- !u!114 &-5272934733358270780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991396578962145229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  next: 0
+  emitters:
+  - {fileID: 863064092693611944}
+--- !u!114 &863064092693611944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991396578962145229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -794766921
+      Data2: 1123744298
+      Data3: 2065751487
+      Data4: -201098256
+    Path: event:/Combat/Splited
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &7350515060046099572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +296,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   next: 0
+  waitTime: 0

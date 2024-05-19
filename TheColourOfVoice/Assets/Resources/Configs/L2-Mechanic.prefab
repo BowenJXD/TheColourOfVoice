@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359771481765065850}
   - component: {fileID: 5998322813702647268}
+  - component: {fileID: 2366264353378346505}
   m_Layer: 0
   m_Name: L2-Mechanic
   m_TagString: Untagged
@@ -44,5 +45,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b5be443f4945bc9056c7673e4b1c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerInterval: 10
+  triggerInterval: 16
   force: 5
+--- !u!114 &2366264353378346505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447990609403793237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -794766921
+      Data2: 1123744298
+      Data3: 2065751487
+      Data4: -201098256
+    Path: event:/Combat/Splited
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b645967b73f0d459614c151130ea44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathParticlePrefab: {fileID: -6403434564918838934, guid: 524d3a89c2f476d47a6709ed95d9df2f, type: 3}
 --- !u!50 &4961256998949816231
 Rigidbody2D:
   serializedVersion: 4
@@ -440,7 +439,7 @@ MonoBehaviour:
       Data2: 1338472936
       Data3: 1225566360
       Data4: 1916180986
-    Path: event:/Hurt
+    Path: event:/Combat/Hurt
   Event: 
   PlayEvent: 0
   StopEvent: 0
