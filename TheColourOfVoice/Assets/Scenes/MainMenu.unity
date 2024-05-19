@@ -5222,9 +5222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 1702527199}
-  startColor: {r: 1, g: 1, b: 1, a: 1}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
-  duration: 0.5
+  fadeDuration: 0.57
 --- !u!1 &1703430516
 GameObject:
   m_ObjectHideFlags: 0
