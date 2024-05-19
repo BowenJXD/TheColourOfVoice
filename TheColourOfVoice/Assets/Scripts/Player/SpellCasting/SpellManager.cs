@@ -55,15 +55,15 @@ public class SpellManager : Singleton<SpellManager>
     {
         get => _castState;
         set{
+            onCastStateChange?.Invoke(value);
             _castState = value;
-            OnCastStateChange?.Invoke(_castState);
         }
     }
 
     /// <summary>
-    /// 
+    /// Called before trigger, reset on disable
     /// </summary>
-    public Action<CastState> OnCastStateChange;
+    public Action<CastState> onCastStateChange;
     
     LoopTask coolDownTask;
 
@@ -76,7 +76,8 @@ public class SpellManager : Singleton<SpellManager>
     {
         VoiceInputSystem.Instance.SetActive(false);
         currentSpell = null;
-        OnCastStateChange = null;
+        onCastStateChange = null;
+        onRelease = null;
     }
 
     private void Update()
@@ -135,26 +136,32 @@ public class SpellManager : Singleton<SpellManager>
             peakVolume = peakVolume,
             confidenceLevel = recognizedEventArgs.confidence
         };
-        spell.StartCasting(config);
-        spell.onEndCasting += () => CastState = CastState.ReleaseReady;
         Debug.Log($"Start Casting Spell: {spell.spellName}, " +
                   $"Chant Time: {config.chantTime}, " +
                   $"Peak Volume: {config.peakVolume}, " +
                   $"Confidence Level: {config.confidenceLevel}");
 
+        currentSpell = spell;
         if (spell.needCasting)
         {
+            spell.StartCasting(config);
+            spell.onEndCasting += () => CastState = CastState.ReleaseReady;
             CastState = CastState.Casting;
-            currentSpell = spell;
             defaultSpell.enabled = false;
         }
         else
         {
+            Release();
             CastState = CastState.Null;
             coolDownTask.Start();
         }
     }
 
+    /// <summary>
+    /// Reset on disable
+    /// </summary>
+    public Action onRelease;
+    
     /// <summary>
     /// Only for spells that need casting.
     /// </summary>
@@ -166,6 +173,7 @@ public class SpellManager : Singleton<SpellManager>
             return;
         }
         currentSpell.Execute();
+        onRelease?.Invoke();
         Vector2 direction = transform.right;
         if (rb) rb.AddForce(-direction * currentSpell.recoil, ForceMode2D.Impulse);
         currentSpell = null;

@@ -119,6 +119,9 @@ GameObject:
   - component: {fileID: 855963410195016915}
   - component: {fileID: 1415515654950693100}
   - component: {fileID: -6942921696659639519}
+  - component: {fileID: -5576558273577484676}
+  - component: {fileID: -7579690251532360433}
+  - component: {fileID: -533820370944987759}
   m_Layer: 9
   m_Name: L2-SupposedToBe-M
   m_TagString: Enemy
@@ -390,7 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782f0c2bab5c457eabe388ee43e6a924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executables: []
+  executables:
+  - {fileID: 160077595834419196}
 --- !u!114 &160077595834419196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,3 +460,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistingBuffs: []
+--- !u!114 &-5576558273577484676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7ba4fba0994c3c99c7055f7064a51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: -7579690251532360433}
+--- !u!114 &-7579690251532360433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  emitters: []
+--- !u!114 &-533820370944987759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2054867144
+      Data2: 1338472936
+      Data3: 1225566360
+      Data4: 1916180986
+    Path: event:/Hurt
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: EntityType
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

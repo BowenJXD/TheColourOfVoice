@@ -52,6 +52,7 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
         var recognizer = new KeywordRecognizer(new string[] { key });
         recognizer.OnPhraseRecognized += (e) => action(e);
         keywordRecognizers.Add(key, recognizer);
+        recognizer.Start();
     }
     
     public void Unregister(string key)
@@ -61,7 +62,6 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
             recognizer.Stop();
             recognizer.Dispose();
             keywordRecognizers.Remove(key);
-            recognizer.Start();
         }
     }
     

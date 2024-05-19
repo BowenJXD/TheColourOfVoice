@@ -118,6 +118,9 @@ GameObject:
   - component: {fileID: 4655306787641739624}
   - component: {fileID: 4271041332400585980}
   - component: {fileID: -3360592862011363990}
+  - component: {fileID: -439921989109792675}
+  - component: {fileID: -1064335950167697159}
+  - component: {fileID: 2890315533292414907}
   m_Layer: 9
   m_Name: L3-AlcoholBottle
   m_TagString: Enemy
@@ -443,3 +446,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistingBuffs: []
+--- !u!114 &-439921989109792675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7ba4fba0994c3c99c7055f7064a51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: -1064335950167697159}
+--- !u!114 &-1064335950167697159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  emitters: []
+--- !u!114 &2890315533292414907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2054867144
+      Data2: 1338472936
+      Data3: 1225566360
+      Data4: 1916180986
+    Path: event:/Hurt
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: EntityType
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

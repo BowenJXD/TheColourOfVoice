@@ -18,7 +18,7 @@ public class BandAnim : MonoBehaviour
     private void OnEnable()
     {
         spellManager = SpellManager.Instance;
-        spellManager.OnCastStateChange += OnCastStateChange;
+        spellManager.onCastStateChange += OnCastStateChange;
         originalPosition = transform.localPosition;
     }
     

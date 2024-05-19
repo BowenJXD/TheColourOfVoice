@@ -60,14 +60,7 @@ public class Spell : MonoBehaviour, ISetUp
             return;
         }
         currentConfig = config;
-        if (needCasting)
-        {
-            Invoke(nameof(EndCasting), config.chantTime);
-        }
-        else
-        {
-            Execute();
-        }
+        Invoke(nameof(EndCasting), config.chantTime);
     }
 
     /// <summary>
