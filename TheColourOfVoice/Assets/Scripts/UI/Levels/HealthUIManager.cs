@@ -62,7 +62,7 @@ public class HealthUIManager : MonoBehaviour
                 continue;
             }
 
-            heartImage.color = i < currentHealth ? Color.white : Color.grey;
+            heartImage.color = i < currentHealth ? Color.white : Color.clear;
 
         }
 
@@ -87,7 +87,7 @@ public class HealthUIManager : MonoBehaviour
                 continue;
             }
 
-            heartImage.color = i < currentHealth ? Color.white : Color.grey;
+            heartImage.color = i < currentHealth ? Color.white : Color.clear;
         }
     }
 
@@ -127,7 +127,7 @@ public class HealthUIManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        heartImage.color = Color.grey; 
+        heartImage.color = Color.clear; 
     }
     /*    public void RestoreHealth()
         {

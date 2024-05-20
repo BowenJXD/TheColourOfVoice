@@ -199,7 +199,7 @@ MonoBehaviour:
   damage: 0.2
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
-  knockBack: 2
+  knockBack: 0
   rb: {fileID: 0}
 --- !u!114 &-8025040907022103349
 MonoBehaviour:

@@ -10767,12 +10767,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 0d4e7f42eb12bad4abb4ac6745f7566f, type: 2}
-  levelIndex: 2
-  levelColor: 2
-  tileSprite: {fileID: 21300000, guid: 8f30cc66aacc9b0498e2fbd2bbdd650d, type: 3}
-  enemyGenerator: {fileID: 7218613360977623393, guid: e70de52da47cf804eac1479c9a3a5745, type: 3}
-  mechanic: {fileID: 5998322813702647268, guid: 5b10a289b68f1164bb43ac578eac4706, type: 3}
+  config: {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
+  levelIndex: 1
+  levelColor: 9
+  tileSprite: {fileID: 21300000, guid: 24ac7801f79ccf6439c8bbb8feb4055f, type: 3}
+  enemyGenerator: {fileID: 3808112070387729887, guid: 670b4f67b37b09046a996e2c044ee487, type: 3}
+  mechanic: {fileID: 0}
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
 --- !u!114 &421179008
@@ -10803,9 +10803,7 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params:
-  - Name: Parameter 1
-    Value: 0
-  - Name: Level
+  - Name: LevelIndex
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -19216,12 +19214,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -42
+    m_Left: -46
     m_Right: 10
-    m_Top: 5
+    m_Top: 2
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -85
+  m_Spacing: -95.2
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -19959,9 +19957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a909c12d4f5644a834a1b5373d59c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillImageScore: {fileID: 0}
+  fillImageScore: {fileID: 590291735}
   splashGrid: {fileID: 776967710}
-  maxScore: 10000
+  maxScore: 4500
   score: 0
   percentText: {fileID: 1160682291}
 --- !u!1 &6994236539064309977
