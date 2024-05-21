@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UIFraneTest.unity
     guid: 6b7035526ed3861479c31040c1d99fd0
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Level_01.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/BigMap.unity
