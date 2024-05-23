@@ -9,8 +9,9 @@ using UnityEngine.Events;
 public class Faint : MonoBehaviour, ISetUp
 {
     public float faintDuration;
+    protected float faintTimer;
+    public float QTEEfficiency;
 
-    private LoopTask loopTask;
     public List<GameObject> inactivatingGameObjects;
     public List<Behaviour> disablingComponents;
     private Health health;
@@ -23,7 +24,6 @@ public class Faint : MonoBehaviour, ISetUp
     {
         if (!IsSet) SetUp();
         health.OnDeath += StartFaint;
-        loopTask = new LoopTask { interval = faintDuration, loop = 1, finishAction = EndFaint };
     }
 
     public bool IsSet { get; set; }
@@ -35,7 +35,24 @@ public class Faint : MonoBehaviour, ISetUp
     }
     
     public UnityEvent onFaint;
-    
+
+    private void Update()
+    {
+        if (faintTimer > 0)
+        {
+            float decrementMultiplier = 1;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                decrementMultiplier = QTEEfficiency;
+            }
+            faintTimer -= Time.deltaTime * decrementMultiplier;
+            if (faintTimer <= 0)
+            {
+                EndFaint();
+            }
+        }
+    }
+
     void StartFaint()
     {
         onFaint?.Invoke();
@@ -50,7 +67,7 @@ public class Faint : MonoBehaviour, ISetUp
         
         if (ani) ani.SetBool("isFaint", true);
         
-        loopTask.Start();
+        faintTimer = faintDuration;
     }
     
     void EndFaint()
