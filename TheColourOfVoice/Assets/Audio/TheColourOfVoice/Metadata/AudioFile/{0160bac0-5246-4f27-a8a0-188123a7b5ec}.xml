@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0160bac0-5246-4f27-a8a0-188123a7b5ec}">
+		<property name="assetPath">
+			<value>Spell/飞行结束.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.3958503401360547</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

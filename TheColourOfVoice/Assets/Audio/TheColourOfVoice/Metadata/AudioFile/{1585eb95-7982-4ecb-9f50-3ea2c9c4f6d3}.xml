@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1585eb95-7982-4ecb-9f50-3ea2c9c4f6d3}">
+		<property name="assetPath">
+			<value>Spell/飞行中.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.1328571428571426</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>

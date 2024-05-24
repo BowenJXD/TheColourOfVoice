@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dc94e061-e058-40ec-8ccd-7ca130cd7c7c}">
+		<property name="assetPath">
+			<value>Spell/风铃zth075028.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>13.229478458049886</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>
