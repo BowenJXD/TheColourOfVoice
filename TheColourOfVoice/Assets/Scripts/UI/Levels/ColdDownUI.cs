@@ -7,7 +7,8 @@ public class ColdDownUI : MonoBehaviour
 {
     public Spell spell; 
     public Image mask_img;
-
+    public Text cd_text;
+    
     void Update()
     {
 
@@ -15,7 +16,8 @@ public class ColdDownUI : MonoBehaviour
         {
             float cooldown = spell.GetCooldownTime();
             float remainingCD = spell.GetRemainingCD();
-
+            cd_text.text = remainingCD.ToString("F1");
+            
             mask_img.fillAmount = remainingCD / cooldown;
 
         }
