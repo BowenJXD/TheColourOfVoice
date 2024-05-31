@@ -15,18 +15,17 @@ public class FireBallColdDown : MonoBehaviour
     private void Start()
     {
 
-        Transform childTransform = parent.transform.Find("ImageFilled");
-        if (childTransform != null)
+        Transform ImagechildTransform = parent.transform.Find("ImageFilled");
+        Transform TextchildTransform = parent.transform.Find("CD");
+
+        mask_img = ImagechildTransform.GetComponent<Image>();
+        cd_text = TextchildTransform.GetComponent<Text>();
+        if (mask_img != null)
         {
-
-            mask_img = childTransform.GetComponent<Image>();
-            if (mask_img != null)
-            {
-                spell = FindObjectOfType<FireBallSpell>();
-                mask_img.sprite = spell.spellImage;
-            }
-
+            spell = FindObjectOfType<FireBallSpell>();
+            mask_img.sprite = spell.spellImage;
         }
+        
     }
 
     void Update()
