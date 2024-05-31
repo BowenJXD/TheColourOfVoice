@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e534b5a28aaa6c14da70b4a92fbd2cbe
+guid: dea66eaffabb54946a19b93cd1e48bd6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,7 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI-Blank _0
+      name: Star_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 7
-        width: 44
-        height: 16
+        x: 47
+        y: 28
+        width: 98
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,29 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c59a31f965c7f23438de3ed1fc39fe46
-      internalID: 1858066738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI-Blank _1
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 7
-        width: 44
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 498bf5d36a7ad9949a49c433c753a48d
-      internalID: 1486336523
+      spriteID: 80662ed771b70074e94206878e73f090
+      internalID: 1618832865
       vertices: []
       indices: 
       edges: []
@@ -162,8 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI-Blank _0: 1858066738
-      UI-Blank _1: 1486336523
+      Star_0: 1618832865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

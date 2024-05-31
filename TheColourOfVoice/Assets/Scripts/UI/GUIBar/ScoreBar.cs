@@ -12,7 +12,6 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] float maxScore = 10000f; 
     protected float percentage;
     public float score;
-/*    [SerializeField] Text percentText;*/
     [SerializeField] TMP_Text percentText;
 
     Canvas canvas;
@@ -42,8 +41,7 @@ public class ScoreBar : MonoBehaviour
     {
         percentage = splashGrid.paintedPercentage;
         UpdateScore(percentage);
-/*        SetPercentText(0);
-*/
+
     }
     
     public Action<float> OnScoreChanged;
@@ -67,7 +65,6 @@ public class ScoreBar : MonoBehaviour
         if (fillImageScore != null)
         {
             fillImageScore.fillAmount = score / maxScore;
-            //Debug.Log("score");
         }
     }
 
@@ -80,7 +77,7 @@ public class ScoreBar : MonoBehaviour
 
         text.color = flashColor;
 
-        // 形变效果
+
         text.ForceMeshUpdate();
         Mesh mesh = text.mesh;
         Vector3[] vertices = mesh.vertices;
@@ -97,7 +94,7 @@ public class ScoreBar : MonoBehaviour
             for (int i = 0; i < vertices.Length; i++)
             {
                 Vector3 offset = Wobble(Time.time + i);
-                vertices[i] = originalVertices[i] + offset * (1 - t); // 渐变回原始位置
+                vertices[i] = originalVertices[i] + offset * (1 - t); 
             }
 
             mesh.vertices = vertices;
@@ -105,24 +102,18 @@ public class ScoreBar : MonoBehaviour
 
             yield return null;
         }
-
-
-
-
-        // 恢复到原始颜色和形变
+        
         text.color = originalColor;
         text.ForceMeshUpdate();
         mesh.vertices = originalVertices;
         text.canvasRenderer.SetMesh(mesh);
-
-
-
+        
     }
 
 
     Vector2 Wobble(float time)
     {
-        return new Vector2(Mathf.Sin(time * 330f), Mathf.Cos(time * 250f)) * 25f; // 控制形变的幅度
+        return new Vector2(Mathf.Sin(time * 330f), Mathf.Cos(time * 250f)) * 25f; 
     }
 }
 

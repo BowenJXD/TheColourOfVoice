@@ -18,8 +18,21 @@ public class ColdDownUI : MonoBehaviour
             float remainingCD = spell.GetRemainingCD();
             cd_text.text = remainingCD.ToString("F1");
             
-            mask_img.fillAmount = remainingCD / cooldown;
-
+            if (remainingCD > 0)
+            {
+                cd_text.gameObject.SetActive(true);
+                cd_text.text = remainingCD.ToString("F1");
+                mask_img.fillAmount = remainingCD / cooldown;
+            }
+            else
+            {
+                cd_text.gameObject.SetActive(false);
+                mask_img.fillAmount = 0;
+            }
+        }else
+        {
+            cd_text.gameObject.SetActive(false);
+            mask_img.fillAmount = 0;
         }
     }
 }
