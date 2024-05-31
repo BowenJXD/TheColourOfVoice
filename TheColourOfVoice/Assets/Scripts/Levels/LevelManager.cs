@@ -78,4 +78,5 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     {
         if (mechanic) mechanic.Deinit();
     }
+    
 }

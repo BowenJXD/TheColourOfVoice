@@ -13,8 +13,7 @@ public class StarController : MonoBehaviour
     
     void Awake()
     {
-        score = scoreBar.score;
-        percentText.text = Mathf.RoundToInt(score).ToString();
+        
         foreach (Image star in stars)
         {
             SetStarColor(star, false);
@@ -37,8 +36,10 @@ public class StarController : MonoBehaviour
     }
 
 
-    void UpdateStars()
+    public void UpdateStars()
     {
+        score = scoreBar.score;
+        percentText.text = Mathf.RoundToInt(score).ToString();
         for (int i = 0; i < stars.Length; i++)
         {
             if (score >= scoreThresholds[i])

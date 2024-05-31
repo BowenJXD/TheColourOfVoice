@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba64bf671694d868e09265f4c45af86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rageValue: 1.561834
+  rageValue: 0
   rageLimit: 10
   detectionInterval: 1
   rageDecay: 2

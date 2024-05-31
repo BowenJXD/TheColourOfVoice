@@ -24,7 +24,13 @@ public class LightColdDown : MonoBehaviour
             spell = FindObjectOfType<GlowingConfidenceSpell>();
             mask_img.sprite = spell.spellImage;
         }
-
+        if (spell != null)
+        {
+            mask_img.sprite = spell.spellImage;
+        }else
+        {
+            parent.SetActive(false);
+        }
 
     }
 

@@ -10,7 +10,7 @@ public class FireBallColdDown : MonoBehaviour
     public GameObject parent; 
     private Spell spell; 
     private Image mask_img;
-    public Text cd_text;
+    private Text cd_text;
 
     private void Start()
     {
@@ -23,7 +23,13 @@ public class FireBallColdDown : MonoBehaviour
         if (mask_img != null)
         {
             spell = FindObjectOfType<FireBallSpell>();
-            mask_img.sprite = spell.spellImage;
+            if (spell != null)
+            {
+                mask_img.sprite = spell.spellImage;
+            }else
+            {
+                parent.SetActive(false);
+            }
         }
         
     }
