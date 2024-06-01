@@ -23,13 +23,13 @@ public class Spell : MonoBehaviour, ISetUp
     public virtual void SetUp()
     {
         IsSet = true;
-        SpellManager.Instance.Register(this);
         if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
     }
     
     private void OnEnable()
     {
         if (!IsSet) SetUp();
+        SpellManager.Instance.Register(this);
         Init();
     }
 
@@ -94,5 +94,10 @@ public class Spell : MonoBehaviour, ISetUp
     public virtual float GetRemainingCD()
     {
         return remainingCD;
+    }
+
+    private void OnDisable()
+    {
+        SpellManager.Instance.Unregister(this);
     }
 }

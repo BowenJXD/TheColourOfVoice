@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RageMechanic : LevelMechanic
@@ -22,6 +23,8 @@ public class RageMechanic : LevelMechanic
     public override void Init()
     {
         rageValue = 0;
+        if (!rageEffect) rageEffect = Resources.Load<GameObject>("Prefabs/RageEdge");
+        rageEffect = Instantiate(rageEffect, GameObject.Find("Canvas").transform);
         rageEffectImages = rageEffect.GetComponentsInChildren<Image>(true);
         loopTask = new LoopTask{loopAction = IncreaseRage, interval = 1, loop = -1};
         loopTask.Start();

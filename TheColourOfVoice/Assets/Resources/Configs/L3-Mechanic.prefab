@@ -50,7 +50,7 @@ MonoBehaviour:
   detectionInterval: 1
   rageDecay: 2
   isRageMode: 0
-  rageEffect: {fileID: 0}
+  rageEffect: {fileID: 6469564197975256255, guid: a55f62ef84db4fe428be080c051a0e1c, type: 3}
   fadeTime: 1
 --- !u!1 &5987944377600983155
 GameObject:
