@@ -32,7 +32,10 @@ public class Buff : MonoBehaviour, ISetUp
     {
         if (buffPool == null) buffPool = new ObjectPool<Buff>(() => Instantiate(this), buff => buff.gameObject.SetActive(true),
             buff => buff.gameObject.SetActive(false), buff => Destroy(buff.gameObject));
-        if (duration > 0) loopTask = new LoopTask{interval = duration, finishAction = () => buffPool.Release(this)};
+        if (duration > 0) loopTask = new LoopTask{interval = duration, finishAction = () =>
+        {
+            Remove();
+        }};
     }
 
     public void Remove()
@@ -64,12 +67,8 @@ public class Buff : MonoBehaviour, ISetUp
 
     public virtual void OnRemove()
     {
+        buffPool.Release(this);
         loopTask?.Stop();
         if (emitter) emitter.SetParameter("EffectState", (int)FMODEffectState.End);
-    }
-
-    private void OnDisable()
-    {
-        Remove();
     }
 }

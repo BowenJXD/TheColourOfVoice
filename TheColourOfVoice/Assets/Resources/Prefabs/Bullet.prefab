@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: 9
+  paintColor: 2
 --- !u!114 &-1438211202479607340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 0.2
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
   knockBack: 0
