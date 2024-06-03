@@ -42,4 +42,10 @@ public class ReplicationMechanic : LevelMechanic
         }
         if (emitter) emitter.Play();
     }
+
+    public override void Deinit()
+    {
+        base.Deinit();
+        loopTask.Stop();
+    }
 }
