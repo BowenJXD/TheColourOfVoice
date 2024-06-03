@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: -1807845647907494960}
   - component: {fileID: -1608374517622876252}
   - component: {fileID: 2934732489024153101}
+  - component: {fileID: 3723528079462767188}
+  - component: {fileID: -6741067592962939943}
   m_Layer: 9
   m_Name: L3-SweetPhoto
   m_TagString: Enemy
@@ -469,3 +471,33 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &3723528079462767188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782f0c2bab5c457eabe388ee43e6a924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: -6741067592962939943}
+--- !u!114 &-6741067592962939943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  timeScaleOverride: 0.2
+  duration: 1

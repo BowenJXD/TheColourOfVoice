@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 3698254325625355584}
   - component: {fileID: 8469035765835947184}
   - component: {fileID: 1717833141882939588}
+  - component: {fileID: 4241994322434044272}
+  - component: {fileID: 8830142110474638317}
   m_Layer: 9
   m_Name: L1-Toast
   m_TagString: Enemy
@@ -473,3 +475,33 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &4241994322434044272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782f0c2bab5c457eabe388ee43e6a924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: 8830142110474638317}
+--- !u!114 &8830142110474638317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  timeScaleOverride: 0.2
+  duration: 1

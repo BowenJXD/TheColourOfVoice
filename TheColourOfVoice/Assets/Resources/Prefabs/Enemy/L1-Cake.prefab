@@ -118,6 +118,8 @@ GameObject:
   - component: {fileID: 5682161661080384136}
   - component: {fileID: 5500443158120368791}
   - component: {fileID: 5970856376335570818}
+  - component: {fileID: -9015069275021452459}
+  - component: {fileID: -7795581294777544749}
   m_Layer: 9
   m_Name: L1-Cake
   m_TagString: Enemy
@@ -451,3 +453,33 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &-9015069275021452459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782f0c2bab5c457eabe388ee43e6a924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: -7795581294777544749}
+--- !u!114 &-7795581294777544749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  timeScaleOverride: 0.2
+  duration: 1
