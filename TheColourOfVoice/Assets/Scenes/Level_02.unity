@@ -12550,75 +12550,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: QTEEfficiency
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: faintDuration
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: inactivatingGameObjects.Array.size
-      value: 2
+    - target: {fileID: 177915995075319070, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: inactivatingGameObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 947690039}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: inactivatingGameObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 947690039}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 834556984}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FMODUnity.StudioEventEmitter, FMODUnity
-      objectReference: {fileID: 0}
-    - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: onFaint.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 3289691547679179575, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4627527496927842432, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: skip
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4627527496927842432, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: emitters.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4627527496927842432, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: emitters.Array.data[0]
-      value: 
-      objectReference: {fileID: 834556974}
-    - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Combat/Hurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439287672127023772, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5718421762797642115, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellPanel
@@ -12664,94 +12612,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7697074307698128448, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: executables.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697074307698128448, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: executables.Array.data[1]
-      value: 
-      objectReference: {fileID: 834556996}
-    - target: {fileID: 9108162488768980420, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      propertyPath: duration
-      value: 4
+    - target: {fileID: 7770151292979125487, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3340353330896554282, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
     - {fileID: 3999737313832567729, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 834556984}
-    - targetCorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 834556996}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
 --- !u!4 &834556950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
   m_PrefabInstance: {fileID: 834556949}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &834556974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461082845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &834556984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461082845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1220270738
-      Data2: 1079730729
-      Data3: -1091958090
-      Data4: 1891356859
-    Path: event:/Combat/Faint
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &834556996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461082845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  next: 0
-  timeScaleOverride: 0.2
-  duration: 0.4
 --- !u!1 &841037713
 GameObject:
   m_ObjectHideFlags: 0
@@ -12786,11 +12662,6 @@ Transform:
   - {fileID: 781892876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &947690039 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 353167144577145509, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
-  m_PrefabInstance: {fileID: 834556949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &948312292
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,36 +14652,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorDict:
-    keys: 000000000100000004000000020000000500000003000000060000000700000008000000
+    keys: 080000000700000006000000030000000500000002000000040000000100000000000000
     values:
-    - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
-    - {r: 0.5372549, g: 0.84705883, b: 1, a: 1}
-    - {r: 1, g: 0.98039216, b: 0.54509807, a: 1}
-    - {r: 0, g: 0.6, b: 1, a: 1}
-    - {r: 0.6117647, g: 1, b: 0.5254902, a: 1}
-    - {r: 1, g: 0.6, b: 1, a: 1}
-    - {r: 1, g: 1, b: 1, a: 1}
     - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 0.6, b: 1, a: 1}
+    - {r: 0.6117647, g: 1, b: 0.5254902, a: 1}
+    - {r: 0, g: 0.6, b: 1, a: 1}
+    - {r: 1, g: 0.98039216, b: 0.54509807, a: 1}
+    - {r: 0.5372549, g: 0.84705883, b: 1, a: 1}
+    - {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
+    - {r: 0, g: 0, b: 0, a: 0}
   gradientDict:
-    keys: 00000000010000000400000002000000050000000300000006000000070000000800000009000000
+    keys: 09000000080000000700000006000000030000000500000002000000040000000100000000000000
     values:
     - serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
+      key1: {r: 1, g: 0.98039216, b: 0.54509807, a: 1}
+      key2: {r: 0.96685994, g: 0.9820659, b: 0.5434243, a: 0}
+      key3: {r: 0.6117647, g: 1, b: 0.5254902, a: 0}
+      key4: {r: 0.5372549, g: 0.84705883, b: 1, a: 0}
+      key5: {r: 0, g: 0.6, b: 1, a: 0}
+      key6: {r: 1, g: 0.6, b: 1, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
+      ctime1: 13030
+      ctime2: 13107
+      ctime3: 26214
+      ctime4: 39321
+      ctime5: 52428
+      ctime6: 65535
       ctime7: 0
       atime0: 0
       atime1: 65535
@@ -14822,156 +14693,11 @@ MonoBehaviour:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 7
       m_NumAlphaKeys: 2
     - serializedVersion: 2
-      key0: {r: 0.8352942, g: 0.21176472, b: 0.41176474, a: 1}
-      key1: {r: 0.854902, g: 0.67058825, b: 0.32156864, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    - serializedVersion: 2
-      key0: {r: 0.007843138, g: 0.79215693, b: 0.9960785, a: 1}
-      key1: {r: 0.5568628, g: 0.9921569, b: 0.62352943, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    - serializedVersion: 2
-      key0: {r: 0.9843138, g: 0.98823535, b: 0.60784316, a: 1}
-      key1: {r: 0.7803922, g: 0.4784314, b: 0.015686275, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    - serializedVersion: 2
-      key0: {r: 0.003921569, g: 0.8117648, b: 0.9960785, a: 1}
-      key1: {r: 0.21960786, g: 0.29411766, b: 0.83921576, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    - serializedVersion: 2
-      key0: {r: 0.95294124, g: 0.9960785, b: 0.015686275, a: 1}
-      key1: {r: 0.25882354, g: 0.8431373, b: 0.59607846, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    - serializedVersion: 2
-      key0: {r: 0.95294124, g: 0.2784314, b: 0.4431373, a: 1}
-      key1: {r: 0.28235295, g: 0.3647059, b: 0.9568628, a: 1}
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -15028,8 +14754,8 @@ MonoBehaviour:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     - serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0, b: 0, a: 1}
+      key0: {r: 0.95294124, g: 0.2784314, b: 0.4431373, a: 1}
+      key1: {r: 0.28235295, g: 0.3647059, b: 0.9568628, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -15057,21 +14783,21 @@ MonoBehaviour:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     - serializedVersion: 2
-      key0: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
-      key1: {r: 1, g: 0.98039216, b: 0.54509807, a: 1}
-      key2: {r: 0.96685994, g: 0.9820659, b: 0.5434243, a: 0}
-      key3: {r: 0.6117647, g: 1, b: 0.5254902, a: 0}
-      key4: {r: 0.5372549, g: 0.84705883, b: 1, a: 0}
-      key5: {r: 0, g: 0.6, b: 1, a: 0}
-      key6: {r: 1, g: 0.6, b: 1, a: 0}
+      key0: {r: 0.95294124, g: 0.9960785, b: 0.015686275, a: 1}
+      key1: {r: 0.25882354, g: 0.8431373, b: 0.59607846, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 13030
-      ctime2: 13107
-      ctime3: 26214
-      ctime4: 39321
-      ctime5: 52428
-      ctime6: 65535
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
       ctime7: 0
       atime0: 0
       atime1: 65535
@@ -15083,7 +14809,152 @@ MonoBehaviour:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 7
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 0.003921569, g: 0.8117648, b: 0.9960785, a: 1}
+      key1: {r: 0.21960786, g: 0.29411766, b: 0.83921576, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 0.9843138, g: 0.98823535, b: 0.60784316, a: 1}
+      key1: {r: 0.7803922, g: 0.4784314, b: 0.015686275, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 0.007843138, g: 0.79215693, b: 0.9960785, a: 1}
+      key1: {r: 0.5568628, g: 0.9921569, b: 0.62352943, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 0.8352942, g: 0.21176472, b: 0.41176474, a: 1}
+      key1: {r: 0.854902, g: 0.67058825, b: 0.32156864, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    - serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
   rainbowColors: 010000000200000003000000040000000500000006000000
   rainbowCurrent: 0

@@ -12669,6 +12669,10 @@ PrefabInstance:
       propertyPath: EventReference.Path
       value: event:/Combat/Hurt
       objectReference: {fileID: 0}
+    - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5439287672127023772, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -12730,7 +12734,8 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3340353330896554282, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
