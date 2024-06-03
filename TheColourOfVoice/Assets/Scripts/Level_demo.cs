@@ -53,9 +53,9 @@ public class Level_demo : MonoBehaviour
             Transform spellManagerTransform = player.transform.Find("SpellManager/Spells");
             if(selectedSpell!=null)
             {
-                selectedSpell[0] = spellManagerTransform.Find("The Glowing Confidence").gameObject;
+                /*selectedSpell[0] = spellManagerTransform.Find("The Glowing Confidence").gameObject;
                 selectedSpell[1] = spellManagerTransform.Find("The Burning Passion").gameObject;
-                selectedSpell[2] = spellManagerTransform.Find("The Calming Laser").gameObject;
+                selectedSpell[2] = spellManagerTransform.Find("The Calming Laser").gameObject;*/
 
             }
         }

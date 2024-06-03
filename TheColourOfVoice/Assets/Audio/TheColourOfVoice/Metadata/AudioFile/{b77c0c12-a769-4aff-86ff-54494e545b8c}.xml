@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b77c0c12-a769-4aff-86ff-54494e545b8c}">
+		<property name="assetPath">
+			<value>Bass and Vocal Unite.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>54.828276643990932</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{649769e7-58d7-417a-8dda-378767d03798}</destination>
+		</relationship>
+	</object>
+</objects>
