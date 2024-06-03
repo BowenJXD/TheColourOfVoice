@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10c659aec353c44b99aad25b9b7d23a, type: 3}
   m_Name: Node_SemLevel02Intro
   m_EditorClassIdentifier: 
-  state: 0
+  state: 2
   datas:
   - speaker: LittleWitch
     content: You are currently playing the second level
@@ -32,6 +32,12 @@ MonoBehaviour:
     CanQuickShow: 1
   - speaker: LittleWitch
     content: The incantation for The Glowing Confidence is "let there be light."
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: LittleWitch
+    content: Speak the incantation to charge up, then press the left mouse button
+      to cast.
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1

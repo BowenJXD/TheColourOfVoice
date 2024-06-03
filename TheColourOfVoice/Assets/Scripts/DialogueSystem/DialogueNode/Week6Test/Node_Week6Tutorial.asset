@@ -15,6 +15,11 @@ MonoBehaviour:
   state: 1
   datas:
   - speaker: Little Witch
+    content: Press F to continue
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: Little Witch
     content: 'You are currently playing the first level. In this level, you can only
       use the first spell: The Calming Laser.'
     AutoNext: 0
@@ -27,6 +32,12 @@ MonoBehaviour:
     CanQuickShow: 1
   - speaker: Little Witch
     content: Try speaking the incantation into your microphone!
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: Little Witch
+    content: Speak the incantation to charge up, then press the left mouse button
+      to cast!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
