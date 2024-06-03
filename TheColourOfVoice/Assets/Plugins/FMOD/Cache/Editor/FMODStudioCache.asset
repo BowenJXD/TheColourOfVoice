@@ -53,7 +53,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -4326194691894950606}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &-6815286061486265012
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -6815286061486265012}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &-4326194691894950606
 MonoBehaviour:
@@ -215,7 +215,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 1375424329095622099}
   StringsBanks:
   - {fileID: 6162382708415359500}
-  cacheTime: 638530410455991967
+  cacheTime: 638530522226683995
   cacheVersion: 131617
 --- !u!114 &156190329307462138
 MonoBehaviour:
@@ -320,7 +320,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638530410455971790
+  lastModified: 638530522226654118
   FileSizes:
   - Name: Desktop
     Value: 3826208
@@ -351,7 +351,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 3413591166017473097}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &2239946011533730548
 MonoBehaviour:
@@ -434,7 +434,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 8981461926513427560}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &4510004086861607540
 MonoBehaviour:
@@ -534,7 +534,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638530410455991967
+  lastModified: 638530522226683995
   FileSizes:
   - Name: Desktop
     Value: 1588
@@ -564,7 +564,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &8435392971296142071
 MonoBehaviour:
@@ -619,7 +619,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 2239946011533730548}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &8981461926513427560
 MonoBehaviour:

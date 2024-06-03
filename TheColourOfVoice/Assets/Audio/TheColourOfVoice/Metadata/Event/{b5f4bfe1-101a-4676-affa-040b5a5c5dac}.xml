@@ -65,6 +65,9 @@
 		<property name="isPersistent">
 			<value>true</value>
 		</property>
+		<property name="maximumDistance">
+			<value>100</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{2376402c-0160-4a3a-b1dc-4d5971e6f0d4}" />
 	<object class="GroupTrack" id="{4f074f9e-d516-489e-8588-ba586939686e}">
