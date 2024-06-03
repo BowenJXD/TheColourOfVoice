@@ -18,6 +18,12 @@ public class Main_Menu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
 
     }
+    
+    public void PlayNavi()  
+    {
+        SceneManager.LoadSceneAsync(5);
+
+    }
 
     public void NextLevel()
     {

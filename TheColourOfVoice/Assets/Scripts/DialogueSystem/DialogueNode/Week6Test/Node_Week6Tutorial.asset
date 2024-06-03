@@ -15,43 +15,34 @@ MonoBehaviour:
   state: 1
   datas:
   - speaker: Little Witch
-    content: What you are currently playing is the testing scenario for week 6 test
-      1
+    content: 'You are currently playing the first level. In this level, you can only
+      use the first spell: The Calming Laser.'
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: We will focus on testing the feel of the controls and the implementation
-      of core mechanics
+    content: 'The incantation for The Calming Laser is "calm down." '
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: This game is a top-down shooter, but you can use your voice to cast
-      spells.
+    content: Try speaking the incantation into your microphone!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: All of your spells can color the ground
+    content: Press the "Tab" key in-game to open the spellbook for a more detailed
+      description of the spells.
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: Please use W, A, S, D to move and move the mouse to adjust the direction
-      of attack
+    content: 'Each level is judged based on the area you cover with paint. '
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: "Besides, you can cast spells at any time by reciting the name of the
-      spell\t"
-    AutoNext: 0
-    NeedTyping: 1
-    CanQuickShow: 1
-  - speaker: Little Witch
-    content: Some spells require you to press the space bar after reciting the spell
-      to activate
+    content: Try to cover as much ground as possible within the time limit!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1

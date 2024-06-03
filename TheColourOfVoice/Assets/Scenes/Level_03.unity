@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &12213110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11328,9 +11328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f7d7a2a2a28834785f22773436bcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
+  week6SequenceEventExcutor: {fileID: 11400000, guid: b09afd5bc08879246bbf6c7ef92a29bf, type: 2}
   player: {fileID: 461082845}
-  skip: 1
+  skip: 0
   totalTime: 180
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}

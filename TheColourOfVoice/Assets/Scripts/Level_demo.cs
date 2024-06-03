@@ -26,6 +26,16 @@ public class Level_demo : MonoBehaviour
 
     void Start()
     {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponentInChildren<Fire>().enabled = false;
+        Time.timeScale = 0;
+        if (week6SequenceEventExcutor)
+        {
+            week6SequenceEventExcutor.Init(OnFinishedEvent);
+        }
+        Debug.Log("Excute sequence");
+        week6SequenceEventExcutor.Excute();
+        
         if (UICanvas != null)
         {
             playerUI = UICanvas.transform.Find("PlayerUI").gameObject;
@@ -49,6 +59,16 @@ public class Level_demo : MonoBehaviour
 
             }
         }
+        
+        if (skip)
+        {
+            Debug.Log("Skipdialogue");
+            OnFinishedEvent(false);
+            return;
+        }
+
+        
+       
 
         if(index== 1)
         {
@@ -84,21 +104,7 @@ public class Level_demo : MonoBehaviour
             }
         }
         
-        if (skip)
-        {
-            OnFinishedEvent(false);
-            return;
-        }
-
-        
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponentInChildren<Fire>().enabled = false;
-        if (week6SequenceEventExcutor)
-        {
-            week6SequenceEventExcutor.Init(OnFinishedEvent);
-        }
-
-        week6SequenceEventExcutor.Excute();
+       
     }
 
     void OnFinishedEvent(bool success)
@@ -107,6 +113,7 @@ public class Level_demo : MonoBehaviour
         StartCoroutine(Timer());
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponentInChildren<Fire>().enabled = true;
+        Time.timeScale = 1;
         TextPainter.Instance.PaintText();
 
     }
