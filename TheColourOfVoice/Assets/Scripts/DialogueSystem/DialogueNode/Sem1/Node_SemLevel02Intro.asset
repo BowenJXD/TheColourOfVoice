@@ -12,32 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10c659aec353c44b99aad25b9b7d23a, type: 3}
   m_Name: Node_SemLevel02Intro
   m_EditorClassIdentifier: 
-  state: 2
+  state: 1
   datas:
   - speaker: LittleWitch
-    content: You are currently playing the second level
+    content: You are currently playing the second level.
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: LittleWitch
-    content: ' In this level, you can use two additional spells: "The Burning Passion"
-      and "The Glowing Confidence!"'
-    AutoNext: 0
-    NeedTyping: 1
-    CanQuickShow: 1
-  - speaker: LittleWitch
-    content: The incantation for The Burning Passion is "fireball is coming."
+    content: ' In this level, you learnt a new spell called "The Glowing Confidence"'
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: LittleWitch
     content: The incantation for The Glowing Confidence is "let there be light."
-    AutoNext: 0
-    NeedTyping: 1
-    CanQuickShow: 1
-  - speaker: LittleWitch
-    content: Speak the incantation to charge up, then press the left mouse button
-      to cast.
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1

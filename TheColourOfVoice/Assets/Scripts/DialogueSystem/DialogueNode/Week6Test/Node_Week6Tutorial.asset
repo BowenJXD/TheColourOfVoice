@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10c659aec353c44b99aad25b9b7d23a, type: 3}
   m_Name: Node_Week6Tutorial
   m_EditorClassIdentifier: 
-  state: 1
+  state: 2
   datas:
   - speaker: Little Witch
     content: Press F to continue
@@ -20,18 +20,13 @@ MonoBehaviour:
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: 'You are currently playing the first level. In this level, you can only
-      use the first spell: The Calming Laser.'
+    content: 'You are currently playing the first level. you would need to use the
+      only spell you learnt: The Calming Laser.'
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
     content: 'The incantation for The Calming Laser is "calm down." '
-    AutoNext: 0
-    NeedTyping: 1
-    CanQuickShow: 1
-  - speaker: Little Witch
-    content: Try speaking the incantation into your microphone!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
@@ -48,12 +43,31 @@ MonoBehaviour:
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: 'Each level is judged based on the area you cover with paint. '
+    content: 'The score under your health bar would increase depending on how much
+      you paint. '
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
   - speaker: Little Witch
-    content: Try to cover as much ground as possible within the time limit!
+    content: The bigger the painted area, the faster the score increases.
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: Little Witch
+    content: The normal attack does not deal much damage comparing to spells, but
+      it is handy in painting tiles!
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: Little Witch
+    content: Try to keep a large painted area to gain score and win the level within
+      the limited time!
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: Little Witch
+    content: And after the game starts, try speaking the incantation ("calm down")
+      to your microphone!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1

@@ -15,8 +15,24 @@ MonoBehaviour:
   state: 0
   datas:
   - speaker: LittleWitch
-    content: You are currently playing the third  level, good luck!
+    content: You are currently playing the third  level!
     AutoNext: 0
     NeedTyping: 1
     CanQuickShow: 1
+  - speaker: LittleWitch
+    content: ' In this level, you learnt a new spell called "The Burning Passion"'
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: LittleWitch
+    content: Speak the incantation to charge up, then press the left mouse button
+      to cast.
+    AutoNext: 0
+    NeedTyping: 1
+    CanQuickShow: 1
+  - speaker: LittleWitch
+    content: Good Luck!
+    AutoNext: 0
+    NeedTyping: 0
+    CanQuickShow: 0
   boxStyle: 0
