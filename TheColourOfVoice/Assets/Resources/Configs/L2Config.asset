@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: L2Config
   m_EditorClassIdentifier: 
   levelIndex: 2
+  levelName: schizophrenia
   levelColor: 2
   tileSprite: {fileID: 21300000, guid: 8f30cc66aacc9b0498e2fbd2bbdd650d, type: 3}
   enemyGenerator: {fileID: 7218613360977623393, guid: e70de52da47cf804eac1479c9a3a5745, type: 3}

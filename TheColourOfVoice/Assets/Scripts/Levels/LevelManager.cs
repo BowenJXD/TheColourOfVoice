@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
 {
     public LevelConfig config;
     
-    [ReadOnly] public int levelIndex;
+    public List<LevelConfig> levelConfigs;
+    
+    [ReadOnly] public int levelIndex = 1;
+    [ReadOnly] public string levelName;
     [ReadOnly] public PaintColor levelColor;
     [ReadOnly] public Sprite tileSprite;
     [ReadOnly] public EnemyGenerator enemyGenerator;
@@ -15,6 +19,15 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     public GameObject backgroundParticleParent;
     public FMODUnity.StudioEventEmitter emitter;
 
+    void Awake()
+    {
+        levelIndex = PlayerPrefs.GetInt("levelIndex", levelIndex);
+        if (levelIndex < levelConfigs.Count)
+        {
+            ChangeConfig(levelIndex);
+        }
+    }
+    
     public bool IsSet { get; set; }
     public void SetUp()
     {
@@ -32,11 +45,28 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     {
         if (config)
         {
-            levelIndex = config.levelIndex;
-            levelColor = config.levelColor;
-            tileSprite = config.tileSprite;
-            enemyGenerator = config.enemyGenerator;
-            mechanic = config.mechanic;
+            ChangeConfig(config);
+        }
+    }
+
+    public void ChangeConfig(int index)
+    {
+        if (index < levelConfigs.Count)
+        {
+            ChangeConfig(levelConfigs[index]);
+        }
+    }
+    
+    void ChangeConfig(LevelConfig cfg)
+    {
+        if (cfg)
+        {
+            levelIndex = cfg.levelIndex;
+            levelName = cfg.levelName;
+            levelColor = cfg.levelColor;
+            tileSprite = cfg.tileSprite;
+            enemyGenerator = cfg.enemyGenerator;
+            mechanic = cfg.mechanic;
         }
     }
 
@@ -45,6 +75,11 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
         if (levelIndex != 0)
         {
             if (emitter) emitter.SetParameter("LevelIndex", levelIndex);
+        }
+        if (levelName != null)
+        {
+            TextPainter.Instance.text = levelName;
+            TextPainter.Instance.color = levelColor;
         }
         if (enemyGenerator)
         {

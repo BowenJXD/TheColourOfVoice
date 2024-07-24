@@ -14973,6 +14973,8 @@ GameObject:
   - component: {fileID: 7697074307698128448}
   - component: {fileID: 4627527496927842432}
   - component: {fileID: 4902660168330101317}
+  - component: {fileID: 4438333660970748695}
+  - component: {fileID: 1297494638756764403}
   m_Layer: 7
   m_Name: TestPlayer
   m_TagString: Player
@@ -15087,13 +15089,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7c497965964efc8f4ed53d069f96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faintDuration: 3
+  faintDuration: 5
+  QTEEfficiency: 5
   inactivatingGameObjects:
   - {fileID: 1862226985067281647}
-  - {fileID: 2200706718207161917}
+  - {fileID: 353167144577145509}
   disablingComponents:
   - {fileID: 4113794111999803653}
   ani: {fileID: 3732170676019902921}
+  onFaint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4438333660970748695}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-4292824264658561850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15180,6 +15198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 4627527496927842432}
+  - {fileID: 1297494638756764403}
 --- !u!114 &4627527496927842432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15192,9 +15211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skip: 0
+  skip: 1
   next: 0
-  emitters: []
+  emitters:
+  - {fileID: 4902660168330101317}
 --- !u!114 &4902660168330101317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15214,20 +15234,67 @@ MonoBehaviour:
       Data2: 1338472936
       Data3: 1225566360
       Data4: 1916180986
-    Path: event:/Hurt
+    Path: event:/Combat/Hurt
   Event: 
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: EntityType
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
+  OverrideMaxDistance: 100
+--- !u!114 &4438333660970748695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316224132156739773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1220270738
+      Data2: 1079730729
+      Data3: -1091958090
+      Data4: 1891356859
+    Path: event:/Combat/Faint
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1297494638756764403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316224132156739773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  timeScaleOverride: 0.2
+  duration: 0.4
 --- !u!1 &3340353330896554282
 GameObject:
   m_ObjectHideFlags: 0
@@ -20292,7 +20359,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: CastState
     Value: 0
@@ -25285,7 +25352,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: CastState
     Value: 0
@@ -25386,7 +25453,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: CastState
     Value: 0

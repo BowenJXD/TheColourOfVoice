@@ -6,17 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
-    int index;
-
-    private void Awake()
-    {
-        index = SceneManager.GetActiveScene().buildIndex;
-    }
+    static int index = 1;
 
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync(1);
-
+        PlayerPrefs.SetInt("levelIndex", index);
     }
     
     public void PlayNavi()  
@@ -27,12 +22,19 @@ public class Main_Menu : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadSceneAsync(index+1);
-
+        var idx = PlayerPrefs.GetInt("levelIndex", index);
+        PlayerPrefs.SetInt("levelIndex", ++idx);
+        //reload the current scene
+        SceneManager.LoadSceneAsync("NewSpell");
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("levelIndex");
     }
 }

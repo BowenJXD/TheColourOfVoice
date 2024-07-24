@@ -42,12 +42,13 @@ public enum CastState
 /// </summary>
 public class SpellManager : Singleton<SpellManager>
 {
-    public Dictionary<string, Spell> spells = new();
+    public Dictionary<string, Spell> learntSpells = new();
     public float cooldownTime = 0.5f;
 
     public Fire defaultSpell;
     public Rigidbody2D rb;
-    [ReadOnly]public Spell currentSpell;
+    [ReadOnly] public Spell currentSpell;
+    public List<Spell> allSpells;
 
     private CastState _castState;
 
@@ -69,6 +70,7 @@ public class SpellManager : Singleton<SpellManager>
 
     private void OnEnable()
     {
+        LearnSpell(LevelManager.Instance.levelIndex - 1);
         StartChanting();
     }
 
@@ -88,6 +90,14 @@ public class SpellManager : Singleton<SpellManager>
         }
     }
 
+    void LearnSpell(int spellIndex)
+    {
+        if (allSpells.Count > spellIndex && !learntSpells.ContainsValue(allSpells[spellIndex]))
+        {
+            allSpells[spellIndex].gameObject.SetActive(true);
+        }
+    }
+    
     void StartChanting()
     {
         VoiceInputSystem.Instance.SetActive(true);
@@ -109,7 +119,7 @@ public class SpellManager : Singleton<SpellManager>
             return;
         }
         
-        if (!spells.TryGetValue(recognizedEventArgs.text, out var spell))
+        if (!learntSpells.TryGetValue(recognizedEventArgs.text, out var spell))
         {
             Debug.LogWarning($"Spell {recognizedEventArgs.text} not found.");
             return;
@@ -184,37 +194,37 @@ public class SpellManager : Singleton<SpellManager>
 
     public bool Register(Spell spell)
     {
-        if (spells.ContainsKey(spell.spellName))
+        if (learntSpells.ContainsKey(spell.spellName))
         {
             Debug.LogWarning($"Spell with name {spell.spellName} already exists.");
             return false;
         }
-        spells.Add(spell.spellName, spell);
+        learntSpells.Add(spell.spellName, spell);
         VoiceInputSystem.Instance.Register(spell.spellName, TryCast);
         return true;
     }
     
     public void Unregister(Spell spell)
     {
-        if (spells.ContainsKey(spell.spellName))
+        if (learntSpells.ContainsKey(spell.spellName))
         {
-            spells.Remove(spell.spellName);
+            learntSpells.Remove(spell.spellName);
             VoiceInputSystem.Instance.Unregister(spell.spellName);
         }
     }
 
     public bool ChangeName(string oldName, string newName)
     {
-        if (spells.ContainsKey(oldName))
+        if (learntSpells.ContainsKey(oldName))
         {
-            if (spells.ContainsKey(newName))
+            if (learntSpells.ContainsKey(newName))
             {
                 Debug.LogWarning($"Spell with name {newName} already exists.");
                 return false;
             }
-            Spell spell = spells[oldName];
-            spells.Remove(oldName);
-            spells.Add(newName, spell);
+            Spell spell = learntSpells[oldName];
+            learntSpells.Remove(oldName);
+            learntSpells.Add(newName, spell);
             VoiceInputSystem.Instance.Unregister(oldName);
             VoiceInputSystem.Instance.Register(newName, TryCast);
             Debug.Log($"Spell with name {oldName} changed to {newName}.");
