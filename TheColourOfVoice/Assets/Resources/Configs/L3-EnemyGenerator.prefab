@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: 776cb4f48ac9cb247aac45f884f236e0, type: 3}
-  - {fileID: 4184870022919412751, guid: dfc7a2fd34cde154f83f7e084d7b4874, type: 3}
+  - {fileID: 4027698038478995893, guid: 2fbfac4bdd8238f4eaa23e4e1656b142, type: 3}
+  - {fileID: 1274751937288837204, guid: b9039a5901fdaa842ba019e977a02836, type: 3}
   taskConfigs:
   - amounts: 0a00000000000000
     duration: 60

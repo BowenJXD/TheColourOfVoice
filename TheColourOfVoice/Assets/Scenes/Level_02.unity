@@ -11330,7 +11330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   week6SequenceEventExcutor: {fileID: 11400000, guid: de4d9fff05344e349a26d09cd2e6dfd2, type: 2}
   player: {fileID: 461082845}
-  skip: 0
+  skip: 1
   totalTime: 180
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}
@@ -11395,7 +11395,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: LevelIndex
     Value: 2
@@ -11941,7 +11941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
+  - {fileID: 4184870022919412751, guid: c827c4dd97b292946aa954641a638796, type: 3}
   taskConfigs:
   - amounts: 02000000
     duration: 1

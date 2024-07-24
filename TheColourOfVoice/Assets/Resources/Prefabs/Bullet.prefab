@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.2
+  damage: 2
   cooldown: 3.4028235e+38
   resetCDOnExit: 1
   knockBack: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1

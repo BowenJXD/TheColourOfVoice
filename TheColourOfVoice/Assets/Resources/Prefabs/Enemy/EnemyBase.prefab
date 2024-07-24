@@ -82,7 +82,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.07396828}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -93,7 +93,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8520634}
   m_EdgeRadius: 0
 --- !u!1 &5885559008707167969
 GameObject:
@@ -111,18 +111,16 @@ GameObject:
   - component: {fileID: 6602773672044416973}
   - component: {fileID: 4385042102656340858}
   - component: {fileID: 4134991145288187956}
-  - component: {fileID: 2694323068028110331}
   - component: {fileID: -4737817084367787813}
   - component: {fileID: 1559659144169942989}
-  - component: {fileID: -4890945634325155649}
-  - component: {fileID: -5794457238514501195}
-  - component: {fileID: 3698254325625355584}
-  - component: {fileID: 8469035765835947184}
-  - component: {fileID: 1717833141882939588}
-  - component: {fileID: 4241994322434044272}
-  - component: {fileID: 8830142110474638317}
+  - component: {fileID: -6243502865482795351}
+  - component: {fileID: 5682161661080384136}
+  - component: {fileID: 5500443158120368791}
+  - component: {fileID: 5970856376335570818}
+  - component: {fileID: -9015069275021452459}
+  - component: {fileID: -7795581294777544749}
   m_Layer: 9
-  m_Name: L1-Toast
+  m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 148925681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1453932187, guid: 5a5c4d5900317174bb8e15c06ed579db, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -193,7 +191,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5594886495322908230
@@ -228,18 +226,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00094759464, y: 0.059697285}
+  m_Offset: {x: 0, y: -0.088761896}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.823751, y: 0.88060546}
+  m_Size: {x: 1.1, y: 0.8224762}
   m_EdgeRadius: 0
 --- !u!114 &4184870022919412751
 MonoBehaviour:
@@ -311,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
-  currentHealth: 9
+  maxHealth: 8
+  currentHealth: 12
   defence: 0
   invincible: 0
   damageCooldown: 1
@@ -329,26 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: 0
---- !u!114 &2694323068028110331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5885559008707167969}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a661c30d4bd7446a990cd7c6942e3edb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  period: 2.5
-  rotationDelta: 0
-  scaleYDelta: 0.1
-  scaleXDelta: 0.1
-  rotationEase: 13
-  scaleEase: 13
-  minMoveSpeed: 0
-  maxMoveSpeed: 3
 --- !u!114 &-4737817084367787813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,28 +357,7 @@ MonoBehaviour:
   disablePainter: 1
   disableCol: 1
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
---- !u!95 &-4890945634325155649
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5885559008707167969}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b67b1201afbab9f4ca4a8eca60bd7a07, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5794457238514501195
+--- !u!114 &-6243502865482795351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistingBuffs: []
---- !u!114 &3698254325625355584
+--- !u!114 &5682161661080384136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,8 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables:
-  - {fileID: 8469035765835947184}
---- !u!114 &8469035765835947184
+  - {fileID: 5500443158120368791}
+--- !u!114 &5500443158120368791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,8 +398,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   next: 0
-  emitters: []
---- !u!114 &1717833141882939588
+  emitters:
+  - {fileID: 5970856376335570818}
+--- !u!114 &5970856376335570818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,14 +426,14 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: EntityType
     Value: 2
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &4241994322434044272
+  OverrideMaxDistance: 100
+--- !u!114 &-9015069275021452459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,8 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables:
-  - {fileID: 8830142110474638317}
---- !u!114 &8830142110474638317
+  - {fileID: -7795581294777544749}
+--- !u!114 &-7795581294777544749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

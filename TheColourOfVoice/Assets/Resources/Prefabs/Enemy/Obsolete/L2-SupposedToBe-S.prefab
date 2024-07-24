@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7382574821815154221}
   - component: {fileID: 8648603031296309343}
-  - component: {fileID: 902596364575665477}
+  - component: {fileID: 3449957541279419810}
   m_Layer: 9
   m_Name: HitBox
   m_TagString: Untagged
@@ -50,8 +50,8 @@ MonoBehaviour:
   resetCDOnExit: 1
   knockBack: 10
   rb: {fileID: 4961256998949816231}
---- !u!58 &902596364575665477
-CircleCollider2D:
+--- !u!61 &3449957541279419810
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -82,9 +82,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5885559008707167969
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5416483287231550087}
   - component: {fileID: 2842489379772589894}
-  - component: {fileID: 5767049372395744084}
+  - component: {fileID: 5594886495322908230}
   - component: {fileID: 4184870022919412751}
   - component: {fileID: 4961256998949816231}
   - component: {fileID: 6602773672044416973}
@@ -104,15 +114,18 @@ GameObject:
   - component: {fileID: 2694323068028110331}
   - component: {fileID: -4737817084367787813}
   - component: {fileID: 1559659144169942989}
-  - component: {fileID: -4890945634325155649}
-  - component: {fileID: 5329604113281727092}
-  - component: {fileID: -5858891693226670718}
-  - component: {fileID: -8508415070632143898}
-  - component: {fileID: 3290595717215359189}
-  - component: {fileID: -4053945913673822712}
-  - component: {fileID: -2059160663592363418}
+  - component: {fileID: 714249825942807963}
+  - component: {fileID: 2504201429617903182}
+  - component: {fileID: -9084226403814834492}
+  - component: {fileID: 5773937379953750973}
+  - component: {fileID: -7326201999024360796}
+  - component: {fileID: 5127477443894079426}
+  - component: {fileID: 4709689442097864315}
+  - component: {fileID: -1423680816921247430}
+  - component: {fileID: 8302828314191735222}
+  - component: {fileID: 1050674714424301593}
   m_Layer: 9
-  m_Name: L1-Doughnut
+  m_Name: L2-SupposedToBe-S
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 148925681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1184699091, guid: 2db670f6a78182b4d82acc9ebe12e66b, type: 3}
+  m_Sprite: {fileID: 335164595, guid: 6b06d85db036ce749a50d60422a7b010, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,8 +199,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5767049372395744084
-CircleCollider2D:
+--- !u!61 &5594886495322908230
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -201,7 +214,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -218,9 +231,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 2.56}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &4184870022919412751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +300,7 @@ MonoBehaviour:
   angularSpeed: 120
   stopRange: 1
   startRange: 1
-  faceTarget: 1
+  faceTarget: 0
   isInRange: 0
 --- !u!114 &4385042102656340858
 MonoBehaviour:
@@ -291,8 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258c598e6a374f1194fd5cd3bc53bf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
-  currentHealth: 6
+  maxHealth: 2
+  currentHealth: 12
   defence: 0
   invincible: 0
   damageCooldown: 1
@@ -359,7 +382,36 @@ MonoBehaviour:
   disablePainter: 1
   disableCol: 1
   hitParticlePrefab: {fileID: 5468761040851934619, guid: 9941735ed7f23384e8c54d9d70fabf4a, type: 3}
---- !u!95 &-4890945634325155649
+--- !u!114 &714249825942807963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98be7f7b128e4e77ab295177c63719d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: 2504201429617903182}
+--- !u!114 &2504201429617903182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557ae199e8e0463c96e779b29ca13a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  next: 0
+  waitTime: 0.01
+--- !u!95 &-9084226403814834492
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -369,7 +421,7 @@ Animator:
   m_GameObject: {fileID: 5885559008707167969}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b88c359c32fba24e94615951472d140, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b52c806a0060264094b3fc7ac11231b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -380,7 +432,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5329604113281727092
+--- !u!114 &5773937379953750973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885559008707167969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ad0a12ce77461495ccf0ecf99a1392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7326201999024360796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistingBuffs: []
---- !u!114 &-5858891693226670718
+--- !u!114 &5127477443894079426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,8 +470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables:
-  - {fileID: -8508415070632143898}
---- !u!114 &-8508415070632143898
+  - {fileID: 4709689442097864315}
+--- !u!114 &4709689442097864315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +486,7 @@ MonoBehaviour:
   skip: 0
   next: 0
   emitters: []
---- !u!114 &3290595717215359189
+--- !u!114 &-1423680816921247430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,14 +512,14 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: EntityType
     Value: 2
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &-4053945913673822712
+  OverrideMaxDistance: 100
+--- !u!114 &8302828314191735222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,8 +532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables:
-  - {fileID: -2059160663592363418}
---- !u!114 &-2059160663592363418
+  - {fileID: 1050674714424301593}
+--- !u!114 &1050674714424301593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,4 +548,4 @@ MonoBehaviour:
   skip: 0
   next: 0
   timeScaleOverride: 0.2
-  duration: 0.4
+  duration: 1

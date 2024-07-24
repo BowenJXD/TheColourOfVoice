@@ -29,12 +29,12 @@ public class Level_demo : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponentInChildren<Fire>().enabled = false;
         Time.timeScale = 0;
-        if (week6SequenceEventExcutor)
+        if (!skip && week6SequenceEventExcutor)
         {
             week6SequenceEventExcutor.Init(OnFinishedEvent);
+            Debug.Log("Excute sequence");
+            week6SequenceEventExcutor.Excute();
         }
-        Debug.Log("Excute sequence");
-        week6SequenceEventExcutor.Excute();
         
         if (UICanvas != null)
         {
