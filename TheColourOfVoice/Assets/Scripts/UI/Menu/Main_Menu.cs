@@ -25,7 +25,7 @@ public class Main_Menu : MonoBehaviour
         var idx = PlayerPrefs.GetInt("levelIndex", index);
         PlayerPrefs.SetInt("levelIndex", ++idx);
         //reload the current scene
-        SceneManager.LoadSceneAsync("NewSpell");
+        SceneManager.LoadSceneAsync("MainGame");
     }
 
     public void Quit()
