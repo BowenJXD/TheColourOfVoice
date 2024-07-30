@@ -3,6 +3,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 
 namespace UI.NewSpell
@@ -12,7 +13,6 @@ namespace UI.NewSpell
         public int callCount = 0;
 
         public int pushForce = 20;
-        
         public float initialAngularVelocity = 0f;
         public float targetAngularVelocity = 360f; // degrees per second
         public float duration = 2f;
@@ -25,6 +25,8 @@ namespace UI.NewSpell
         Vector3 target;
         Rigidbody2D rb;
         ChaseMovement chaseMovement;
+        
+        bool isAnimating = false;
         
         private void OnEnable()
         {
@@ -43,15 +45,16 @@ namespace UI.NewSpell
         void OnCall(PhraseRecognizedEventArgs args)
         {
             callCount++;
+            isAnimating = true;
             switch (callCount)
             {
                 case 1:
                     transform.DOScale(transform.localScale * 2f, duration).SetEase(ease);
-                    transform.DOShakePosition(duration, 0.218f, 24, 72, true);
-                    break;
+                    transform.DOShakePosition(duration).OnComplete(() => isAnimating = false);
+                    break; 
                 case 2:
-                    transform.DOScale(transform.localScale * 2f, duration).SetEase(ease);
-                    transform.DOShakeRotation(duration, 20, 90, 20);
+                    transform.DOScale(transform.localScale * 1.5f, duration).SetEase(ease);
+                    transform.DOShakeRotation(duration).OnComplete(() => isAnimating = false);
                     break;
                 case 3:
                     transform.DOScale(0, duration).SetEase(ease);
@@ -74,6 +77,17 @@ namespace UI.NewSpell
                     };
                     break;
             }
+        }
+
+        private void OnBecameInvisible()
+        {
+            gameObject.SetActive(false);
+            NextLevel();
+        }
+
+        void NextLevel()
+        {
+            SceneManager.LoadScene("MainGame");
         }
     }
 }

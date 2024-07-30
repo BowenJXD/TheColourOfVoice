@@ -46,7 +46,7 @@ public class SpellPanel : MonoBehaviour
         foreach (Spell spell in currentSpellList) 
         {
             spellNameList.Add(spell.spellName);
-            SubSpellPanelData tempSpellData = new SubSpellPanelData(spell.spellImage,spell.cooldown, spell.spellDescription, spell.spellName);
+            SubSpellPanelData tempSpellData = new SubSpellPanelData(spell.spellImage,spell.cooldown, spell.spellShortDescription, spell.spellName);
             CreateSubSpellPanelData(spell);
             spellDataList.Add(tempSpellData);
 

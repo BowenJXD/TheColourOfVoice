@@ -17,7 +17,7 @@ public class SubSpellPanel : MonoBehaviour
     public void InitSubSpellPanel() 
     {
         spellImage.sprite = spell.spellImage;
-        spellIntro.text = spell.spellDescription;
+        spellIntro.text = spell.spellShortDescription;
         spellName.text = spell.spellName;
         coolDown = spell.cooldown;
         spellInputField.text = spell.spellName;

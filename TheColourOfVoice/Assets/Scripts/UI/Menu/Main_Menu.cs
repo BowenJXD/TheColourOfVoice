@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 public class Main_Menu : MonoBehaviour
 {
     static int index = 1;
-
+    
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("MainGame");
         PlayerPrefs.SetInt("levelIndex", index);
     }
     
     public void PlayNavi()  
     {
-        SceneManager.LoadSceneAsync(5);
+        SceneManager.LoadSceneAsync("PlayerNavi");
 
     }
 
@@ -24,8 +24,7 @@ public class Main_Menu : MonoBehaviour
     {
         var idx = PlayerPrefs.GetInt("levelIndex", index);
         PlayerPrefs.SetInt("levelIndex", ++idx);
-        //reload the current scene
-        SceneManager.LoadSceneAsync("MainGame");
+        SceneManager.LoadSceneAsync("NewSpell");
     }
 
     public void Quit()

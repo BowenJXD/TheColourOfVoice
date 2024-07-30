@@ -10,7 +10,8 @@ public class Spell : MonoBehaviour, ISetUp
     public Sprite spellImage;
     public string spellName;
     public float cooldown;
-    [Multiline]public string spellDescription;
+    [Multiline] public string spellShortDescription;
+    [Multiline] public string spellLongDescription;
     [ShowInInspector] [ReadOnly] float remainingCD;
     public bool isInCD => remainingCD > 0;
     public bool needCasting;

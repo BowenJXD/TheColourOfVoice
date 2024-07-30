@@ -19,7 +19,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     public GameObject backgroundParticleParent;
     public FMODUnity.StudioEventEmitter emitter;
 
-    void Awake()
+    new void Awake()
     {
         levelIndex = PlayerPrefs.GetInt("levelIndex", levelIndex);
         if (levelIndex < levelConfigs.Count)

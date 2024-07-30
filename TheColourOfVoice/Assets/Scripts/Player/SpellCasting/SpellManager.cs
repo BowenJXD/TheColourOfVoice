@@ -70,13 +70,12 @@ public class SpellManager : Singleton<SpellManager>
 
     private void OnEnable()
     {
-        LearnSpell(LevelManager.Instance.levelIndex - 1);
+        LearnSpell(PlayerPrefs.GetInt("levelIndex", 0));
         StartChanting();
     }
 
     private void OnDisable()
     {
-        VoiceInputSystem.Instance.SetActive(false);
         currentSpell = null;
         onCastStateChange = null;
         onRelease = null;
@@ -92,6 +91,7 @@ public class SpellManager : Singleton<SpellManager>
 
     void LearnSpell(int spellIndex)
     {
+        spellIndex--;
         if (allSpells.Count > spellIndex && !learntSpells.ContainsValue(allSpells[spellIndex]))
         {
             allSpells[spellIndex].gameObject.SetActive(true);

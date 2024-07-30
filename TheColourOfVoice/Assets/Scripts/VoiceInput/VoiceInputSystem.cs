@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Windows.Speech;
 
 /// <summary>
@@ -9,6 +10,8 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
 {
     private Dictionary<string, KeywordRecognizer> keywordRecognizers = new();
 
+    private bool isActive;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -29,6 +32,15 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
         SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SetActive(false);
+            SetActive(true);
+        }
+    }
+
     public void SetActive(bool active)
     {
         if (active)
@@ -45,6 +57,7 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
                 recognizer.Stop();
             }
         }
+        isActive = active;
     }
     
     public void Register(string key, Action<PhraseRecognizedEventArgs> action)

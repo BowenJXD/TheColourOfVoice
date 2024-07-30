@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Obsolete/Level_02.unity
     guid: d81720d1b07119244b19dae0d7305d84
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Obsolete/Level_03.unity
     guid: b6926f1147897534889fdbf5912ac82a
   - enabled: 1
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerNavi.unity
     guid: 044285e8f152ef347a4b6229b8e5c2cc
+  - enabled: 1
+    path: Assets/Scenes/NewSpell.unity
+    guid: 944daeff5666b354c979212ff709d696
   m_configObjects: {}
