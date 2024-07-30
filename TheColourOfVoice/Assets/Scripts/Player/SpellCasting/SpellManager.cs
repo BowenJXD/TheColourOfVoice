@@ -4,6 +4,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using Utility;
 
 public struct CastConfig
 {
@@ -42,6 +43,7 @@ public enum CastState
 /// </summary>
 public class SpellManager : Singleton<SpellManager>
 {
+    // the key is the trigger word
     public Dictionary<string, Spell> learntSpells = new();
     public float cooldownTime = 0.5f;
 
@@ -49,6 +51,7 @@ public class SpellManager : Singleton<SpellManager>
     public Rigidbody2D rb;
     [ReadOnly] public Spell currentSpell;
     public List<Spell> allSpells;
+    public SaveData saveData;
 
     private CastState _castState;
 
@@ -70,7 +73,10 @@ public class SpellManager : Singleton<SpellManager>
 
     private void OnEnable()
     {
-        LearnSpell(PlayerPrefs.GetInt("levelIndex", 0));
+        for (int i = 1; i < PlayerPrefs.GetInt("levelIndex", 1) + 1; i++)
+        {
+            LearnSpell(i);
+        }
         StartChanting();
     }
 
@@ -89,12 +95,55 @@ public class SpellManager : Singleton<SpellManager>
         }
     }
 
+    void SetUpSpells()
+    {
+        var csv = ResourceManager.Instance.LoadCSV(PathDefines.SpellConfig);
+        if (csv != null)
+        {
+            for (int i = 0; i < allSpells.Count; i++)
+            {
+                var spellData = csv[i.ToString()];
+                allSpells[i].spellIndex = i;
+                allSpells[i].name = spellData["Name"];
+                allSpells[i].cooldown = float.Parse(spellData["Cooldown"]);
+                allSpells[i].spellDescription = spellData["Description"];
+                allSpells[i].spellImage = Resources.Load<Sprite>(PathDefines.SpellLogoPath + spellData["LogoPath"]);
+            }
+        }
+        
+        if (saveData)
+        {
+            for (int i = 0; i < saveData.spellTriggerWords.Count; i++)
+            {
+                allSpells[i].triggerWords = saveData.spellTriggerWords[i];
+            }
+        }
+    }
+    
     void LearnSpell(int spellIndex)
     {
         spellIndex--;
         if (allSpells.Count > spellIndex && !learntSpells.ContainsValue(allSpells[spellIndex]))
         {
-            allSpells[spellIndex].gameObject.SetActive(true);
+            Spell spell = allSpells[spellIndex];
+            
+            var csv = ResourceManager.Instance.LoadCSV(PathDefines.SpellConfig);
+            if (csv != null)
+            {
+                var spellData = csv[(spellIndex+1).ToString()];
+                spell.spellIndex = spellIndex+1;
+                spell.spellName = spellData["Name"];
+                spell.cooldown = float.Parse(spellData["Cooldown"]);
+                spell.spellDescription = spellData["Description"];
+                spell.spellImage = Resources.Load<Sprite>(PathDefines.SpellLogoPath + spellData["LogoPath"]);
+            }
+            
+            if (saveData)
+            {
+                spell.triggerWords = saveData.spellTriggerWords[spellIndex];
+            }
+            
+            spell.gameObject.SetActive(true);
         }
     }
     
@@ -146,7 +195,7 @@ public class SpellManager : Singleton<SpellManager>
             peakVolume = peakVolume,
             confidenceLevel = recognizedEventArgs.confidence
         };
-        Debug.Log($"Start Casting Spell: {spell.spellName}, " +
+        Debug.Log($"Start Casting Spell: {spell.triggerWords}, " +
                   $"Chant Time: {config.chantTime}, " +
                   $"Peak Volume: {config.peakVolume}, " +
                   $"Confidence Level: {config.confidenceLevel}");
@@ -194,22 +243,22 @@ public class SpellManager : Singleton<SpellManager>
 
     public bool Register(Spell spell)
     {
-        if (learntSpells.ContainsKey(spell.spellName))
+        if (learntSpells.ContainsKey(spell.triggerWords))
         {
-            Debug.LogWarning($"Spell with name {spell.spellName} already exists.");
+            Debug.LogWarning($"Spell with name {spell.triggerWords} already exists.");
             return false;
         }
-        learntSpells.Add(spell.spellName, spell);
-        VoiceInputSystem.Instance.Register(spell.spellName, TryCast);
+        learntSpells.Add(spell.triggerWords, spell);
+        VoiceInputSystem.Instance.Register(spell.triggerWords, TryCast);
         return true;
     }
     
     public void Unregister(Spell spell)
     {
-        if (learntSpells.ContainsKey(spell.spellName))
+        if (learntSpells.ContainsKey(spell.triggerWords))
         {
-            learntSpells.Remove(spell.spellName);
-            VoiceInputSystem.Instance.Unregister(spell.spellName);
+            learntSpells.Remove(spell.triggerWords);
+            VoiceInputSystem.Instance.Unregister(spell.triggerWords);
         }
     }
 

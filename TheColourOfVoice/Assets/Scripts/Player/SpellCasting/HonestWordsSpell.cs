@@ -21,7 +21,7 @@ public class HonestWordsSpell : Spell
         if (!SplashGrid.Instance.TryGetCellIndex(mousePos, out var tilePos))
             return;
         
-        TextPainter.Instance.PaintText(spellName, tilePos, paintColor, interval, ProcessPaintedTile);
+        TextPainter.Instance.PaintText(triggerWords, tilePos, paintColor, interval, ProcessPaintedTile);
     }
     
     void ProcessPaintedTile(SplashTile tile)

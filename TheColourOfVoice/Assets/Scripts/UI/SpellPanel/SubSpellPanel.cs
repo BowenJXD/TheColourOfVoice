@@ -11,16 +11,16 @@ public class SubSpellPanel : MonoBehaviour
     public TextMeshProUGUI spellIntro;
     public TextMeshProUGUI spellName;
     public TMP_InputField spellInputField;
-    public float coolDown;
+    public TextMeshProUGUI spellCooldown;
     
     private string currentSpellName;
     public void InitSubSpellPanel() 
     {
         spellImage.sprite = spell.spellImage;
-        spellIntro.text = spell.spellShortDescription;
-        spellName.text = spell.spellName;
-        coolDown = spell.cooldown;
-        spellInputField.text = spell.spellName;
+        spellIntro.text = spell.spellDescription;
+        spellName.text = spell.triggerWords;
+        spellCooldown.text = spell.cooldown.ToString();
+        spellInputField.text = spell.triggerWords;
         spellInputField.onSelect.AddListener(delegate { OnInputFieldStartEdit(); });
         spellInputField.onEndEdit.AddListener(delegate { OnInputFieldEndEdit(); });
         gameObject.SetActive(false);
@@ -47,8 +47,8 @@ public class SubSpellPanel : MonoBehaviour
     public void OnInputFieldStartEdit() 
     {
        //spellInputField.gameObject.SetActive(true);
-       currentSpellName = spell.spellName;
-        Debug.Log("Edit Start, current spellName: " + spell.spellName);
+       currentSpellName = spell.triggerWords;
+        Debug.Log("Edit Start, current spellName: " + spell.triggerWords);
     }
     
     /// <summary>
@@ -57,11 +57,11 @@ public class SubSpellPanel : MonoBehaviour
     public void OnInputFieldEndEdit() 
     {
         string tempSpellName = spellInputField.text;
-        spell.spellName = tempSpellName;
+        spell.triggerWords = tempSpellName;
         SpellManager.Instance.ChangeName(currentSpellName,tempSpellName);
         spellName.text = tempSpellName;
         spellInputField.gameObject.SetActive(false);
-        Debug.Log("Edit End, new spellName: " + spell.spellName);
+        Debug.Log("Edit End, new spellName: " + spell.triggerWords);
     }
   
 }

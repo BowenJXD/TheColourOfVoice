@@ -1472,7 +1472,7 @@ MonoBehaviour:
   spellIntro: {fileID: 7612685182341366859}
   spellName: {fileID: 8413788489243808313}
   spellInputField: {fileID: 1611616165145615388}
-  coolDown: 0
+  spellCooldown: {fileID: 435800529832192997}
 --- !u!1 &7473031982326346279
 GameObject:
   m_ObjectHideFlags: 0

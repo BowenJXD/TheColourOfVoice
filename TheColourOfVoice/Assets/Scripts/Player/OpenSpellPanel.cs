@@ -10,6 +10,7 @@ public class OpenSpellPanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (Time.timeScale == 0 && !spellPanel.gameObject.activeSelf) return; // prevent opening the spell panel when the game is paused
             if (!spellPanel.gameObject.activeSelf)
             {
                 //Debug.Log("OpenspellPanel");

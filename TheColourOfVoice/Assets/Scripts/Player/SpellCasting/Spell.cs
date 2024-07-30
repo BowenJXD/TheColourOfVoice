@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class Spell : MonoBehaviour, ISetUp
 {
     [Tooltip("The word to shout to trigger the spell.")]
-    public Sprite spellImage;
-    public string spellName;
+    public string triggerWords;
     public float cooldown;
-    [Multiline] public string spellShortDescription;
-    [Multiline] public string spellLongDescription;
     [ShowInInspector] [ReadOnly] float remainingCD;
+    
+    public int spellIndex;
+    public string spellName;
+    public string spellDescription;
+    public Sprite spellImage;
+    
     public bool isInCD => remainingCD > 0;
     public bool needCasting;
     public float recoil;
@@ -77,7 +80,7 @@ public class Spell : MonoBehaviour, ISetUp
     
     public virtual void Execute()
     {
-        Debug.Log($"Execute {spellName}.");
+        Debug.Log($"Execute {triggerWords}.");
         remainingCD = cooldown;
         
         if (ps)

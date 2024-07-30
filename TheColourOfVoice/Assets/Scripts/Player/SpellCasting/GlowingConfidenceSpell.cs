@@ -30,7 +30,7 @@ public class GlowingConfidenceSpell : Spell
         {
             StartBuff();
         }
-        Debug.Log($"Execute {spellName} with duration {loopTask.interval}.");        
+        Debug.Log($"Execute {triggerWords} with duration {loopTask.interval}.");        
         loopTask.Start();
     }
 

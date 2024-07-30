@@ -225,6 +225,8 @@ MonoBehaviour:
   spellImage: {fileID: 908299803}
   trailRenderer: {fileID: 766821159}
   particleSystem: {fileID: 356514980}
+  spellInputField: {fileID: 1410793402}
+  saveData: {fileID: 11400000, guid: 45c45652935fc3045895ca6430131b77, type: 2}
 --- !u!4 &83508105
 Transform:
   m_ObjectHideFlags: 0

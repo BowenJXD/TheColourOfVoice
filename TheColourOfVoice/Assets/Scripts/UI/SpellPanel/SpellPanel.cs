@@ -41,12 +41,13 @@ public class SpellPanel : MonoBehaviour
     private void Awake()
     {
         if (SpellManager.Instance == null) return;
-        
-        List<Spell> currentSpellList = SpellManager.Instance.GetComponentsInChildren<Spell>().ToList();
-        foreach (Spell spell in currentSpellList) 
+
+        var currentSpellList = SpellManager.Instance.learntSpells;
+        foreach (var kvp in currentSpellList) 
         {
-            spellNameList.Add(spell.spellName);
-            SubSpellPanelData tempSpellData = new SubSpellPanelData(spell.spellImage,spell.cooldown, spell.spellShortDescription, spell.spellName);
+            spellNameList.Add(kvp.Key);
+            var spell = kvp.Value;
+            SubSpellPanelData tempSpellData = new SubSpellPanelData(spell.spellImage,spell.cooldown, spell.spellDescription, spell.triggerWords);
             CreateSubSpellPanelData(spell);
             spellDataList.Add(tempSpellData);
 
@@ -56,7 +57,7 @@ public class SpellPanel : MonoBehaviour
 
     private void CreateSubSpellPanelData(Spell spell) 
     {
-        SubSpellPanel sub =Instantiate(Resources.Load<SubSpellPanel>("Prefabs/SubSpellPanel"));
+        SubSpellPanel sub =Instantiate(Resources.Load<SubSpellPanel>(PathDefines.SubSpellPanelPath));
         sub.transform.SetParent(transform);
         sub.transform.localScale = Vector3.one;
         RectTransform reactransform = sub.GetComponent<RectTransform>();
