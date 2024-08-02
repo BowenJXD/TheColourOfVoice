@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Utility;
 
 public class StarController : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class StarController : MonoBehaviour
     
     void Awake()
     {
+        var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
+        var levelIndex = PlayerPrefs.GetInt("levelIndex", 1);
+        var levelData = data[levelIndex.ToString()];
+        scoreThresholds = new float[3];
+        for (int i = 0; i < 3; i++)
+        {
+            scoreThresholds[i] = float.Parse(levelData[(i + 1).ToString()]);
+        }
         
         foreach (Image star in stars)
         {

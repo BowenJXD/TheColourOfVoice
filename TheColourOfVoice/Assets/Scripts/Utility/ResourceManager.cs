@@ -15,7 +15,7 @@ namespace Utility
                 return cachedData;
             }
             
-            string csv = Resources.Load<TextAsset>(PathDefines.SpellConfig).text;
+            string csv = Resources.Load<TextAsset>(path).text;
             List<string[]> lines = CSVSerializer.ParseCSV(csv);
             
             var data = new Dictionary<string, Dictionary<string, string>>();

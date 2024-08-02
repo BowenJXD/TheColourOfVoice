@@ -11300,7 +11300,7 @@ MonoBehaviour:
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
   player: {fileID: 461082845}
   skip: 1
-  totalTime: 180
+  totalTime: 10
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}
   StarController: {fileID: 1657941510}
@@ -12150,7 +12150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12869,7 +12869,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4292824264658561850, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -1993808392126248497, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: slider
@@ -15090,9 +15090,9 @@ MonoBehaviour:
   - {fileID: 1605186366}
   score: 0
   scoreThresholds:
-  - 1000
-  - 2000
-  - 3000
+  - 2500
+  - 3500
+  - 4500
   scoreBar: {fileID: 6542253588403801740}
   percentText: {fileID: 134859985}
 --- !u!4 &1667629688 stripped
@@ -21987,7 +21987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillImageScore: {fileID: 590291735}
   splashGrid: {fileID: 776967710}
-  maxScore: 4500
+  maxScore: 10000
   score: 0
   percentText: {fileID: 1160682291}
 --- !u!1 &6994236539064309977
@@ -22059,10 +22059,10 @@ SceneRoots:
   - {fileID: 313932904}
   - {fileID: 2100734691}
   - {fileID: 554931747}
-  - {fileID: 678743133}
   - {fileID: 286612310}
   - {fileID: 1270552134}
   - {fileID: 416256910}
+  - {fileID: 678743133}
   - {fileID: 421179003}
   - {fileID: 1372575262}
   - {fileID: 386558369}

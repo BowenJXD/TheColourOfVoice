@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Utility;
 
 public class ScoreBar : MonoBehaviour
 {
@@ -26,6 +27,19 @@ public class ScoreBar : MonoBehaviour
         canvas.worldCamera = Camera.main;
         UpdateScore(0);
         StartCoroutine(UpdatePercentageEverySecond());
+
+        // Load max score from csv
+        try
+        {
+            var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
+            var levelIndex = PlayerPrefs.GetInt("levelIndex", 1);
+            var levelData = data[levelIndex.ToString()];
+            maxScore = float.Parse(levelData["3"]);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 
     IEnumerator UpdatePercentageEverySecond()
