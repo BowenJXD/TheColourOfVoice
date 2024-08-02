@@ -18,7 +18,7 @@ MonoBehaviour:
     constructor: Mercedes
     score: 408
     podium: 17
-    icon: {fileID: 21300000, guid: 51d546f7a695190478ac279f064025d0, type: 3}
+    icon: {fileID: 0}
     country: 1
     win:
     - Azerbaijan
@@ -37,7 +37,7 @@ MonoBehaviour:
     constructor: Ferrari
     score: 320
     podium: 12
-    icon: {fileID: 21300000, guid: 9408e925fddc1e341b9f5e9b1453bd51, type: 3}
+    icon: {fileID: 0}
     country: 2
     win:
     - Australia
@@ -50,7 +50,7 @@ MonoBehaviour:
     constructor: Farrari
     score: 251
     podium: 12
-    icon: {fileID: 21300000, guid: 9408e925fddc1e341b9f5e9b1453bd51, type: 3}
+    icon: {fileID: 0}
     country: 3
     win:
     - United States
@@ -59,7 +59,7 @@ MonoBehaviour:
     constructor: Red Bull
     score: 249
     podium: 11
-    icon: {fileID: 21300000, guid: c6bbc4c689f1f6f4fadedc231d10c6aa, type: 3}
+    icon: {fileID: 0}
     country: 4
     win:
     - Austria
@@ -69,6 +69,6 @@ MonoBehaviour:
     constructor: Mercedes
     score: 247
     podium: 8
-    icon: {fileID: 21300000, guid: 7448d4ca2a9061d4699390f0696337b7, type: 3}
+    icon: {fileID: 0}
     country: 3
     win: []
