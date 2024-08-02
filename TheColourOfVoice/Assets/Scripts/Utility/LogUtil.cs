@@ -112,20 +112,21 @@ public class LogUtil : Singleton<LogUtil>
 
     public void LogCSV()
     {
-        foreach (var logs in CSVLogs)
+        /*foreach (var logs in CSVLogs)
         {
             string directory = Application.dataPath + $"/Logs/{logs.Key}/";
             string fileName = $"{logs.Key}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.csv";
             string header = logs.Key.GetMethod(nameof(ICSVLog.Header))?.Invoke(null, null) as string;
             string content = string.Join("\n", logs.Value.ConvertAll(log => log.Content()));
             TryWriteToFile(directory, fileName, $"{header}\n{content}");
-        }
+        }*/
         foreach (var logs in PLogs)
         {
             string directory = Application.dataPath + $"/Logs/";
             string fileName = $"{logs.Key}.csv";
             string header = logs.Key.GetMethod(nameof(ICSVLog.Header))?.Invoke(null, null) as string;
-            string content = logs.Value.Content();
+            string level = PlayerPrefs.GetInt("levelIndex", 1).ToString();
+            string content = $"Level {level}," + logs.Value.Content();
             TryAddToFile(directory, fileName, header, content);
         }
     }
