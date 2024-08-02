@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: SaveData
   m_EditorClassIdentifier: 
   levelsCompleted: 0
-  levelStars: 
+  levelStars: 000000000000000000000000000000000000000000000000
   spellTriggerWords:
-  - calm down
-  - let there be light
-  - fireball is coming
+  - Calm Down
+  - Let There Be Light
+  - Fireball Is Coming
+  - 
+  - 
+  - 

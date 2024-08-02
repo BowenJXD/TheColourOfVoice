@@ -49,16 +49,21 @@ public class StarController : MonoBehaviour
     {
         score = scoreBar.score;
         percentText.text = Mathf.RoundToInt(score).ToString();
+        
+        int starCount = 0;
         for (int i = 0; i < stars.Length; i++)
         {
             if (score >= scoreThresholds[i])
             {
                 SetStarColor(stars[i], true);
+                starCount++;
             }
             else
             {
                 SetStarColor(stars[i], false);
             }
         }
+
+        Resources.Load<SaveData>(PathDefines.SaveData).levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1] = starCount;
     }
 }

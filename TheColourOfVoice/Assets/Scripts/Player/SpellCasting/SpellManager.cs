@@ -276,6 +276,12 @@ public class SpellManager : Singleton<SpellManager>
             learntSpells.Add(newName, spell);
             VoiceInputSystem.Instance.Unregister(oldName);
             VoiceInputSystem.Instance.Register(newName, TryCast);
+
+            if (saveData)
+            {
+                saveData.spellTriggerWords[spell.spellIndex-1] = newName;
+            }
+            
             Debug.Log($"Spell with name {oldName} changed to {newName}.");
             return true;
         }
