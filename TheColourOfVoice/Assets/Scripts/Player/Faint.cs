@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Faint system for game objects, will freeze the game object for a certain amount of time when dead and reset <see cref="Health"/>
@@ -20,6 +21,8 @@ public class Faint : MonoBehaviour, ISetUp
     private LayerMask exCache;
     public Animator ani;
 
+    public Slider slider;
+
     private void OnEnable()
     {
         if (!IsSet) SetUp();
@@ -35,6 +38,7 @@ public class Faint : MonoBehaviour, ISetUp
     }
     
     public UnityEvent onFaint;
+    public UnityEvent onEndFaint;
 
     private void Update()
     {
@@ -46,6 +50,7 @@ public class Faint : MonoBehaviour, ISetUp
                 decrementMultiplier = QTEEfficiency;
             }
             faintTimer -= Time.deltaTime * decrementMultiplier;
+            slider.value = faintTimer / faintDuration;
             if (faintTimer <= 0)
             {
                 EndFaint();
@@ -72,6 +77,8 @@ public class Faint : MonoBehaviour, ISetUp
     
     void EndFaint()
     {
+        onEndFaint?.Invoke();
+        
         inactivatingGameObjects.ForEach(go => go.SetActive(true));
         disablingComponents.ForEach(comp => comp.enabled = true);
         
