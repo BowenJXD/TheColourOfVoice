@@ -5,5 +5,5 @@ using UnityEngine.Playables;
 
 public class DialogueBehaviour : PlayableBehaviour
 {
-    
+    private PlayableDirector playableDirector;
 }
