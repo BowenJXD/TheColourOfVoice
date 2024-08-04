@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f83cd12797a0c6f43bd79459d0d385e6
+guid: a1b19776b556e394eada9804037eaea2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 25
-  spriteBorder: {x: 5, y: 10, z: 5, w: 26}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,22 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_0
+      name: UI-Blank _0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 138
-        height: 77
+        x: 17
+        y: 7
+        width: 44
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 7, z: 42, w: 21}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6baac2242ac73b489420a0ed411b395
-      internalID: -412310957
+      spriteID: c59a31f965c7f23438de3ed1fc39fe46
+      internalID: 1858066738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI-Blank _1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 7
+        width: 44
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498bf5d36a7ad9949a49c433c753a48d
+      internalID: 1486336523
       vertices: []
       indices: 
       edges: []
@@ -134,14 +155,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_0: -412310957
+      UI-Blank _0: 1858066738
+      UI-Blank _1: 1486336523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

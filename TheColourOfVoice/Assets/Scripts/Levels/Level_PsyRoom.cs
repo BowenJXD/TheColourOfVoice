@@ -33,7 +33,7 @@ public class Level_PsyRoom : MonoBehaviour
             return;
         }
 
-        uiCamera.transform.DOMove(new Vector3(3.31f,0.63f,-10f), 1f).SetEase(Ease.InOutSine)
+        uiCamera.transform.DOMove(new Vector3(0,-0.71f,-10f), 1f).SetEase(Ease.InOutSine)
             .onComplete = OnCameraMoveFinished;
 
     }
@@ -55,8 +55,8 @@ public class Level_PsyRoom : MonoBehaviour
            
             mainPanel.SetActive(true);
             RectTransform rectTransform = mainPanel.GetComponent<RectTransform>();
-            rectTransform.DOAnchorPos(new Vector2(1524.18f, -535.85f), 1f).SetEase(Ease.InOutSine);
-            rectTransform.DOSizeDelta(new Vector2(726.76f,964.2f),1f).SetEase(Ease.InOutSine);
+            rectTransform.DOAnchorPos(new Vector2(960f, -884f), 1f).SetEase(Ease.InOutSine);
+            rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine);
         }
     }
 
