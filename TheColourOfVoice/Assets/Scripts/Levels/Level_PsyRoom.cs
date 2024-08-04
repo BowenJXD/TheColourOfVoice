@@ -44,6 +44,9 @@ public class Level_PsyRoom : MonoBehaviour
             .SetLoops(1, LoopType.Incremental);
     }
     
+    /// <summary>
+    /// Callback：当相机移动结束时调用
+    /// </summary>
     private void OnCameraMoveFinished()
     {
         Debug.Log("Camera move finished");
@@ -55,5 +58,13 @@ public class Level_PsyRoom : MonoBehaviour
             rectTransform.DOAnchorPos(new Vector2(1524.18f, -535.85f), 1f).SetEase(Ease.InOutSine);
             rectTransform.DOSizeDelta(new Vector2(726.76f,964.2f),1f).SetEase(Ease.InOutSine);
         }
+    }
+
+    /// <summary>
+    /// Callback：当小女巫醒来时调用
+    /// </summary>
+    private void OnLittleWitchAwake()
+    {
+        Debug.Log("Little witch is awake");
     }
 }
