@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Level_PsyRoom : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Level_PsyRoom : MonoBehaviour
     public GameObject mainPanel;
     private int shakeCount = 0;
     private bool playerIsAwake = false;
-    
+    [SerializeField] private Light2D sightLight;
+    [SerializeField] private Light2D sunShaftlight;
     
     private void Update()
     {
@@ -34,10 +36,19 @@ public class Level_PsyRoom : MonoBehaviour
         {
             return;
         }
-
+        
+        //相机移动
         uiCamera.transform.DOMove(new Vector3(0,-0.71f,-10f), 1f).SetEase(Ease.InOutSine)
             .onComplete = OnCameraMoveFinished;
-
+        
+        //开启光源
+        float awakeProcessValue = 0f;
+        DOTween.To(() => awakeProcessValue, x => awakeProcessValue = x, 1f, 1f)
+            .onUpdate = () =>
+        {
+            sightLight.pointLightOuterRadius = Mathf.Lerp(2.69f, 8f, awakeProcessValue);
+            sunShaftlight.intensity = Mathf.Lerp(0f, 10f, awakeProcessValue);
+        };
     }
 
     private void Shake(GameObject target,float powerX, float powerY)

@@ -979,6 +979,8 @@ MonoBehaviour:
   player: {fileID: 832402130}
   uiCamera: {fileID: 1255866205}
   mainPanel: {fileID: 701186597}
+  sightLight: {fileID: 2012320896}
+  sunShaftlight: {fileID: 707192889}
 --- !u!4 &1318686244
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,7 +1531,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 8
+  m_PointLightOuterRadius: 2.69
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
