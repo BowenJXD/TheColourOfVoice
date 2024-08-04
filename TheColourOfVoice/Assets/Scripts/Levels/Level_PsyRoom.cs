@@ -11,6 +11,8 @@ public class Level_PsyRoom : MonoBehaviour
     public GameObject mainPanel;
     private int shakeCount = 0;
     private bool playerIsAwake = false;
+    
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerIsAwake == false)
@@ -20,7 +22,7 @@ public class Level_PsyRoom : MonoBehaviour
 
             if (shakeCount == 5)
             {
-                LittleWitchAwake();
+                LittleWitchAwake(); //小魔女苏醒
             }
         }
     }
@@ -56,7 +58,11 @@ public class Level_PsyRoom : MonoBehaviour
             mainPanel.SetActive(true);
             RectTransform rectTransform = mainPanel.GetComponent<RectTransform>();
             rectTransform.DOAnchorPos(new Vector2(960f, -884f), 1f).SetEase(Ease.InOutSine);
-            rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine);
+            rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine).OnComplete(() =>
+            {
+                //TODO:显示文字
+                Debug.Log("Panel move finished, show text");
+            });
         }
     }
 
