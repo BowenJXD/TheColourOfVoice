@@ -11300,7 +11300,7 @@ MonoBehaviour:
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
   player: {fileID: 461082845}
   skip: 1
-  totalTime: 10
+  totalTime: 180
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}
   StarController: {fileID: 1657941510}
@@ -12164,7 +12164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
+  - {fileID: 4027698038478995893, guid: d181cf65d66b32a41a7a5579be527ac4, type: 3}
   taskConfigs:
   - amounts: 02000000
     duration: 1
@@ -12176,6 +12176,7 @@ MonoBehaviour:
   distributionVariationInterval: 1
   minDistribution: 60
   maxDistributionVariation: 120
+  spawnInterval: 3
   spawnTransform: {fileID: 834556950}
 --- !u!4 &678743133
 Transform:
