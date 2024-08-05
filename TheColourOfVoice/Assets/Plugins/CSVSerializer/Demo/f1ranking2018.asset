@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e440a7b1700019c4f9b10642a16f9ee5, type: 3}
+  m_Script: {fileID: 11500000, guid: 670ff71dd96edf949ae9b7228f6de582, type: 3}
   m_Name: f1ranking2018
   m_EditorClassIdentifier: 
   m_Items:
@@ -18,7 +18,7 @@ MonoBehaviour:
     constructor: Mercedes
     score: 408
     podium: 17
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 5322316d91ea3b14fba2f5b8a021d66a, type: 3}
     country: 1
     win:
     - Azerbaijan
@@ -37,7 +37,7 @@ MonoBehaviour:
     constructor: Ferrari
     score: 320
     podium: 12
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: db4f2037a45c9674c8bcb73c5aad2c37, type: 3}
     country: 2
     win:
     - Australia
@@ -50,7 +50,7 @@ MonoBehaviour:
     constructor: Farrari
     score: 251
     podium: 12
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: db4f2037a45c9674c8bcb73c5aad2c37, type: 3}
     country: 3
     win:
     - United States
@@ -59,7 +59,7 @@ MonoBehaviour:
     constructor: Red Bull
     score: 249
     podium: 11
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 4e4f1523492b4384aaf93e18f6e208ca, type: 3}
     country: 4
     win:
     - Austria
@@ -69,6 +69,6 @@ MonoBehaviour:
     constructor: Mercedes
     score: 247
     podium: 8
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 669f10be43c65fe4caaedc917c782add, type: 3}
     country: 3
     win: []

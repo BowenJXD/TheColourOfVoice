@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Utility;
 
 public class StarController : MonoBehaviour
 {
