@@ -20,7 +20,12 @@ public class DeathExplosion : MonoBehaviour, ISetUp
         if (!IsSet) SetUp();
         if (entity) entity.onDeinit += ExecuteExplosion;
     }
-    
+
+    private void OnDisable()
+    {
+        if (entity) entity.onDeinit -= ExecuteExplosion;
+    }
+
     void ExecuteExplosion()
     {
         Explosion exp = PoolManager.Instance.New(prefab);

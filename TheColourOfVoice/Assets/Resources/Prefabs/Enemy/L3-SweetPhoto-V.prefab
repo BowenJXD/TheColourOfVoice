@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L3-SweetPhoto-V
       objectReference: {fileID: 0}
+    - target: {fileID: 5885559008707167969, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6602773672044416973, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       propertyPath: speed
       value: 4

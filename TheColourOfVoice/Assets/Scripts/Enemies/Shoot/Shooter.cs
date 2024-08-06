@@ -1,30 +1,23 @@
-﻿using System;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
-/// <summary>
-/// Based on <see cref="ChaseMovement"/>
-/// </summary>
-public class ChaseShoot : MonoBehaviour, ISetUp
+public class Shooter : MonoBehaviour, ISetUp
 {
     public float shootInterval = 1;
     public BulletBase bulletPrefab;
+    [Tooltip("0: right, 90: up, 180: left, 270: down")]
+    public float angle = 0;
     public float offset = 1;
     public float spread;
     public float recoil;
     
-    LoopTask shootTask;
-    ChaseMovement chaseMovement;
+    protected LoopTask shootTask;
     Rigidbody2D rb;
 
     public bool IsSet { get; set; }
-    public void SetUp()
+    public virtual void SetUp()
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();
-        chaseMovement = GetComponent<ChaseMovement>();
-        chaseMovement.OnEnterRange += StartShoot;
-        chaseMovement.OnExitRange += StopShoot;
         shootTask = new LoopTask
         {
             interval = shootInterval,
@@ -39,28 +32,30 @@ public class ChaseShoot : MonoBehaviour, ISetUp
         if (!IsSet) SetUp();
     }
 
-    private void StartShoot()
+    public void StartShoot()
     {
         shootTask.Resume();
+    }
+    
+    protected virtual float GetAngle()
+    {
+        return angle;
     }
 
     void Shoot()
     {
-        if (!chaseMovement || !chaseMovement.target) return;
-
-        Vector2 distance = (chaseMovement.target.transform.position - transform.position);
-        float angle = distance.GetAngle();
+        float actualAngle = GetAngle();
         float actualSpread = Random.Range(-spread, spread);
-        Vector2 direction = Util.GetVectorFromAngle(angle + actualSpread);
+        Vector2 direction = Util.GetVectorFromAngle(actualAngle + actualSpread);
         
         var bullet = PoolManager.Instance.New(bulletPrefab);
         bullet.transform.position = transform.position + (Vector3) (direction * offset);
         bullet.Init();
         bullet.SetDirection(direction);
-        if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
+        if (recoil > 0 && rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
     }
     
-    private void StopShoot()
+    public void StopShoot()
     {
         shootTask.Pause();
     }

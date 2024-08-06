@@ -23,7 +23,7 @@ public class SpawnHurtParticleExe : ExecutableBehaviour
         if (!particle.TryGetComponent(out ParticleSystem ps)) return;
         var main = ps.main;
         
-        if (executor.TryGet(BBKey.TARGET, out GameObject target))
+        if (blackboard.TryGet(BBKey.TARGET, out GameObject target))
         {
             particle.transform.position = target.transform.position;
             Vector2 direction = (target.transform.position - attacker.position).normalized;

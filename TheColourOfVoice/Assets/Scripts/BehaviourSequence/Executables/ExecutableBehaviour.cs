@@ -10,10 +10,10 @@ public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
 {
     [Tooltip("If true, the next executableBehaviour will be executed after 'executing' this one." +
              "If false, the next executableBehaviour will be executed if 'next' is true.")]
-    [HorizontalGroup()] public bool skip;
-    [HorizontalGroup()] public bool next; 
+    [HorizontalGroup()] public bool skip = true;
+    [ReadOnly] [HorizontalGroup()] public bool next;
 
-    protected Blackboard executor;
+    protected Blackboard blackboard;
 
     public bool IsSet { get; set; }
     public virtual void SetUp()
@@ -49,7 +49,7 @@ public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
     
     public virtual IEnumerator Execute(Blackboard newExecutor)
     {
-        executor = newExecutor;
+        blackboard = newExecutor;
         OnStart();
         yield return Executing();
         if (!skip)

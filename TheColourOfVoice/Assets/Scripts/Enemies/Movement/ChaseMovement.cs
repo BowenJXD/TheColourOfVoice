@@ -34,7 +34,7 @@ public class ChaseMovement : Movement, ISetUp
     bool initialFlipX;
     
     public bool IsSet { get; set; }
-    public void SetUp()
+    public virtual void SetUp()
     {
         IsSet = true;
         rb = GetComponent<Rigidbody2D>();

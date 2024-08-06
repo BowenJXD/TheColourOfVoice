@@ -13,13 +13,16 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp
 
     public Blackboard blackboard;
 
+    public Action OnFinish;
+    
     public virtual IEnumerator Execute()
     {
         foreach (var executable in executables)
         {
             currentExecutable = executable;
-            yield return executable.Execute(blackboard);
+            if (executable.enabled) yield return executable.Execute(blackboard);
         }
+        OnFinish?.Invoke();
     }
 
     public bool IsSet { get; set; }
@@ -27,6 +30,7 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp
     {
         IsSet = true;
         blackboard = new();
+        blackboard.Set(BBKey.CON, this);
         if (executables == null || executables.Count == 0)
         {
             executables = new ();

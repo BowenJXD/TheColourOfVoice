@@ -1,6 +1,10 @@
-﻿public class DeinitExe : ExecutableBehaviour
+﻿using Sirenix.OdinInspector;
+
+public class DeinitExe : ExecutableBehaviour
 {
+    [HideIf("waitForSequenceToFinish")]
     public float waitTime = 0f;
+    public bool waitForSequenceToFinish = true;
     Entity entity;
 
     public override void SetUp()
@@ -12,7 +16,12 @@
     protected override void OnStart()
     {
         base.OnStart();
-        if (waitTime > 0)
+        if (waitForSequenceToFinish)
+        {
+            ConditionBehaviour conditionBehaviour = blackboard.Get<ConditionBehaviour>(BBKey.CON);
+            conditionBehaviour.OnFinish += () => entity?.Deinit();
+        }
+        else if (waitTime > 0)
         {
             UnNext();
             new LoopTask
@@ -20,7 +29,7 @@
                 interval = waitTime, 
                 finishAction = () =>
                 {
-                    entity.Deinit();
+                    entity?.Deinit();
                     Next();
                 }
             }.Start();

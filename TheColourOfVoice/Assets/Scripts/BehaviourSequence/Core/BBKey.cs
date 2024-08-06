@@ -22,4 +22,9 @@ public static class BBKey
     /// GameObject
     /// </summary>
     public static readonly string TARGET = "TARGET";
+    
+    /// <summary>
+    /// ConditionBehaviour
+    /// </summary>
+    public static readonly string CON = "CON";
 }
