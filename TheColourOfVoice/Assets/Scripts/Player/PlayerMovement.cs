@@ -15,6 +15,8 @@ public class PlayerMovement : Movement
 
     public Transform rotatingTransform;
 
+    public bool fourDirectional;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +55,15 @@ public class PlayerMovement : Movement
         //     inputX *= 0.5f;
         //     inputY *= 0.5f;
         // }
+
+        if (Math.Abs(inputX) >= Math.Abs(inputY))
+        {
+            rb.constraints = (RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation);
+        }
+        else
+        {
+            rb.constraints = (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation);
+        }
 
         inputMovement = new Vector2(inputX, inputY);
     }

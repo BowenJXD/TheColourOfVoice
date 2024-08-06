@@ -38,13 +38,13 @@ public static class Util
     /// <param name="target"></param>
     /// <param name="vector2s"></param>
     /// <returns></returns>
-    public static Vector2 FindNearestV2WithAngle(Vector2 target, Vector2 source, List<Vector2> vector2s)
+    public static Vector2 FindNearestV2WithAngle(Vector2 target, List<Vector2> vector2s)
     {
         Vector2 result = Vector2.zero;
         float minAngle = float.MaxValue;
         foreach (var vector2 in vector2s)
         {
-            float angle = Vector2.Angle(target - source, vector2 - source);
+            float angle = Vector2.Angle(target, vector2);
             if (angle < minAngle)
             {
                 minAngle = angle;
@@ -64,6 +64,14 @@ public static class Util
             result[i] = start - i * step;
         }
 
+        return result;
+    }
+    
+    public static Vector2 GetNearestFourDirection(Vector2 direction)
+    {
+        float[] angles = new float[]{0, 90, 180, 270};
+        Vector2 result = FindNearestV2WithAngle(direction,
+            new List<Vector2>(System.Array.ConvertAll(angles, GetVectorFromAngle)));
         return result;
     }
 

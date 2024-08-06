@@ -50,27 +50,22 @@ public class EnemyGenerator : MonoBehaviour
 	public float minDistribution = 30;
 	[Tooltip("[0 - 360] The maximum change in angle between each spawn.")]
 	public float maxDistributionVariation = 60;
+	[Tooltip("The number of enemies to spawn at one position. Will only cost one spawn from the config.")]
+	public int spawnCount = 1;
 	[Tooltip("The time interval to move to next spawn position, 0 means different spawn position every spawn.")]
 	public float spawnInterval = 0;
 
 	private float spawnTimer;
-	private Vector2 spawnPosition;
 	
 	protected float lastSpawnedAngle = 0;
+	
+	public Transform spawnTransform;
 
 	private void OnEnable()
 	{
 		NewTask();
-		spawnPosition = GetSpawnPosition();
 	}
-
-	private void Update()
-	{
-		if (spawnInterval > 0 && spawnTimer < spawnInterval) spawnTimer += Time.deltaTime;
-	}
-
-	public Transform spawnTransform;
-
+	
 	public void NewTask()
 	{
 		if (taskConfigs.Count > currentTaskIndex)
@@ -112,13 +107,20 @@ public class EnemyGenerator : MonoBehaviour
 		}
 		Enemy enemyPrefab = enemyPrefabs[enemyIndex];
 
-		if (spawnInterval == 0 || spawnTimer >= spawnInterval)
+		var spawnPosition = GetSpawnPosition();
+		if (spawnCount > 1)
 		{
-			spawnTimer = 0;
-			spawnPosition = GetSpawnPosition();
+			new LoopTask
+			{
+				interval = spawnInterval,
+				loop = spawnCount,
+				loopAction = () => Spawn(enemyPrefab, spawnPosition)
+			}.Start();
 		}
-			
-		Spawn(enemyPrefab, spawnPosition);
+		else
+		{
+			Spawn(enemyPrefab, spawnPosition);
+		}
 	}
 
 	/// <summary>
@@ -150,7 +152,7 @@ public class EnemyGenerator : MonoBehaviour
 		distribution *= new System.Random().Next(2) == 0 ? 1 : -1;
 		lastSpawnedAngle += distribution;
 		Vector3 spawnDirection = Quaternion.Euler(0f, 0f, lastSpawnedAngle) * Vector2.right;
-		spawnPosition = spawnTransform.position + spawnDirection * randomDistance;
+		var spawnPosition = spawnTransform.position + spawnDirection * randomDistance;
 		return spawnPosition;
 	}
 	

@@ -42,6 +42,9 @@ public class SplashGrid : Singleton<SplashGrid>
 
     [Tooltip("The number of segments to rotate the tile randomly.")]
     public int randomRotationSegment = 4;
+    
+    [Tooltip("Whether to change the shape of the unpainted neighboring tiles when a tile is painted.")]
+    public bool doChangeShapeForUnpaintedTiles;
 
     Sprite[] tileSprites;
     
@@ -125,30 +128,34 @@ public class SplashGrid : Singleton<SplashGrid>
     
     public void ChangeNeighborTileShape(Vector2Int cellIndex)
     {
-        if (IsTilePainted(cellIndex + Vector2Int.up))
+        if (IsTilePainted(cellIndex + Vector2Int.up) || doChangeShapeForUnpaintedTiles)
         {
             ChangeTileShape(cellIndex + Vector2Int.up, Neighbor.Down);
         }
-        if (IsTilePainted(cellIndex + Vector2Int.right))
+        if (IsTilePainted(cellIndex + Vector2Int.right) || doChangeShapeForUnpaintedTiles)
         {
             ChangeTileShape(cellIndex + Vector2Int.right, Neighbor.Left);
         }
-        if (IsTilePainted(cellIndex + Vector2Int.down))
+        if (IsTilePainted(cellIndex + Vector2Int.down) || doChangeShapeForUnpaintedTiles)
         {
             ChangeTileShape(cellIndex + Vector2Int.down, Neighbor.Up);
         }
-        if (IsTilePainted(cellIndex + Vector2Int.left))
+        if (IsTilePainted(cellIndex + Vector2Int.left) || doChangeShapeForUnpaintedTiles)
         {
             ChangeTileShape(cellIndex + Vector2Int.left, Neighbor.Right);
         }
     }
     
+    public Action<Vector2Int, int> OnChangeTileMask;
+    
     public void ChangeTileShape(Vector2Int cellIndex, Neighbor changedNeighbor)
     {
         SplashTile tile = GetTile(cellIndex);
+        if (!tile) return;
         int mask = 1 << (3 - (int)changedNeighbor);
         int result = tile.Shape ^ mask;
         tile.Shape = result;
+        OnChangeTileMask?.Invoke(cellIndex, result);
     }
     
     public Quaternion GetTileRotation()

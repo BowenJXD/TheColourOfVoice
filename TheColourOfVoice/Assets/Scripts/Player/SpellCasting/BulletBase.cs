@@ -14,6 +14,8 @@ public class BulletBase : Entity
 
     public bool doPenetrate = false;
 
+    public bool fourDirectional = false;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,8 +42,13 @@ public class BulletBase : Entity
 
     public void SetDirection(Vector2 direction)
     {
-        rb.velocity = direction * speed;
+        if (fourDirectional)
+        {
+            direction = Util.GetNearestFourDirection(direction);
+        }
+        
         transform.rotation = Quaternion.Euler(0, 0, direction.GetAngle());
+        rb.velocity = direction * speed;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
