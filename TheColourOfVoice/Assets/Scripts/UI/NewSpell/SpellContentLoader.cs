@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Utility;
 
 public class SpellContentLoader : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class SpellContentLoader : MonoBehaviour
     public ParticleSystem particleSystem;
     public TMP_InputField spellInputField;
     public SaveData saveData;
-        
+    
     private void Start()
     {
         spellIndex = PlayerPrefs.GetInt("levelIndex", spellIndex);

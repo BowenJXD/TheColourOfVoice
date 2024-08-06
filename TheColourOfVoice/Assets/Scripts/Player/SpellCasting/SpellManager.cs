@@ -4,7 +4,6 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
-using Utility;
 
 public struct CastConfig
 {

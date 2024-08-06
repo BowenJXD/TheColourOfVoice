@@ -388,7 +388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7848104434531418985}
+      - m_Target: {fileID: 3982834453588275491}
         m_TargetAssemblyTypeName: SubSpellPanel, Assembly-CSharp
         m_MethodName: OpenInputField
         m_Mode: 1
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 2228357699038305718}
   - component: {fileID: 7797188838471591110}
   - component: {fileID: 582852948530633714}
-  - component: {fileID: 7848104434531418985}
+  - component: {fileID: 3982834453588275491}
   m_Layer: 5
   m_Name: SubSpellPanel
   m_TagString: Untagged
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7848104434531418985
+--- !u!114 &3982834453588275491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7465287006798001148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5584a11784bd6914c93c25a09fcde906, type: 3}
+  m_Script: {fileID: 11500000, guid: 96f1cea4a4395254bab8c94912bc93c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spell: {fileID: 0}

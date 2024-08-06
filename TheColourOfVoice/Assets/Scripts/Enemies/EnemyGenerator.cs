@@ -50,12 +50,23 @@ public class EnemyGenerator : MonoBehaviour
 	public float minDistribution = 30;
 	[Tooltip("[0 - 360] The maximum change in angle between each spawn.")]
 	public float maxDistributionVariation = 60;
+	[Tooltip("The time interval to move to next spawn position, 0 means different spawn position every spawn.")]
+	public float spawnInterval = 0;
+
+	private float spawnTimer;
+	private Vector2 spawnPosition;
 	
 	protected float lastSpawnedAngle = 0;
 
 	private void OnEnable()
 	{
 		NewTask();
+		spawnPosition = GetSpawnPosition();
+	}
+
+	private void Update()
+	{
+		if (spawnInterval > 0 && spawnTimer < spawnInterval) spawnTimer += Time.deltaTime;
 	}
 
 	public Transform spawnTransform;
@@ -100,8 +111,13 @@ public class EnemyGenerator : MonoBehaviour
 			return;
 		}
 		Enemy enemyPrefab = enemyPrefabs[enemyIndex];
-		
-		Vector3 spawnPosition = GetSpawnPosition();
+
+		if (spawnInterval == 0 || spawnTimer >= spawnInterval)
+		{
+			spawnTimer = 0;
+			spawnPosition = GetSpawnPosition();
+		}
+			
 		Spawn(enemyPrefab, spawnPosition);
 	}
 
@@ -134,7 +150,7 @@ public class EnemyGenerator : MonoBehaviour
 		distribution *= new System.Random().Next(2) == 0 ? 1 : -1;
 		lastSpawnedAngle += distribution;
 		Vector3 spawnDirection = Quaternion.Euler(0f, 0f, lastSpawnedAngle) * Vector2.right;
-		Vector3 spawnPosition = spawnTransform.position + spawnDirection * randomDistance;
+		spawnPosition = spawnTransform.position + spawnDirection * randomDistance;
 		return spawnPosition;
 	}
 	
