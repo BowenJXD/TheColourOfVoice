@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Level_PsyRoom : MonoBehaviour
+public class Level_PsyRoom : Singleton<Level_PsyRoom>
 {
     public GameObject player;
     public Camera uiCamera;
@@ -15,6 +15,7 @@ public class Level_PsyRoom : MonoBehaviour
     [SerializeField] private Light2D sightLight;
     [SerializeField] private Light2D sunShaftlight;
     
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerIsAwake == false)
