@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,16 @@ using UnityEngine;
 public class PausePanel : MonoBehaviour
 {
     [SerializeField] GameObject PauseUI;
+
+    private void Awake()
+    {
+        LeanTween.reset();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,9 +29,15 @@ public class PausePanel : MonoBehaviour
                 //Debug.Log("PausePanel");
                 Time.timeScale = 0;
                 PauseUI.gameObject.SetActive(true);
-
+                LeanTween.moveLocal(PauseUI, new Vector3(0f, -11f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack);
+                
             }
-            else { Time.timeScale = 1; PauseUI.gameObject.SetActive(false); }
+            else
+            {
+                LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true);
+                Time.timeScale = 1; 
+                PauseUI.gameObject.SetActive(false);
+            }
             
         }
     }
