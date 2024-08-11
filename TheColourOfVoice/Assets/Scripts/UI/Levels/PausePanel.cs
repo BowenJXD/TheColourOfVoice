@@ -34,9 +34,12 @@ public class PausePanel : MonoBehaviour
             }
             else
             {
-                LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true);
-                Time.timeScale = 1; 
-                PauseUI.gameObject.SetActive(false);
+                LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true).setOnComplete(() =>
+                    {
+                        PauseUI.gameObject.SetActive(false);
+                        Time.timeScale = 1; 
+                    });
+
             }
             
         }
