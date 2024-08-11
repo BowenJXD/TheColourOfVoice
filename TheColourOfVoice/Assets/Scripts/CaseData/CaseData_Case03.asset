@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b4629f0a60288149816b964c433b89e, type: 3}
-  m_Name: CaseData_Case01
+  m_Name: CaseData_Case03
   m_EditorClassIdentifier: 
-  patientName: Ava
+  patientName: 'Chloe '
   patientAge: 19
-  patintSymptoms: Mild depression
-  patientDescription: '"I''ve been feeling really overwhelmed lately... If you truly
-    are a witch... If you really possess that magical power... Please, help me!"'
-  patientImage: {fileID: 21300000, guid: 72712e0bce356694eac9ea36f2e94f26, type: 3}
+  patintSymptoms: Bipolar disorder
+  patientDescription: //TODO Bipolar disorder
+  patientImage: {fileID: 21300000, guid: 95b066dfb455a254db29c6e8586749e2, type: 3}
