@@ -1,20 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PaperButton : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
+public class PaperButton : MonoBehaviour
 {
     //打开选关面板的部分
     [SerializeField] private GameObject chooseLevelPanel;
     [SerializeField] private GameObject paperOutline;
-    [SerializeField] private Image paperSpriteImage;
-
+    [SerializeField] private SpriteRenderer paperSpriteImage;
     private void Start()
     {
         //chooseLevelPanel = GameObject.Find("ChooseLevelPanel");
-        paperSpriteImage = GetComponent<Image>();
+        paperSpriteImage = GetComponent<SpriteRenderer>();
         paperOutline = transform.GetChild(0).gameObject;
         if (chooseLevelPanel == null || paperSpriteImage == null || paperOutline == null)
         {
@@ -22,35 +23,27 @@ public class PaperButton : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,I
         }
         
         chooseLevelPanel.SetActive(false);
-        
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    
+
+    private void OnMouseDown()
     {
         
     }
-
-    public void OnPointerUp(PointerEventData eventData)
+    
+    private void OnMouseEnter()
     {
-        
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("Click Paper");
-        if(chooseLevelPanel!=null)
-            chooseLevelPanel.SetActive(true);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Pointer Enter");
         paperOutline.SetActive(true);
     }
-
-    public void OnPointerExit(PointerEventData eventData)
+    
+    private void OnMouseExit()
     {
-        Debug.Log("Pointer Exit");
         paperOutline.SetActive(false);
+    }
+    private void OnMouseUp()
+    {
+        chooseLevelPanel.SetActive(true);
+       
     }
 }
