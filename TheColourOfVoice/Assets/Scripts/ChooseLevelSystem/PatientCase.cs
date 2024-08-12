@@ -47,29 +47,8 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Pointer Enter");
-        //ChooseLevelPanel.Instance.OnPointerEnterCase(transform.parent.gameObject);
-        if (slotType == SlotType.LEFT_SLOT && !casePanelIsMoving)
-        {
-            casePanelIsMoving = true;
-            var parent = transform.parent;
-            parent.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
-            RectTransform tempRect = parent.GetComponent<RectTransform>();
-            tempRect.DOMove(ChooseLevelPanel.Instance.leftPeekSlot.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
-            tempRect.DOSizeDelta(ChooseLevelPanel.Instance.leftPeekSlot.sizeDelta,duration).SetEase(Ease.InOutSine);
-            tempRect.DOScale(ChooseLevelPanel.Instance.leftPeekSlot.localScale,duration).SetEase(Ease.InOutSine);
-            tempRect.DORotate(ChooseLevelPanel.Instance.leftPeekSlot.localEulerAngles,duration).SetEase(Ease.InOutSine);
-        }
-        else if (slotType == SlotType.RIGHT_SLOT&& !casePanelIsMoving)
-        {
-            casePanelIsMoving = true;
-            transform.parent.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
-            RectTransform tempRect = GetComponent<RectTransform>();
-            tempRect.DOMove(ChooseLevelPanel.Instance.rightPeekSlot.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
-            tempRect.DOSizeDelta(ChooseLevelPanel.Instance.rightPeekSlot.sizeDelta,duration).SetEase(Ease.InOutSine);
-            tempRect.DOScale(ChooseLevelPanel.Instance.rightPeekSlot.localScale,duration).SetEase(Ease.InOutSine);
-            tempRect.DORotate(ChooseLevelPanel.Instance.rightPeekSlot.localEulerAngles,duration).SetEase(Ease.InOutSine);
-        }
-
+        ChooseLevelPanel.Instance.OnPointerEnterCase(transform.parent.gameObject);
+       
     }
     
     public void OnPointerExit(PointerEventData eventData)

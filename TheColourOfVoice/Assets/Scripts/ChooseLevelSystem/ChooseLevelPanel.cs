@@ -20,7 +20,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     public float colorSelectedAlpha = 0.7f;
     public float colorAlpha = 0.4f;
     public float duration = 0.2f;
-    private bool casePanelIsMoving = false;
+    //private bool casePanelIsMoving = false;
     
     private void Awake()
     {
@@ -32,9 +32,6 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
 
     private void Start()
     {
-        /*InstantiateCase(currentSlotPos,caseDataList[currentIndex],SlotType.CURRENT_SLOT);
-        InstantiateCase(leftslotPos,caseDataList[(currentIndex+1) % caseDataList.Count],SlotType.LEFT_SLOT);
-        InstantiateCase(rightslotPos,caseDataList[(currentIndex+2) % caseDataList.Count],SlotType.RIGHT_SLOT);*/
         foreach (var caseData in caseDataList)
         {
             Debug.Log("CaseData: "+caseData.patientName);
@@ -47,15 +44,10 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         }
 
         MoveCase(currentCaseList[0],currentSlotPos,1,SlotType.CURRENT_SLOT,true);
-        MoveCase(currentCaseList[^1],leftslotPos,0.33f,SlotType.LEFT_SLOT);
-        MoveCase(currentCaseList[1],rightslotPos,0.33f,SlotType.RIGHT_SLOT);
+        MoveCase(currentCaseList[^1],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
+        MoveCase(currentCaseList[1],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
     }
-
-    private void Update()
-    {
-        
-    }
-
+    
     void InstantiateCase(RectTransform rectTransform,CaseData caseData,SlotType slotType)
     {
         GameObject tempCaseObject = Instantiate(Resources.Load<GameObject>("Prefabs/CaseTest"),transform);
@@ -84,14 +76,13 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     
     public void OnPointerEnterCase(GameObject caseObject)
     {
-        if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT && !casePanelIsMoving)
+        if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT )
         {
-            casePanelIsMoving = true;
             caseObject.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,leftPeekSlot);
         }
-        else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT&& !casePanelIsMoving)
+        else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT)
         {
             caseObject.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
@@ -102,13 +93,15 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     
     public void OnpointerExitCase(GameObject caseObject)
     {
-        if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT && !casePanelIsMoving)
+        if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT)
         {
+            Debug.Log("Rect moving Left Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,leftslotPos);
-        }else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT&& !casePanelIsMoving)
+        }else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT)
         {
+            Debug.Log("Rect moving Right Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,rightslotPos);
@@ -117,7 +110,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
 
     void DoTweenMoveRectTransfrom(RectTransform currenRectTransform, RectTransform targetRectTransform)
     {
-        currenRectTransform.DOMove(targetRectTransform.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
+        currenRectTransform.DOMove(targetRectTransform.position,duration).SetEase(Ease.InOutSine);
         currenRectTransform.DOSizeDelta(targetRectTransform.sizeDelta,duration).SetEase(Ease.InOutSine);
         currenRectTransform.DOScale(targetRectTransform.localScale,duration).SetEase(Ease.InOutSine);
         currenRectTransform.DORotate(targetRectTransform.localEulerAngles,duration).SetEase(Ease.InOutSine);
