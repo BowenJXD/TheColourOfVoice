@@ -40,7 +40,7 @@ public class GameEventManager : MonoBehaviour
         //Debug.Log("PausePanel");
         Time.timeScale = 0;
         PauseUI.gameObject.SetActive(true);
-        LeanTween.moveLocal(PauseUI, new Vector3(0f, -11f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack);
     }
 
     void PausePanelEnd()
