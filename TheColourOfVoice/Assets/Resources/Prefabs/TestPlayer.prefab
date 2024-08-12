@@ -9906,6 +9906,8 @@ MonoBehaviour:
   defaultSpell: {fileID: 6144319786411679607}
   rb: {fileID: 2664940203796196856}
   currentSpell: {fileID: 0}
+  allSpells: []
+  saveData: {fileID: 0}
 --- !u!1 &2569122277313717908
 GameObject:
   m_ObjectHideFlags: 0
@@ -14848,7 +14850,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: de57b6081d8673149bdcb56403b0875b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15077,6 +15079,7 @@ MonoBehaviour:
   speed: 4
   inDialogueArea: 0
   rotatingTransform: {fileID: 7875169839693260514}
+  fourDirectional: 0
 --- !u!114 &-1993808392126248497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15097,6 +15100,7 @@ MonoBehaviour:
   disablingComponents:
   - {fileID: 4113794111999803653}
   ani: {fileID: 3732170676019902921}
+  slider: {fileID: 0}
   onFaint:
     m_PersistentCalls:
       m_Calls:
@@ -15112,6 +15116,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEndFaint:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-4292824264658561850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15247,7 +15254,7 @@ MonoBehaviour:
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 100
+  OverrideMaxDistance: 20
 --- !u!114 &4438333660970748695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15340,10 +15347,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3ed80170634ebd8230792fbb96553d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellImage: {fileID: 0}
-  spellName: thank you
+  triggerWords: 
   cooldown: 1
+  spellIndex: 0
+  spellName: thank you
   spellDescription: The Honest Words
+  spellImage: {fileID: 0}
   needCasting: 0
   recoil: 0
   ps: {fileID: 0}
@@ -20311,10 +20320,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174dd7b90734429c8b337de1cce702c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellImage: {fileID: 21300000, guid: f5fb9ded777bb094ab2739995e73ea98, type: 3}
-  spellName: fireball is coming
+  triggerWords: 
   cooldown: 10
+  spellIndex: 0
+  spellName: fireball is coming
   spellDescription: The Burning Passion
+  spellImage: {fileID: 21300000, guid: f5fb9ded777bb094ab2739995e73ea98, type: 3}
   needCasting: 1
   recoil: 8
   ps: {fileID: 5618582631917348660}
@@ -25301,10 +25312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f633f40f2584bf0936ca7309d47e638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellImage: {fileID: 21300000, guid: 02f2d8570d48f1041bc69335e4c23581, type: 3}
-  spellName: let there be light
+  triggerWords: 
   cooldown: 20
+  spellIndex: 0
+  spellName: let there be light
   spellDescription: The Glowing Confidence
+  spellImage: {fileID: 21300000, guid: 02f2d8570d48f1041bc69335e4c23581, type: 3}
   needCasting: 0
   recoil: 0
   ps: {fileID: 3640963790948825615}
@@ -25405,10 +25418,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eaba18b5e5c46d298b885f359770624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellImage: {fileID: 21300000, guid: b77e0b96dbd2d4e4b9a6b744c1ff05ed, type: 3}
-  spellName: calm down
+  triggerWords: 
   cooldown: 1
+  spellIndex: 0
+  spellName: calm down
   spellDescription: The Calming Laser
+  spellImage: {fileID: 21300000, guid: b77e0b96dbd2d4e4b9a6b744c1ff05ed, type: 3}
   needCasting: 1
   recoil: 6
   ps: {fileID: 4480353883336226656}
