@@ -89,19 +89,13 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             casePanelIsMoving = true;
             caseObject.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
-            tempRect.DOMove(leftPeekSlot.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
-            tempRect.DOSizeDelta(leftPeekSlot.sizeDelta,duration).SetEase(Ease.InOutSine);
-            tempRect.DOScale(leftPeekSlot.localScale,duration).SetEase(Ease.InOutSine);
-            tempRect.DORotate(leftPeekSlot.localEulerAngles,duration).SetEase(Ease.InOutSine);
+            DoTweenMoveRectTransfrom(tempRect,leftPeekSlot);
         }
         else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT&& !casePanelIsMoving)
         {
             caseObject.GetComponent<CanvasGroup>().alpha = colorSelectedAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
-            tempRect.DOMove(rightPeekSlot.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
-            tempRect.DOSizeDelta(rightPeekSlot.sizeDelta,duration).SetEase(Ease.InOutSine);
-            tempRect.DOScale(rightPeekSlot.localScale,duration).SetEase(Ease.InOutSine);
-            tempRect.DORotate(rightPeekSlot.localEulerAngles,duration).SetEase(Ease.InOutSine);
+            DoTweenMoveRectTransfrom(tempRect,rightPeekSlot);
         }
         
     }
@@ -112,11 +106,21 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         {
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
-            tempRect.DOMove(leftslotPos.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
-            tempRect.DOSizeDelta(leftslotPos.sizeDelta,duration).SetEase(Ease.InOutSine);
-            tempRect.DOScale(leftslotPos.localScale,duration).SetEase(Ease.InOutSine);
-            tempRect.DORotate(leftslotPos.localEulerAngles,duration).SetEase(Ease.InOutSine);
+            DoTweenMoveRectTransfrom(tempRect,leftslotPos);
+        }else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT&& !casePanelIsMoving)
+        {
+            caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
+            RectTransform tempRect = caseObject.GetComponent<RectTransform>();
+            DoTweenMoveRectTransfrom(tempRect,rightslotPos);
         }
     }
-    
+
+    void DoTweenMoveRectTransfrom(RectTransform currenRectTransform, RectTransform targetRectTransform)
+    {
+        currenRectTransform.DOMove(targetRectTransform.position,duration).SetEase(Ease.InOutSine).onComplete = () => casePanelIsMoving = false;
+        currenRectTransform.DOSizeDelta(targetRectTransform.sizeDelta,duration).SetEase(Ease.InOutSine);
+        currenRectTransform.DOScale(targetRectTransform.localScale,duration).SetEase(Ease.InOutSine);
+        currenRectTransform.DORotate(targetRectTransform.localEulerAngles,duration).SetEase(Ease.InOutSine);
+    }
+
 }
