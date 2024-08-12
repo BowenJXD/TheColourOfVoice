@@ -72,7 +72,7 @@ public class SpellManager : Singleton<SpellManager>
 
     private void OnEnable()
     {
-        for (int i = 1; i < PlayerPrefs.GetInt("levelIndex", 1) + 1; i++)
+        for (int i = 1; i < LevelManager.Instance.levelIndex; i++)
         {
             LearnSpell(i);
         }

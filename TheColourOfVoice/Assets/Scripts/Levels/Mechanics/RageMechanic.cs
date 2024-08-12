@@ -24,7 +24,7 @@ public class RageMechanic : LevelMechanic
     {
         rageValue = 0;
         if (!rageEffect) rageEffect = Resources.Load<GameObject>("Prefabs/RageEdge");
-        rageEffect = Instantiate(rageEffect, GameObject.Find("Canvas").transform);
+        rageEffect = Instantiate(rageEffect, FindObjectOfType<Canvas>().transform);
         rageEffectImages = rageEffect.GetComponentsInChildren<Image>(true);
         loopTask = new LoopTask{loopAction = IncreaseRage, interval = 1, loop = -1};
         loopTask.Start();

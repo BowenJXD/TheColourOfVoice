@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L2-SupposedToBe-M-V
       objectReference: {fileID: 0}
+    - target: {fileID: 6602773672044416973, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+      propertyPath: faceTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7382574821815154221, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

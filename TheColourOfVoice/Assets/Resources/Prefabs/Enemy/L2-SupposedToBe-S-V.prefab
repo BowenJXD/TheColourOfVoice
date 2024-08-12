@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6602773672044416973, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+      propertyPath: faceTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7382574821815154221, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -159,6 +163,7 @@ MonoBehaviour:
   skip: 0
   next: 0
   waitTime: 0.01
+  waitForSequenceToFinish: 1
 --- !u!95 &7185327626292277043
 Animator:
   serializedVersion: 5

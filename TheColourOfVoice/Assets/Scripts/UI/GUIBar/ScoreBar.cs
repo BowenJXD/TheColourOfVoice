@@ -86,7 +86,7 @@ public class ScoreBar : MonoBehaviour
         TMP_Text text = percentText;
 
         Color originalColor = text.color;
-        Color flashColor = Color.yellow; 
+        Color flashColor = ColorManager.Instance.GetColor(LevelManager.Instance.levelColor);
 
         text.color = flashColor;
 

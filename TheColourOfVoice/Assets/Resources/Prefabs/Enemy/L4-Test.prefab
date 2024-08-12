@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689ad15d00a44b8d881e638609b7f0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  shootInterval: 2
   bulletPrefab: {fileID: 8393773426448386475, guid: d38b4801fefe5f344a2fc8da41121410, type: 3}
   angle: 0
   offset: 1
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   next: 0
-  waitTime: 10
+  waitTime: 30
 --- !u!114 &3959022633956046496
 MonoBehaviour:
   m_ObjectHideFlags: 0

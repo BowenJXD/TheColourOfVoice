@@ -56,13 +56,16 @@ public class PlayerMovement : Movement
         //     inputY *= 0.5f;
         // }
 
-        if (Math.Abs(inputX) >= Math.Abs(inputY))
+        if (fourDirectional)
         {
-            rb.constraints = (RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation);
-        }
-        else
-        {
-            rb.constraints = (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation);
+            if (Math.Abs(inputX) >= Math.Abs(inputY))
+            {
+                rb.constraints = (RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation);
+            }
+            else
+            {
+                rb.constraints = (RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation);
+            }
         }
 
         inputMovement = new Vector2(inputX, inputY);

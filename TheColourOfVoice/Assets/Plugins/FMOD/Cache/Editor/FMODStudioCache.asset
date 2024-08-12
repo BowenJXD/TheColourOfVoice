@@ -135,7 +135,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -7782194387799680108}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &-6143444784212798291
 MonoBehaviour:
@@ -269,7 +269,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &-3000859548036015944
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638530410455991967
+  lastModified: 638530594226683995
   FileSizes:
   - Name: Desktop
     Value: 1588
@@ -345,7 +345,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 7533199121175497799}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -381,7 +381,7 @@ MonoBehaviour:
   - {fileID: 2767100926582231373}
   StringsBanks:
   - {fileID: -1748321852899982710}
-  cacheTime: 638530410455991967
+  cacheTime: 638530594226683995
   cacheVersion: 131619
 --- !u!114 &104763941631392361
 MonoBehaviour:
@@ -409,7 +409,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 7266647363638231289}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &2141209734958728423
 MonoBehaviour:
@@ -460,7 +460,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &2740834609336684919
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638530410455971790
+  lastModified: 638530594226654118
   FileSizes:
   - Name: Desktop
     Value: 3826208
@@ -535,7 +535,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -8473515511585389083}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &6714906112535529791
 MonoBehaviour:
@@ -563,7 +563,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -3775391790241817073}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
 --- !u!114 &7266647363638231289
 MonoBehaviour:

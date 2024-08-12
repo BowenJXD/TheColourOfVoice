@@ -1,6 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ChaseMovement : Movement, ISetUp
 {
@@ -9,6 +10,8 @@ public class ChaseMovement : Movement, ISetUp
     public float angularSpeed = 120;
     public float stopRange = 1;
     public float startRange = 1;
+    [Tooltip("The variance of speed in percentage (0-1).")]
+    public float speedVariance = 0.1f;
 
     public enum FaceMode
     {
@@ -42,7 +45,7 @@ public class ChaseMovement : Movement, ISetUp
         initialFlipX = sp.flipX;
         if (!target) target = FindObjectOfType<ChaseTarget>(true).gameObject;
         if (target) lastDirection = (target.transform.position - transform.position).normalized;
-        
+        speed *= Random.Range(1-speedVariance, 1+speedVariance);
     }
 
     private void OnEnable()
