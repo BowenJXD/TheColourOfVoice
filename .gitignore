@@ -72,8 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-/Assets/Plugins/FMOD/Cache/Editor/*
-/Assets/Plugins/FMOD/Cache/Windows/*
-/Assets/Plugins/FMOD/Cache/Windows.meta
-/Assets/ArticyImporter/Content/Generated/*
+/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+/Assets/ArticyImporter/Content/Generated/ArticyEditorSettings.asset
 fmod_editor.log
