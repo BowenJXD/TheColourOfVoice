@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8608156612741297312}
   - component: {fileID: -8802263088422145753}
   - component: {fileID: -3302271437330581459}
+  - component: {fileID: 3192155277107551553}
+  - component: {fileID: 3548718338278235504}
   m_Layer: 0
   m_Name: FireBallAnim
   m_TagString: Untagged
@@ -102,7 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopInterval: -1
   indexCondition: 3
-  nodes: []
+  nodes:
+  - {fileID: -8802263088422145753}
+  - {fileID: -3302271437330581459}
 --- !u!114 &8608156612741297312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +160,44 @@ MonoBehaviour:
   target: {fileID: 0}
   shakeType: 0
   strength: 0.1
+  vibrato: 10
+  randomness: 90
+  snapping: 0
+  fadeOut: 0
+--- !u!114 &3192155277107551553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746376196784695891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe1b84c82d4a008961a01e925cd609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables:
+  - {fileID: 3548718338278235504}
+--- !u!114 &3548718338278235504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746376196784695891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481123b4421849b58ef3565590f05481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  next: 0
+  sequence: {fileID: 0}
+  ease: 1
+  duration: 100
+  target: {fileID: 0}
+  shakeType: 1
+  strength: 30
   vibrato: 10
   randomness: 90
   snapping: 0
