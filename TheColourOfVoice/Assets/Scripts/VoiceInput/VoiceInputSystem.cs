@@ -43,20 +43,26 @@ public class VoiceInputSystem : Singleton<VoiceInputSystem>
 
     public void SetActive(bool active)
     {
+        string message = "Recognizers: ";
         if (active)
         {
-            foreach (var recognizer in keywordRecognizers.Values)
+            foreach (var kvp in keywordRecognizers)
             {
-                recognizer.Start();
+                kvp.Value.Start();
+                message += $"{kvp.Key}, ";
             }
+            message += "started.";
         }
         else
         {
-            foreach (var recognizer in keywordRecognizers.Values)
+            foreach (var kvp in keywordRecognizers)
             {
-                recognizer.Stop();
+                kvp.Value.Stop();
+                message += $"{kvp.Key}, ";
             }
+            message += "stopped.";
         }
+        Debug.Log(message);
         isActive = active;
     }
     

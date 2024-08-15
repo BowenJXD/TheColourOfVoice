@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class EnabledSetterExe : ExecutableBehaviour
+public class ToggleEnabledExe : ExecutableBehaviour
 {
     public bool enableOrDisable = true;
     

@@ -49,6 +49,7 @@ public class Spell : MonoBehaviour, ISetUp
     protected virtual void Init()
     {
         remainingCD = 0;
+        Lebug.Log(name + " CD", remainingCD);
     }
     
     protected virtual void Unregister()

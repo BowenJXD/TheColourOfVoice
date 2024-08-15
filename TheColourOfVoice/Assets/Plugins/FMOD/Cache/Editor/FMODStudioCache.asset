@@ -314,7 +314,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638530594226683995
+  lastModified: 638574379488622455
   FileSizes:
   - Name: Desktop
     Value: 1588
@@ -381,7 +381,7 @@ MonoBehaviour:
   - {fileID: 2767100926582231373}
   StringsBanks:
   - {fileID: -1748321852899982710}
-  cacheTime: 638530594226683995
+  cacheTime: 638574379488622455
   cacheVersion: 131619
 --- !u!114 &104763941631392361
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638530594226654118
+  lastModified: 638574379488602527
   FileSizes:
   - Name: Desktop
     Value: 3826208

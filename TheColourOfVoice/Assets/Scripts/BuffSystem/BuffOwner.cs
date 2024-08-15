@@ -9,6 +9,8 @@ public class BuffOwner : MonoBehaviour
     
     public List<string> resistingBuffs = new();
 
+    public Action<Buff> OnBuffReceived;
+    
     public bool ApplyBuff(Buff buffPrefab)
     {
         string buffName = buffPrefab.name;
@@ -31,6 +33,7 @@ public class BuffOwner : MonoBehaviour
         {
             return false;
         }
+        OnBuffReceived?.Invoke(buffs[buffName]);
         return true;
     }
     
