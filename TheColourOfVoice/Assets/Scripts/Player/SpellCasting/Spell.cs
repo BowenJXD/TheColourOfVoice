@@ -11,7 +11,7 @@ public class Spell : MonoBehaviour, ISetUp
     public float cooldown;
     [ShowInInspector] [ReadOnly] float remainingCD;
     
-    public int spellIndex;
+    [ReadOnly] public int spellIndex;
     public string spellName;
     public string spellDescription;
     public Sprite spellImage;

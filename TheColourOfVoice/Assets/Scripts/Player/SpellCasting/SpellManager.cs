@@ -72,9 +72,9 @@ public class SpellManager : Singleton<SpellManager>
 
     private void OnEnable()
     {
-        for (int i = LevelManager.Instance.levelIndex; i >= 2; i--)
+        for (int i = 0; i < LevelManager.Instance.levelIndex; i++)
         {
-            LearnSpell(i);
+            LearnSpell(i+1);
         }
         StartChanting();
     }
