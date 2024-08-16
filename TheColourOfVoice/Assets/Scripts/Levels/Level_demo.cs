@@ -122,7 +122,9 @@ public class Level_demo : MonoBehaviour
     {
         while (totalTime >= 0)
         {
-            text.GetComponent<TextMeshProUGUI>().text = totalTime.ToString();
+            int minutes = totalTime / 60;
+            int seconds = totalTime % 60;
+            text.GetComponent<TextMeshProUGUI>().text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
             yield return new WaitForSeconds(1);
             totalTime--;
         }

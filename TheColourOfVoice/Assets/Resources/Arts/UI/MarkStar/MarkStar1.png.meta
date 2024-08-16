@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efdd76ed74ab50543befe0a8a1764879
+guid: ecc79121a7ca83d41a7668d2c0fa16e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScoreBoxBG_0
+      name: MarkStar1_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 16
-        width: 252
-        height: 19
+        x: 11
+        y: 12
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d587b36bbfc329b48a883f0ff703d72b
-      internalID: 1652078773
+      spriteID: fb22d0bf82664724bbc1d5ca86ca483a
+      internalID: 54936700
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ScoreBoxBG_0: 1652078773
+      MarkStar1_0: 54936700
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

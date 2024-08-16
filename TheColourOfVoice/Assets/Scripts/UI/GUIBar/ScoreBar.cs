@@ -13,7 +13,13 @@ public class ScoreBar : MonoBehaviour
     protected float percentage;
     public float score;
     [SerializeField] TMP_Text percentText;
+    
+    private Image starDarkImage;
+    private Image starLightImage;
 
+    public Transform starContainer;  
+    private List<Image> stars = new List<Image>();
+    
     Canvas canvas;
     void SetScoreText(float score)
     {
@@ -24,6 +30,34 @@ public class ScoreBar : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
+        
+        starContainer.SetParent(this.transform);
+
+        /*RectTransform starContainerRect = starContainer.Setc<RectTransform>();
+        starContainerRect.anchorMin = new Vector2(0f, 0.5f);
+        starContainerRect.anchorMax = new Vector2(1f, 0.5f);
+        starContainerRect.anchoredPosition = Vector2.zero;
+        starContainerRect.sizeDelta = new Vector2(0, 0); */
+        
+        GameObject starPrefab = Resources.Load<GameObject>("Prefabs/Level/StarPrefabs");
+
+        if (starPrefab == null)
+        {
+            Debug.LogError("Failed to load star prefab from Resources.");
+            return;
+        }
+        
+        Transform starDarkTransform  =  starPrefab.transform.Find("StarDark");
+        Transform starLightTransform  =  starPrefab.transform.Find("StarLight");
+
+        starDarkImage = starDarkTransform.GetComponent<Image>();
+        starLightImage = starLightTransform.GetComponent<Image>();
+
+        float[] starScores = { 1000f, 2000f, 3000f }; 
+        float[] starPositions = CalculateStarPositions(starScores, maxScore);
+    
+        InitializeStars(starDarkImage, starLightImage, starPositions);
+        
         UpdateScore(0);
         StartCoroutine(UpdatePercentageEverySecond());
 
@@ -40,7 +74,34 @@ public class ScoreBar : MonoBehaviour
             Debug.LogError(e);
         }
     }
+    
+    
+    void InitializeStars(Image starDarkPrefab, Image starLightPrefab, float[] starPositions)
+    {
+        foreach (float position in starPositions)
+        {
+            Image star = Instantiate(starDarkPrefab, starContainer);
+            star.gameObject.SetActive(true);
 
+            RectTransform starRect = star.GetComponent<RectTransform>();
+            starRect.anchorMin = new Vector2(position, 0.5f);
+            starRect.anchorMax = new Vector2(position, 0.5f);
+            starRect.anchoredPosition = Vector2.zero;
+
+            stars.Add(star);
+        }
+    }
+
+    
+    float[] CalculateStarPositions(float[] starScores, float maxScore)
+    {
+        float[] starPositions = new float[starScores.Length];
+        for (int i = 0; i < starScores.Length; i++)
+        {
+            starPositions[i] = starScores[i] / maxScore;
+        }
+        return starPositions;
+    }
     IEnumerator UpdatePercentageEverySecond()
     {
         while (true) 
@@ -70,7 +131,30 @@ public class ScoreBar : MonoBehaviour
 
         UpdateUI();
         StartCoroutine(FlashScoreText());
+        UpdateStars();
 
+    }
+
+    void UpdateStars()
+    {
+        for (int i = 0; i < stars.Count; i++)
+        {
+            if (score >= stars[i].GetComponent<RectTransform>().anchorMin.x * maxScore)
+            {
+                if (starLightImage != null)
+                {
+                    stars[i].sprite = starLightImage.sprite;
+                    /*Destroy(stars[i].gameObject); 
+                    Image starLight = Instantiate(starLightImage, starContainer);
+                    stars[i] = starLight;
+                
+                    RectTransform starRect = stars[i].GetComponent<RectTransform>();
+                    starRect.anchorMin = new Vector2(starRect.anchorMin.x, 0.5f);
+                    starRect.anchorMax = new Vector2(starRect.anchorMin.x, 0.5f);
+                    starRect.anchoredPosition = Vector2.zero;*/
+                }
+            }
+        }
     }
 
     void UpdateUI()
