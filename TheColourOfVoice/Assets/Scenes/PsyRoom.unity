@@ -1940,7 +1940,7 @@ MonoBehaviour:
   rightPeekSlot: {fileID: 798903558}
   currentSlotPos: {fileID: 142879917}
   colorSelectedAlpha: 0.7
-  colorAlpha: 83
+  colorAlpha: 0.4
   duration: 0.2
 --- !u!1 &1949732671
 GameObject:

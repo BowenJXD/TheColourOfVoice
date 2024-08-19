@@ -61,12 +61,17 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     {
         RectTransform tempRect = caseObject.GetComponent<RectTransform>();
         tempRect.position = targetPos.position;
+        tempRect.localScale = targetPos.localScale;
     }
 
     public void MoveCase(GameObject caseObject,RectTransform targetPos,float alpha,SlotType slotType, bool isOntop = false)
     {
         MoveCase(caseObject, targetPos);
-        caseObject.GetComponent<CanvasGroup>().alpha = alpha;
+        caseObject.TryGetComponent(out CanvasGroup canvasGroup);
+        if (canvasGroup)
+        {
+            canvasGroup.alpha = alpha;
+        }else Debug.LogError("CanvasGroup is null");
         caseObject.GetComponentInChildren<PatientCase>().slotType = slotType;
         if (isOntop)
         {
