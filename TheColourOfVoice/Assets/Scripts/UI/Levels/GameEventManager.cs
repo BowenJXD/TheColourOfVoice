@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class GameEventManager : MonoBehaviour
 {
-    [SerializeField] GameObject PauseUI;
+    [SerializeField] GameObject PauseUI,StarUI;
+    [SerializeField] ParticleSystem myParticleSystem;
     private bool isUImoving = false;
     private void Awake()
     {
         LeanTween.reset();
+        PauseUI.SetActive(false);
     }
     public void Resume()
     {
@@ -42,26 +44,40 @@ public class GameEventManager : MonoBehaviour
         Debug.Log("PausePanel");
         Time.timeScale = 0;
         PauseUI.gameObject.SetActive(true);
-        //LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true);
+        LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack).setOnComplete(() =>
+        {
+            isUImoving = false;
+            StarUI.SetActive(true);
+            myParticleSystem.Play();
+
+        });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
         //rectTransform.anchoredPosition = new Vector2(0, 0);
-        rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).onComplete = () => isUImoving = false;
+        /*rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).SetUpdate(true).onComplete = () =>
+        {
+            
+            isUImoving = false;
+            StarUI.SetActive(true);
+            myParticleSystem.Play();
+        };*/
     }
 
     void PausePanelEnd()
     {
         isUImoving = true;
-        /*LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true).setOnComplete(() =>
+        LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true).setOnComplete(() =>
         {
             PauseUI.gameObject.SetActive(false);
             Time.timeScale = 1; 
-        });*/
+            isUImoving = false;
+
+        });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
-        rectTransform.DOAnchorPos(new Vector2(0,400),1f).SetEase(Ease.OutBounce).onComplete = () =>
+        /*rectTransform.DOAnchorPos(new Vector2(0,400),1f).SetEase(Ease.OutBounce).onComplete = () =>
         {
             PauseUI.gameObject.SetActive(false);
             Time.timeScale = 1;
             isUImoving = false;
-        };
+        };*/
     }
 }
