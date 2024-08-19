@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameEventManager : MonoBehaviour
 {
-    [SerializeField] GameObject PauseUI;
+    [SerializeField] GameObject PauseUI,StarUI;
     private bool isUImoving = false;
     private void Awake()
     {
@@ -45,7 +45,12 @@ public class GameEventManager : MonoBehaviour
         //LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true);
         PauseUI.TryGetComponent(out RectTransform rectTransform);
         //rectTransform.anchoredPosition = new Vector2(0, 0);
-        rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).onComplete = () => isUImoving = false;
+        rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).onComplete = () =>
+        {
+            
+            isUImoving = false;
+            StarUI.SetActive(true);
+        };
     }
 
     void PausePanelEnd()
