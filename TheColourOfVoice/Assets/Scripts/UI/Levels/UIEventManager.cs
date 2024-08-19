@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class GameEventManager : MonoBehaviour
@@ -23,12 +24,13 @@ public class GameEventManager : MonoBehaviour
             /*if (Time.timeScale == 0 && !PauseUI.gameObject.activeSelf) return;*/ // prevent opening the spell panel when the game is paused
             if (!PauseUI.gameObject.activeSelf)
             {
+                Debug.Log("PausePanel");
                 PausePanelStart();
             }
             else
             {
-
-                PausePanelEnd();
+                Debug.Log("PausePanelEnd");
+               PausePanelEnd();
             }
             
         }
@@ -37,10 +39,12 @@ public class GameEventManager : MonoBehaviour
 
     void PausePanelStart()
     {
-        //Debug.Log("PausePanel");
+        Debug.Log("PausePanel");
         Time.timeScale = 0;
         PauseUI.gameObject.SetActive(true);
-        LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack);
+        //LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack);
+        PauseUI.TryGetComponent(out RectTransform rectTransform);
+        rectTransform.anchoredPosition = new Vector2(0, 0);
     }
 
     void PausePanelEnd()
