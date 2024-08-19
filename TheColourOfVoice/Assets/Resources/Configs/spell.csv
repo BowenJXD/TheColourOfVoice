@@ -7,6 +7,6 @@ The louder you shout the spell, the longer the buff would last.",Logo-TheGlowing
 The longer the casting time, the longer the fireball would last.",Logo-TheBurningPassion
 4,The Mark of Sincere Words,12,FALSE,Cyan,"Brands the trigger words on the map. 
 The branded tiles slow enemies down, and block their bullets.",Logo-TheMarkOfSincereWords
-5,The Whisper of Love,4,TRUE,Magenta,"Casts a heart that mesmerises an enemy, making it fight for you.
+5,The Whisper of Love,4,TRUE,Magenta,"Casts a heart that mesmerises enemies, making it fight for you.
 The softer you speak the spell, the longer the buff would last.",Logo-TheWhisperOfLove
 6,The Rainbow of Hope,10,FALSE,Rainbow,"Fires the trigger words character by character, in rainbow colour.",Logo-TheRainbowOfHope

@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f109cfb1e14fcb8d3fb5f6811695af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIndex: 1
+  spellIndex: 5
   spellName: {fileID: 1745565074}
   spellDescription: {fileID: 1678245917}
   spellCooldown: {fileID: 1468330680}

@@ -119,7 +119,7 @@ public class SpellManager : Singleton<SpellManager>
         }
     }
     
-    void LearnSpell(int spellIndex)
+    public void LearnSpell(int spellIndex)
     {
         spellIndex--;
         if (allSpells.Count > spellIndex && !learntSpells.ContainsValue(allSpells[spellIndex]))

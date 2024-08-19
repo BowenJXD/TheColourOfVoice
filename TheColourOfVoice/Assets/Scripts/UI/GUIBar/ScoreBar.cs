@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,7 +10,7 @@ public class ScoreBar : MonoBehaviour
 {
     [SerializeField] Image fillImageScore;
     [SerializeField] SplashGrid splashGrid;
-    [SerializeField] float maxScore = 10000f; 
+    [SerializeField] [ReadOnly] public float maxScore = 10000f; 
     protected float percentage;
     public float score;
     [SerializeField] TMP_Text percentText;
