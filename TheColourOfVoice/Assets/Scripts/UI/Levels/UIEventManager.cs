@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameEventManager : MonoBehaviour
 {
     [SerializeField] GameObject PauseUI,StarUI;
+    [SerializeField] ParticleSystem myParticleSystem;
     private bool isUImoving = false;
     private void Awake()
     {
@@ -42,14 +43,19 @@ public class GameEventManager : MonoBehaviour
         Debug.Log("PausePanel");
         Time.timeScale = 0;
         PauseUI.gameObject.SetActive(true);
-        //LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true);
+        /*LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setOnComplete(() =>
+        {
+            isUImoving = false;
+            StarUI.SetActive(true);
+        });*/
         PauseUI.TryGetComponent(out RectTransform rectTransform);
         //rectTransform.anchoredPosition = new Vector2(0, 0);
-        rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).onComplete = () =>
+        rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).SetUpdate(true).onComplete = () =>
         {
             
             isUImoving = false;
             StarUI.SetActive(true);
+            myParticleSystem.Play();
         };
     }
 
