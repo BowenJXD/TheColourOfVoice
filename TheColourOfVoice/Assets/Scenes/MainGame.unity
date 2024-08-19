@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 226862886}
   StarUI: {fileID: 1654149624}
+  myParticleSystem: {fileID: 1654149629}
 --- !u!1 &27781949
 GameObject:
   m_ObjectHideFlags: 0
@@ -17911,9 +17912,17 @@ PrefabInstance:
       propertyPath: PauseUI
       value: 
       objectReference: {fileID: 226862886}
+    - target: {fileID: 1736574120296387847, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5257785871499319050, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_IsActive
@@ -17967,7 +17976,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1736574120296387847, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7018595417236645813, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
@@ -19091,7 +19101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1348640063}
   - component: {fileID: 1348640062}
-  - component: {fileID: 1348640061}
   m_Layer: 0
   m_Name: FindObject
   m_TagString: Untagged
@@ -19099,18 +19108,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1348640061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348640060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 377168ce324a53e488018746805db43d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1348640062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20105,6 +20102,11 @@ GameObject:
 --- !u!224 &1654149625 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5646564147780726942, guid: 83d1eb33070b4a34598f3ee5b4bf4af6, type: 3}
+  m_PrefabInstance: {fileID: 1819236656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1654149629 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5646564147780726938, guid: 83d1eb33070b4a34598f3ee5b4bf4af6, type: 3}
   m_PrefabInstance: {fileID: 1819236656}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1657941510
@@ -25727,7 +25729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5646564147780726929, guid: 83d1eb33070b4a34598f3ee5b4bf4af6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5646564147780726942, guid: 83d1eb33070b4a34598f3ee5b4bf4af6, type: 3}
       propertyPath: m_Pivot.x
