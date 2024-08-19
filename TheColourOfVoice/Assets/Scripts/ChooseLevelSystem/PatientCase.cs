@@ -60,5 +60,6 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Pointer click");
+        ChooseLevelPanel.Instance.OnPointerClickCase(transform.parent.gameObject);
     }
 }

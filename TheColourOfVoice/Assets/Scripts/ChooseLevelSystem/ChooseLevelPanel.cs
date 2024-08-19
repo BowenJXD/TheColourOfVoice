@@ -22,6 +22,8 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     public float duration = 0.2f;
     //private bool casePanelIsMoving = false;
     
+    //循环结构的参数
+    private int currentIndex = 0;
     private void Awake()
     {
         foreach (var caseData in Resources.LoadAll<CaseData>("CaseData"))
@@ -55,10 +57,12 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         tempCaseObject.transform.position = rectTransform.position;
         tempCaseObject.GetComponentInChildren<PatientCase>().InstantiateCase(caseData,slotType);
         currentCaseList.Add(tempCaseObject);
+        tempCaseObject.SetActive(false);
     }
     
     public void MoveCase(GameObject caseObject,RectTransform targetPos)
     {
+        caseObject.SetActive(true);
         RectTransform tempRect = caseObject.GetComponent<RectTransform>();
         tempRect.position = targetPos.position;
         tempRect.localScale = targetPos.localScale;
@@ -112,6 +116,11 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             DoTweenMoveRectTransfrom(tempRect,rightslotPos);
         }
     }
+    
+    public void OnPointerClickCase(GameObject caseObject)
+    {
+        ChooseCase(caseObject);
+    }
 
     void DoTweenMoveRectTransfrom(RectTransform currenRectTransform, RectTransform targetRectTransform)
     {
@@ -121,4 +130,73 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         currenRectTransform.DORotate(targetRectTransform.localEulerAngles,duration).SetEase(Ease.InOutSine);
     }
 
+    /// <summary>
+    /// 当点击左边的Case时，左边的case移动到中间，中间的case移动到右边，右边的case隐藏
+    /// 当点击右边的Case时，右边的case移动到中间，中间的case移动到左边，左边的case隐藏
+    /// 当点击中间的Case时，进入关卡
+    /// </summary>
+    void ChooseCase(GameObject selectedCase)
+    {
+        PatientCase patientCase = selectedCase.GetComponentInChildren<PatientCase>();
+        int listCount = currentCaseList.Count;
+        
+        switch(patientCase.slotType)
+        {
+            case SlotType.RIGHT_SLOT:
+                currentIndex = (currentIndex + 1) % listCount;
+                Debug.Log("Current Index: "+currentIndex);
+                UpdateDisplay();
+                break;
+            case SlotType.LEFT_SLOT:
+                currentIndex = (currentIndex - 1 + listCount) % listCount;
+                Debug.Log("Current Index: "+currentIndex);
+                UpdateDisplay();
+                break;
+            case SlotType.CURRENT_SLOT:
+                Debug.Log("Enter Level");
+                break;
+        }
+        
+        /*int index = currentCaseList.IndexOf(selectedCase);
+        
+        if (index == -1)
+        {
+            Debug.LogError("Can't find the selected case in the currentCaseList");
+            return;
+        }
+
+        Debug.Log("Index: "+index);
+        Debug.Log("(index+1)%listCount: "+(index+1)%listCount);
+        Debug.Log("(index-1)%listCount: "+(index-1)%listCount);
+        Debug.Log("(index+2)%listCount: "+(index+2)%listCount);
+        Debug.Log("ListCount: "+listCount);
+        switch(patientCase.slotType)
+        {
+            case SlotType.LEFT_SLOT:
+                MoveCase(selectedCase,currentSlotPos,1,SlotType.CURRENT_SLOT);
+                MoveCase(currentCaseList[(index+1)%listCount],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+                MoveCase(currentCaseList[(index-1)%listCount],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
+                currentCaseList[(index+2)%listCount].SetActive(false);
+                break;
+            case SlotType.RIGHT_SLOT:
+                MoveCase(selectedCase,currentSlotPos,1,SlotType.CURRENT_SLOT);
+                MoveCase(currentCaseList[(index+1)%listCount],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+                MoveCase(currentCaseList[(index-1)%listCount],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
+                currentCaseList[(index-2)%listCount].SetActive(false);
+                break;
+            case SlotType.CURRENT_SLOT:
+                Debug.Log("Enter Level");
+                break;
+        }*/
+    }
+    
+    public void UpdateDisplay()
+    { 
+        int listCount = currentCaseList.Count;
+        MoveCase(currentCaseList[currentIndex],currentSlotPos,1,SlotType.CURRENT_SLOT,true);
+        int leftIndex = (currentIndex - 1 + listCount) % listCount;
+        MoveCase(currentCaseList[leftIndex],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
+        int rightIndex = (currentIndex + 1) % listCount;
+        MoveCase(currentCaseList[rightIndex],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+    }
 }
