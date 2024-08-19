@@ -10,8 +10,11 @@ public class GlowingConfidenceSpell : Spell
     public Health health;
     public Painter painter;
     public LightAnim effect;
+    public Attack attack;
 
     LoopTask loopTask;
+
+    private float cachedSpellCD;
 
     public override void SetUp()
     {
@@ -24,7 +27,6 @@ public class GlowingConfidenceSpell : Spell
     public override void Execute()
     {
         base.Execute();
-        
         loopTask.interval = duration * (1 + currentConfig.peakVolume);
         if (!loopTask.isPlaying)
         {
@@ -44,6 +46,10 @@ public class GlowingConfidenceSpell : Spell
             new LoopTask{finishAction = effect.Execute, interval = Mathf.Max(loopTask.interval - effect.duration, 0)}.Start();
         }
         if (health) health.invincible = true;
+        if (attack) attack.gameObject.SetActive(true);
+        SpellManager.Instance.defaultSpell.enabled = false;
+        cachedSpellCD = SpellManager.Instance.cooldownTime;
+        SpellManager.Instance.cooldownTime = loopTask.interval;
     }
 
     void EndBuff()
@@ -52,6 +58,8 @@ public class GlowingConfidenceSpell : Spell
         if (movement) movement.Speed /= moveMultiplier;
         if (effect) effect.gameObject.SetActive(false);
         if (health) health.invincible = false;
+        if (attack) attack.gameObject.SetActive(false);
+        SpellManager.Instance.cooldownTime = cachedSpellCD;
     }
 
     private void OnDisable()

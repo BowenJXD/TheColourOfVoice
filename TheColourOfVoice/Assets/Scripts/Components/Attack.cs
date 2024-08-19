@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 public class Attack : MonoBehaviour, ISetUp
 {
     public float damage = 1;
-    public float cooldown = float.MaxValue;
+    public float damageCD = 1;
     public bool resetCDOnExit = true;
     public float knockBack = 7.0f;
 
@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour, ISetUp
         if (!rb) rb = GetComponent<Rigidbody2D>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         
-        loopTask = new LoopTask { interval = cooldown, loop = -1, loopAction = Damage };
+        loopTask = new LoopTask { interval = damageCD, loop = -1, loopAction = Damage };
         if (!resetCDOnExit) loopTask.Start();
     }
 

@@ -237,6 +237,7 @@ public class SpellManager : Singleton<SpellManager>
         if (rb) rb.AddForce(-direction * currentSpell.recoil, ForceMode2D.Impulse);
         currentSpell = null;
         
+        coolDownTask.interval = cooldownTime;
         coolDownTask.Start();
     }
 
