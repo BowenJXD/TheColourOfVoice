@@ -1279,6 +1279,7 @@ MonoBehaviour:
   player: {fileID: 832402130}
   uiCamera: {fileID: 1255866205}
   mainPanel: {fileID: 701186597}
+  choosingLevelPanel: {fileID: 1902046342}
   sightLight: {fileID: 2012320896}
   sunShaftlight: {fileID: 707192889}
 --- !u!4 &1318686244

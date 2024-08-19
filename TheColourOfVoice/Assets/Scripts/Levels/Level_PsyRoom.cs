@@ -10,6 +10,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public GameObject player;
     public Camera uiCamera;
     public GameObject mainPanel;
+    public GameObject choosingLevelPanel;
     private int shakeCount = 0;
     private bool playerIsAwake = false;
     [SerializeField] private Light2D sightLight;
@@ -27,6 +28,11 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             {
                 LittleWitchAwake(); //小魔女苏醒
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && choosingLevelPanel.activeSelf)
+        {
+            choosingLevelPanel.SetActive(false);
         }
     }
 
