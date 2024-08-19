@@ -66,6 +66,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         RectTransform tempRect = caseObject.GetComponent<RectTransform>();
         tempRect.position = targetPos.position;
         tempRect.localScale = targetPos.localScale;
+        tempRect.localRotation = Quaternion.identity;
     }
 
     public void MoveCase(GameObject caseObject,RectTransform targetPos,float alpha,SlotType slotType, bool isOntop = false)
@@ -157,37 +158,6 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
                 break;
         }
         
-        /*int index = currentCaseList.IndexOf(selectedCase);
-        
-        if (index == -1)
-        {
-            Debug.LogError("Can't find the selected case in the currentCaseList");
-            return;
-        }
-
-        Debug.Log("Index: "+index);
-        Debug.Log("(index+1)%listCount: "+(index+1)%listCount);
-        Debug.Log("(index-1)%listCount: "+(index-1)%listCount);
-        Debug.Log("(index+2)%listCount: "+(index+2)%listCount);
-        Debug.Log("ListCount: "+listCount);
-        switch(patientCase.slotType)
-        {
-            case SlotType.LEFT_SLOT:
-                MoveCase(selectedCase,currentSlotPos,1,SlotType.CURRENT_SLOT);
-                MoveCase(currentCaseList[(index+1)%listCount],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
-                MoveCase(currentCaseList[(index-1)%listCount],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
-                currentCaseList[(index+2)%listCount].SetActive(false);
-                break;
-            case SlotType.RIGHT_SLOT:
-                MoveCase(selectedCase,currentSlotPos,1,SlotType.CURRENT_SLOT);
-                MoveCase(currentCaseList[(index+1)%listCount],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
-                MoveCase(currentCaseList[(index-1)%listCount],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
-                currentCaseList[(index-2)%listCount].SetActive(false);
-                break;
-            case SlotType.CURRENT_SLOT:
-                Debug.Log("Enter Level");
-                break;
-        }*/
     }
     
     public void UpdateDisplay()
