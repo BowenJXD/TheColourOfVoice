@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
 
 public class Level_PsyRoom : Singleton<Level_PsyRoom>
@@ -16,6 +17,20 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     [SerializeField] private Light2D sightLight;
     [SerializeField] private Light2D sunShaftlight;
     
+    //TimeLine有关的参数
+    public enum GameMode
+    {
+        GamePlay,
+       DialogueMoment
+    }
+    public GameMode gameMode;
+    private PlayableDirector currentPlayableDirector;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        gameMode = GameMode.GamePlay;
+    }
 
     private void Update()
     {
@@ -34,6 +49,35 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         {
             choosingLevelPanel.SetActive(false);
         }
+
+        if (gameMode == GameMode.GamePlay)
+        {
+            
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                //按下F之后才能进行下一句话，进行timeline的播放
+            }
+        }
+
+    }
+
+    public void PauseTimeline(PlayableDirector playableDirector)
+    {
+        Debug.Log("Pause Timeline");
+        currentPlayableDirector = playableDirector;
+        gameMode = GameMode.DialogueMoment;
+        currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
+        
+        //TODO:显示可以进行下一句话的UI提示
+    }
+    
+    public void ResumeTimeline()
+    {
+        Debug.Log("Resume Timeline");
+        gameMode = GameMode.GamePlay;
+        currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
+        
+        //TODO:显示对话框和文字
     }
 
     private void LittleWitchAwake()
