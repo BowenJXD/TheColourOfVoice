@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
@@ -10,7 +11,9 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
 {
     public GameObject player;
     public Camera uiCamera;
-    public GameObject mainPanel;
+    public GameObject mainPanel;//对话panel
+    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueName;
     public GameObject choosingLevelPanel;
     private int shakeCount = 0;
     private bool playerIsAwake = false;
@@ -24,7 +27,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
        DialogueMoment
     }
     public GameMode gameMode;
-    private PlayableDirector currentPlayableDirector;
+    public PlayableDirector currentPlayableDirector;
 
     protected override void Awake()
     {
@@ -50,12 +53,13 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             choosingLevelPanel.SetActive(false);
         }
 
-        if (gameMode == GameMode.GamePlay)
+        if (gameMode == GameMode.DialogueMoment)
         {
             
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //按下F之后才能进行下一句话，进行timeline的播放
+                ResumeTimeline();
             }
         }
 
@@ -69,6 +73,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
         
         //TODO:显示可以进行下一句话的UI提示
+        ToggleNextCorsor(true);
     }
     
     public void ResumeTimeline()
@@ -78,6 +83,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
         
         //TODO:显示对话框和文字
+        ToggleNextCorsor(false);
+        ToggleDialogueBox(true);
     }
 
     private void LittleWitchAwake()
@@ -125,6 +132,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             {
                 //TODO:显示文字
                 Debug.Log("Panel move finished, show text");
+                currentPlayableDirector.Play();
             });
         }
     }
@@ -135,5 +143,36 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     private void OnLittleWitchAwake()
     {
         Debug.Log("Little witch is awake");
+    }
+    
+    
+    /// <summary>
+    /// 显示对话
+    /// </summary>
+    /// <param name="dialogue">传入的当前对话</param>
+    public void showDialogue(string dialogue,string name, int dialogueSize = 60)
+    {
+        dialogueText.text = dialogue;
+        dialogueName.text = name;
+        dialogueText.fontSize = dialogueSize;
+    }
+
+    /// <summary>
+    /// 显示对话框
+    /// </summary>
+    /// <param name="isActive">是否激活</param>
+    public void ToggleDialogueBox(bool isActive)
+    {
+        mainPanel.SetActive(isActive);
+    }
+
+    
+    /// <summary>
+    /// 显示下一句话的光标
+    /// </summary>
+    /// <param name="isActive">是否激活</param>
+    public void ToggleNextCorsor(bool isActive)
+    {
+        //TODO:显示下一句话的光标
     }
 }
