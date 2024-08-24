@@ -109,7 +109,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     }
     
     /// <summary>
-    /// Callback：当相机移动结束时调用
+    /// Callback：当相机移动结束时调用，打开对话panel
+    /// TODO：对话窗口打开之后应该要调用开场的Timeline
     /// </summary>
     private void OnCameraMoveFinished()
     {

@@ -9,9 +9,21 @@ public class DialogueBehaviour : PlayableBehaviour
 {
     private PlayableDirector playableDirector;
     //public ArticyReference articyReference;
-    public string characterName;
+    public enum CharacterName
+    {
+        Ava,
+        LittleWitch,
+        Narrator,
+        Ron,
+        Unknown,
+        Hilda,
+        Nioneisos,
+        Chloe,
+        Benjamin
+    }
+    public CharacterName characterName;
     [TextArea(8,1)] public string dialogueLine;
-    public int dialogueSize;
+    public int dialogueSize = 60;
 
     private bool isClipPlayed;
     public bool requirePause;
@@ -53,4 +65,9 @@ public class DialogueBehaviour : PlayableBehaviour
         }
     }
   
+    //将枚举类型转换为字符串
+    public string GetCharacterName()
+    {
+        return characterName.ToString();
+    }
 }
