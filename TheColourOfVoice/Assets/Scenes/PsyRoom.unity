@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &62073814
 Transform:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1170709954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (I actually fell asleep...)
+  m_text: LittleWitch
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -1932.7186, w: -46.705563}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1421,8 +1421,10 @@ MonoBehaviour:
   choosingLevelPanel: {fileID: 1902046342}
   sightLight: {fileID: 2012320896}
   sunShaftlight: {fileID: 707192889}
-  gameMode: 0
+  gameMode: 1
   currentPlayableDirector: {fileID: 925897101}
+  typingSpeed: 0.01
+  glitchFrames: 1
 --- !u!4 &1318686244
 Transform:
   m_ObjectHideFlags: 0
@@ -1495,7 +1497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LittleWitch
+  m_text: (I m
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}

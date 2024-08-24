@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 public class Level_PsyRoom : Singleton<Level_PsyRoom>
 {
@@ -28,11 +29,23 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     }
     public GameMode gameMode;
     public PlayableDirector currentPlayableDirector;
+    
+    //Glitch打字效果的一些参数
+    private Coroutine typingCoroutine;
+    public float typingSpeed = 0.07f;
+    public int glitchFrames = 3;//显示乱码的帧数
+    private string randomChars = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺabcdefghijklmnopqrstuvwxyz0123456789！＠＃＄％＾＆＊（）＿＋－＝＜＞？";
 
     protected override void Awake()
     {
         base.Awake();
         gameMode = GameMode.GamePlay;
+    }
+
+    private void Start()
+    {
+        dialogueText.gameObject.SetActive(false);
+        dialogueName.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -67,7 +80,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
 
     public void PauseTimeline(PlayableDirector playableDirector)
     {
-        Debug.Log("Pause Timeline");
+        //Debug.Log("Pause Timeline");
         currentPlayableDirector = playableDirector;
         gameMode = GameMode.DialogueMoment;
         currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0d);
@@ -78,7 +91,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     public void ResumeTimeline()
     {
-        Debug.Log("Resume Timeline");
+        //Debug.Log("Resume Timeline");
         gameMode = GameMode.GamePlay;
         currentPlayableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1d);
         
@@ -121,7 +134,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// </summary>
     private void OnCameraMoveFinished()
     {
-        Debug.Log("Camera move finished");
+        //Debug.Log("Camera move finished");
         if (mainPanel)
         {
            
@@ -131,7 +144,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine).OnComplete(() =>
             {
                 //TODO:显示文字
-                Debug.Log("Panel move finished, show text");
+                //Debug.Log("Panel move finished, show text");
                 currentPlayableDirector.Play();
             });
         }
@@ -152,7 +165,11 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// <param name="dialogue">传入的当前对话</param>
     public void showDialogue(string dialogue,string name, int dialogueSize = 60)
     {
-        dialogueText.text = dialogue;
+        Debug.Log("Show dialogue");
+        //dialogueText.text = dialogue;
+        dialogueText.gameObject.SetActive(true);
+        dialogueName.gameObject.SetActive(true);
+        typingCoroutine = StartCoroutine(TypingText(dialogue));
         dialogueName.text = name;
         dialogueText.fontSize = dialogueSize;
     }
@@ -174,5 +191,59 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public void ToggleNextCorsor(bool isActive)
     {
         //TODO:显示下一句话的光标
+    }
+    
+    /// <summary>
+    /// 实现主对话框逐字打出的效果
+    /// </summary>
+    /// <param name="textToType">下一句需要输出到主对话框的text</param>
+    /// <returns></returns>
+    private IEnumerator TypingText(string textToType)
+    {
+        dialogueText.text = "";
+        int index = 0;
+        string currentText = "";
+
+        while (index < textToType.Length)
+        {
+            // 检查是否是富文本标签的起始
+            if (textToType[index] == '<')
+            {
+                // 查找标签的结束位置
+                int endTagIndex = textToType.IndexOf('>', index);
+                if (endTagIndex != -1)
+                {
+                    // 将整个标签直接添加到当前文本中
+                    string tag = textToType.Substring(index, endTagIndex - index + 1);
+                    currentText += tag;
+                    index = endTagIndex + 1;
+                    continue;
+                }
+            }
+
+            // 对于非标签字符，进行glitch效果
+            for (int i = 0; i < glitchFrames; i++)
+            {
+                dialogueText.text = currentText + randomChars[Random.Range(0, randomChars.Length)];
+                //PlayTypingSound();
+                yield return new WaitForSeconds(typingSpeed / glitchFrames);
+                dialogueText.text = currentText;
+            }
+
+            // 最后显示正确的字符
+            currentText += textToType[index];
+            dialogueText.text = currentText;
+            index++;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        // 最后确保所有文本正确显示
+        dialogueText.text = currentText;
+        typingCoroutine = null;
+        
+    }
+
+    void PlayTypingSound()
+    {
+        
     }
 }
