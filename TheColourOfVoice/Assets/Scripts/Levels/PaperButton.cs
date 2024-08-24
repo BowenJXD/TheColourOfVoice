@@ -25,24 +25,29 @@ public class PaperButton : MonoBehaviour
         chooseLevelPanel.SetActive(false);
     }
 
-    
-
-    private void OnMouseDown()
-    {
-        
-    }
-    
     private void OnMouseEnter()
     {
+        if (!Level_PsyRoom.Instance.playerIsAwake)
+        {
+            return;
+        }
         paperOutline.SetActive(true);
     }
     
     private void OnMouseExit()
     {
+        if (!Level_PsyRoom.Instance.playerIsAwake)
+        {
+            return;
+        }
         paperOutline.SetActive(false);
     }
     private void OnMouseUp()
     {
+        if (!Level_PsyRoom.Instance.playerIsAwake)
+        {
+            return;
+        }
         chooseLevelPanel.SetActive(true);
        
     }

@@ -82,6 +82,15 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         {
             caseObject.transform.SetAsLastSibling();
         }
+
+        if (slotType == SlotType.CURRENT_SLOT)
+        {
+            caseObject.GetComponentInChildren<PatientCase>().button.gameObject.SetActive(true);
+        }else
+        {
+            caseObject.GetComponentInChildren<PatientCase>().button.gameObject.SetActive(false);
+        }
+        
     }
     
     public void OnPointerEnterCase(GameObject caseObject)
