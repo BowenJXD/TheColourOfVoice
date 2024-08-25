@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PaperButton : MonoBehaviour
 {
@@ -31,6 +25,7 @@ public class PaperButton : MonoBehaviour
         {
             return;
         }
+        Debug.Log("Mouse Enter");
         paperOutline.SetActive(true);
     }
     

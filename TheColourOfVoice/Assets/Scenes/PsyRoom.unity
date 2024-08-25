@@ -1083,7 +1083,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: fb7b6bad7c7ad8347bb445afefdd54e5, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -1734,8 +1734,8 @@ MonoBehaviour:
   sunShaftlight: {fileID: 707192889}
   gameMode: 1
   currentPlayableDirector: {fileID: 925897101}
-  typingSpeed: 0.01
-  glitchFrames: 1
+  typingSpeed: 0.007
+  glitchFrames: 2
 --- !u!4 &1318686244
 Transform:
   m_ObjectHideFlags: 0
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (
+  m_text: (I actually fell asleep...)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
@@ -1927,6 +1927,7 @@ GameObject:
   - component: {fileID: 1673799659}
   - component: {fileID: 1673799662}
   - component: {fileID: 1673799661}
+  - component: {fileID: 1673799663}
   m_Layer: 5
   m_Name: DialogueNextCursor
   m_TagString: Untagged
@@ -1991,6 +1992,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673799658}
   m_CullTransparentMesh: 1
+--- !u!95 &1673799663
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673799658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a0faa27a6f11e84ca732a30d65dabb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1703682144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,8 +2219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chooseLevelPanel: {fileID: 1902046342}
-  paperOutline: {fileID: 0}
-  paperSpriteImage: {fileID: 0}
+  paperOutline: {fileID: 1198017285}
+  paperSpriteImage: {fileID: 1728329019}
 --- !u!61 &1728329021
 BoxCollider2D:
   m_ObjectHideFlags: 0
