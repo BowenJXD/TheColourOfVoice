@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 public class Level_PsyRoom : Singleton<Level_PsyRoom>
 {
     public GameObject player;
-    public Camera uiCamera;
+    public GameObject uiCamera;
     public GameObject mainPanel;//对话panel
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI dialogueName;
@@ -20,7 +20,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     //睡觉相关的参数
     private int shakeCount = 0;
-    public  bool playerIsAwake = false;
+    public  bool playerIsAwake = false; //所有过长动画禁止玩家点击选关按钮的时候都把这个设置为false，懒得改了
     [SerializeField] private Light2D sightLight;
     [SerializeField] private Light2D sunShaftlight;
     
@@ -49,6 +49,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     {
         dialogueText.gameObject.SetActive(false);
         dialogueName.gameObject.SetActive(false);
+        dialogueNextCursor.SetActive(false);
     }
 
     private void Update()
@@ -105,7 +106,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
 
     private void LittleWitchAwake()
     {
-        playerIsAwake = true;
+        //playerIsAwake = true;
         if (!uiCamera)
         {
             return;
@@ -193,7 +194,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// <param name="isActive">是否激活</param>
     public void ToggleNextCorsor(bool isActive)
     {
-        //TODO:显示下一句话的光标
+        //显示/关闭下一句话的光标
+        dialogueNextCursor.SetActive(isActive);
     }
     
     /// <summary>
@@ -245,8 +247,18 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         
     }
 
+    /// <summary>
+    /// TODO：播放打字音效
+    /// </summary>
     void PlayTypingSound()
     {
         
+    }
+    
+    public void FinishedOpenningCG()
+    {
+        Debug.Log("Finished CG");
+        playerIsAwake = true;
+        mainPanel.SetActive(false);
     }
 }
