@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b4629f0a60288149816b964c433b89e, type: 3}
-  m_Name: CaseData_Case01
+  m_Name: CaseData_Case04
   m_EditorClassIdentifier: 
-  patientName: '-'
-  patientAge: '-'
-  patintSymptoms: '-'
-  patientDescription: TUTORIAL
-  patientImage: {fileID: 21300000, guid: 72712e0bce356694eac9ea36f2e94f26, type: 3}
-  levelIndex: 1
+  patientName: Ron
+  patientAge: 26
+  patintSymptoms: 
+  patientDescription: '//TODO '
+  patientImage: {fileID: 21300000, guid: 83edc1ec56ebc8f409525f649a15b5f4, type: 3}
+  levelIndex: 4
+  preLevelTimelineAsset: {fileID: 11400000, guid: 73d877a13ddc2a243b165c5ceb97b51b, type: 2}
+  afterLevelTimelineAsset: {fileID: 0}

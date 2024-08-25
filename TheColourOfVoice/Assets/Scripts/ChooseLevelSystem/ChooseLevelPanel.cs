@@ -57,6 +57,8 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         tempCaseObject.transform.position = rectTransform.position;
         tempCaseObject.GetComponentInChildren<PatientCase>().InstantiateCase(caseData,slotType);
         currentCaseList.Add(tempCaseObject);
+        tempCaseObject.TryGetComponent(out ChoosingLevelButton trigger);
+        trigger.currentCaseData = caseData;
         tempCaseObject.SetActive(false);
     }
     

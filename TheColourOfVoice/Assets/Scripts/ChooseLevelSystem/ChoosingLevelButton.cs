@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -11,22 +13,59 @@ using UnityEngine.UI;
 /// </summary>
 public class ChoosingLevelButton : MonoBehaviour
 {
-   public TimelineAsset timelineAsset;
-   public PlayableDirector playableDirector;
-   private Button button;
+   public int levelIndex;
+   public CaseData currentCaseData;
+   [SerializeField,ReadOnly] private PlayableDirector playableDirector;
+   public Button button;
    private void Awake()
    {
-      button = GetComponent<Button>();
-      button.onClick.AddListener(PlayTimeline);
+      if (button!=null)
+      {
+         button.onClick.AddListener(OnchoosingLevelButtonClicked);
+      }
+
+      if (currentCaseData!=null)
+      {
+         Debug.Log("currentCaseData is" + currentCaseData.patientName);
+      }else
+      {
+         Debug.Log("currentCaseData is null");
+      }
    }
+   
 
    private void Start()
    {
-      playableDirector.playableAsset = timelineAsset;
+      playableDirector = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
+      /*if (levelIndex == 0)
+      {
+         Debug.LogError("LevelIndex is not set");
+         return;
+      }*/
+      if (playableDirector == null)
+      {
+         Debug.LogError("PlayableDirector is not set");
+         return;
+      }
+      
+   }
+
+   private void OnchoosingLevelButtonClicked()
+   {
+      if (currentCaseData.preLevelTimelineAsset == null)
+      {
+         Debug.LogError("PreLevelTimelineAsset is not set");
+         return;
+      }
+      playableDirector.playableAsset = currentCaseData.preLevelTimelineAsset;
+      GameObject.Find("ChooseLevelPanel").SetActive(false);
+      PlayTimeline();
    }
 
    private void PlayTimeline()
    {
       playableDirector.Play();
    }
+   
+   
 }

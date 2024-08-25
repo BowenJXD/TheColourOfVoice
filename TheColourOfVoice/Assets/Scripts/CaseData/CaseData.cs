@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Timeline;
+
 
 [CreateAssetMenu(fileName = "CaseData", menuName = "CaseData/CaseData")]
 public class CaseData : ScriptableObject
@@ -11,4 +11,7 @@ public class CaseData : ScriptableObject
     public string patintSymptoms;
     [Multiline]public string patientDescription;
     public Sprite patientImage;
+    [Header("Level index")] public int levelIndex;
+    [Header("Pre_Level Timeline")] public TimelineAsset preLevelTimelineAsset;
+    [Header("After_Level TimeLine")] public TimelineAsset afterLevelTimelineAsset;
 }

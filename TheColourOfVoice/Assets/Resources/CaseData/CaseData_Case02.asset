@@ -17,3 +17,4 @@ MonoBehaviour:
   patintSymptoms: Schizophrenia
   patientDescription: //TODO Schizophrenia
   patientImage: {fileID: 21300000, guid: cb53740f1f7cb4a478afe96b9b96efac, type: 3}
+  levelIndex: 2

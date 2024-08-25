@@ -17,3 +17,4 @@ MonoBehaviour:
   patintSymptoms: Bipolar disorder
   patientDescription: //TODO Bipolar disorder
   patientImage: {fileID: 21300000, guid: 95b066dfb455a254db29c6e8586749e2, type: 3}
+  levelIndex: 3

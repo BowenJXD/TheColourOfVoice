@@ -15906,7 +15906,7 @@ MonoBehaviour:
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 100
+  OverrideMaxDistance: 20
 --- !u!114 &4438333660970748695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31056,6 +31056,7 @@ MonoBehaviour:
   health: {fileID: -4292824264658561850}
   painter: {fileID: 5866823119521272802}
   effect: {fileID: 0}
+  attack: {fileID: 0}
 --- !u!114 &2469377982813364956
 MonoBehaviour:
   m_ObjectHideFlags: 0
