@@ -1,6 +1,8 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -27,7 +29,17 @@ public class ChoosingLevelButton : MonoBehaviour
          Debug.Log("currentCaseData is null");
       }
    }
-   
+
+   private void OnEnable()
+   {
+      SceneManager.sceneLoaded += OnSceneLoaded;
+   }
+
+   private void OnDisable()
+   {
+      SceneManager.sceneLoaded -= OnSceneLoaded;
+   }
+
 
    private void Start()
    {
@@ -43,25 +55,49 @@ public class ChoosingLevelButton : MonoBehaviour
          return;
       }
       
+     
+   }
+
+   private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+   {
+      // 在这里进行场景的初始化操作
+      Debug.Log("Scene " + scene.name + " loaded with mode " + mode);
+
+      // 执行初始化逻辑
+      InitializeScene(levelIndex);
    }
 
    private void OnchoosingLevelButtonClicked()
    {
-      if (currentCaseData.preLevelTimelineAsset == null)
+      /*
+       //TODO:这里注释的是打开timeline动画的部分
+       if (currentCaseData.preLevelTimelineAsset == null)
       {
          Debug.LogError("PreLevelTimelineAsset is not set");
          return;
       }
       playableDirector.playableAsset = currentCaseData.preLevelTimelineAsset;
       GameObject.Find("ChooseLevelPanel").SetActive(false);
-      Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
-      
+      Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);*/
+      GameObject.Find("ChooseLevelPanel").SetActive(false);
+      ChangeLevel();
    }
 
    private void PlayTimeline()
    {
       playableDirector.Play();
    }
-   
-   
+
+   /// <summary>
+   /// 切换关卡
+   /// </summary>
+   private void ChangeLevel()
+   {
+      SceneManager.LoadScene("MainGame");
+   }
+
+   private void InitializeScene(int levelConfigIndex)
+   {
+      GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
+   }
 }
