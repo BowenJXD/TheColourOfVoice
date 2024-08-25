@@ -38,6 +38,10 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public float typingSpeed = 0.07f;
     public int glitchFrames = 3;//显示乱码的帧数
     private string randomChars = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺabcdefghijklmnopqrstuvwxyz0123456789！＠＃＄％＾＆＊（）＿＋－＝＜＞？";
+    
+    //关于对话框移动部分的参数
+    private Vector2 dialoguePanelInitialPosition;
+    private Vector2 dialoguePanelInitialSize;
 
     protected override void Awake()
     {
@@ -50,6 +54,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         dialogueText.gameObject.SetActive(false);
         dialogueName.gameObject.SetActive(false);
         dialogueNextCursor.SetActive(false);
+        dialoguePanelInitialPosition = mainPanel.GetComponent<RectTransform>().anchoredPosition;
+        dialoguePanelInitialSize = mainPanel.GetComponent<RectTransform>().sizeDelta;
     }
 
     private void Update()
@@ -141,18 +147,38 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         //Debug.Log("Camera move finished");
         if (mainPanel)
         {
-           
-            mainPanel.SetActive(true);
-            RectTransform rectTransform = mainPanel.GetComponent<RectTransform>();
-            rectTransform.DOAnchorPos(new Vector2(960f, -884f), 1f).SetEase(Ease.InOutSine);
-            rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine).OnComplete(() =>
+            ShowDialoguePanel(() =>
             {
-                //TODO:显示文字
                 //Debug.Log("Panel move finished, show text");
                 currentPlayableDirector.Play();
             });
         }
     }
+    
+    /// <summary>
+    /// 打开对话框
+    /// </summary>
+    /// <param name="onDialoguePanelShowed">对话框完成之后执行的回调函数</param>
+    public void ShowDialoguePanel(Action onDialoguePanelShowed = null)
+    {
+        ResetDialoguePanel();
+        mainPanel.SetActive(true);
+        RectTransform rectTransform = mainPanel.GetComponent<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(960f, -884f), 1f).SetEase(Ease.InOutSine);
+        rectTransform.DOSizeDelta(new Vector2(1170f,316.37f),1f).SetEase(Ease.InOutSine).OnComplete(() =>
+        {
+            onDialoguePanelShowed?.Invoke();
+        });
+    }
+    
+    public void ResetDialoguePanel()
+    {
+        dialogueName.text = "";
+        dialogueText.text = "";
+        mainPanel.GetComponent<RectTransform>().anchoredPosition = dialoguePanelInitialPosition;
+        mainPanel.GetComponent<RectTransform>().sizeDelta = dialoguePanelInitialSize;
+    }
+  
 
     /// <summary>
     /// Callback：当小女巫醒来时调用

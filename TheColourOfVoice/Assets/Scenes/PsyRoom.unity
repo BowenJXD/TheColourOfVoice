@@ -1081,7 +1081,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: fb7b6bad7c7ad8347bb445afefdd54e5, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 73d877a13ddc2a243b165c5ceb97b51b, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "(\uFF20"
+  m_text: "Mr. Ron, you\u2019re finally \uFF04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}

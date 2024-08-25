@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 /// <summary>
@@ -59,7 +54,8 @@ public class ChoosingLevelButton : MonoBehaviour
       }
       playableDirector.playableAsset = currentCaseData.preLevelTimelineAsset;
       GameObject.Find("ChooseLevelPanel").SetActive(false);
-      PlayTimeline();
+      Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
+      
    }
 
    private void PlayTimeline()
