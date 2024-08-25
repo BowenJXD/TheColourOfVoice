@@ -16,9 +16,7 @@ public class Level_demo : MonoBehaviour
     [SerializeField] public GameObject UICanvas;
     private GameObject playerUI;
     private GameObject endLevelUI;
-    /*[SerializeField] GameObject StarUIDark;
-    [SerializeField] GameObject StarUILight;*/
-    /*[SerializeField] ParticleSystem myParticleSystem;*/
+    [SerializeField] ParticleSystem myParticleSystem;
     [SerializeField] public GameObject StarController;
     private int index;
     private GameObject[] selectedSpell; // 引用选定的法术对象
@@ -157,27 +155,39 @@ public class Level_demo : MonoBehaviour
             endLevelUI.SetActive(true); 
             LeanTween.moveLocal(endLevelUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack).setOnComplete(() =>
             {
-                
                 GameObject[] stars = StarController.GetComponent<StarController>().stars;
 
                 for (int i = 0; i < stars.Length; i++)
                 {
-                    stars[i].transform.localScale = Vector3.zero; 
-                    stars[i].SetActive(true); 
-                    LeanTween.scale(stars[i].gameObject,  Vector3.one * 0.6f, 0.5f)
-                        .setEase(LeanTweenType.easeOutBounce)
-                        .setDelay(0.05f * i) 
-                        .setIgnoreTimeScale(true);
+                    int currentIndex = i;
+                    
+                    stars[currentIndex].transform.localScale = Vector3.zero;
+                    stars[currentIndex].SetActive(true);
+                    
 
-                    LeanTween.rotate(stars[i].gameObject, new Vector3(0f, 0f, 360f), 0.5f)
+                    LeanTween.scale(stars[currentIndex].gameObject, Vector3.one * 0.6f, 1f)
+                        .setEase(LeanTweenType.easeOutBounce)
+                        .setDelay(0.05f * currentIndex)
+                        .setIgnoreTimeScale(true)
+                        .setOnComplete(() => {
+                            Transform fxStar = stars[currentIndex].transform.Find("Fx_Star");
+                            if (fxStar != null)
+                            {
+                                fxStar.gameObject.SetActive(true);
+                            }
+                            else
+                            {
+                                Debug.LogError("Fx_Star not found in " + stars[currentIndex].name);
+                            }
+                        });
+
+                    /*LeanTween.rotate(stars[i].gameObject, new Vector3(0f, 0f, 360f), 1f)
                         .setEase(LeanTweenType.linear)
                         .setDelay(0.05f * i)
                         .setLoopClamp() 
-                        .setIgnoreTimeScale(true);
+                        .setIgnoreTimeScale(true)
+                        ;*/
                 }
-                /*
-                myParticleSystem.Play();
-            */
             });
         }
 

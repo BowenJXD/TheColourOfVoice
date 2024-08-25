@@ -6,29 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class GameEventManager : MonoBehaviour
 {
-    [SerializeField] GameObject PauseUI,StarUI;
+    [SerializeField] GameObject PauseUI, StarUI;
     [SerializeField] ParticleSystem myParticleSystem;
+    [SerializeField] private GameObject StarController;
+
     private bool isUImoving = false;
+
     private void Awake()
     {
         LeanTween.reset();
         PauseUI.SetActive(false);
     }
+
     public void Resume()
     {
         PausePanelEnd();
     }
-    
+
     public void Quit()
     {
         SceneManager.LoadScene("PsyRoom");
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            /*if (Time.timeScale == 0 && !PauseUI.gameObject.activeSelf) return;*/ // prevent opening the spell panel when the game is paused
+            /*if (Time.timeScale == 0 && !PauseUI.gameObject.activeSelf) return;*/
+            // prevent opening the spell panel when the game is paused
             if (!PauseUI.gameObject.activeSelf && !isUImoving)
             {
                 Debug.Log("PausePanel");
@@ -40,7 +45,7 @@ public class GameEventManager : MonoBehaviour
                 PausePanelEnd();
             }
         }
-        
+
     }
 
 
@@ -50,13 +55,13 @@ public class GameEventManager : MonoBehaviour
         Debug.Log("PausePanel");
         Time.timeScale = 0;
         PauseUI.gameObject.SetActive(true);
-        LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack).setOnComplete(() =>
-        {
-            isUImoving = false;
-            StarUI.SetActive(true);
-            myParticleSystem.Play();
+        LeanTween.moveLocal(PauseUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true)
+            .setEase(LeanTweenType.easeInOutBack).setOnComplete(() =>
+            {
+                isUImoving = false;
+                StarUI.SetActive(true);
 
-        });
+            });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
         //rectTransform.anchoredPosition = new Vector2(0, 0);
         /*rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).SetUpdate(true).onComplete = () =>
@@ -74,8 +79,9 @@ public class GameEventManager : MonoBehaviour
         LeanTween.moveLocal(PauseUI, new Vector3(0f, 400f, 0f), 1f).setIgnoreTimeScale(true).setOnComplete(() =>
         {
             PauseUI.gameObject.SetActive(false);
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
             isUImoving = false;
+            StarUI.SetActive(false);
 
         });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
@@ -86,4 +92,6 @@ public class GameEventManager : MonoBehaviour
             isUImoving = false;
         };*/
     }
+
+
 }
