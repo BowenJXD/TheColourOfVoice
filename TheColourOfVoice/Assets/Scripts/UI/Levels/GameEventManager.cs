@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEventManager : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class GameEventManager : MonoBehaviour
     public void Resume()
     {
         PausePanelEnd();
-
+    }
+    
+    public void Quit()
+    {
+        SceneManager.LoadScene("PsyRoom");
     }
     
     void Update()
@@ -35,6 +40,7 @@ public class GameEventManager : MonoBehaviour
                 PausePanelEnd();
             }
         }
+        
     }
 
 

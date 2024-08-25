@@ -4,10 +4,10 @@ public class FindScriptUsage : MonoBehaviour
 {
     void Start()
     {
-        /*PausePanel[] objects = FindObjectsOfType<PausePanel>();
-        foreach (PausePanel obj in objects)
+        Level_demo[] objects = FindObjectsOfType<Level_demo>();
+        foreach (Level_demo obj in objects)
         {
             Debug.Log("Found object: " + obj.gameObject.name);
-        }*/
+        }
     }
 }

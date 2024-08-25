@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level_demo : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Level_demo : MonoBehaviour
     [SerializeField] public GameObject UICanvas;
     private GameObject playerUI;
     private GameObject endLevelUI;
+    /*[SerializeField] GameObject StarUIDark;
+    [SerializeField] GameObject StarUILight;*/
+    /*[SerializeField] ParticleSystem myParticleSystem;*/
     [SerializeField] public GameObject StarController;
     private int index;
     private GameObject[] selectedSpell; // 引用选定的法术对象
@@ -151,6 +155,30 @@ public class Level_demo : MonoBehaviour
         if (endLevelUI != null)
         {
             endLevelUI.SetActive(true); 
+            LeanTween.moveLocal(endLevelUI, new Vector3(0f, -20f, 0f), 1f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeInOutBack).setOnComplete(() =>
+            {
+                
+                GameObject[] stars = StarController.GetComponent<StarController>().stars;
+
+                for (int i = 0; i < stars.Length; i++)
+                {
+                    stars[i].transform.localScale = Vector3.zero; 
+                    stars[i].SetActive(true); 
+                    LeanTween.scale(stars[i].gameObject,  Vector3.one * 0.6f, 0.5f)
+                        .setEase(LeanTweenType.easeOutBounce)
+                        .setDelay(0.05f * i) 
+                        .setIgnoreTimeScale(true);
+
+                    LeanTween.rotate(stars[i].gameObject, new Vector3(0f, 0f, 360f), 0.5f)
+                        .setEase(LeanTweenType.linear)
+                        .setDelay(0.05f * i)
+                        .setLoopClamp() 
+                        .setIgnoreTimeScale(true);
+                }
+                /*
+                myParticleSystem.Play();
+            */
+            });
         }
 
     }

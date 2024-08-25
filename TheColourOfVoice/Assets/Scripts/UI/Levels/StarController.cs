@@ -5,7 +5,7 @@ using TMPro;
 public class StarController : MonoBehaviour
 {
     public GameObject playerUI; 
-    public Image[] stars; 
+    public GameObject[] stars;  // 
     public float score; 
     public float[] scoreThresholds; 
     [SerializeField] ScoreBar scoreBar;
@@ -22,9 +22,9 @@ public class StarController : MonoBehaviour
             scoreThresholds[i] = float.Parse(levelData[(i + 1).ToString()]);
         }
         
-        foreach (Image star in stars)
+        foreach (GameObject star in stars)
         {
-            SetStarColor(star, false);
+            SetStarColor(star.GetComponent<Image>(), true);  
         }
         playerUI.SetActive(false);
         UpdateStars();
@@ -35,10 +35,12 @@ public class StarController : MonoBehaviour
     {
         if (isBright)
         {
+            star.overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
             star.color = new Color(1f, 1f, 1f); 
         }
         else
         {
+            star.overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar2");
             star.color = new Color(0.5f, 0.5f, 0.5f); 
         }
     }
@@ -54,12 +56,12 @@ public class StarController : MonoBehaviour
         {
             if (score >= scoreThresholds[i])
             {
-                SetStarColor(stars[i], true);
+                SetStarColor(stars[i].GetComponent<Image>(), true);
                 starCount++;
             }
             else
             {
-                SetStarColor(stars[i], false);
+                SetStarColor(stars[i].GetComponent<Image>(), false);
             }
         }
 
