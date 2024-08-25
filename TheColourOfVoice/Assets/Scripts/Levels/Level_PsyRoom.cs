@@ -16,10 +16,11 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI dialogueName;
     public GameObject choosingLevelPanel;
+    public GameObject dialogueNextCursor;
     
     //睡觉相关的参数
     private int shakeCount = 0;
-    public bool playerIsAwake = false;
+    public  bool playerIsAwake = false;
     [SerializeField] private Light2D sightLight;
     [SerializeField] private Light2D sunShaftlight;
     
