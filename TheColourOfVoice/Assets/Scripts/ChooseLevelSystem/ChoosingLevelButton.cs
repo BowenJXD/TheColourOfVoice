@@ -80,12 +80,13 @@ public class ChoosingLevelButton : MonoBehaviour
       GameObject.Find("ChooseLevelPanel").SetActive(false);
       Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);*/
       GameObject.Find("ChooseLevelPanel").SetActive(false);
+      levelIndex = currentCaseData.levelIndex;
       if (levelIndex == 0)
       {
          ChangeLevel(true);
-         return;
-      }
-      ChangeLevel();
+         
+      }else
+         ChangeLevel(false);
    }
 
    private void PlayTimeline()
