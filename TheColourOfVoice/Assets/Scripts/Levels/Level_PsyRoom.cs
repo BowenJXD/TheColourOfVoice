@@ -117,7 +117,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         {
             return;
         }
-        
+        //删除按下空格醒来的提示,测试用//TODO:记得删除
+        GameObject.Find("Temp").SetActive(false);
         //相机移动
         uiCamera.transform.DOMove(new Vector3(0,-0.71f,-10f), 1f).SetEase(Ease.InOutSine)
             .onComplete = OnCameraMoveFinished;
