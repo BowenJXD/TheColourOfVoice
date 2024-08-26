@@ -11952,7 +11952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 0d4e7f42eb12bad4abb4ac6745f7566f, type: 2}
+  config: {fileID: 11400000, guid: 9f4d8e0b88015454a97895c02e050171, type: 2}
   levelConfigs:
   - {fileID: 0}
   - {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
@@ -11960,12 +11960,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d533a188cbf597049893fcd8a0660065, type: 2}
   - {fileID: 11400000, guid: 96022eea1d29f1d459b3820203a68b57, type: 2}
   - {fileID: 11400000, guid: 9f4d8e0b88015454a97895c02e050171, type: 2}
-  levelIndex: 2
-  levelName: schizophrenia
-  levelColor: 2
-  tileSprite: {fileID: 21300000, guid: 8f30cc66aacc9b0498e2fbd2bbdd650d, type: 3}
-  enemyGenerator: {fileID: 7218613360977623393, guid: e70de52da47cf804eac1479c9a3a5745, type: 3}
-  mechanic: {fileID: 5998322813702647268, guid: 5b10a289b68f1164bb43ac578eac4706, type: 3}
+  levelIndex: 5
+  levelName: paranoia
+  levelColor: 6
+  tileSprite: {fileID: 21300000, guid: 7ff924507059c134fbaae479febac03c, type: 3}
+  enemyGenerator: {fileID: 5869229225314584533, guid: b66b669892da4a94fb856ef1ae0c784a, type: 3}
+  mechanic: {fileID: 0}
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
 --- !u!114 &421179008
