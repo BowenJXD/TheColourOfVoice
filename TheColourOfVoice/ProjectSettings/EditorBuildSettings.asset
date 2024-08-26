@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PsyRoom.unity
     guid: bf968cb51c050b240bec2d76c5c4fad6
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: e311d29cf2482c145bef7b76f9d9e15b
   m_configObjects: {}

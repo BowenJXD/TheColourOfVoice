@@ -80,6 +80,11 @@ public class ChoosingLevelButton : MonoBehaviour
       GameObject.Find("ChooseLevelPanel").SetActive(false);
       Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);*/
       GameObject.Find("ChooseLevelPanel").SetActive(false);
+      if (levelIndex == 0)
+      {
+         ChangeLevel(true);
+         return;
+      }
       ChangeLevel();
    }
 
@@ -91,8 +96,13 @@ public class ChoosingLevelButton : MonoBehaviour
    /// <summary>
    /// 切换关卡
    /// </summary>
-   private void ChangeLevel()
+   private void ChangeLevel(bool isNextLevelTutorial = false)
    {
+      if (isNextLevelTutorial)
+      {
+         SceneManager.LoadScene("Tutorial");
+         return;
+      }
       SceneManager.LoadScene("MainGame");
    }
 

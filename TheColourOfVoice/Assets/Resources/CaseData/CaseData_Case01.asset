@@ -17,4 +17,6 @@ MonoBehaviour:
   patintSymptoms: '-'
   patientDescription: TUTORIAL
   patientImage: {fileID: 21300000, guid: 72712e0bce356694eac9ea36f2e94f26, type: 3}
-  levelIndex: 1
+  levelIndex: 0
+  preLevelTimelineAsset: {fileID: 0}
+  afterLevelTimelineAsset: {fileID: 0}
