@@ -246,6 +246,7 @@ MonoBehaviour:
   PauseUI: {fileID: 226862886}
   StarUI: {fileID: 1654149624}
   myParticleSystem: {fileID: 1654149629}
+  StarController: {fileID: 0}
 --- !u!1 &27781949
 GameObject:
   m_ObjectHideFlags: 0
@@ -11739,6 +11740,7 @@ MonoBehaviour:
   totalTime: 180
   text: {fileID: 0}
   UICanvas: {fileID: 286612306}
+  myParticleSystem: {fileID: 0}
   StarController: {fileID: 1657941510}
 --- !u!114 &421179005
 MonoBehaviour:
@@ -11840,12 +11842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1914015330}
-  tutorialTexts:
-  - Use WASD to move.
-  - The more you paint, the faster the score grows. Try to get a score of 100.
-  - Try to say %s to the microphone.
-  - Click to release the energy ball.
-  - Try get a score of 1000 with the disturbance of enemies.
   scoreBar: {fileID: 6542253588403801740}
   enemyPrefab: {fileID: 5814520136205242931, guid: 887b08839435e6c4bb25c572e73dd61f, type: 3}
 --- !u!1 &428095513
@@ -13085,6 +13081,10 @@ PrefabInstance:
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15107,9 +15107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUI: {fileID: 1593002397}
   stars:
-  - {fileID: 1561837268}
-  - {fileID: 1544485986}
-  - {fileID: 1605186366}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   score: 0
   scoreThresholds:
   - 2500
@@ -22431,7 +22431,7 @@ MonoBehaviour:
   maxScore: 10000
   score: 0
   percentText: {fileID: 1160682291}
-  starContainer: {fileID: 428095514}
+  starController: {fileID: 0}
 --- !u!1 &6994236539064309977
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,6 @@ public class HurtVignette : MonoBehaviour
 
     private void OnDestroy()
     {
-        vignette.intensity.value = 0;
+        if (vignette) vignette.intensity.value = 0;
     }
 }

@@ -15906,7 +15906,7 @@ MonoBehaviour:
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 100
 --- !u!114 &4438333660970748695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31152,7 +31152,7 @@ MonoBehaviour:
   spellIndex: 0
   spellName: 
   spellDescription: 
-  spellImage: {fileID: 0}
+  spellImage: {fileID: 21300000, guid: c15eff3b7a6761b4d8e21378838c4cd4, type: 3}
   needCasting: 1
   recoil: 3
   ps: {fileID: 0}

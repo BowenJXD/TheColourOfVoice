@@ -63,6 +63,6 @@ public class VolumeControlOrthoSize : MonoBehaviour
 
     private void OnDestroy()
     {
-        virtualCamera.m_Lens.OrthographicSize = originalSize;
+        if (virtualCamera) virtualCamera.m_Lens.OrthographicSize = originalSize;
     }
 }

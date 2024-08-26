@@ -61,7 +61,7 @@ public class ScoreBar : MonoBehaviour
             stars.Add(star.GetComponent<Image>());
         }
 
-        UpdateStars();
+        if (starController) UpdateStars();
     }
 
     IEnumerator UpdatePercentageEverySecond()
@@ -92,7 +92,7 @@ public class ScoreBar : MonoBehaviour
 
         UpdateUI();
         StartCoroutine(FlashScoreText());
-        UpdateStars();
+        if (starController) UpdateStars();
     }
 
     void UpdateStars()

@@ -27,6 +27,8 @@ public class SpellGaining : MonoBehaviour
     bool isAnimating = false;
     private string triggerWords = "";
 
+    private bool doInvisibleNextLevel = false;
+
     private void OnEnable()
     {
         if (!rb) rb = GetComponent<Rigidbody2D>();
@@ -71,11 +73,13 @@ public class SpellGaining : MonoBehaviour
                     .SetEase(Ease.Linear);
 
                 chaseMovement.enabled = true;
+                doInvisibleNextLevel = true;
                 chaseMovement.OnEnterRange += () =>
                 {
                     chaseMovement.OnEnterRange = null;
                     chaseMovement.enabled = false;
                     gameObject.SetActive(false);
+                    NextLevel();
                 };
                 break;
         }
@@ -83,8 +87,14 @@ public class SpellGaining : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        gameObject.SetActive(false);
-        NextLevel();
+        if (doInvisibleNextLevel)
+            gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        if (doInvisibleNextLevel)
+            NextLevel();
     }
 
     void NextLevel()
