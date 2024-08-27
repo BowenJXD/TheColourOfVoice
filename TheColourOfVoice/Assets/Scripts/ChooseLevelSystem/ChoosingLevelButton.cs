@@ -101,10 +101,10 @@ public class ChoosingLevelButton : MonoBehaviour
    {
       if (isNextLevelTutorial)
       {
-         SceneManager.LoadScene("Tutorial");
+         SceneTransit.Instance.LoadTargetScene("Tutorial");
          return;
       }
-      SceneManager.LoadScene("MainGame");
+      SceneTransit.Instance.LoadTargetScene("MainGame");
    }
 
    private void InitializeScene(int levelConfigIndex)

@@ -99,6 +99,6 @@ public class SpellGaining : MonoBehaviour
 
     void NextLevel()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneTransit.Instance.LoadTargetScene("MainGame");
     }
 }

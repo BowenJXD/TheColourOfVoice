@@ -78,6 +78,6 @@ public class Tutorial : MonoBehaviour
     void EndTutorial()
     {
         Debug.Log("Tutorial ends.");
-        SceneManager.LoadSceneAsync("NewSpell");
+        SceneTransit.Instance.LoadTargetScene("NewSpell");
     }
 }

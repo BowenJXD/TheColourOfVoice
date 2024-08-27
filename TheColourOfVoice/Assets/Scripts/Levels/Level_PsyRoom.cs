@@ -133,10 +133,13 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         };
     }
 
+    Tweener tween;
+    
     private void Shake(GameObject target,float powerX, float powerY)
     {
-        target.transform.DOShakePosition(1f, new Vector3(powerX, powerY, 0f), 10, 180, false)
-            .SetLoops(1, LoopType.Incremental);
+        if (tween != null && tween.IsActive()) return;
+        tween = target.transform.DOShakePosition(1f, new Vector3(powerX, powerY, 0f), 10, 180, false)
+            .SetLoops(1, LoopType.Incremental).OnComplete(() => tween = null);
     }
     
     /// <summary>

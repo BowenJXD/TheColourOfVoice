@@ -1,12 +1,12 @@
-id,Name,Cooldown,NeedCasting,ThemeColour,Description,LogoPath
+id,Name,Cooldown,NeedCasting,ThemeColour,Description,LogoPath,Default
 1,The Calming Laser,4,TRUE,Blue,"Casts a laser beam that freezes enemies.
-The longer the casting time, the bigger the beam would be.",Logo-TheCalmingLaser
+The longer the casting time, the bigger the beam would be.",Logo-TheCalmingLaser,calm down
 2,The Glowing Confidence,20,FALSE,Yellow,"Speeds you up. Makes you invincible. Paints the tiles you enter.
-The louder you shout the spell, the longer the buff would last.",Logo-TheGlowingConfidence
-3,The Burning Passion,8,TRUE,Red,"Casts a fireball.
-The longer the casting time, the longer the fireball would last.",Logo-TheBurningPassion
+The louder you shout the spell, the longer the buff would last.",Logo-TheGlowingConfidence,let there be light
+3,The Burning Passion,16,TRUE,Red,"Casts a fireball.
+The longer the casting time, the longer the fireball would last.",Logo-TheBurningPassion,fireball is coming
 4,The Mark of Sincere Words,12,FALSE,Cyan,"Brands the trigger words on the map. 
-The branded tiles slow enemies down, and block their bullets.",Logo-TheMarkOfSincereWords
-5,The Whisper of Love,4,TRUE,Magenta,"Casts a heart that mesmerises enemies, making it fight for you.
-The softer you speak the spell, the longer the buff would last.",Logo-TheWhisperOfLove
-6,The Rainbow of Hope,10,FALSE,Rainbow,"Fires the trigger words character by character, in rainbow colour.",Logo-TheRainbowOfHope
+The branded tiles slow enemies down, and block their bullets.",Logo-TheMarkOfSincereWords,thank you
+5,The Whisper of Love,10,TRUE,Magenta,"Casts a heart that mesmerises enemies, making it fight for you.
+The softer you speak the spell, the longer the buff would last.",Logo-TheWhisperOfLove,i love you you love me
+6,The Rainbow of Hope,12,FALSE,Rainbow,"Fires the trigger words character by character, in rainbow colour.",Logo-TheRainbowOfHope,may the colour of my voice heal your pain

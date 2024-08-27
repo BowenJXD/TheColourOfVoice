@@ -10,7 +10,7 @@ public class Main_Menu : MonoBehaviour
     
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("MainGame");
+        SceneTransit.Instance.LoadTargetScene("MainGame");
         PlayerPrefs.SetInt("levelIndex", index);
     }
     

@@ -222,9 +222,12 @@ MonoBehaviour:
   spellName: {fileID: 1745565074}
   spellDescription: {fileID: 1678245917}
   spellCooldown: {fileID: 1468330680}
+  placeholder: {fileID: 1962215278}
   spellImage: {fileID: 908299803}
   trailRenderer: {fileID: 766821159}
   particleSystem: {fileID: 356514980}
+  bgColour: {fileID: 445092966}
+  bgColourIntensity: 4
   spellInputField: {fileID: 1410793402}
   saveData: {fileID: 11400000, guid: 45c45652935fc3045895ca6430131b77, type: 2}
 --- !u!4 &83508105
@@ -5084,7 +5087,7 @@ GameObject:
   - component: {fileID: 445092967}
   - component: {fileID: 445092966}
   m_Layer: 5
-  m_Name: BG
+  m_Name: BGColour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5317,7 +5320,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: -20, y: -13}
+  m_SizeDelta: {x: -60, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603658357
 MonoBehaviour:
@@ -6320,8 +6323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 0, y: 120}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318211315
 MonoBehaviour:
@@ -6343,9 +6346,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35269158bdc5da448a9046e23cfb9bff, type: 3}
+  m_Sprite: {fileID: -218881396, guid: 397b410ecbf994442b71d32bf6eb6643, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6458,7 +6461,7 @@ MonoBehaviour:
   m_CharacterValidation: 5
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 20
+  m_CharacterLimit: 50
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -7188,7 +7191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  Enter your desired trigger word... (max 20 chars)'
+  m_text: '  Enter your desired trigger word... (max 50 chars)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}

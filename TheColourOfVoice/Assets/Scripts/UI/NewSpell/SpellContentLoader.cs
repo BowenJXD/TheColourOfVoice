@@ -11,9 +11,12 @@ public class SpellContentLoader : MonoBehaviour
     public TMP_Text spellName;
     public TMP_Text spellDescription;
     public TMP_Text spellCooldown;
+    public TMP_Text placeholder;
     public SpriteRenderer spellImage;
     public TrailRenderer trailRenderer;
     public ParticleSystem particleSystem;
+    public Image bgColour;
+    public float bgColourIntensity = 4;
     public TMP_InputField spellInputField;
     public SaveData saveData;
     
@@ -32,10 +35,15 @@ public class SpellContentLoader : MonoBehaviour
         trailRenderer.colorGradient = paintColor;
         var main = particleSystem.main;
         main.startColor = paintColor;
+        bgColour.color = ColorManager.Instance.GetColor(color) / bgColourIntensity;
+        bgColour.color = new Color(bgColour.color.r, bgColour.color.g, bgColour.color.b, 1);
             
         string logoPath = PathDefines.SpellLogoPath + spellData["LogoPath"];
         spellImage.sprite = Resources.Load<Sprite>(logoPath);
-            
+        
+        string defaultTriggerWord = spellData["Default"];
+        if (placeholder) placeholder.text = defaultTriggerWord;
+        
         if (saveData)
         {
                 
