@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +22,10 @@ public class Level_demo : MonoBehaviour
     [SerializeField] public GameObject StarController;
     private int index;
     private GameObject[] selectedSpell; // 引用选定的法术对象
+    
+    public float targetOrthoSize = 10f;
+    public float zoomDuration = 1f;
+    public Ease zoomEase = Ease.OutCubic;
 
     private void Awake()
     {
@@ -136,10 +142,25 @@ public class Level_demo : MonoBehaviour
         LogUtil.Instance.LogCSV();
         if (totalTime <= 0)
         {
-            ShowEndLevelUI();
-
+            EndLevel();
+            //ShowEndLevelUI();
+            
         }
 
+    }
+
+    void EndLevel()
+    {
+        VolumeControlOrthoSize.Instance.enabled = false;
+        var cam = FindObjectOfType<CinemachineVirtualCamera>();
+        // Get the current orthographic size of the camera
+        float currentOrthoSize = cam.m_Lens.OrthographicSize;
+
+        // Use DOTween to smoothly transition to the target orthographic size
+        DOTween.To(() => currentOrthoSize, x => cam.m_Lens.OrthographicSize = x, targetOrthoSize, zoomDuration)
+            .SetEase(zoomEase)
+            .SetUpdate(true)
+            .OnComplete(() => ShowEndLevelUI());
     }
     
     void ShowEndLevelUI()

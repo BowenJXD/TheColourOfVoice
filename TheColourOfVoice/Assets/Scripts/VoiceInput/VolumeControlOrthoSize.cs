@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class VolumeControlOrthoSize : MonoBehaviour
+public class VolumeControlOrthoSize : Singleton<VolumeControlOrthoSize>
 {
     public CinemachineVirtualCamera virtualCamera;
     float originalSize = 0;

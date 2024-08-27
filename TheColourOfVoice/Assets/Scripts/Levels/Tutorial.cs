@@ -36,16 +36,16 @@ public class Tutorial : MonoBehaviour
         if (index == 0 && (inputX != 0 || inputY != 0))
         {
             IncrementIndex();
-            scoreBar.maxScore = 10;
+            scoreBar.maxScore = 100;
         }
-        if (index == 1 && scoreBar.score >= 10)
+        if (index == 1 && scoreBar.score >= 100)
         {
             SpellManager.Instance.LearnSpell(1);
             tutorialTexts[index+1] = tutorialTexts[index+1].Replace("%s", SpellManager.Instance.allSpells[0].triggerWords);
             IncrementIndex();
             SpellManager.Instance.onCastStateChange += OnCastStateChange;
         }
-        if (index == 4 && scoreBar.score >= 100)
+        if (index == 4 && scoreBar.score >= 1000)
         {
             EndTutorial();
         }
@@ -66,7 +66,7 @@ public class Tutorial : MonoBehaviour
         SpellManager.Instance.onRelease -= OnRelease;
         Enemy enemy = PoolManager.Instance.New(enemyPrefab);
         enemy.transform.position = new Vector3(0, 0, 0);
-        scoreBar.maxScore = 100;
+        scoreBar.maxScore = 1000;
     }
     
     void IncrementIndex()
