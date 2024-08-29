@@ -26,7 +26,9 @@ public class StarController : MonoBehaviour
         {
             SetStarColor(star.GetComponent<Image>(), true);  
         }
+        /*
         playerUI.SetActive(false);
+        */
         UpdateStars();
     }
 

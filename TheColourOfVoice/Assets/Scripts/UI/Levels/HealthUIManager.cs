@@ -15,6 +15,7 @@ public class HealthUIManager : MonoBehaviour
     private float maxHealth;
     void Start()
     {
+        Debug.Log("UpdateHealthUI called");
         player = GameObject.FindWithTag("Player"); 
         if (player != null)
         {
@@ -47,6 +48,9 @@ public class HealthUIManager : MonoBehaviour
         {
 
             GameObject heart = Instantiate(heartPrefab, heartContainer);
+            Debug.Log("Instantiated heart prefab: " + (heart != null ? "Success" : "Failed"));
+
+            
             if (heart == null)
             {
                 Debug.LogError("Failed to instantiate heart prefab.");
