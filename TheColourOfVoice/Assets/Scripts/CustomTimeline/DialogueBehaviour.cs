@@ -49,8 +49,9 @@ public class DialogueBehaviour : PlayableBehaviour
             if (requirePause)
             {
                 pauseScheduled = true;
-                isClipPlayed = true;
+                //isClipPlayed = true;
             }
+            isClipPlayed = true;
         }
     }
     
