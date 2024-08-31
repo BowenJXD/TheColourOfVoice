@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Articy.Unity;
 using UnityEngine;
 using UnityEngine.Playables;
 

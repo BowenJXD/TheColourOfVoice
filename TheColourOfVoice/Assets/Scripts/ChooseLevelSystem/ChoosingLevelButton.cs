@@ -69,24 +69,24 @@ public class ChoosingLevelButton : MonoBehaviour
 
    private void OnchoosingLevelButtonClicked()
    {
-      /*
+      
        //TODO:这里注释的是打开timeline动画的部分
        if (currentCaseData.preLevelTimelineAsset == null)
-      {
-         Debug.LogError("PreLevelTimelineAsset is not set");
-         return;
-      }
-      playableDirector.playableAsset = currentCaseData.preLevelTimelineAsset;
-      GameObject.Find("ChooseLevelPanel").SetActive(false);
-      Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);*/
-      GameObject.Find("ChooseLevelPanel").SetActive(false);
-      levelIndex = currentCaseData.levelIndex;
-      if (levelIndex == 0)
-      {
-         ChangeLevel(true);
-         
-      }else
-         ChangeLevel(false);
+       {
+          Debug.LogError("PreLevelTimelineAsset is not set");
+          return;
+       }
+       playableDirector.playableAsset = currentCaseData.preLevelTimelineAsset;
+       GameObject.Find("ChooseLevelPanel").SetActive(false);
+       Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
+       GameObject.Find("ChooseLevelPanel").SetActive(false);
+       levelIndex = currentCaseData.levelIndex;
+       /*if (levelIndex == 0)
+       {
+          ChangeLevel(true);
+          
+       }else
+          ChangeLevel(false);*/
    }
 
    private void PlayTimeline()
@@ -109,6 +109,7 @@ public class ChoosingLevelButton : MonoBehaviour
 
    private void InitializeScene(int levelConfigIndex)
    {
-      GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
+      Debug.Log("Initializing LevelConfig");
+     // GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
    }
 }

@@ -76,6 +76,12 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             choosingLevelPanel.SetActive(false);
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape) && currentPlayableDirector.state == PlayState.Playing)
+        {
+            SkipTimeLine();
+        }
+        
+
         if (gameMode == GameMode.DialogueMoment)
         {
             
@@ -285,10 +291,33 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         
     }
     
+    /// <summary>
+    /// 切换关卡
+    /// </summary>
+    public void ChangeLevel(bool isNextLevelTutorial = false)
+    {
+        if (isNextLevelTutorial)
+        {
+            SceneTransit.Instance.LoadTargetScene("Tutorial");
+            return;
+        }
+        SceneTransit.Instance.LoadTargetScene("MainGame");
+    }
+    
     public void FinishedOpenningCG()
     {
-        Debug.Log("Finished CG");
+        //Debug.Log("Finished CG");
         playerIsAwake = true;
         mainPanel.SetActive(false);
+    }
+    
+    private void SkipTimeLine()
+    {
+        // 停止Timeline
+        currentPlayableDirector.Stop();
+
+        // 切换到下一个场景
+        FinishedOpenningCG();
+        ChangeLevel();
     }
 }
