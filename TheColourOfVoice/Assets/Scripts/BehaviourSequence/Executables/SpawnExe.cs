@@ -7,6 +7,7 @@ public class SpawnExe : ExecutableBehaviour
     public float offset = 0.5f;
     public float force = 10f;
     public List<float> angles = new() { 90f, -90f };
+    public bool doSetRotation = false;
 
     public Entity prefab;
 
@@ -18,6 +19,7 @@ public class SpawnExe : ExecutableBehaviour
             Vector3 spawningPosition = transform.position + direction * offset;
             var entity = PoolManager.Instance.New(prefab);
             entity.transform.position = spawningPosition;
+            
             entity.Init();
             if (force != 0 && entity.TryGetComponent(out Rigidbody2D rb))
             {

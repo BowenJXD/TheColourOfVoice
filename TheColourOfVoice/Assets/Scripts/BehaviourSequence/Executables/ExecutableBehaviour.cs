@@ -2,6 +2,7 @@
 using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Would be executed by a <see cref="ConditionBehaviour"/>.
@@ -9,9 +10,9 @@ using UnityEngine;
 public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
 {
     [Tooltip("If true, the next executableBehaviour will be executed after 'executing' this one." +
-             "If false, the next executableBehaviour will be executed if 'next' is true.")]
+             "If false, the next executableBehaviour will be executed if 'executing' is false.")]
     [HorizontalGroup()] public bool skip = true;
-    [ReadOnly] [HorizontalGroup()] public bool next;
+    [ReadOnly] [HorizontalGroup()] public bool executing;
 
     protected Blackboard blackboard;
 
@@ -54,19 +55,18 @@ public abstract class ExecutableBehaviour : MonoBehaviour, ISetUp, IExecutable
         yield return Executing();
         if (!skip)
         {
-            yield return new WaitUntil(() => next);
-            UnNext();
+            yield return new WaitUntil(() => !executing);
         }
         OnFinish();
     }
     
-    public virtual void UnNext()
+    public virtual void StartExe()
     {
-        next = false;
+        executing = true;
     }
         
-    public virtual void Next()
+    public virtual void FinishExe()
     {
-        next = true;
+        executing = false;
     }
 }

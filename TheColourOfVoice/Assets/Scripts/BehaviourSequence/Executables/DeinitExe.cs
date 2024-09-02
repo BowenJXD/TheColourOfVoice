@@ -23,14 +23,14 @@ public class DeinitExe : ExecutableBehaviour
         }
         else if (waitTime > 0)
         {
-            UnNext();
+            StartExe();
             new LoopTask
             {
                 interval = waitTime, 
                 finishAction = () =>
                 {
                     entity?.Deinit();
-                    Next();
+                    FinishExe();
                 }
             }.Start();
         }

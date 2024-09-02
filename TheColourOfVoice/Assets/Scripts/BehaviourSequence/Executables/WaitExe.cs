@@ -5,11 +5,11 @@
     protected override void OnStart()
     {
         base.OnStart();
-        UnNext();
+        StartExe();
         new LoopTask
         {
             interval = waitTime, 
-            finishAction = Next
+            finishAction = FinishExe
         }.Start();
     }
 }

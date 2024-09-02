@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 3193460567996462691}
   - component: {fileID: -1438211202479607340}
   - component: {fileID: 2997758379753334310}
+  - component: {fileID: 3747276096056433704}
+  - component: {fileID: -8568720455167561215}
   m_Layer: 8
-  m_Name: EnemyBullet 2
+  m_Name: ChaseEnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 3.4028235e+38
+  damageCD: 1
   resetCDOnExit: 1
   knockBack: 7
   rb: {fileID: 0}
@@ -219,3 +221,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3747276096056433704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144049354887091650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2155c028445f4d188b5a2bf19c3de079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  target: {fileID: 0}
+  angularSpeed: 1000
+  stopRange: 1
+  startRange: 1
+  speedVariance: 0.1
+  faceTarget: 3
+  isInRange: 0
+--- !u!114 &-8568720455167561215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144049354887091650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc101cdcac14f0ea137c89b89980a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}

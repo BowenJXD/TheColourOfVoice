@@ -29,9 +29,9 @@ public class DoTweenBehaviour : BehaviourNode
     protected override void OnStart()
     {
         base.OnStart();
-        if (!skip) UnNext();
+        if (!skip) StartExe();
         SetUpTween();
-        if (!skip) tween.OnComplete(Next);
+        if (!skip) tween.OnComplete(FinishExe);
         tween.Play();
     }
 

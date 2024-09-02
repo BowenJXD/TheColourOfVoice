@@ -17,7 +17,9 @@ public class ChaseMovement : Movement, ISetUp
     {
         None,
         Flip,
-        Rotate
+        RotateUp,
+        RotateRight,
+        Face,
     }
     public FaceMode faceTarget = FaceMode.Flip;
 
@@ -85,8 +87,14 @@ public class ChaseMovement : Movement, ISetUp
             case FaceMode.Flip:
                 sp.flipX = initialFlipX ? newDirection.x > 0 : newDirection.x < 0;
                 break;
-            case FaceMode.Rotate:
+            case FaceMode.RotateUp:
                 transform.up = newDirection;
+                break;
+            case FaceMode.RotateRight:
+                transform.right = newDirection;
+                break;
+            case FaceMode.Face:
+                transform.LookAt(target.transform);
                 break;
         }
         
