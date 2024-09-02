@@ -110,7 +110,7 @@ public class ScoreBar : MonoBehaviour
             RectTransform starRect = stars[i].GetComponent<RectTransform>();
             starRect.anchoredPosition = new Vector3(starPositionX, leftPosition.y, 0f);
 
-            if (score >= (i + 1) * (maxScore / stars.Count))
+            if (score >= scoreThresholds[i])
             {
                 stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
                 stars[i].color = Color.white;  
