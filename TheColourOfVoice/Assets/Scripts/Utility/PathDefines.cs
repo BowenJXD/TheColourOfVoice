@@ -15,6 +15,6 @@ public static class PathDefines
     public static string SpellLogoPath = "Arts/Spell/";
 
     public static string SubSpellPanelPath = "Prefabs/Panels/SubSpellPanel";
-    
-    
+
+    public static string CharPath = "Fonts/40IPix/";
 }

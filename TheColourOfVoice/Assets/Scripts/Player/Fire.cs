@@ -93,4 +93,16 @@ public class Fire : MonoBehaviour, ISetUp
             ps.Play();
         }
     }
+
+    public void SetInterval(float newInterval)
+    {
+        shootTask.Stop();
+        shootTask = new LoopTask
+        {
+            interval = newInterval,
+            loopAction = Shoot,
+            loop = -1,
+        };
+        shootTask.Start();
+    }
 }
