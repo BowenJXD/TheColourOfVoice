@@ -34,7 +34,7 @@ public class SplashTile : MonoBehaviour
         set
         {
             if (_color == value && !aniOnSameColor) return;
-            if (value != PaintColor.Null)
+            if (value != PaintColor.Null/* && value != PaintColor.Black*/)
             {
                 scaler.localScale = Vector3.zero;
                 scaler.DOScale(originalScale, aniDuration).SetEase(ease);
@@ -101,40 +101,65 @@ public class SplashTile : MonoBehaviour
     public bool PaintTile(PaintColor color)
     {
         bool result = false;
-        if (!IsPainted && color != PaintColor.Null)
+        if (Color == PaintColor.Black)
         {
-            ColorTile(color);
-            result = true;
+            if (color == PaintColor.White)
+            {
+                Color = PaintColor.Null;
+                Grid.ChangeNeighborTileShape(CellIndex, true);
+            }
+            return false;
         }
-        else if (IsPainted && color != PaintColor.Null)
+        
+        switch (color)
         {
-            Color = color;
+            case PaintColor.Black when Color != PaintColor.Black:
+                EraseTile(PaintColor.Black);
+                break;
+            case PaintColor.Null when IsPainted:
+                EraseTile();
+                result = true;
+                break;
+            case PaintColor.Null:
+            case PaintColor.White:
+                break;
+            default:
+            {
+                if (!IsPainted)
+                {
+                    ColorTile(color);
+                    result = true;
+                }
+                else
+                {
+                    Color = color;
+                }
+
+                break;
+            }
         }
-        else if (IsPainted && color == PaintColor.Null)
-        {
-            EraseTile(this);
-            result = true;
-        }
+
         return result;
     }
     
     public void ColorTile(PaintColor color)
     {
         Color = color;
-        Shape = Grid.GetTileShape(CellIndex);
         if (!IsPainted) Grid.PaintedCount++;
         IsPainted = true;
         sp.transform.rotation = Grid.GetTileRotation();
         
+        Shape = Grid.GetTileShape(CellIndex);
         Grid.ChangeNeighborTileShape(CellIndex);
     }
     
-    public void EraseTile(SplashTile tile)
+    public void EraseTile(PaintColor color = PaintColor.Null)
     {
-        Color = PaintColor.Null;
+        Color = color;
         if (IsPainted) Grid.PaintedCount--;
+        if (color == PaintColor.Black) Shape = Grid.GetTileShape(CellIndex, t => t.Color == PaintColor.Black);
         IsPainted = false;
         
-        Grid.ChangeNeighborTileShape(tile.CellIndex);
+        Grid.ChangeNeighborTileShape(CellIndex, true);
     }
 }

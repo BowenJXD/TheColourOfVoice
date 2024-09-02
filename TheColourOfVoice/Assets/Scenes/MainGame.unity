@@ -12729,7 +12729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &678743132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12743,7 +12743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 1891696110739414802, guid: c7269f3ccaeafe544b93d74d85685647, type: 3}
+  - {fileID: 4184870022919412751, guid: daf92791bf669034f8c3cd2443e77e20, type: 3}
   taskConfigs:
   - amounts: 05000000
     duration: 10
@@ -13084,7 +13084,7 @@ MonoBehaviour:
   cellSize: {x: 0.25, y: 0.25}
   tilePrefab: {fileID: 6433278730965310477, guid: 2d758179aa1f2e4428d0c0728038c29c, type: 3}
   randomRotationSegment: 4
-  doChangeShapeForUnpaintedTiles: 0
+  doChangeShapeForUnpaintedTiles: 1
   paintedPercentage: 0
 --- !u!4 &776967711
 Transform:

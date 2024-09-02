@@ -53,10 +53,12 @@ public class RainbowOfHopeSpell : Spell
                 if (ch != ' ')
                 {
                     sp.sprite = charToSprite[ch];
-                    return;
+                    bullet.transform.rotation = Quaternion.Euler(0,0,0);
+                    break;
                 }
             }
-            Finish();
+            if (index >= triggerWords.Length)
+                Finish();
         }
     }
     

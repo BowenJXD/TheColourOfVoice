@@ -114,19 +114,20 @@ public class SplashGrid : Singleton<SplashGrid>
     {
         return tileSprites[cellIndex];
     }
-    
-    public int GetTileShape(Vector2Int cellIndex)
+
+    public int GetTileShape(Vector2Int cellIndex, Predicate<SplashTile> predicate = null)
     {
-        bool up = IsTilePainted(cellIndex + Vector2Int.up);
-        bool right = IsTilePainted(cellIndex + Vector2Int.right);
-        bool down = IsTilePainted(cellIndex + Vector2Int.down);
-        bool left = IsTilePainted(cellIndex + Vector2Int.left);
+        if (predicate == null) predicate = tile => tile.IsPainted;
+        bool up = DoesTileMeetPredicate(cellIndex + Vector2Int.up, predicate);
+        bool right = DoesTileMeetPredicate(cellIndex + Vector2Int.right, predicate);
+        bool down = DoesTileMeetPredicate(cellIndex + Vector2Int.down, predicate);
+        bool left = DoesTileMeetPredicate(cellIndex + Vector2Int.left, predicate);
         
         int result = (up ? 1 : 0) << 3 | (right ? 1 : 0) << 2 | (down ? 1 : 0) << 1 | (left ? 1 : 0);
         return result;
     }
     
-    public void ChangeNeighborTileShape(Vector2Int cellIndex)
+    public void ChangeNeighborTileShape(Vector2Int cellIndex, bool doChangeShapeForUnpaintedTiles = false)
     {
         if (IsTilePainted(cellIndex + Vector2Int.up) || doChangeShapeForUnpaintedTiles)
         {
@@ -192,6 +193,10 @@ public class SplashGrid : Singleton<SplashGrid>
         return TryGetTile(cellIndex, out SplashTile tile) && tile.IsPainted;
     }
     
+    public bool DoesTileMeetPredicate(Vector2Int cellIndex, Predicate<SplashTile> predicate)
+    {
+        return TryGetTile(cellIndex, out SplashTile tile) && predicate(tile);
+    }
     
     public bool TryGetCellIndex(Vector3 position, out Vector2Int cellIndex)
     {

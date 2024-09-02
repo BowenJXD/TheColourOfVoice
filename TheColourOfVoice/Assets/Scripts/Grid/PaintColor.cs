@@ -18,7 +18,15 @@ public enum PaintColor
     Cyan,
     Blue,
     Magenta,
+    /// <summary>
+    /// Painting white will not change the tile,
+    /// it only changes black to null.
+    /// </summary>
     White,
+    /// <summary>
+    /// Painting black will erase the tile.
+    /// Only white can paint black.
+    /// </summary>
     Black,
     /// <summary>
     /// Painting rainbow will paint the tile with the current rainbow color.

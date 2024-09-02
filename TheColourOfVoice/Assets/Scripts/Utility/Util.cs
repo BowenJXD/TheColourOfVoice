@@ -118,7 +118,7 @@ public static class Util
         flashSequence.Play();
     }
     
-    public static Component TryGetComponentInChildren<T>(this Component gameObject, out T component, bool includeInactive = true) where T : Component
+    public static bool TryGetComponentInChildren<T>(this Component gameObject, out T component, bool includeInactive = true) where T : Component
     {
         component = gameObject.GetComponentInChildren<T>(includeInactive);
         return component;

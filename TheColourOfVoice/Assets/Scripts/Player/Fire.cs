@@ -38,6 +38,13 @@ public class Fire : MonoBehaviour, ISetUp
             main.startColor = startColor;
         }
         SetBullet(bulletPrefab);
+        if (bulletPrefab)
+        {
+            if (bulletPrefab.TryGetComponent(out Painter painter))
+            {
+                painter.paintColor = color;
+            }
+        }
         shootTask = new LoopTask
         {
             interval = shootingInterval,
@@ -110,12 +117,5 @@ public class Fire : MonoBehaviour, ISetUp
     {
         bulletPrefab = newBullet;
         PoolManager.Instance.Register(bulletPrefab);
-        if (bulletPrefab)
-        {
-            if (bulletPrefab.TryGetComponent(out Painter painter))
-            {
-                painter.paintColor = color;
-            }
-        }
     }
 }

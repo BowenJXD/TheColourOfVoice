@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 3.4028235e+38
+  damageCD: 1
   resetCDOnExit: 1
   knockBack: 10
   rb: {fileID: 4961256998949816231}
@@ -277,6 +277,7 @@ MonoBehaviour:
   angularSpeed: 120
   stopRange: 1
   startRange: 1
+  speedVariance: 0.1
   faceTarget: 1
   isInRange: 0
 --- !u!114 &4385042102656340858
@@ -308,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: 0
+  paintColor: 8
 --- !u!114 &2694323068028110331
 MonoBehaviour:
   m_ObjectHideFlags: 0
