@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2530652855800820485}
   - component: {fileID: 6741847619301413647}
   m_Layer: 0
-  m_Name: L4-Mechanic
+  m_Name: Obsolete-L4-Mechanic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -18,6 +18,11 @@ public class Fire : MonoBehaviour, ISetUp
     LoopTask shootTask;
     
     public ParticleSystem ps;
+
+    /// <summary>
+    /// Resets on destroy
+    /// </summary>
+    public Action<BulletBase> onFire;
     
     public bool IsSet { get; set; }
     public void SetUp()
@@ -32,20 +37,13 @@ public class Fire : MonoBehaviour, ISetUp
             startColor.gradient = ColorManager.Instance.GetGradient(color/*, colorShift.x, colorShift.y, colorShift.z*/);
             main.startColor = startColor;
         }
-        PoolManager.Instance.Register(bulletPrefab);
+        SetBullet(bulletPrefab);
         shootTask = new LoopTask
         {
             interval = shootingInterval,
             loopAction = Shoot,
             loop = -1,
         };
-        if (bulletPrefab)
-        {
-            if (bulletPrefab.TryGetComponent(out Painter painter))
-            {
-                painter.paintColor = color;
-            }
-        }
     }
     
     private void OnEnable()
@@ -79,6 +77,7 @@ public class Fire : MonoBehaviour, ISetUp
         }
         bullet.Init();
         bullet.SetDirection(Quaternion.AngleAxis(angle, Vector3.forward) * direction);
+        onFire?.Invoke(bullet);
         if (rb) rb.AddForce(-direction * recoil, ForceMode2D.Impulse);
         
         if (ps)
@@ -96,6 +95,7 @@ public class Fire : MonoBehaviour, ISetUp
 
     public void SetInterval(float newInterval)
     {
+        shootingInterval = newInterval;
         shootTask.Stop();
         shootTask = new LoopTask
         {
@@ -104,5 +104,18 @@ public class Fire : MonoBehaviour, ISetUp
             loop = -1,
         };
         shootTask.Start();
+    }
+    
+    public void SetBullet(BulletBase newBullet)
+    {
+        bulletPrefab = newBullet;
+        PoolManager.Instance.Register(bulletPrefab);
+        if (bulletPrefab)
+        {
+            if (bulletPrefab.TryGetComponent(out Painter painter))
+            {
+                painter.paintColor = color;
+            }
+        }
     }
 }

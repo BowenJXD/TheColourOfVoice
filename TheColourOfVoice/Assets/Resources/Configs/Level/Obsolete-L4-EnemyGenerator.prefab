@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6350864458456040100}
   - component: {fileID: 5869229225314584533}
   m_Layer: 0
-  m_Name: L5-EnemyGenerator
+  m_Name: Obsolete-L4-EnemyGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4027698038478995893, guid: f8ab7985ec202e245a920fc7fe2cb80e, type: 3}
+  - {fileID: 4027698038478995893, guid: d181cf65d66b32a41a7a5579be527ac4, type: 3}
   taskConfigs:
-  - amounts: 0a000000
+  - amounts: 0a00000000000000
     duration: 60
-  - amounts: 08000000
+  - amounts: 0800000003000000
     duration: 60
-  - amounts: 0a000000
+  - amounts: 0a00000005000000
     duration: 40
   currentTaskIndex: 0
   minDistance: 20
@@ -59,6 +59,6 @@ MonoBehaviour:
   distributionVariationInterval: 1
   minDistribution: 60
   maxDistributionVariation: 120
-  spawnCount: 1
-  spawnInterval: 0
+  spawnCount: 3
+  spawnInterval: 1
   spawnTransform: {fileID: 6350864458456040100}

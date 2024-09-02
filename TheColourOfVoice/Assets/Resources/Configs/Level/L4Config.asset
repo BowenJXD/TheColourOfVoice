@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: L4Config
   m_EditorClassIdentifier: 
   levelIndex: 4
-  levelName: obsessive compulsive disorder
-  levelColor: 4
-  tileSprite: {fileID: 21300000, guid: 99791e90349cfd24fa91321809963ccd, type: 3}
-  enemyGenerator: {fileID: 5869229225314584533, guid: ed02755666a08a34b88e5224e8d30a87, type: 3}
-  mechanic: {fileID: 6741847619301413647, guid: f132e5c811cc8744e968dc3f5d789632, type: 3}
+  levelName: paranoia
+  levelColor: 6
+  tileSprite: {fileID: 21300000, guid: 7ff924507059c134fbaae479febac03c, type: 3}
+  enemyGenerator: {fileID: 5869229225314584533, guid: b66b669892da4a94fb856ef1ae0c784a, type: 3}
+  mechanic: {fileID: 0}
