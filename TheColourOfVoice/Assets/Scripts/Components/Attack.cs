@@ -92,7 +92,7 @@ public class Attack : MonoBehaviour, ISetUp
         OnDamage?.Invoke(target);
         if (!target || !target.TakeDamage(damage)) return;
         if (!target) return;
-        Vector3 direction = rb? rb.velocity.normalized : transform.rotation.eulerAngles;
+        Vector3 direction = rb? rb.velocity.normalized : target.transform.position - transform.position;
         if (knockBack > 0) target.GetComponent<KnockBackReceiver>()?.TakeKnockBack(direction, knockBack);
         if (impulseSource) CameraShakeManager.Instance.CameraShake(impulseSource);
     }

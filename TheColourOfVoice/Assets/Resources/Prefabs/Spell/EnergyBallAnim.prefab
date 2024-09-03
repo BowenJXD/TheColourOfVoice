@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables: []
+  loop: 0
 --- !u!114 &67712252055459044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 1
   duration: 100
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animDuration: 0
+  deinitOnAnimEnd: 0
 --- !u!114 &7748822488607655251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 27
   duration: 0
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 1
   duration: 0

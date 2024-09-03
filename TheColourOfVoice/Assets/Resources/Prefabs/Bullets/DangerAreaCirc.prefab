@@ -9,13 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4992681785257969917}
+  - component: {fileID: 2880607544112282739}
+  - component: {fileID: 8410393527596076950}
+  - component: {fileID: 7348687760236710284}
   m_Layer: 0
   m_Name: DangerAreaCirc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4992681785257969917
 Transform:
   m_ObjectHideFlags: 0
@@ -24,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3777515979008385622}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34,6 +37,57 @@ Transform:
   - {fileID: 4653756168416784737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2880607544112282739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777515979008385622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fe1b84c82d4a008961a01e925cd609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executables: []
+  loop: 0
+--- !u!114 &8410393527596076950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777515979008385622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61d01e56b4d4be7bc2ae1dae823e478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  offset: 28
+  force: 0
+  angles:
+  - 135
+  doSetRotation: 0
+  doUseBBAngles: 0
+  doWaitForAllToDeinit: 0
+  prefab: {fileID: 2017420708175750252, guid: 1a6594097a1d19b4dacf6799b0aeb92f, type: 3}
+--- !u!114 &7348687760236710284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777515979008385622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58740cbbf0044594b0e4ac702bde8d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 8224238835360266965}
+  autoDeinit: 1
+  stopBehavior: 0
 --- !u!1 &4122620464213655842
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +250,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5300753994000744026}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

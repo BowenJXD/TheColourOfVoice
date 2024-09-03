@@ -7,12 +7,23 @@ public class AnimEntity : Entity
 
     [HideInInspector] public float animDuration;
     
+    public bool deinitOnAnimEnd = false;
+    
     public Action onFinish;
     
     Vector3 originScale;
     
     public override void Init()
     {
+        base.Init();
+        if (TryGetComponent(out Animator ani))
+        {
+            animDuration = ani.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            if (deinitOnAnimEnd)
+            {
+                Invoke(nameof(Deinit), animDuration);
+            }
+        }
         if (TryGetComponent(out sequence))
         {
             sequence.blackboard = new();
@@ -20,7 +31,6 @@ public class AnimEntity : Entity
             sequence.onFinish += onFinish;
         }
         originScale = transform.localScale;
-        base.Init();
     }
 
     public override void Deinit()

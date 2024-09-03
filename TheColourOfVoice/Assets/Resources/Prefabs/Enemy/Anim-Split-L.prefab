@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animDuration: 0
+  deinitOnAnimEnd: 0
 --- !u!114 &1203561748834695029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables: []
+  loop: 0
 --- !u!114 &8669379736785898830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   emitters:
   - {fileID: 3006440917976199645}
 --- !u!114 &3006440917976199645
@@ -180,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 1
   duration: 2
@@ -204,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 1
   duration: 2
@@ -228,12 +230,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   offset: 1
   force: 10
   angles:
   - 90
   - -90
+  doSetRotation: 0
+  doUseBBAngles: 0
+  doWaitForAllToDeinit: 0
+  doUsePool: 1
   prefab: {fileID: 1891696110739414802, guid: c7269f3ccaeafe544b93d74d85685647, type: 3}
 --- !u!114 &2361675688591280228
 MonoBehaviour:
@@ -248,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   emitters:
   - {fileID: -211550216537391038}
 --- !u!114 &-211550216537391038
@@ -295,6 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 1
-  next: 0
+  executing: 0
   waitTime: 0
   waitForSequenceToFinish: 1

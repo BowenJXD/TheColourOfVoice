@@ -13,6 +13,11 @@ public class RandomSelectExe : ExecutableBehaviour
     protected override void OnStart()
     {
         base.OnStart();
+        if (avoidLastExe && !selectedExe && executables.Count > 0)
+        {
+            selectedExe = executables[^1];
+            return;
+        }
         var tmp = new List<ExecutableBehaviour>(executables);
         if (avoidLastExe && selectedExe && executables.Count > 1)
         {

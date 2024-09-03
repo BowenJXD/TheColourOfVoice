@@ -190,7 +190,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.2}
@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 1
   executing: 0
+  mode: 0
   offset: 0.2
   force: 3
   angles:
@@ -389,8 +390,14 @@ MonoBehaviour:
   - -90
   - 0
   - 180
+  ranges:
+  - {x: 0, y: 0}
+  randomCount: 0
+  range: {x: 0, y: 0}
+  useWorldSpace: 0
   doSetRotation: 0
-  doUseTargetAs0Deg: 0
+  doUseBBValues: 0
+  doWaitForAllToDeinit: 0
   prefab: {fileID: 8393773426448386475, guid: d38b4801fefe5f344a2fc8da41121410, type: 3}
 --- !u!114 &3190338912136749645
 MonoBehaviour:
@@ -422,10 +429,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 1
   executing: 0
+  mode: 0
   offset: 0.5
   force: 10
   angles:
   - 0
+  ranges:
+  - {x: 0, y: 0}
+  randomCount: 0
+  range: {x: 0, y: 0}
+  useWorldSpace: 0
   doSetRotation: 1
-  doUseTargetAs0Deg: 1
+  doUseBBValues: 0
+  doWaitForAllToDeinit: 0
   prefab: {fileID: 5977729598268391101, guid: 4ee4da5c1874cb245974c2aa0c25ab99, type: 3}
