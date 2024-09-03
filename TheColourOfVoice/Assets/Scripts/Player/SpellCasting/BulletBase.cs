@@ -12,6 +12,7 @@ public class BulletBase : Entity
     public float duration = 2.0f;
     public LoopTask durationTask;
 
+    public bool useRotation = false;
     public bool doPenetrate = false;
 
     public bool fourDirectional = false;
@@ -32,6 +33,10 @@ public class BulletBase : Entity
     {
         base.Init();
         durationTask.Start();
+        if (useRotation)
+        {
+            rb.velocity = transform.right * speed;
+        }
     }
 
     public override void Deinit()

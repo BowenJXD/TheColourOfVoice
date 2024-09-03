@@ -23,10 +23,10 @@ public class SpawnHurtParticleExe : ExecutableBehaviour
         if (!particle.TryGetComponent(out ParticleSystem ps)) return;
         var main = ps.main;
         
-        if (blackboard.TryGet(BBKey.TARGET, out GameObject target))
+        if (blackboard.TryGet(BBKey.TARGET, out Transform target))
         {
-            particle.transform.position = target.transform.position;
-            Vector2 direction = (target.transform.position - attacker.position).normalized;
+            particle.transform.position = target.position;
+            Vector2 direction = (target.position - attacker.position).normalized;
             particle.transform.rotation = Quaternion.Euler(0, 0, direction.GetAngle());
             if (painter)
             {

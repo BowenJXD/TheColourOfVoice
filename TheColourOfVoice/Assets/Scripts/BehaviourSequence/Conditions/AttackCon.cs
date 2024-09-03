@@ -15,7 +15,7 @@
 
     private void OnDamage(Health health)
     {
-        blackboard.Set(BBKey.TARGET, health.gameObject);
+        blackboard.Set(BBKey.TARGET, health);
         StartCoroutine(Execute());
     }
 

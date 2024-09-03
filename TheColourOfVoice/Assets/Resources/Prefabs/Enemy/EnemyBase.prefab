@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 3.4028235e+38
+  damageCD: 1
   resetCDOnExit: 1
   knockBack: 10
   rb: {fileID: 4961256998949816231}
@@ -295,6 +295,7 @@ MonoBehaviour:
   angularSpeed: 120
   stopRange: 1
   startRange: 1
+  speedVariance: 0.1
   faceTarget: 1
   isInRange: 0
 --- !u!114 &4385042102656340858
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   emitters:
   - {fileID: 5970856376335570818}
 --- !u!114 &5970856376335570818
@@ -460,6 +461,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   timeScaleOverride: 0.2
   duration: 1

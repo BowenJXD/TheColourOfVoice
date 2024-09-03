@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class ParticleEntity : Entity
 {
-    protected ParticleSystem ps;
+    public ParticleSystem ps;
     public bool autoDeinit = true;
     public ParticleSystemStopBehavior stopBehavior; 
     
     public override void SetUp()
     {
         base.SetUp();
-        ps = GetComponentInChildren<ParticleSystem>(true);
+        if (!ps) ps = GetComponentInChildren<ParticleSystem>(true);
     }
 
     public override void Init()

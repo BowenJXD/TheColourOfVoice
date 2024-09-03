@@ -19,7 +19,7 @@ public static class BBKey
     public static readonly string DURATION = "DURATION";
     
     /// <summary>
-    /// GameObject
+    /// Transform
     /// </summary>
     public static readonly string TARGET = "TARGET";
     
@@ -27,4 +27,9 @@ public static class BBKey
     /// ConditionBehaviour
     /// </summary>
     public static readonly string CON = "CON";
+    
+    /// <summary>
+    /// float[]
+    /// </summary>
+    public static readonly string ANGLES = "ANGLES";
 }

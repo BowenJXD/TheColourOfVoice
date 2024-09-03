@@ -59,7 +59,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Bits: 32
+    - _Bits: 16
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2

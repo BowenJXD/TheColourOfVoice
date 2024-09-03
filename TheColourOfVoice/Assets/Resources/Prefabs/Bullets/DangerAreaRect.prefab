@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8024847426041856258}
   - component: {fileID: 4605690664094049050}
   m_Layer: 0
-  m_Name: Ps
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 614135788165888351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -672,7 +672,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 2, y: 30, z: 1}
+    m_Scale: {x: 30, y: 2, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4839,6 +4839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122226546174928539}
+  - component: {fileID: 5977729598268391101}
   m_Layer: 0
   m_Name: DangerAreaRect
   m_TagString: Untagged
@@ -4859,11 +4860,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9049378605815304498}
   - {fileID: 1646226017636290566}
+  - {fileID: 9049378605815304498}
   - {fileID: 4283975936548567405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5977729598268391101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719694351318869691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577168e9272346d381d7792196cce996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 608689955276355327}
+  autoDeinit: 1
+  stopBehavior: 0
+  size: {x: 30, y: 2}
+  borderParticle: {fileID: 8024847426041856258}
+  areaSprite: {fileID: 6638667015730453463}
 --- !u!1 &1877144492672149436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,7 +4895,7 @@ GameObject:
   - component: {fileID: 608689955276355327}
   - component: {fileID: 4688774670926310185}
   m_Layer: 0
-  m_Name: Ps (1)
+  m_Name: Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4891,7 +4910,7 @@ Transform:
   m_GameObject: {fileID: 1877144492672149436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4905,7 +4924,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877144492672149436}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -6417,7 +6436,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6470,7 +6489,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -30
+      scalar: 0
       minScalar: -5
       maxCurve:
         serializedVersion: 2
@@ -6947,7 +6966,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 30
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9778,7 +9797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5373993082191183037}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9831,7 +9850,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2, y: 30}
+  m_Size: {x: 30, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
