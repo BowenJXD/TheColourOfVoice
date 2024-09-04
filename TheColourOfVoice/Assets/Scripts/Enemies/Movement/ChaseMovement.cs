@@ -100,7 +100,11 @@ public class ChaseMovement : Movement, ISetUp
         
         if (!isInRange)
         {
-            if (Mathf.Abs(Speed) > 0.0001) rb.AddForce(newDirection * Speed);
+            Vector2 force = newDirection * Speed;
+            force -= rb.velocity * inputWeight;
+            force += newDirection * (rb.velocity.magnitude * inputWeight);
+            rb.AddForce(force);
+            if (Mathf.Abs(Speed) > 0.0001) rb.AddForce(force);
                 // rb.velocity = newDirection * speed;
             OnMove?.Invoke(newDirection);
         }

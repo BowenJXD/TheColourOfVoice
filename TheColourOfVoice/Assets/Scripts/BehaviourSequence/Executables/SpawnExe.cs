@@ -18,6 +18,7 @@ public class SpawnExe : ExecutableBehaviour
     public float force = 10f;
     [ShowIf("mode", SpawnMode.Radial)]
     public List<float> angles = new() { 90f, -90f };
+    private List<float> actualAngles = new();
     [ShowIf("mode", SpawnMode.Range)] 
     public List<Vector2> ranges = new() { new Vector3(0, 0, 0) };
     [ShowIf("mode", SpawnMode.Range)]
@@ -36,15 +37,19 @@ public class SpawnExe : ExecutableBehaviour
     protected override void OnStart()
     {
         base.OnStart();
+        actualAngles = new List<float>(angles);
         if (doUseBBValues)
         {
-            if (blackboard.TryGet<float[]>(BBKey.ANGLES, out var angles))
+            if (blackboard.TryGet<float>(BBKey.BASE_ANGLE, out var angle))
             {
-                this.angles = new List<float>(angles);
+                for (int i = 0; i < actualAngles.Count; i++)
+                {
+                    actualAngles[i] += angle;
+                }
             }
         }
 
-        if (doWaitForAllToDeinit && angles.Count > 0)
+        if (doWaitForAllToDeinit && actualAngles.Count > 0)
         {
             StartExe();
         }
@@ -82,9 +87,9 @@ public class SpawnExe : ExecutableBehaviour
     
     List<Vector2> GetSpawnLocation()
     {
-        if (mode == SpawnMode.Radial && angles.Count > 0)
+        if (mode == SpawnMode.Radial && actualAngles.Count > 0)
         {
-            return angles.ConvertAll(angle => Util.GetVectorFromAngle(angle));
+            return actualAngles.ConvertAll(angle => Util.GetVectorFromAngle(angle));
         }
         if (mode == SpawnMode.Range)
         {

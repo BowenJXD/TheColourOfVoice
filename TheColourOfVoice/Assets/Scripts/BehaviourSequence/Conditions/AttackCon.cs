@@ -15,7 +15,7 @@
 
     private void OnDamage(Health health)
     {
-        blackboard.Set(BBKey.TARGET, health);
+        blackboard.Set(BBKey.TARGET, health.transform);
         StartCoroutine(Execute());
     }
 

@@ -8,7 +8,6 @@ public class PlayerMovement : Movement
     private Rigidbody2D rb;
     private float inputX;
     private float inputY;
-
     public bool inDialogueArea = false;
 
     private Vector2 inputMovement;
@@ -45,11 +44,6 @@ public class PlayerMovement : Movement
     {
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
-        if (inputX != 0 && inputY != 0) //斜方向速度一致
-        {
-            inputX *= (float)System.Math.Sqrt(0.5);
-            inputY *= (float)System.Math.Sqrt(0.5);
-        }
         // if (Input.GetKey(KeyCode.LeftShift))
         // {
         //     inputX *= 0.5f;
@@ -68,13 +62,16 @@ public class PlayerMovement : Movement
             }
         }
 
-        inputMovement = new Vector2(inputX, inputY);
+        inputMovement = new Vector2(inputX, inputY).normalized;
     }
     
     private void Movement()
     {
         // rb.velocity = inputMovement * speed;
-        rb.AddForce(inputMovement * (Speed * 2));
+        Vector2 force = inputMovement * Speed;
+        force -= rb.velocity * inputWeight;
+        force += inputMovement * (rb.velocity.magnitude * inputWeight);
+        rb.AddForce(force);
         Vector2 moveParam = inputMovement == Vector2.zero
             ? Vector2.zero
             : new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1), Mathf.Clamp(rb.velocity.y, -1, 1));

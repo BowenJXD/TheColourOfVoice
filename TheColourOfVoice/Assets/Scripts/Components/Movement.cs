@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
     public float speed;
+
+    [Tooltip("The weight of the input direction.")]
+    public float inputWeight = 0.5f;
     
     public Dictionary<string, float> speedModifiers = new();
     

@@ -9,7 +9,16 @@ public class RandomSelectExe : ExecutableBehaviour
     public List<ExecutableBehaviour> executables;
 
     [ReadOnly] public ExecutableBehaviour selectedExe;
-    
+
+    public override void Init()
+    {
+        base.Init();
+        foreach (var exe in executables)
+        {
+            exe.Init();
+        }
+    }
+
     protected override void OnStart()
     {
         base.OnStart();

@@ -40,6 +40,7 @@ public class Attack : MonoBehaviour, ISetUp
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!enabled) return;
         Health health = other.GetComponent<Health>();
         if (health != null)
         {

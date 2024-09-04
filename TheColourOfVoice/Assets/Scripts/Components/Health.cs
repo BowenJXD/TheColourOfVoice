@@ -19,12 +19,15 @@ public class Health : MonoBehaviour, ISetUp
     LoopTask damageCooldownTask;
 
     private SpriteRenderer sp;
+    private Movement movement;
+    float inputWeightCache;
     
     public bool IsSet { get; set; }
     public void SetUp()
     {
         IsSet = true;
         sp = GetComponentInChildren<SpriteRenderer>();
+        movement = GetComponent<Movement>();
         if (damageCooldown > 0)
             damageCooldownTask = new LoopTask { interval = damageCooldown, loop = 1, finishAction = ResetCD };
     }
@@ -90,12 +93,15 @@ public class Health : MonoBehaviour, ISetUp
     {
         invincible = true;
         damageCooldownTask.Start();
-        sp.FlashSprite(Color.clear, damageCooldown);
+        sp.FlashSprite(new Color(1,1,1,0.2f), damageCooldown);
+        inputWeightCache = movement.inputWeight;
+        movement.inputWeight = 0;
     }
     
     void ResetCD()
     {
         invincible = false;
+        movement.inputWeight += inputWeightCache;
     }
     
     public void ResetHealth()

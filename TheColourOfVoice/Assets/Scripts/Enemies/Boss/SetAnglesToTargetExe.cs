@@ -7,7 +7,7 @@ public class SetAnglesToTargetExe : ExecutableBehaviour
         base.OnStart();
         if (blackboard.TryGet(BBKey.TARGET, out Transform target))
         {
-            blackboard.Set(BBKey.ANGLES, new[] { Util.GetAngle(target.transform.position - transform.position) });
+            blackboard.Set(BBKey.BASE_ANGLE, Util.GetAngle(target.transform.position - transform.position));
         }
     }
 }

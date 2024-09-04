@@ -31,5 +31,5 @@ public static class BBKey
     /// <summary>
     /// float[]
     /// </summary>
-    public static readonly string ANGLES = "ANGLES";
+    public static readonly string BASE_ANGLE = "ANGLES";
 }

@@ -13,6 +13,7 @@ public class SpawnHurtParticleExe : ExecutableBehaviour
         base.SetUp();
         if (!painter) painter = GetComponent<Painter>();
         if (!attacker) attacker = transform;
+        if (!prefab) prefab = GetComponent<ParticleEntity>();
     }
 
     protected override void OnStart()

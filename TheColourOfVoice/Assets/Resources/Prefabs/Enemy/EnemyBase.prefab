@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  inputWeight: 0.5
   target: {fileID: 0}
   angularSpeed: 120
   stopRange: 1
