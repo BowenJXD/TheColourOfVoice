@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 2017420708175750252}
   - component: {fileID: 3374005887618589245}
   - component: {fileID: 4145086556348582286}
+  - component: {fileID: 2887501810893558281}
   - component: {fileID: 5608689122510642596}
+  - component: {fileID: -4223304120155165444}
   - component: {fileID: 6741054135626132668}
   m_Layer: 0
   m_Name: FireAstroidMove_0
@@ -76,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 148925681
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1394990604, guid: fc714ffeec4b679408de91d7e665121e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,7 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 4145086556348582286}
+  - {fileID: 2887501810893558281}
   - {fileID: 5608689122510642596}
+  - {fileID: -4223304120155165444}
   - {fileID: 6741054135626132668}
   loop: 0
 --- !u!114 &4145086556348582286
@@ -160,7 +164,26 @@ MonoBehaviour:
   ease: 1
   duration: 2
   target: {fileID: 0}
-  moveVector: {x: 20, y: -20, z: 0}
+  moveVector: {x: 1, y: -1, z: 0}
+  speed: 20
+  randomLocation: 0
+  range: {x: 0, y: 0}
+--- !u!114 &2887501810893558281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145168774621432490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb77b8d7a294f91b83a9ab6c4c271b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  timeScaleOverride: 0.2
+  duration: 1
 --- !u!114 &5608689122510642596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,14 +198,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 1
   executing: 0
+  mode: 0
   offset: 0
   force: 0
   angles:
   - 0
+  ranges:
+  - {x: 0, y: 0}
+  randomCount: 0
+  range: {x: 0, y: 0}
+  useWorldSpace: 0
   doSetRotation: 0
-  doUseBBAngles: 0
+  doUseBBValues: 0
   doWaitForAllToDeinit: 0
   prefab: {fileID: 3443021945243013065, guid: 261bcce3fa5520744b89f7c1e66f0d8f, type: 3}
+--- !u!114 &-4223304120155165444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145168774621432490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61d01e56b4d4be7bc2ae1dae823e478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  mode: 0
+  offset: 0
+  force: 0
+  angles:
+  - 0
+  ranges:
+  - {x: 0, y: 0}
+  randomCount: 0
+  range: {x: 0, y: 0}
+  useWorldSpace: 0
+  doSetRotation: 0
+  doUseBBValues: 0
+  doWaitForAllToDeinit: 0
+  prefab: {fileID: -588385440970371495, guid: 2a7f5a025d3bca747add61eff5e0bc34, type: 3}
 --- !u!114 &6741054135626132668
 MonoBehaviour:
   m_ObjectHideFlags: 0

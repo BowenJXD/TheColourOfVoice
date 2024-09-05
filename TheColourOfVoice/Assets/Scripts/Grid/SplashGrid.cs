@@ -48,7 +48,7 @@ public class SplashGrid : Singleton<SplashGrid>
 
     Sprite[] tileSprites;
     
-    SplashTile[,] tiles;
+    public SplashTile[,] tiles;
     
     int _paintedCount;
     [ReadOnly] public float paintedPercentage;

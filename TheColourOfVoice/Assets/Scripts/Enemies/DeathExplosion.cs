@@ -6,6 +6,7 @@ public class DeathExplosion : MonoBehaviour, ISetUp
 {
     Entity entity;
     public Explosion prefab;
+    public bool useLevelColour = true;
     
     public bool IsSet { get; set; }
     public void SetUp()
@@ -30,7 +31,7 @@ public class DeathExplosion : MonoBehaviour, ISetUp
     {
         Explosion exp = PoolManager.Instance.New(prefab);
         exp.transform.position = transform.position;
-        exp.color = LevelManager.Instance.levelColor;
+        if (useLevelColour) exp.color = LevelManager.Instance.levelColor;
         exp.Init();
     }
 }

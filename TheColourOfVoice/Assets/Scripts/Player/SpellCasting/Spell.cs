@@ -105,4 +105,9 @@ public class Spell : MonoBehaviour, ISetUp
     {
         SpellManager.Instance.Unregister(this);
     }
+
+    public virtual void Upgrade()
+    {
+        throw new NotImplementedException();
+    }
 }

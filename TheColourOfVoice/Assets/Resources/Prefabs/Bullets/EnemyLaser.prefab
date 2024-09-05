@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1717637336216697002}
   - component: {fileID: -7712325678247973517}
   - component: {fileID: 8723858730303291425}
-  - component: {fileID: 3110120674010595267}
+  - component: {fileID: 6087043391717918076}
   - component: {fileID: 2119723310510066942}
   - component: {fileID: 3605615906248056056}
   - component: {fileID: 8349863781729138912}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 8723858730303291425}
-  - {fileID: 3110120674010595267}
+  - {fileID: 6087043391717918076}
   - {fileID: 2119723310510066942}
   loop: 0
 --- !u!114 &8723858730303291425
@@ -80,7 +80,7 @@ MonoBehaviour:
   duration: 0.1
   target: {fileID: 0}
   targetScale: {x: 8, y: 2, z: 0}
---- !u!114 &3110120674010595267
+--- !u!114 &6087043391717918076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   executing: 0
-  waitTime: 0.2
+  waitTime: 0.1
 --- !u!114 &2119723310510066942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18315fc734577314eac1f47a6efe4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
-  duration: 0.5
+  speed: 80
+  duration: 0.4
   useRotation: 1
   doPenetrate: 1
   fourDirectional: 0

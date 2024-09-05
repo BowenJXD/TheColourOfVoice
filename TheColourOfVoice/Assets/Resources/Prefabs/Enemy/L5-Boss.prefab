@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   executing: 0
-  loop: 1
+  loop: 3
   executables: []
 --- !u!114 &2905978101538440341
 MonoBehaviour:
@@ -289,6 +289,7 @@ MonoBehaviour:
   duration: 2
   target: {fileID: 4795884882165627528}
   moveVector: {x: 0, y: 0, z: 0}
+  speed: 0
   randomLocation: 0
   range: {x: 0, y: 0}
 --- !u!1 &7833403411091873741
@@ -355,8 +356,8 @@ MonoBehaviour:
   skip: 1
   executing: 0
   mode: 0
-  offset: 0.2
-  force: 3
+  offset: 4
+  force: 5
   angles:
   - 140
   - -140
@@ -368,8 +369,8 @@ MonoBehaviour:
   randomCount: 0
   range: {x: 0, y: 0}
   useWorldSpace: 0
-  doSetRotation: 0
-  doUseBBValues: 0
+  doSetRotation: 1
+  doUseBBValues: 1
   doWaitForAllToDeinit: 0
   prefab: {fileID: 8393773426448386475, guid: d38b4801fefe5f344a2fc8da41121410, type: 3}
 --- !u!1001 &695051044671137807
@@ -583,17 +584,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2}
   m_Size: {x: 1, y: 1.2}
   m_Direction: 0
---- !u!114 &3514815107373393979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4134991145288187956, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
-  m_PrefabInstance: {fileID: 695051044671137807}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6343572423152266990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bb9e289e0956d469976a919b0e7a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4795884882165627528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5416483287231550087, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
@@ -705,7 +695,7 @@ MonoBehaviour:
   executing: 0
   enableOrDisable: 0
   components:
-  - {fileID: 3514815107373393979}
+  - {fileID: 8188480478608314448}
 --- !u!114 &848208174160909919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +715,7 @@ MonoBehaviour:
   duration: 2
   target: {fileID: 0}
   moveVector: {x: 0, y: 0, z: 0}
+  speed: 0
   randomLocation: 1
   range: {x: 17, y: 7}
 --- !u!114 &3428491858359018257
@@ -743,7 +734,7 @@ MonoBehaviour:
   executing: 0
   enableOrDisable: 1
   components:
-  - {fileID: 3514815107373393979}
+  - {fileID: 8188480478608314448}
 --- !u!114 &3321223253600111540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +752,18 @@ MonoBehaviour:
   avoidLastExe: 1
   executables:
   - {fileID: 8961112179618842977}
-  - {fileID: 1162569192626225059}
   - {fileID: 725626739307797518}
   - {fileID: 1968490650080594191}
+  - {fileID: 1162569192626225059}
   selectedExe: {fileID: 0}
+--- !u!114 &8188480478608314448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8648603031296309343, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+  m_PrefabInstance: {fileID: 695051044671137807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141086276009705506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,6 +15,13 @@ public class AnimEntity : Entity
     
     public override void Init()
     {
+        if (TryGetComponent(out sequence))
+        {
+            sequence.blackboard = new();
+            sequence.Set(BBKey.DURATION, animDuration);
+            sequence.onFinish += onFinish;
+        }
+        originScale = transform.localScale;
         base.Init();
         if (TryGetComponent(out Animator ani))
         {
@@ -24,13 +31,6 @@ public class AnimEntity : Entity
                 Invoke(nameof(Deinit), animDuration);
             }
         }
-        if (TryGetComponent(out sequence))
-        {
-            sequence.blackboard = new();
-            sequence.Set(BBKey.DURATION, animDuration);
-            sequence.onFinish += onFinish;
-        }
-        originScale = transform.localScale;
     }
 
     public override void Deinit()

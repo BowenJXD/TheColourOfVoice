@@ -17,4 +17,4 @@ MonoBehaviour:
   levelColor: 9
   tileSprite: {fileID: 21300000, guid: 101506c42336aec448e0581a242526dc, type: 3}
   enemyGenerator: {fileID: 0}
-  mechanic: {fileID: 0}
+  mechanic: {fileID: -7612144060942389891, guid: 5aff4eab374079a4092ca352b6ed8843, type: 3}

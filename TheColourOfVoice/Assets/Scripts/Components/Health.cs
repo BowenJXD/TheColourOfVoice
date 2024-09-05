@@ -128,7 +128,10 @@ public class Health : MonoBehaviour, ISetUp
         return maxHealth;
     }
 
-
+    public float GetHealthPercentage()
+    {
+        return currentHealth / maxHealth;
+    }
 
     /// <summary>
     /// Reset when trigger

@@ -105,9 +105,12 @@ public class SplashTile : MonoBehaviour
         {
             if (color == PaintColor.White)
             {
-                Color = PaintColor.Null;
-                Grid.ChangeNeighborTileShape(CellIndex, true);
+                EraseTile(PaintColor.White);
             }
+            return false;
+        }
+        else if (Color == PaintColor.White && color == PaintColor.Black)
+        {
             return false;
         }
         
@@ -121,6 +124,7 @@ public class SplashTile : MonoBehaviour
                 result = true;
                 break;
             case PaintColor.Null:
+            case PaintColor.Black:
             case PaintColor.White:
                 break;
             default:
@@ -157,7 +161,7 @@ public class SplashTile : MonoBehaviour
     {
         Color = color;
         if (IsPainted) Grid.PaintedCount--;
-        if (color == PaintColor.Black) Shape = Grid.GetTileShape(CellIndex, t => t.Color == PaintColor.Black);
+        if (color != PaintColor.Null) Shape = Grid.GetTileShape(CellIndex, t => t.Color == color);
         IsPainted = false;
         
         Grid.ChangeNeighborTileShape(CellIndex, true);

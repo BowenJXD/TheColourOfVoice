@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd436c742c734076ac1b70c37c781afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   autoDeinit: 0
   stopBehavior: 0
   particleCount: 8
@@ -58,7 +59,7 @@ MonoBehaviour:
   speedVariation: 5
   duration: 0.2
   durationVariation: 0
-  color: 1
+  color: 8
   scale: 0.2
   bulletPrefab: {fileID: 8393773426448386475, guid: 31b1469ce0200f444b7c6c4f4e80d533, type: 3}
 --- !u!199 &2573813948656629832
@@ -4996,7 +4997,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1

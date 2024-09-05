@@ -105,7 +105,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -166,7 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   duration: 2
+  useRotation: 0
   doPenetrate: 0
+  fourDirectional: 0
 --- !u!114 &3193460567996462691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 3.4028235e+38
+  damageCD: 1
   resetCDOnExit: 1
   knockBack: 7
   rb: {fileID: 0}
