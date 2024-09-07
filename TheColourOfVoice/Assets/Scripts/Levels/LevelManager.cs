@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : Singleton<LevelManager>, ISetUp
 {
@@ -104,6 +106,22 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
         }
     }
     
+ 
+    [Header("PopUp Bubble")] public PopUpBubble popUpBubblePrefab;
+    public IEnumerator PopUpBubble(string bubbledata)
+    {
+        string path = $"Data/{bubbledata}";
+        var data = Resources.Load<PopUpData>(path);
+        if (data == null)
+        {
+            Debug.LogError($"PopUpData not found at path: Data/{path}");
+            yield break;
+        }
+        
+        yield return new WaitForSeconds(data.timeToDisplay);
+       data.onFinishedEvent?.Invoke();
+    }
+  
     void Update()
     {
         if (mechanic) mechanic.OnUpdate();

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 
 
-[CreateAssetMenu(fileName = "CaseData", menuName = "CaseData/CaseData")]
+[CreateAssetMenu(fileName = "CaseData", menuName = "Data/CaseData")]
 public class CaseData : ScriptableObject
 {
     public string patientName;
