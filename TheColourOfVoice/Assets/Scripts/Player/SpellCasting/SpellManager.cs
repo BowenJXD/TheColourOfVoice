@@ -54,6 +54,7 @@ public class SpellManager : Singleton<SpellManager>
 
     private CastState _castState;
 
+
     public CastState CastState
     {
         get => _castState;
