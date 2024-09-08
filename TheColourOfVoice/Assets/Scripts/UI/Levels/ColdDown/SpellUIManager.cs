@@ -7,6 +7,7 @@ public class SpellUIManager : MonoBehaviour
 {
     public GameObject spellUIPrefab;
     public Transform spellUIParent;
+    public Sprite defaultSpellImage; 
 
     private Dictionary<Spell, GameObject> spellUIDictionary = new Dictionary<Spell, GameObject>();
 
@@ -17,32 +18,37 @@ public class SpellUIManager : MonoBehaviour
 
     void CreateSpellUI()
     {
-        int spellIndex = 0; 
 
         foreach (var spell in SpellManager.Instance.learntSpells.Values)
         {
 
-            if (spellIndex == 0)
+            if (spell.spellName == "The EveryDay Miracle")
             {
-                spellIndex++;
                 Debug.Log("Skipping first spell: " + spell.spellName);
                 continue;
             }
             
-            if (spell == null)
-            {
-                Debug.LogError("Spell is null in learntSpells!");
-                spellIndex++;
-                continue;
-            }
             
             GameObject spellUI = Instantiate(spellUIPrefab, spellUIParent);
+            spellUI.name = spell.spellName;
             spellUIDictionary.Add(spell, spellUI);
             
             Image spellIcon = spellUI.transform.Find("SpellIcon")?.GetComponent<Image>();
+            if (spell.spellImage != null)
+            {
+                spellIcon.sprite = spell.spellImage;  
+            }
+            else
+            {
+                Debug.LogWarning($"Spell {spell.spellName} has no image. Using default image.");
+                spellIcon.sprite = defaultSpellImage; 
+            }
+            /*
             spellIcon.sprite = spell.spellImage;
+            */
 
             Image cooldownMask = spellUI.transform.Find("CooldownMask")?.GetComponent<Image>();
+            cooldownMask.sprite = spellIcon.sprite;
             cooldownMask.fillAmount = 0;
 
             TextMeshProUGUI cooldownText = spellUI.transform.Find("CooldownText")?.GetComponent<TextMeshProUGUI>();
@@ -66,7 +72,7 @@ public class SpellUIManager : MonoBehaviour
                 cooldownMask.fillAmount = cooldownProgress; 
 
                 float remainingTime = spell.GetRemainingCD();
-                cooldownText.text = Mathf.CeilToInt(remainingTime).ToString(); // 显示整数秒数
+                cooldownText.text = Mathf.CeilToInt(remainingTime).ToString(); 
                 cooldownText.enabled = true;
             }
             else
