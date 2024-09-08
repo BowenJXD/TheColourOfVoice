@@ -107,20 +107,41 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     }
     
  
-    [Header("PopUp Bubble")] public PopUpBubble popUpBubblePrefab;
+    
+    [Header("PopUp Bubble"),ReadOnly] public PopUpBubble popUpBubblePrefab;
+    
+    /// <summary>
+    /// 在需要的时候调用这个方法，传入对应的bubbledata
+    /// </summary>
+    /// <param name="bubbledata">对应data的名字</param>
+    /// <returns></returns>
     public IEnumerator PopUpBubble(string bubbledata)
     {
-        string path = $"Data/{bubbledata}";
+        string path = $"BubbleData/{bubbledata}";
         var data = Resources.Load<PopUpData>(path);
         if (data == null)
         {
-            Debug.LogError($"PopUpData not found at path: Data/{path}");
+            Debug.Log($"PopUpData not found at path: BubbleData/{path}");
             yield break;
         }
+
+        if (popUpBubblePrefab == null)
+        {
+            popUpBubblePrefab =GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/PopupWindow"),GameObject.Find("PopupBubblePanel").transform) .GetComponent<PopUpBubble>();
+            popUpBubblePrefab.Init();
+        }
+        popUpBubblePrefab.ShowBubble(data);
         
         yield return new WaitForSeconds(data.timeToDisplay);
-       data.onFinishedEvent?.Invoke();
+        popUpBubblePrefab.CloseBubble();
+        data.onFinishedEvent?.Invoke();
     }
+
+    public void StartPopupBubble(string dataName)
+    {
+        StartCoroutine(PopUpBubble(dataName));
+    }
+    
   
     void Update()
     {
@@ -131,5 +152,11 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     {
         if (mechanic) mechanic.Deinit();
     }
-    
+
+    private void Start()
+    {
+        //TODO:Delate this ,just for test
+        
+        StartPopupBubble("BubbleData_Test");
+    }
 }

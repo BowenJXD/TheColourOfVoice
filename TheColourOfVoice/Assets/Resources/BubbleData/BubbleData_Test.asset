@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 0
   bubbleText: This is a test sentense
-  timeToDisplay: 5
+  timeToDisplay: 4
   onFinishedEvent:
     m_PersistentCalls:
       m_Calls: []
