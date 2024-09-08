@@ -54,6 +54,23 @@ public class SpellManager : Singleton<SpellManager>
 
     private CastState _castState;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        if (learntSpells == null)
+        {
+            learntSpells = new Dictionary<string, Spell>();
+        }
+    }
+    private void Start()
+    {
+        // 打印 learntSpells 的内容
+        Debug.Log("Learnt spells count: " + learntSpells.Count);
+        foreach (var spell in learntSpells)
+        {
+            Debug.Log("Learnt spell: " + spell.Key);
+        }
+    }
     public CastState CastState
     {
         get => _castState;
