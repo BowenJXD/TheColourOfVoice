@@ -8,15 +8,13 @@ public class PopUpData : ScriptableObject
 {
     public enum CharacterName
     {
-        Ava,
+        Ava_CASE1,
+        Benjamin_CASE2,
+        Chloe_CASE3,
+        Ron_CASE5,
+        Nioneisos_CASE6,
         LittleWitch,
-        Narrator,
-        Ron,
         Unknown,
-        Hilda,
-        Nioneisos,
-        Chloe,
-        Benjamin
     }
     [Header("角色名字")]
     public CharacterName characterName;

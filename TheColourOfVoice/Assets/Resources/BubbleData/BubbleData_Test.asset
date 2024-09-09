@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c8410c99e95da45af4b244fd0371a8, type: 3}
   m_Name: BubbleData_Test
   m_EditorClassIdentifier: 
-  characterName: 0
+  characterName: 1
   bubbleText: This is a test sentense
   timeToDisplay: 4
   onFinishedEvent:
