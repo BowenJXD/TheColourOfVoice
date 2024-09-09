@@ -152,11 +152,5 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     {
         if (mechanic) mechanic.Deinit();
     }
-
-    private void Start()
-    {
-        //TODO:Delate this ,just for test
-        
-        StartPopupBubble("BubbleData_Test");
-    }
+    
 }
