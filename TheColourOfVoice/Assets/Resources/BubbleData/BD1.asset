@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26c8410c99e95da45af4b244fd0371a8, type: 3}
-  m_Name: BubbleData_AA
+  m_Name: BD1
   m_EditorClassIdentifier: 
   characterName: 3
-  bubbleText: Hello
-  timeToDisplay: 3
+  bubbleText: Calm them down by your laser!
+  timeToDisplay: 10
   onFinishedEvent:
     m_PersistentCalls:
       m_Calls: []

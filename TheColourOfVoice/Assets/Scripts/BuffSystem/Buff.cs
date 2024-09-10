@@ -71,4 +71,15 @@ public class Buff : MonoBehaviour, ISetUp
         loopTask?.Stop();
         if (emitter) emitter.SetParameter("EffectState", (int)FMODEffectState.End);
     }
+    
+    public void ChangeDuration(float newDuration)
+    {
+        duration = newDuration;
+        loopTask?.Stop();
+        if (duration > 0)
+        {
+            loopTask = new LoopTask { interval = duration, finishAction = () => { Remove(); } };
+            loopTask.Start();
+        }
+    }
 }

@@ -170,7 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   duration: 1
-  doPenetrate: 1
+  useRotation: 0
+  doPenetrate: 0
   fourDirectional: 0
 --- !u!114 &3193460567996462691
 MonoBehaviour:
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   waitTime: 0
   waitForSequenceToFinish: 1
 --- !u!114 &2823674844197799568
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   prefab: {fileID: 7179938763103737207, guid: 4611adf54a2db1e439f346223a86c997, type: 3}
   painter: {fileID: 0}
   attacker: {fileID: 0}

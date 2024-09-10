@@ -47,10 +47,17 @@ MonoBehaviour:
   phase: 2
   scoreBar: {fileID: 0}
   bossHealth: {fileID: 0}
-  explosion: {fileID: 0}
-  phase2Score: 100
+  explosion: {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
+  phase2Score: 1000
   phaseHealths:
   - 70
   - 50
   - 33.33
   - 20
+  - 10
+  enemyGenerators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

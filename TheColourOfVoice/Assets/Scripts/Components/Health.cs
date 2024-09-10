@@ -37,6 +37,11 @@ public class Health : MonoBehaviour, ISetUp
     /// </summary>
     public Action<float> TakeDamageAfter;
     
+    /// <summary>
+    /// Reset when disable
+    /// </summary>
+    public Action<float> OnHealthChanged;
+    
     private void OnEnable()
     {
         if (!IsSet) SetUp();
@@ -51,6 +56,7 @@ public class Health : MonoBehaviour, ISetUp
     public bool AlterHealth(float amount)
     {
         currentHealth += amount;
+        OnHealthChanged?.Invoke(amount);
         if (currentHealth <= 0)
         {
             OnDeath?.Invoke();

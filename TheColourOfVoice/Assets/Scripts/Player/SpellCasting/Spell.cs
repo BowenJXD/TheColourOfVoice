@@ -9,7 +9,7 @@ public class Spell : MonoBehaviour, ISetUp
     [Tooltip("The word to shout to trigger the spell.")]
     public string triggerWords;
     public float cooldown;
-    [ShowInInspector] [ReadOnly] float remainingCD;
+    [ShowInInspector] [ReadOnly] protected float remainingCD;
     
     [ReadOnly] public int spellIndex;
     public string spellName;
@@ -22,6 +22,8 @@ public class Spell : MonoBehaviour, ISetUp
 
     protected CastConfig currentConfig;
     public ParticleSystem ps;
+
+    public bool upgraded;
     
     public bool IsSet { get; set; }
     public virtual void SetUp()
@@ -108,6 +110,10 @@ public class Spell : MonoBehaviour, ISetUp
 
     public virtual void Upgrade()
     {
+        upgraded = true;
+        cooldown = 0.1f;
+        remainingCD = Mathf.Min(remainingCD, cooldown);
         // throw new NotImplementedException();
+        Debug.Log(name + " upgraded!");
     }
 }

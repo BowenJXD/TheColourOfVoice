@@ -70,4 +70,11 @@ public class GlowingConfidenceSpell : Spell
             EndBuff();
         }
     }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        duration = 999;
+        LevelManager.Instance.PopUpBubble("BD2");
+    }
 }

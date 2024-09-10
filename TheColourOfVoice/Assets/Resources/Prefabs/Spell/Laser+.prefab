@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3147a8151344dc802c24cb56e53948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 5
   isStackable: 0
 --- !u!114 &7744296342038263498
 MonoBehaviour:
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 6972671971489955718}
   - component: {fileID: 5390683646594540462}
   m_Layer: 8
-  m_Name: Laser
+  m_Name: Laser+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5653938028142238267}
@@ -245,7 +245,7 @@ MonoBehaviour:
   ease: 1
   duration: 0.1
   target: {fileID: 0}
-  targetScale: {x: 8, y: 1, z: 0}
+  targetScale: {x: 12, y: 3, z: 0}
 --- !u!114 &2119723310510066942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   ease: 1
   duration: 0.1
   target: {fileID: 0}
-  targetScale: {x: 0, y: 1, z: 0}
+  targetScale: {x: 0, y: 3, z: 0}
 --- !u!114 &3605615906248056056
 MonoBehaviour:
   m_ObjectHideFlags: 0

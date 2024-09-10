@@ -85,16 +85,18 @@ public class SplashTile : MonoBehaviour
         transform.position = location;
     }
     
-    /// <summary>
-    /// Reset after trigger
-    /// </summary>
-    public Action<Painter> OnPainted;
+    public Func<Painter, bool> OnPainted;
 
     public bool PaintTile(Painter painter)
     {
         bool result = PaintTile(painter.paintColor);
-        OnPainted?.Invoke(painter);
-        OnPainted = null;
+        if (OnPainted != null)
+        {
+            if (OnPainted.Invoke(painter))
+            {
+                OnPainted = null;
+            }
+        }
         return result;
     }
     

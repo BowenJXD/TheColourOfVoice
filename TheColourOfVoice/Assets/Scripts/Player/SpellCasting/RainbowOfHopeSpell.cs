@@ -41,6 +41,16 @@ public class RainbowOfHopeSpell : Spell
 
     void OnFire(BulletBase bullet)
     {
+        if (upgraded) 
+        {
+            if (bullet.TryGetComponent(out Painter painter))
+            {
+                painter.SetColor(PaintColor.Rainbow);
+            }
+
+            bullet.duration *= multiplier;
+            bullet.doPenetrate = true;
+        }
         if (bullet.TryGetComponent(out SpriteRenderer sp))
         {
             while (index < triggerWords.Length){
@@ -68,5 +78,11 @@ public class RainbowOfHopeSpell : Spell
         fire.SetBullet(bulletCache);
         fire.onFire -= OnFire;
         index = 0;
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        LevelManager.Instance.PopUpBubble("BD5");
     }
 }

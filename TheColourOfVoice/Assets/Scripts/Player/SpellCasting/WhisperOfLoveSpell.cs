@@ -53,7 +53,30 @@ public class WhisperOfLoveSpell : Spell
             if (health.TryGetComponent(out BuffOwner buffOwner))
             {
                 buffOwner.ApplyBuff(buff);
+                if (upgraded)
+                {
+                    if (buffOwner.TryGetComponent(out ChaseMovement chase))
+                    {
+                        GameObject boss = GameObject.Find("L5-Boss");
+                        if (boss) chase.target = boss;
+                    }
+
+                    if (buffOwner.TryGetComponentInChildren(out Attack attack))
+                    {
+                        if (attack.TryGetComponent(out Collider2D col))
+                        {
+                            col.IncludeLayer(ELayer.Enemy);
+                        }
+                    }
+                }
             }
         }
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        buff.ChangeDuration(999);
+        LevelManager.Instance.PopUpBubble("BD4");
     }
 }

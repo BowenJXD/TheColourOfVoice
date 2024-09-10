@@ -8,6 +8,8 @@ public class CalmingLaserSpell : Spell
     public AnimEntity animPrefab;
     
     public BulletBase bulletPrefab;
+    
+    public BulletBase upgradedBulletPrefab;
 
     AnimEntity currentAnim;
     private Animator ani;
@@ -46,7 +48,7 @@ public class CalmingLaserSpell : Spell
     public override void Execute()
     {
         base.Execute();
-        currentBullet = PoolManager.Instance.New(bulletPrefab);
+        currentBullet = PoolManager.Instance.New(upgraded ? upgradedBulletPrefab : bulletPrefab);
         currentBullet.transform.position = currentAnim.transform.position;
         currentBullet.transform.rotation = currentAnim.transform.rotation;
         Vector3 direction = currentBullet.transform.position - transform.position;
@@ -71,5 +73,11 @@ public class CalmingLaserSpell : Spell
         {
             rage.Extinguish();
         }
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        LevelManager.Instance.PopUpBubble("BD1");
     }
 }
