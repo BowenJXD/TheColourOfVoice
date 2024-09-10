@@ -94,14 +94,17 @@ public class Health : MonoBehaviour, ISetUp
         invincible = true;
         damageCooldownTask.Start();
         sp.FlashSprite(new Color(1,1,1,0.2f), damageCooldown);
-        inputWeightCache = movement.inputWeight;
-        movement.inputWeight = 0;
+        if (movement)
+        {
+            inputWeightCache = movement.inputWeight;
+            movement.inputWeight = 0;
+        }
     }
     
     void ResetCD()
     {
         invincible = false;
-        movement.inputWeight += inputWeightCache;
+        if (movement) movement.inputWeight += inputWeightCache;
     }
     
     public void ResetHealth()

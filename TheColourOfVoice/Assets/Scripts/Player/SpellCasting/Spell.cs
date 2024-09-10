@@ -108,6 +108,6 @@ public class Spell : MonoBehaviour, ISetUp
 
     public virtual void Upgrade()
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 }

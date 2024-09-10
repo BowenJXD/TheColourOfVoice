@@ -50,32 +50,33 @@ public class HopeMechanic : LevelMechanic
             exp.color = LevelManager.Instance.levelColor;
             exp.Init();
         }
+
+        SpellManager.Instance.allSpells[^(phase - 1)].Upgrade();
     }
     
     void EnterPhase2()
     {
+        int count = 0;
         foreach (SplashTile tile in SplashGrid.Instance.tiles)
         {
             if (tile.Color == PaintColor.Black)
             {
                 tile.PaintTile(PaintColor.White);
                 tile.OnPainted += OnTilePainted;
+                count++;
             }
         }
 
         bossHealth.invincible = false;
+        bossHealth.maxHealth = count;
+        bossHealth.ResetHealth();
         bossHealth.TakeDamageAfter += TakeDamageAfter;
-
-        SpellManager.Instance.allSpells[^(phase - 1)].Upgrade();
     }
 
     private void OnTilePainted(Painter obj)
     {
-        if (bossHealth.invincible)
-        {
-            damageCache += 1;
-        }
-        else 
+        damageCache += 1;
+        if (!bossHealth.invincible)
         {
             bossHealth.TakeDamage(damageCache);
             damageCache = 0;
@@ -84,7 +85,7 @@ public class HopeMechanic : LevelMechanic
     
     void TakeDamageAfter(float dmg)
     {
-        if (bossHealth.GetHealthPercentage() < phaseHealths[phase - 2])
+        if (bossHealth.GetHealthPercentage() * 100 < phaseHealths[phase - 2])
         {
             EnterPhase(phase + 1);
         }

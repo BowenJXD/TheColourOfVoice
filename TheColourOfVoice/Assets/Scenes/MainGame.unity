@@ -11805,7 +11805,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f24461102f0464c8c8ccbf64c2d9b7, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11869,7 +11869,7 @@ MonoBehaviour:
   m_margin: {x: -25.834747, y: 0, z: 0, w: -14.762682}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &403204961
@@ -12397,7 +12397,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f24461102f0464c8c8ccbf64c2d9b7, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12461,7 +12461,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -25.724014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &535599656
@@ -13224,14 +13224,14 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0.5
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 1
+  m_ReverseArrangement: 0
 --- !u!1 &753415076
 GameObject:
   m_ObjectHideFlags: 0
@@ -13574,15 +13574,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113794111999803653, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: speed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4113794111999803653, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: inputWeight
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: OverrideMaxDistance
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5718421762797642115, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: spellPanel
@@ -15274,7 +15274,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f24461102f0464c8c8ccbf64c2d9b7, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15338,7 +15338,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -25.724014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1439974961
@@ -16563,7 +16563,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f24461102f0464c8c8ccbf64c2d9b7, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -16627,7 +16627,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -25.724014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1746256922

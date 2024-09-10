@@ -44,5 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be97391cd54d4d5a972d21aa37e3b161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phase: 2
   scoreBar: {fileID: 0}
+  bossHealth: {fileID: 0}
+  explosion: {fileID: 0}
   phase2Score: 100
+  phaseHealths:
+  - 70
+  - 50
+  - 33.33
+  - 20
