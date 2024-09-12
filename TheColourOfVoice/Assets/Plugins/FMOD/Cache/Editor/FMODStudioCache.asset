@@ -25,7 +25,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-7577501922418635400
 MonoBehaviour:
@@ -81,7 +81,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 2842896561020977745}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-4176427832679093330
 MonoBehaviour:
@@ -137,7 +137,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 8550905067467293018}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-1851274352252270643
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638574379488622455
+  lastModified: 638530410455991967
   FileSizes:
   - Name: Desktop
     Value: 1588
@@ -248,7 +248,7 @@ MonoBehaviour:
   - {fileID: 2767100926582231373}
   StringsBanks:
   - {fileID: -1748321852899982710}
-  cacheTime: 638574379488622455
+  cacheTime: 638530410455991967
   cacheVersion: 131619
 --- !u!114 &657195128897659667
 MonoBehaviour:
@@ -293,7 +293,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638574379488602527
+  lastModified: 638530410455971790
   FileSizes:
   - Name: Desktop
     Value: 3826208
@@ -403,7 +403,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &4189104083604345973
 MonoBehaviour:
@@ -486,7 +486,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 4371699199747498468}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &4510710435554378631
 MonoBehaviour:
@@ -592,7 +592,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -7577501922418635400}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &8550905067467293018
 MonoBehaviour:
@@ -647,5 +647,5 @@ MonoBehaviour:
   Parameters:
   - {fileID: 7261885150111944194}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
