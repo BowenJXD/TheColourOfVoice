@@ -35,18 +35,19 @@ public class BossBanner : MonoBehaviour
         {
             if (!bannerPanel.activeSelf)
             {
-                ShowBanner(null, "Boss", Color.red);
+                ShowBanner(null,"PigPig Rush" , Color.red);
             }
         }
     }
 
 
-    public void ShowBanner(Sprite bossSprite, string bossName, Color bgColor)
+    public void ShowBanner(Sprite bossSprite, string bossSkillName, Color bgColor)
     {
 
         if(bossSprite!=null)
             bossImage.sprite = bossSprite;  
-        bossText.text = bossName;  
+        if(bossText!=null)
+            bossText.text = bossSkillName;
         backgroundImage.color = bgColor;  
         
 
