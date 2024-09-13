@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using LeastSquares.Talken;
 using UnityEngine;
@@ -26,4 +26,4 @@ public class VoiceInputSystemTalken : Singleton<VoiceInputSystemTalken>
     {
         engine.RemoveCommand(key);
     }
-}
+}*/
