@@ -13232,7 +13232,7 @@ GameObject:
   - component: {fileID: 732392510}
   - component: {fileID: 732392511}
   m_Layer: 5
-  m_Name: LineEffect (1)
+  m_Name: LineEffect2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15577,7 +15577,7 @@ GameObject:
   - component: {fileID: 1330515377}
   - component: {fileID: 1330515378}
   m_Layer: 5
-  m_Name: LineEffect
+  m_Name: LineEffect1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
