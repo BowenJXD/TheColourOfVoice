@@ -78,6 +78,6 @@ public class CalmingLaserSpell : Spell
     public override void Upgrade()
     {
         base.Upgrade();
-        LevelManager.Instance.PopUpBubble("BD1");
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD1"));
     }
 }

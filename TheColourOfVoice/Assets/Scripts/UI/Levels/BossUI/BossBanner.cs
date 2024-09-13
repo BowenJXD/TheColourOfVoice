@@ -8,7 +8,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BossBanner : MonoBehaviour
+public class BossBanner : Singleton<BossBanner>
 {
     public GameObject bannerPanel;
     public Image backgroundImage;
@@ -31,19 +31,20 @@ public class BossBanner : MonoBehaviour
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!bannerPanel.activeSelf)
             {
                 ShowBanner(null,"PigPig Rush" , Color.red);
             }
-        }
+        }*/
     }
 
 
-    public void ShowBanner(Sprite bossSprite, string bossSkillName, Color bgColor)
+    public void ShowBanner(Sprite bossSprite, string bossSkillName, Color bgColor, bool pauseTime = false)
     {
-
+        if (pauseTime) Time.timeScale = 0;
+        
         if(bossSprite!=null)
             bossImage.sprite = bossSprite;  
         if(bossText!=null)
@@ -55,11 +56,11 @@ public class BossBanner : MonoBehaviour
         bannerPanel.SetActive(true);
 
 
-        bannerRect.localScale = new Vector3(0, 1, 1); 
-        bannerRect.DOScale(new Vector3(1, 1, 1), 0.5f) 
+        bannerRect.localScale = new Vector3(0, 1, 1);
+        bannerRect.DOScale(new Vector3(1, 1, 1), 0.5f)
             .SetEase(Ease.OutBack)
-            .OnComplete(OnBannerDisplayed); 
-        
+            .OnComplete(OnBannerDisplayed).SetUpdate(true);
+
     }
 
 
@@ -68,7 +69,7 @@ public class BossBanner : MonoBehaviour
         // hide banner after 2 seconds
         DOTween.Sequence()
             .AppendInterval(2f)  
-            .AppendCallback(HideBanner); 
+            .AppendCallback(HideBanner).SetUpdate(true);
     }
 
 
@@ -77,12 +78,13 @@ public class BossBanner : MonoBehaviour
 
         bannerRect.DOScale(new Vector3(1, 0, 1), 0.5f)
             .SetEase(Ease.InBack)
-            .OnComplete(OnBannerHidden);
+            .OnComplete(OnBannerHidden).SetUpdate(true);
     }
 
 
     private void OnBannerHidden()
     {
         bannerPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -77,6 +77,6 @@ public class WhisperOfLoveSpell : Spell
     {
         base.Upgrade();
         buff.ChangeDuration(999);
-        LevelManager.Instance.PopUpBubble("BD4");
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD4"));
     }
 }

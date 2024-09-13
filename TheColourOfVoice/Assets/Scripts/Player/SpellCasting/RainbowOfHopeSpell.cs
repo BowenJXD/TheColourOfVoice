@@ -83,6 +83,6 @@ public class RainbowOfHopeSpell : Spell
     public override void Upgrade()
     {
         base.Upgrade();
-        LevelManager.Instance.PopUpBubble("BD5");
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD5"));
     }
 }

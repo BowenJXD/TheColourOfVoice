@@ -74,7 +74,9 @@ public class GlowingConfidenceSpell : Spell
     public override void Upgrade()
     {
         base.Upgrade();
-        duration = 999;
-        LevelManager.Instance.PopUpBubble("BD2");
+        moveMultiplier *= 2;
+        duration *= 2;
+        painter.SetColor(PaintColor.Rainbow);
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD2"));
     }
 }

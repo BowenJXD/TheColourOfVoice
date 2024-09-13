@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class Util
 {
@@ -122,5 +125,10 @@ public static class Util
     {
         component = gameObject.GetComponentInChildren<T>(includeInactive);
         return component;
+    }
+    
+    public static T GetRandomElement<T>(this T[] list)
+    {
+        return list.ElementAt(Random.Range(0, list.Count()));
     }
 }

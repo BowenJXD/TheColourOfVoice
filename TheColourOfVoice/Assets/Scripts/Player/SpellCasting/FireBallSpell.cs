@@ -65,6 +65,6 @@ public class FireBallSpell : Spell
     public override void Upgrade()
     {
         base.Upgrade();
-        LevelManager.Instance.PopUpBubble("BD3");
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD3"));
     }
 }

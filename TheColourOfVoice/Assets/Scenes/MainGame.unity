@@ -13328,7 +13328,19 @@ PrefabInstance:
       addedObject: {fileID: 1110711931}
     - targetCorrespondingSourceObject: {fileID: 6343572423152266990, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1110711954}
+    - targetCorrespondingSourceObject: {fileID: 6343572423152266990, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1110711953}
+    - targetCorrespondingSourceObject: {fileID: 6343572423152266990, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1110711930}
+    - targetCorrespondingSourceObject: {fileID: 6343572423152266990, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1110711952}
+    - targetCorrespondingSourceObject: {fileID: 6343572423152266990, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1110711951}
   m_SourcePrefab: {fileID: 100100000, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
 --- !u!1 &746943300
 GameObject:
@@ -13745,6 +13757,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 925525683402632541, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41a932c3a5a243548900c1c6a6b61a92, type: 2}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -13760,6 +13776,14 @@ PrefabInstance:
     - target: {fileID: 4113794111999803653, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: inputWeight
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884521792146207828, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884521792146207828, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4902660168330101317, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: OverrideMaxDistance
@@ -14369,9 +14393,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executables:
+  - {fileID: 1110711954}
   - {fileID: 1110711930}
+  - {fileID: 1110711952}
   bossHealth: {fileID: 1110711924}
   bossBehaviour: {fileID: 1110711914}
+--- !u!114 &1110711951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110711907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -794766921
+      Data2: 1123744298
+      Data3: 2065751487
+      Data4: -201098256
+    Path: event:/Combat/Splited
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1110711952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110711907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 1110711951}
+--- !u!114 &1110711953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110711907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1941853756
+      Data2: 1295960442
+      Data3: -659542854
+      Data4: 1988801245
+    Path: event:/Combat/Spliting
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 100
+--- !u!114 &1110711954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110711907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 1110711953}
 --- !u!1 &1160682290
 GameObject:
   m_ObjectHideFlags: 0

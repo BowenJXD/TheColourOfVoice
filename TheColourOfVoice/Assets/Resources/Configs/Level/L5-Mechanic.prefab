@@ -61,3 +61,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  bossSprite: {fileID: 22371522, guid: dbf6098e0d06a8a4685e4c510839c307, type: 3}
+  rageMechanic: {fileID: -2400236107960218809, guid: 1f072146b86288440be589ce0611f9fb, type: 3}
