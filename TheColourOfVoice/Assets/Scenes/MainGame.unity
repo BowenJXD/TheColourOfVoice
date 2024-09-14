@@ -13425,6 +13425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L5-Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 6591562327378149261, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7191955386174604814, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
       propertyPath: spawnCount
       value: 1
@@ -14674,7 +14678,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 100
+  OverrideMaxDistance: 20
 --- !u!114 &1110711954
 MonoBehaviour:
   m_ObjectHideFlags: 0

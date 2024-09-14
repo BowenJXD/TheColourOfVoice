@@ -321,7 +321,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1253,7 +1253,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 39d56f0db9b148e409155fbbd013967e, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -1277,6 +1277,22 @@ PlayableDirector:
     value: {fileID: 1255866208}
   - key: {fileID: 8426660380401202166, guid: 39d56f0db9b148e409155fbbd013967e, type: 2}
     value: {fileID: 1193719255}
+  - key: {fileID: -4785114918832393154, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2340645933097138131, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -9114879487702159201, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6275069319867706227, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8641108185302820322, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7562899128229247114, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3639089035216573798, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 340490816093383435, guid: fd196c68463b92445a747c14cf5ce86e, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 052b62f680c486b4391510b25dcb45f0: {fileID: 153875520}
@@ -1667,7 +1683,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2238,7 +2254,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2363,7 +2379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Uh2
+  m_text: Uh...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
@@ -2783,7 +2799,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3098,7 +3114,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3182,7 +3198,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
