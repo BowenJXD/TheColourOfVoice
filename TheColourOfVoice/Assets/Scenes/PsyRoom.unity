@@ -1432,7 +1432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &590818213
 Transform:
   m_ObjectHideFlags: 0
@@ -1476,7 +1476,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590818212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2201,7 +2201,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c3aaef6ee7d6b694dbae489fc81c6f52, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -2249,6 +2249,14 @@ PlayableDirector:
     value: {fileID: 2021828284}
   - key: {fileID: -9164409291021740409, guid: c3aaef6ee7d6b694dbae489fc81c6f52, type: 2}
     value: {fileID: 590818212}
+  - key: {fileID: 5991927526200599625, guid: 73d877a13ddc2a243b165c5ceb97b51b, type: 2}
+    value: {fileID: 1703682147}
+  - key: {fileID: -5908554381823865505, guid: 73d877a13ddc2a243b165c5ceb97b51b, type: 2}
+    value: {fileID: 1703682144}
+  - key: {fileID: 7282736859592023927, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
+    value: {fileID: 1279057540}
+  - key: {fileID: 6276305607959200844, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
+    value: {fileID: 1279057537}
   m_ExposedReferences:
     m_References:
     - 052b62f680c486b4391510b25dcb45f0: {fileID: 153875520}
@@ -2273,6 +2281,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 1a63761409e21204384bf668152ec571, type: 2}
     - {fileID: 11400000, guid: 2d1be3a5c07118644a79704ef3a10267, type: 2}
+    - {fileID: 11400000, guid: 12c917922ecf60a43ade3076e5df5c84, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2280,6 +2289,20 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
           m_MethodName: FinishedOpenningCG
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: ChangeLevel
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2937,7 +2960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LittleWitch
+  m_text: Benjamin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3589,7 +3612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1279057538
 Transform:
   m_ObjectHideFlags: 0
@@ -3598,7 +3621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279057537}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1, y: -3.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4071,7 +4094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "(A bird... Why is everyone\u2019s \uFF3A"
+  m_text: A young man with silver short hair, wearing a cat-ear hat, stepped inside.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
@@ -4533,7 +4556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1703682145
 SpriteRenderer:
   m_ObjectHideFlags: 0
