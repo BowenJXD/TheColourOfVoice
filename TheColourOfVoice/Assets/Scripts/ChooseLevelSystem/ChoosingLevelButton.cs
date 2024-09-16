@@ -64,7 +64,7 @@ public class ChoosingLevelButton : MonoBehaviour
       Debug.Log("Scene " + scene.name + " loaded with mode " + mode);
 
       // 执行初始化逻辑
-      InitializeScene(levelIndex);
+      //InitializeScene(levelIndex);
    }
 
    private void OnchoosingLevelButtonClicked()
@@ -81,6 +81,7 @@ public class ChoosingLevelButton : MonoBehaviour
        Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
        GameObject.Find("ChooseLevelPanel").SetActive(false);
        levelIndex = currentCaseData.levelIndex;
+       ChoosingLevelData.NEXT_LEVEL_CONFIG = levelIndex;
        /*if (levelIndex == 0)
        {
           ChangeLevel(true);

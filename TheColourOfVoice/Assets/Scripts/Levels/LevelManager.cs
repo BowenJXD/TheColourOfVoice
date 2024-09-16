@@ -30,6 +30,15 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
         }
     }
     
+    /*private void Start()
+    {
+        if (ChoosingLevelData.NEXT_LEVEL_CONFIG < 0)
+        {
+            return;
+        }
+        ChangeConfig(ChoosingLevelData.NEXT_LEVEL_CONFIG);
+    }*/
+
     public bool IsSet { get; set; }
     public void SetUp()
     {
