@@ -30,6 +30,7 @@ public class FireBallSpell : Spell
         base.StartCasting(config);
         currentAnim = PoolManager.Instance.New(animPrefab);
         currentAnim.animDuration = config.chantTime;
+        if (upgraded) currentAnim.animDuration *= 2;
         if (currentAnim.TryGetComponent(out DoTweenScale1Behaviour scale1Behaviour))
         {
             scale1Behaviour.scaleSpeed = currentConfig.chantTime;
@@ -59,5 +60,11 @@ public class FireBallSpell : Spell
         currentBullet.SetDirection(direction);
         
         currentAnim.Deinit();
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        StartCoroutine(LevelManager.Instance.PopUpBubble("BD3"));
     }
 }

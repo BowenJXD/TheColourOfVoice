@@ -289,8 +289,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.5
+      scalar: 0.1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -447,7 +447,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -500,7 +500,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -553,9 +553,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: 1.0471976
+      minScalar: 0.5235988
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4779,7 +4779,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f24ddcc7a05b994db70f9f9631b9c87, type: 2}
+  - {fileID: 2100000, guid: 41a932c3a5a243548900c1c6a6b61a92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5041,13 +5041,13 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  AllowNonRigidbodyDoppler: 0
+  NonRigidbodyVelocity: 0
   Params:
   - Name: EffectState
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 100
 --- !u!1 &6144049354887091650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,7 +5169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   duration: 6
+  useRotation: 0
   doPenetrate: 1
+  fourDirectional: 0
 --- !u!114 &3193460567996462691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5196,7 +5198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 3.4028235e+38
+  damageCD: 1
   resetCDOnExit: 1
   knockBack: 7
   rb: {fileID: 0}
@@ -5280,7 +5282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   prefab: {fileID: 7179938763103737207, guid: 4611adf54a2db1e439f346223a86c997, type: 3}
   painter: {fileID: 0}
   attacker: {fileID: 0}
@@ -5298,6 +5300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 1404843335401291282}
+  loop: 0
 --- !u!114 &1404843335401291282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5311,7 +5314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   sequence: {fileID: 0}
   ease: 1
   duration: 6

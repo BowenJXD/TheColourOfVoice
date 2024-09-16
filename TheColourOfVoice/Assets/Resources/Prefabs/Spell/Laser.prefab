@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   duration: 0.3
+  useRotation: 0
   doPenetrate: 1
   fourDirectional: 0
 --- !u!114 &2812144874977168013

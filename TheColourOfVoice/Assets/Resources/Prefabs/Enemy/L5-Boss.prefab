@@ -108,7 +108,7 @@ MonoBehaviour:
   skip: 1
   executing: 0
   mode: 0
-  offset: 5
+  offset: 3
   force: 0
   angles:
   - 0
@@ -120,6 +120,66 @@ MonoBehaviour:
   doUseBBValues: 1
   doWaitForAllToDeinit: 0
   prefab: {fileID: 4166959021339073686, guid: de470b440fb11c946bc5bda968c358d0, type: 3}
+--- !u!1 &2387135322867402400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5351547245726407837}
+  - component: {fileID: 7191955386174604814}
+  m_Layer: 9
+  m_Name: EG1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5351547245726407837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387135322867402400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1084944557778874986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7191955386174604814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387135322867402400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b3abd180f243acbbd892a2afd2699c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 5814520136205242931, guid: 887b08839435e6c4bb25c572e73dd61f, type: 3}
+  - {fileID: 2165421628396892490, guid: 592f255ecb3e0e245a03033f06d54767, type: 3}
+  - {fileID: 7303643893266698455, guid: 04f9585b7dcc5f44fa1f0dc7551acdaf, type: 3}
+  taskConfigs:
+  - amounts: 030000000300000003000000
+    duration: 10
+  currentTaskIndex: 0
+  minDistance: 8
+  maxDistance: 10
+  distributionVariationInterval: 1
+  minDistribution: 60
+  maxDistributionVariation: 120
+  spawnCount: 3
+  spawnInterval: 1
+  spawnTransform: {fileID: 0}
 --- !u!1 &3090193379588456557
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +191,8 @@ GameObject:
   - component: {fileID: 48584065721321314}
   - component: {fileID: 1968490650080594191}
   - component: {fileID: 1810830897209016207}
+  - component: {fileID: 7005749953110068530}
+  - component: {fileID: 5560800758237996501}
   m_Layer: 9
   m_Name: Asteroid
   m_TagString: Untagged
@@ -196,6 +258,73 @@ MonoBehaviour:
   doUseBBValues: 0
   doWaitForAllToDeinit: 1
   prefab: {fileID: 7348687760236710284, guid: 4fe3abd1ceec7e54abe419515d21a03e, type: 3}
+--- !u!114 &7005749953110068530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bd043c5c454a65813d2f7f3badf03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+--- !u!114 &5560800758237996501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 3
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0.3, y: -0.3, z: 0}
 --- !u!1 &7511206393735882369
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +418,7 @@ MonoBehaviour:
   duration: 2
   target: {fileID: 4795884882165627528}
   moveVector: {x: 0, y: 0, z: 0}
-  speed: 0
+  speed: 20
   randomLocation: 0
   range: {x: 0, y: 0}
 --- !u!1 &7833403411091873741
@@ -373,6 +502,38 @@ MonoBehaviour:
   doUseBBValues: 1
   doWaitForAllToDeinit: 0
   prefab: {fileID: 8393773426448386475, guid: d38b4801fefe5f344a2fc8da41121410, type: 3}
+--- !u!1 &8038709624918071118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1084944557778874986}
+  m_Layer: 9
+  m_Name: EnemyGenerators
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084944557778874986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038709624918071118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5351547245726407837}
+  m_Father: {fileID: 4795884882165627528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &695051044671137807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,6 +676,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5416483287231550087, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 48584065721321314}
+    - targetCorrespondingSourceObject: {fileID: 5416483287231550087, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1084944557778874986}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5885559008707167969, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       insertIndex: 2
@@ -752,9 +916,9 @@ MonoBehaviour:
   avoidLastExe: 1
   executables:
   - {fileID: 8961112179618842977}
+  - {fileID: 1162569192626225059}
   - {fileID: 725626739307797518}
   - {fileID: 1968490650080594191}
-  - {fileID: 1162569192626225059}
   selectedExe: {fileID: 0}
 --- !u!114 &8188480478608314448 stripped
 MonoBehaviour:

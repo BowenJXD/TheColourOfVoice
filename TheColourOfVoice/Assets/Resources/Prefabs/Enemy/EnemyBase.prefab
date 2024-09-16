@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
+  useLevelColour: 1
 --- !u!114 &1559659144169942989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,4 +465,4 @@ MonoBehaviour:
   skip: 0
   executing: 0
   timeScaleOverride: 0.2
-  duration: 1
+  duration: 0.6

@@ -29,7 +29,7 @@ public class HonestWordsSpell : Spell
         tile.OnPainted += OnPaint;
     }
 
-    private void OnPaint(Painter painter)
+    private bool OnPaint(Painter painter)
     {
         if (painter.CompareTag("Enemy"))
         {
@@ -43,5 +43,7 @@ public class HonestWordsSpell : Spell
                 buffOwner.ApplyBuff(buff);
             }
         }
+
+        return true;
     }
 }

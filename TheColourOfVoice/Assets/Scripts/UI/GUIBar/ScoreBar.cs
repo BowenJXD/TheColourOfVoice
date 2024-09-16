@@ -87,8 +87,8 @@ public class ScoreBar : MonoBehaviour
 
         score += addedScore;
         score = Mathf.Min(score, maxScore);
-        SetScoreText(score);
         OnScoreChanged?.Invoke(newPercentage);
+        SetScoreText(score);
 
         UpdateUI();
         StartCoroutine(FlashScoreText());

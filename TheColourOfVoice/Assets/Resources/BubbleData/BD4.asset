@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26c8410c99e95da45af4b244fd0371a8, type: 3}
-  m_Name: BubbleData_Test
+  m_Name: BD4
   m_EditorClassIdentifier: 
-  characterName: 1
-  bubbleText: This is a test sentense
-  timeToDisplay: 4
+  characterName: 3
+  bubbleText: Don't forget the power of love!
+  timeToDisplay: 10
   onFinishedEvent:
     m_PersistentCalls:
       m_Calls: []

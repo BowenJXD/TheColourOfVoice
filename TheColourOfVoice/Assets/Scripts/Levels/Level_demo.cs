@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Level_demo : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class Level_demo : MonoBehaviour
     public float targetOrthoSize = 10f;
     public float zoomDuration = 1f;
     public Ease zoomEase = Ease.OutCubic;
+
+    private bool chaosTimer = false;
 
     private void Awake()
     {
@@ -74,45 +77,6 @@ public class Level_demo : MonoBehaviour
             OnFinishedEvent(false);
             return;
         }
-
-        
-       
-
-        if(index== 1)
-        {
-            if (selectedSpell[1] != null)
-            {
-                selectedSpell[1].SetActive(false);
-            }
-            if (selectedSpell[2] != null)
-            {
-                selectedSpell[2].SetActive(false);
-            }
-        }
-        if(index== 2)
-        {
-            if (selectedSpell[1] != null)
-            {
-                selectedSpell[1].SetActive(true);
-            }
-            if (selectedSpell[2] != null)
-            {
-                selectedSpell[2].SetActive(false);
-            }
-        }
-        if(index== 3)
-        {
-            if (selectedSpell[1] != null)
-            {
-                selectedSpell[1].SetActive(true);
-            }
-            if (selectedSpell[2] != null)
-            {
-                selectedSpell[2].SetActive(true);
-            }
-        }
-        
-       
     }
 
     void OnFinishedEvent(bool success)
@@ -128,13 +92,25 @@ public class Level_demo : MonoBehaviour
 
     IEnumerator Timer()
     {
+        TextMeshProUGUI timerText = text.GetComponent<TextMeshProUGUI>();
         while (totalTime >= 0)
         {
-            int minutes = totalTime / 60;
-            int seconds = totalTime % 60;
-            text.GetComponent<TextMeshProUGUI>().text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
-            yield return new WaitForSeconds(1);
-            totalTime--;
+            if (!chaosTimer)
+            {
+                int minutes = totalTime / 60;
+                int seconds = totalTime % 60;
+                timerText.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
+                yield return new WaitForSeconds(1);
+                totalTime--;
+            }
+            else
+            {
+                char c1 = Util.GetRandomElement(new []{'@', '#', '$', '%', '&', '?'});
+                char c2 = Util.GetRandomElement(new []{'@', '#', '$', '%', '&', '?'});
+                char c3 = Util.GetRandomElement(new []{'@', '#', '$', '%', '&', '?'});
+                timerText.text = string.Format("{0}:{1}{2}", c1, c2, c3);
+                yield return null;
+            }
         }
 
         Debug.Log("Time's up!");
@@ -142,14 +118,14 @@ public class Level_demo : MonoBehaviour
         LogUtil.Instance.LogCSV();
         if (totalTime <= 0)
         {
-            EndLevel();
+            EndLevel(() => ShowEndLevelUI());
             //ShowEndLevelUI();
             
         }
 
     }
 
-    void EndLevel()
+    public void EndLevel(Action callback)
     {
         VolumeControlOrthoSize.Instance.enabled = false;
         var cam = FindObjectOfType<CinemachineVirtualCamera>();
@@ -160,7 +136,7 @@ public class Level_demo : MonoBehaviour
         DOTween.To(() => currentOrthoSize, x => cam.m_Lens.OrthographicSize = x, targetOrthoSize, zoomDuration)
             .SetEase(zoomEase)
             .SetUpdate(true)
-            .OnComplete(() => ShowEndLevelUI());
+            .OnComplete(callback.Invoke);
     }
     
     void ShowEndLevelUI()
@@ -218,5 +194,10 @@ public class Level_demo : MonoBehaviour
     {
         totalTime = 180; 
         Time.timeScale = 1; 
+    }
+
+    public void SetChaosTimer(bool enable)
+    {
+        chaosTimer = enable;
     }
 }

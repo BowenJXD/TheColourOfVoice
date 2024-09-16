@@ -37,6 +37,11 @@ public class Health : MonoBehaviour, ISetUp
     /// </summary>
     public Action<float> TakeDamageAfter;
     
+    /// <summary>
+    /// Reset when disable
+    /// </summary>
+    public Action<float> OnHealthChanged;
+    
     private void OnEnable()
     {
         if (!IsSet) SetUp();
@@ -51,6 +56,7 @@ public class Health : MonoBehaviour, ISetUp
     public bool AlterHealth(float amount)
     {
         currentHealth += amount;
+        OnHealthChanged?.Invoke(amount);
         if (currentHealth <= 0)
         {
             OnDeath?.Invoke();
@@ -94,14 +100,17 @@ public class Health : MonoBehaviour, ISetUp
         invincible = true;
         damageCooldownTask.Start();
         sp.FlashSprite(new Color(1,1,1,0.2f), damageCooldown);
-        inputWeightCache = movement.inputWeight;
-        movement.inputWeight = 0;
+        if (movement)
+        {
+            inputWeightCache = movement.inputWeight;
+            movement.inputWeight = 0;
+        }
     }
     
     void ResetCD()
     {
         invincible = false;
-        movement.inputWeight += inputWeightCache;
+        if (movement) movement.inputWeight += inputWeightCache;
     }
     
     public void ResetHealth()

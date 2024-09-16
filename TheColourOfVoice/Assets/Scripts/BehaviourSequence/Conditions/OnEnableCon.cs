@@ -8,14 +8,15 @@ public class OnEnableCon : ConditionBehaviour
     protected override void Init()
     {
         base.Init();
-        StartCoroutine(loop ? Exe() : Execute());
+        StartCoroutine(Execute());
     }
 
-    private IEnumerator Exe()
+    public override IEnumerator Execute()
     {
-        while (Application.isPlaying)
+        do
         {
-            yield return Execute();
+            yield return base.Execute();
         }
+        while (loop && Application.isPlaying);
     }
 }

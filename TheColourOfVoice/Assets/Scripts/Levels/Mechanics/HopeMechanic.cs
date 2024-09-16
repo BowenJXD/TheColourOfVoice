@@ -1,5 +1,10 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class HopeMechanic : LevelMechanic
 {
@@ -10,15 +15,40 @@ public class HopeMechanic : LevelMechanic
     public Explosion explosion;
     public float phase2Score;
     public float[] phaseHealths;
+    public List<EnemyGenerator> enemyGenerators;
+    public Sprite bossSprite;
 
     private int damageCache;
+    private EnterPhaseEffect enterPhaseEffect;
+    Volume volume;
+    Level_demo levelDemo;
+    public RageMechanic rageMechanic;
     
     public override void Init()
     {
         base.Init();
-        if (!scoreBar) scoreBar = FindObjectOfType<ScoreBar>();
+        scoreBar = FindObjectOfType<ScoreBar>();
         scoreBar.OnScoreChanged += OnScoreChanged;
-        if (!bossHealth) bossHealth = GameObject.FindWithTag("Enemy").GetComponent<Health>();
+        if (!bossHealth)
+        {
+            var enemy = GameObject.FindWithTag("Enemy");
+            bossHealth = enemy.GetComponent<Health>();
+            enterPhaseEffect = enemy.GetComponent<EnterPhaseEffect>();
+        }
+        enemyGenerators = FindObjectsOfType<EnemyGenerator>(true).OrderBy(c => c.transform.GetSiblingIndex()).ToList();
+        volume = FindObjectOfType<Volume>();
+        if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+            DOTween.To(() => colorAdjustments.saturation.value, x => colorAdjustments.saturation.value = x, -100, 2);
+        }
+        if (volume.profile.TryGet(out FilmGrain filmGrain))
+        {
+            DOTween.To(() => filmGrain.intensity.value, x => filmGrain.intensity.value = x, 0.5f, 2);
+        }
+        levelDemo = FindObjectOfType<Level_demo>();
+        levelDemo.SetChaosTimer(true);
+        
+        Game.Instance.OnNextUpdate += () => BossBanner.Instance.ShowBanner(bossSprite, "Nionysus", ColorManager.Instance.GetColor(PaintColor.Red), true);
     }
 
     private void OnScoreChanged(float percentage)
@@ -26,6 +56,11 @@ public class HopeMechanic : LevelMechanic
         if (scoreBar.score > phase2Score)
         {
             EnterPhase(2);
+            scoreBar.OnScoreChanged -= OnScoreChanged;
+        }
+        if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+            colorAdjustments.saturation.value = Mathf.Lerp(-100, -90, scoreBar.score / phase2Score);
         }
     }
 
@@ -41,6 +76,12 @@ public class HopeMechanic : LevelMechanic
                 break;
             case 3:
                 break;
+            case 6:
+                EnterPhase6();
+                break;
+            case 7:
+                EnterPhase7();
+                return;
         }
 
         if (explosion) 
@@ -50,41 +91,97 @@ public class HopeMechanic : LevelMechanic
             exp.color = LevelManager.Instance.levelColor;
             exp.Init();
         }
+        
+        foreach (var enemy in FindObjectsOfType<Enemy>())
+        {
+            if (enemy.gameObject != bossHealth.gameObject)
+            {
+                enemy.Deinit();
+            }
+        }
+
+        SpellManager.Instance.allSpells[^(phase - 1)].Upgrade();
+        if (enemyGenerators.Count > phase - 2)
+        {
+            enemyGenerators[phase - 2].gameObject.SetActive(true);
+        }
+        
+        enterPhaseEffect.EnterPhase(phase);
     }
     
     void EnterPhase2()
     {
+        int count = 0;
         foreach (SplashTile tile in SplashGrid.Instance.tiles)
         {
             if (tile.Color == PaintColor.Black)
             {
                 tile.PaintTile(PaintColor.White);
                 tile.OnPainted += OnTilePainted;
+                count++;
             }
         }
 
         bossHealth.invincible = false;
-        bossHealth.TakeDamageAfter += TakeDamageAfter;
-
-        SpellManager.Instance.allSpells[^(phase - 1)].Upgrade();
+        bossHealth.maxHealth = count;
+        bossHealth.ResetHealth();
+        bossHealth.OnHealthChanged += OnHealthChanged;
+        
+        scoreBar.maxScore = bossHealth.maxHealth;
+        scoreBar.OnScoreChanged += f =>
+        {
+            scoreBar.score = bossHealth.currentHealth;
+        };
+        
+        if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+            DOTween.To(() => colorAdjustments.saturation.value, x => colorAdjustments.saturation.value = x, 0, 2);
+        }
+        if (volume.profile.TryGet(out FilmGrain filmGrain))
+        {
+            DOTween.To(() => filmGrain.intensity.value, x => filmGrain.intensity.value = x, 0, 2);
+        }
     }
 
-    private void OnTilePainted(Painter obj)
+    void EnterPhase6()
     {
-        if (bossHealth.invincible)
-        {
-            damageCache += 1;
-        }
-        else 
-        {
-            bossHealth.TakeDamage(damageCache);
-            damageCache = 0;
-        }
+        var obj = Instantiate(rageMechanic);
+        obj.Init();
+        obj.rageValue = obj.rageLimit;
+        LevelManager.Instance.mechanic = obj;
     }
     
-    void TakeDamageAfter(float dmg)
+    void EnterPhase7()
     {
-        if (bossHealth.GetHealthPercentage() < phaseHealths[phase - 2])
+        if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+            levelDemo.EndLevel(() =>
+            {
+                DOTween.To(() => colorAdjustments.postExposure.value, x => colorAdjustments.postExposure.value = x, 8, 2)
+                    .OnComplete(Application.Quit);
+            });
+        }
+        
+        enterPhaseEffect.EnterPhase(phase);
+    }
+    
+    private bool OnTilePainted(Painter obj)
+    {
+        if (obj.paintColor is PaintColor.Black or PaintColor.White or PaintColor.Null) return false;
+        damageCache += 1;
+        if (!bossHealth.invincible)
+        {
+            bossHealth.AlterHealth(-damageCache);
+            damageCache = 0;
+        }
+
+        return true;
+    }
+    
+    void OnHealthChanged(float newHealth)
+    {
+        if (phase - 2 >= phaseHealths.Length) return;
+        if (bossHealth.GetHealthPercentage() * 100 < phaseHealths[phase - 2])
         {
             EnterPhase(phase + 1);
         }
