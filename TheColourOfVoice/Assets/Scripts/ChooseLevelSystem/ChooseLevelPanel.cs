@@ -179,5 +179,22 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         MoveCase(currentCaseList[leftIndex],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
         int rightIndex = (currentIndex + 1) % listCount;
         MoveCase(currentCaseList[rightIndex],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+        
+        ShowOnlySelectedIndices(currentCaseList,currentIndex,leftIndex,rightIndex);
+    }
+    
+    void ShowOnlySelectedIndices(List<GameObject> castList, int index1, int index2, int index3)
+    {
+        for (int i = 0; i < currentCaseList.Count; i++)
+        {
+            if (i == index1 || i == index2 || i == index3)
+            {
+                currentCaseList[i].SetActive(true); // 显示指定索引的GameObject
+            }
+            else
+            {
+                currentCaseList[i].SetActive(false); // 隐藏其他GameObject
+            }
+        }
     }
 }
