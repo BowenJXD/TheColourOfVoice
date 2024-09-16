@@ -7,6 +7,6 @@ public class DoTweenScale3Behaviour : DoTweenBehaviour
     
     protected override void SetUpTween()
     {
-        tween = target.DOScale(targetScale, duration).SetEase(ease);
+        tween.Append(target.DOScale(targetScale, duration).SetEase(ease));
     }
 }

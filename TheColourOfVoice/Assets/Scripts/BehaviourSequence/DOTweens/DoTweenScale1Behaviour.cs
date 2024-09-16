@@ -12,6 +12,6 @@ public class DoTweenScale1Behaviour : DoTweenBehaviour
         float originScale = target.localScale.z;
         float targetScale = originScale + duration * scaleSpeed;
         float finalScale = scaleSpeed > 0 ? Mathf.Min(targetScale, scaleLimit) : Mathf.Max(targetScale, scaleLimit);
-        tween = target.DOScale(finalScale, duration).SetEase(ease);
+        tween.Append(target.DOScale(finalScale, duration).SetEase(ease));
     }
 }

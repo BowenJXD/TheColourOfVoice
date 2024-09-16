@@ -11,6 +11,8 @@ public class WhisperOfLoveSpell : Spell
     public Buff buff;
     public BulletBase bulletPrefab;
     public SpriteRenderer sp;
+    public AnimEntity anim;
+    public Transform player;
     
     public override void SetUp()
     {
@@ -18,6 +20,8 @@ public class WhisperOfLoveSpell : Spell
         if (!buff) buff = GetComponentInChildren<Buff>(true);
         if (buff) buff.Init();
         if (!bulletPrefab) bulletPrefab = GetComponentInChildren<BulletBase>(true);
+        if (!anim) anim = GetComponentInChildren<AnimEntity>(true);
+        if (!player) player = GameObject.FindWithTag("Player").transform;
     }
 
     public override void StartCasting(CastConfig config)
@@ -43,6 +47,12 @@ public class WhisperOfLoveSpell : Spell
         bullet.SetDirection(direction);
         
         if (sp) sp.gameObject.SetActive(false);
+        if (anim)
+        {
+            AnimEntity newAnim = PoolManager.Instance.New(anim);
+            newAnim.transform.SetParent(player, false);
+            newAnim.Init();
+        }
     }
 
     void OnDamage(Health health)

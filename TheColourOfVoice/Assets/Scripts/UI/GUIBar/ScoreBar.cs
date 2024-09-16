@@ -15,8 +15,8 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] TMP_Text percentText;
     
     private List<Image> stars = new List<Image>();
-    private Vector3 leftPosition = new Vector3(-717f, 166f, 0f);  
-    private Vector3 rightPosition = new Vector3(717f, 166f, 0f);  
+    private Vector3 leftPosition = new Vector3(-717f, 73f, 0f);  
+    private Vector3 rightPosition = new Vector3(717f, 73f, 0f);  
     [SerializeField] StarController starController; 
     Canvas canvas;
 

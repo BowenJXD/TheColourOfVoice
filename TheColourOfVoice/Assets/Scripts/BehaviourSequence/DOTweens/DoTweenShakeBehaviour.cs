@@ -29,13 +29,13 @@ public class DoTweenShakeBehaviour : DoTweenBehaviour
         switch (shakeType)
         {
             case ShakeType.Position:
-                tween = target.DOShakePosition(duration, strength, vibrato, randomness, snapping, fadeOut);
+                tween.Append(target.DOShakePosition(duration, strength, vibrato, randomness, snapping, fadeOut));
                 break;
             case ShakeType.Rotation:
-                tween = target.DOShakeRotation(duration, strength, vibrato, randomness, fadeOut);
+                tween.Append(target.DOShakeRotation(duration, strength, vibrato, randomness, fadeOut));
                 break;
             case ShakeType.Scale:
-                tween = target.DOShakeScale(duration, strength, vibrato, randomness, fadeOut);
+                tween.Append(target.DOShakeScale(duration, strength, vibrato, randomness, fadeOut));
                 break;
         }
     }

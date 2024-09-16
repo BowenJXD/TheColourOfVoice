@@ -1,6 +1,5 @@
 ﻿/*using System;
 using System.Collections.Generic;
-using LeastSquares.Talken;
 using Recognissimo.Components;
 using UnityEngine;
 using UnityEngine.Windows.Speech;

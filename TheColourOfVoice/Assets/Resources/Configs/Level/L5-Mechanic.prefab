@@ -44,17 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be97391cd54d4d5a972d21aa37e3b161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: 2
+  phase: 7
   scoreBar: {fileID: 0}
   bossHealth: {fileID: 0}
   explosion: {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
-  phase2Score: 1000
+  phase2Score: 400
   phaseHealths:
-  - 70
+  - 80
+  - 60
   - 50
-  - 33.33
-  - 20
-  - 10
+  - 40
+  - 30
   enemyGenerators:
   - {fileID: 0}
   - {fileID: 0}

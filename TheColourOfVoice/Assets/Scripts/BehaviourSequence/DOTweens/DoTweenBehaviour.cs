@@ -8,7 +8,7 @@ public class DoTweenBehaviour : BehaviourNode
 {
     public Ease ease = Ease.Linear;
     public float duration;
-    public Tween tween;
+    public Sequence tween;
     public Transform target;
 
     public override void Init()
@@ -30,6 +30,7 @@ public class DoTweenBehaviour : BehaviourNode
     {
         base.OnStart();
         if (!skip) StartExe();
+        tween = DOTween.Sequence();
         SetUpTween();
         if (!skip) tween.OnComplete(FinishExe);
         tween.Play();
@@ -37,6 +38,5 @@ public class DoTweenBehaviour : BehaviourNode
 
     protected virtual void SetUpTween()
     {
-            
     }
 }

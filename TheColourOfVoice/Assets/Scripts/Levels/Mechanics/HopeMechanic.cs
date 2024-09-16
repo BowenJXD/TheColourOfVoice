@@ -39,7 +39,7 @@ public class HopeMechanic : LevelMechanic
         volume = FindObjectOfType<Volume>();
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
-            DOTween.To(() => colorAdjustments.saturation.value, x => colorAdjustments.saturation.value = x, -100, 2);
+            DOTween.To(() => colorAdjustments.saturation.value, x => colorAdjustments.saturation.value = x, -90, 2);
         }
         if (volume.profile.TryGet(out FilmGrain filmGrain))
         {
@@ -60,7 +60,7 @@ public class HopeMechanic : LevelMechanic
         }
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
-            colorAdjustments.saturation.value = Mathf.Lerp(-100, -90, scoreBar.score / phase2Score);
+            colorAdjustments.saturation.value = Mathf.Lerp(-90, -70, scoreBar.score / phase2Score);
         }
     }
 
@@ -148,6 +148,7 @@ public class HopeMechanic : LevelMechanic
         var obj = Instantiate(rageMechanic);
         obj.Init();
         obj.rageValue = obj.rageLimit;
+        obj.rageDecay = 0;
         LevelManager.Instance.mechanic = obj;
     }
     

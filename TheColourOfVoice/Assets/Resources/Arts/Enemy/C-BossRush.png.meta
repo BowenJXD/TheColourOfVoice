@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4a4ae6c6882c8c4ea18bcb7ba6046a3
+guid: 95b49479cd87ec24ba75936a54aead99
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,85 +97,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: C-BossWalk_0
+      name: C-BossRush_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 544
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 038fe979c19c43b44a64f24d351a16d9
-      internalID: 1333116843
+      spriteID: 052dfab0dc981a5459ac1b374bc91701
+      internalID: 605423496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_1
+      name: C-BossRush_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 672
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35be1eda97a16e4fb9139672d44b7c6
-      internalID: -251014416
+      spriteID: 4088f13b90287ff4b993a14d5b0c1461
+      internalID: 2125384367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_2
+      name: C-BossRush_6
       rect:
         serializedVersion: 2
-        x: 288
+        x: 800
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 801dcd60fa0140e498de56bd3bd5a7a8
-      internalID: 2018615897
+      spriteID: 2757c7642aa0ea34e99626086d1c64d9
+      internalID: 2090103048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_3
+      name: C-BossRush_7
       rect:
         serializedVersion: 2
-        x: 416
+        x: 928
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a403cdacf2514e4180188b86162b959
-      internalID: 1339600112
+      spriteID: 62256fea5ff715c43ac60ca5cb1c9e2a
+      internalID: -195029520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-BossRush_8
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0e300eca4cff3459441b1520973284
+      internalID: -374106299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-BossRush_9
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9391632e4af2d444891cdf14b9cc75d4
+      internalID: 1446240970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-BossRush_10
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a6aebc231b1424c9f69fcbbf5d8f2d
+      internalID: 2032157601
       vertices: []
       indices: 
       edges: []
@@ -191,17 +254,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      C-BossWalk_0: 1333116843
-      C-BossWalk_1: -251014416
-      C-BossWalk_10: 679103303
-      C-BossWalk_2: 2018615897
-      C-BossWalk_3: 1339600112
-      C-BossWalk_4: 31447124
-      C-BossWalk_5: 298229891
-      C-BossWalk_6: -1406386481
-      C-BossWalk_7: -690706503
-      C-BossWalk_8: -811415723
-      C-BossWalk_9: 952491163
+      C-BossRush_0: -1777311105
+      C-BossRush_1: -1404246976
+      C-BossRush_10: 2032157601
+      C-BossRush_2: -399173865
+      C-BossRush_3: -331205477
+      C-BossRush_4: 605423496
+      C-BossRush_5: 2125384367
+      C-BossRush_6: 2090103048
+      C-BossRush_7: -195029520
+      C-BossRush_8: -374106299
+      C-BossRush_9: 1446240970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
