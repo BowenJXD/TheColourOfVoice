@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,6 +9,9 @@ public class SpellUIManager : MonoBehaviour
     public GameObject spellUIPrefab;
     public Transform spellUIParent;
     public Sprite defaultSpellImage; 
+    
+    //技能冷却结束的时候显示的特效
+    [SerializeField,ReadOnly] private GameObject spellCdCompleteFlashPrefab;
 
     private Dictionary<Spell, GameObject> spellUIDictionary = new Dictionary<Spell, GameObject>();
 
@@ -15,8 +19,21 @@ public class SpellUIManager : MonoBehaviour
     {
         CreateSpellUI();
     }
+    
+    /// <summary>
+    /// 当技能冷却结束时，显示技能冷却结束的特效
+    /// </summary>
+    /// <param name="spell">技能</param>
+    private void OnSkillCDComplete(Spell spell)
+    {
+        if (spellUIDictionary.TryGetValue(spell, out var spellUI))
+        {
+            GameObject spellCdCompleteFlash = spellUI.transform.Find("CoolDownFlash").gameObject;
+            spellCdCompleteFlash.SetActive(true);
+        }
+    }
 
-    void CreateSpellUI()
+    void CreateSpellUI()    
     {
 
         foreach (var spell in SpellManager.Instance.learntSpells.Values)
@@ -53,6 +70,21 @@ public class SpellUIManager : MonoBehaviour
 
             TextMeshProUGUI cooldownText = spellUI.transform.Find("CooldownText")?.GetComponent<TextMeshProUGUI>();
             cooldownText.enabled = false;
+            
+            //初始化技能冷却结束的特效，添加作为子物体
+            spellCdCompleteFlashPrefab = Resources.Load<GameObject>("Prefabs/CoolDownFlash");
+            if (spellCdCompleteFlashPrefab != null)
+            {
+                GameObject spellCdCompleteFlash = Instantiate(spellCdCompleteFlashPrefab, spellUI.transform, false);
+                spellCdCompleteFlash.transform.localPosition = new Vector3(-7f,-6f,0f);
+                spellCdCompleteFlash.transform.localRotation = Quaternion.identity;
+                spellCdCompleteFlash.transform.localScale = Vector3.one;
+                
+                //spellCdCompleteFlash.SetActive(false);
+                var mainModule = spellCdCompleteFlash.GetComponent<ParticleSystem>().main;
+                mainModule.stopAction = ParticleSystemStopAction.Disable;
+            }
+            
         }
     }
 
