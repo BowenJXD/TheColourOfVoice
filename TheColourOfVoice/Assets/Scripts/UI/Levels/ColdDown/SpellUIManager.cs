@@ -53,6 +53,26 @@ public class SpellUIManager : MonoBehaviour
             
             //初始化技能UI
             GameObject spellUI = Instantiate(spellUIPrefab, spellUIParent);
+            spellUI.TryGetComponent<RectTransform>(out RectTransform rect);
+            switch (spell.spellIndex)
+            {
+                case 1:
+                    rect.localPosition = spellUIParent.transform.Find("SkillSlot_1").localPosition;
+                    break;
+                case 2:
+                    rect.localPosition = spellUIParent.transform.Find("SkillSlot_2").localPosition;
+                    break;
+                case 3:
+                    rect.localPosition = spellUIParent.transform.Find("SkillSlot_3").localPosition;
+                    break;
+                case 4:
+                    rect.localPosition = spellUIParent.transform.Find("SkillSlot_4").localPosition;
+                    break;
+                case 5:
+                    rect.localPosition = spellUIParent.transform.Find("SkillSlot_5").localPosition;
+                    break;
+            }
+            
             spellUI.name = spell.spellName;
             spellUIDictionary.Add(spell, spellUI);
             
