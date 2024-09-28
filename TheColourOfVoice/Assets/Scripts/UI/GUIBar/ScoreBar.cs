@@ -52,6 +52,7 @@ public class ScoreBar : MonoBehaviour
         }
     }
     
+    //初始化星星
     void InitializeStars(GameObject starPrefab)
     {
         for (int i = 0; i < 3; i++) 
