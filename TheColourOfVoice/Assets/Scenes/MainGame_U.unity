@@ -13647,6 +13647,10 @@ MonoBehaviour:
   spellUIPrefab: {fileID: 8222121730487519600, guid: 908865594bfb52c4b8af715d8a3c3f1a, type: 3}
   spellUIParent: {fileID: 746943301}
   defaultSpellImage: {fileID: 21300000, guid: 126c43d9caa27af4d82c847fa48a4715, type: 3}
+  magicCircleInnerCircle: {fileID: 1578538346}
+  magicCircleOMiddleCircle: {fileID: 894742804}
+  magicCircleInnerCircleSpeed: 5
+  magicCircleMiddleCircleSpeed: 5
   spellCdCompleteFlashPrefab: {fileID: 0}
 --- !u!114 &746943303
 MonoBehaviour:
@@ -16834,11 +16838,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1888527100}
+  - {fileID: 1442652944}
   - {fileID: 746943301}
   - {fileID: 1934495122}
   - {fileID: 544027546}
   - {fileID: 1226060737}
-  - {fileID: 1442652944}
   m_Father: {fileID: 286612310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

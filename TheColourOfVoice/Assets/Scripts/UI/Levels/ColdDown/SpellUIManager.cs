@@ -10,10 +10,16 @@ public class SpellUIManager : MonoBehaviour
     public Transform spellUIParent;
     public Sprite defaultSpellImage; 
     
+    [Title("Magic Circle")]
+    public Image magicCircleInnerCircle;
+    public Image magicCircleOMiddleCircle;
+    public float magicCircleInnerCircleSpeed = 1f;
+    public float magicCircleMiddleCircleSpeed = 1f;
+
     //技能冷却结束的时候显示的特效
     [SerializeField,ReadOnly] private GameObject spellCdCompleteFlashPrefab;
 
-    private Dictionary<Spell, GameObject> spellUIDictionary = new Dictionary<Spell, GameObject>();
+     private Dictionary<Spell, GameObject> spellUIDictionary = new Dictionary<Spell, GameObject>();
 
     private void Start()
     {
@@ -45,7 +51,7 @@ public class SpellUIManager : MonoBehaviour
                 continue;
             }
             
-            
+            //初始化技能UI
             GameObject spellUI = Instantiate(spellUIPrefab, spellUIParent);
             spellUI.name = spell.spellName;
             spellUIDictionary.Add(spell, spellUI);
@@ -90,6 +96,10 @@ public class SpellUIManager : MonoBehaviour
 
     private void Update()
     {
+        //RotateMagicCircle
+        RotateMagicCircle(magicCircleInnerCircleSpeed, magicCircleInnerCircle, true);
+        RotateMagicCircle(magicCircleMiddleCircleSpeed, magicCircleOMiddleCircle, false);
+        
         foreach (var kvp in spellUIDictionary)
         {
             Spell spell = kvp.Key;
@@ -114,4 +124,12 @@ public class SpellUIManager : MonoBehaviour
             }
         }
     }
+    
+    private void RotateMagicCircle(float speed, Image image, bool rotateClockwise)
+    {
+        float direction = rotateClockwise ? -1 : 1;
+        image.rectTransform.Rotate(Vector3.forward, speed * direction * Time.deltaTime);
+    }
+    
+   
 }
