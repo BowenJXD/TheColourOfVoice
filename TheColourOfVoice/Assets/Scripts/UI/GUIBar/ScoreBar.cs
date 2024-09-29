@@ -60,6 +60,8 @@ public class ScoreBar : MonoBehaviour
             GameObject star = Instantiate(starPrefab, canvas.transform);
             star.gameObject.SetActive(true);
             stars.Add(star.GetComponent<Image>());
+            
+            //调整星星位置
         }
 
         if (starController) UpdateStars();
@@ -98,6 +100,7 @@ public class ScoreBar : MonoBehaviour
 
     void UpdateStars()
     {
+        //Debug.Log("Updating stars.");
         float[] scoreThresholds = starController.scoreThresholds;
         for (int i = 0; i < stars.Count; i++)
         {

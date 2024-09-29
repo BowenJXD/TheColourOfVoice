@@ -17,6 +17,8 @@ public class StarController : MonoBehaviour
         var levelIndex = PlayerPrefs.GetInt("levelIndex", 1);
         var levelData = data[levelIndex.ToString()];
         scoreThresholds = new float[3];
+        
+        //从Configs->StarScores.csv中读取每个关卡的三个星星的分数
         for (int i = 0; i < 3; i++)
         {
             scoreThresholds[i] = float.Parse(levelData[(i + 1).ToString()]);
