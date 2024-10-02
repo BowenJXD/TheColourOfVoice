@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using Recognissimo.Components;
 using UnityEngine;
@@ -34,4 +34,4 @@ public class VoiceInputSystemRecognissimo : Singleton<VoiceInputSystemRecognissi
         engine.Commands.Clear();
         engine.StopProcessing();
     }
-}*/
+}

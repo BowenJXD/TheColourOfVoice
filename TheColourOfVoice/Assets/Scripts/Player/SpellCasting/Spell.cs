@@ -45,7 +45,17 @@ public class Spell : MonoBehaviour, ISetUp
         {
             remainingCD -= Time.deltaTime;
             Lebug.Log(name + " CD", remainingCD);
+            if (remainingCD <= 0)
+            {
+                remainingCD = 0;
+                EndCD();
+            }
         }
+    }
+
+    private void EndCD()
+    {
+        SpellUIManager.Instance.OnSkillCDComplete(this);
     }
 
     protected virtual void Init()

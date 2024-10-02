@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SpellUIManager : MonoBehaviour
+public class SpellUIManager : Singleton<SpellUIManager>
 {
     public GameObject spellUIPrefab;
     public Transform spellUIParent;
@@ -30,11 +30,11 @@ public class SpellUIManager : MonoBehaviour
     /// 当技能冷却结束时，显示技能冷却结束的特效
     /// </summary>
     /// <param name="spell">技能</param>
-    private void OnSkillCDComplete(Spell spell)
+    public void OnSkillCDComplete(Spell spell)
     {
         if (spellUIDictionary.TryGetValue(spell, out var spellUI))
         {
-            GameObject spellCdCompleteFlash = spellUI.transform.Find("CoolDownFlash").gameObject;
+            GameObject spellCdCompleteFlash = spellUI.transform.Find("CoolDownFlash(Clone)").gameObject;
             spellCdCompleteFlash.SetActive(true);
         }
     }

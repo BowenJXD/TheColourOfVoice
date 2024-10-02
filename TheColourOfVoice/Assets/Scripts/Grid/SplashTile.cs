@@ -45,6 +45,7 @@ public class SplashTile : MonoBehaviour
             }
             _color = value;
             var rgb = ColorManager.Instance.GetColor(value);
+            rgb = new Color(rgb.r / 2, rgb.g / 2, rgb.b / 2, rgb.a);
             sp.DOColor(rgb, aniDuration).SetEase(ease);
             blocking.DOColor(rgb, aniDuration).SetEase(ease);
         }

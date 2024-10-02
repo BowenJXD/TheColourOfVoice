@@ -160,7 +160,7 @@ public class SpellManager : Singleton<SpellManager>
         defaultSpell.enabled = true;
     }
 
-    void TryCast(PhraseRecognizedEventArgs recognizedEventArgs)
+    void TryCast(string text)
     {
         if (CastState == CastState.Null)
         {
@@ -168,9 +168,9 @@ public class SpellManager : Singleton<SpellManager>
             return;
         }
         
-        if (!learntSpells.TryGetValue(recognizedEventArgs.text, out var spell))
+        if (!learntSpells.TryGetValue(text, out var spell))
         {
-            Debug.LogWarning($"Spell {recognizedEventArgs.text} not found.");
+            Debug.LogWarning($"Spell {text} not found.");
             return;
         }
 
@@ -182,18 +182,15 @@ public class SpellManager : Singleton<SpellManager>
 
         if (spell.isInCD)
         {
-            Debug.LogWarning($"Spell {recognizedEventArgs.text} is in cooldown.");
+            Debug.LogWarning($"Spell {text} is in cooldown.");
             return;
         }
             
-        float duration = (float)recognizedEventArgs.phraseDuration.TotalSeconds;
-        float peakVolume = VolumeDetection.Instance.GetPeakVolume(duration);
-            
         CastConfig config = new CastConfig
         {
-            chantTime = (float)recognizedEventArgs.phraseDuration.TotalSeconds,
-            peakVolume = peakVolume,
-            confidenceLevel = recognizedEventArgs.confidence
+            chantTime = 1.5f,
+            peakVolume = 0.5f,
+            confidenceLevel = ConfidenceLevel.High
         };
         Debug.Log($"Start Casting Spell: {spell.triggerWords}, " +
                   $"Chant Time: {config.chantTime}, " +
@@ -250,7 +247,7 @@ public class SpellManager : Singleton<SpellManager>
             return false;
         }
         learntSpells.Add(spell.triggerWords, spell);
-        VoiceInputSystem.Instance.Register(spell.triggerWords, TryCast);
+        VoiceInputSystemRecognissimo.Instance.Register(spell.triggerWords, TryCast);
         return true;
     }
     
@@ -259,7 +256,7 @@ public class SpellManager : Singleton<SpellManager>
         if (learntSpells.ContainsKey(spell.triggerWords))
         {
             learntSpells.Remove(spell.triggerWords);
-            VoiceInputSystem.Instance.Unregister(spell.triggerWords);
+            VoiceInputSystemRecognissimo.Instance.Unregister(spell.triggerWords);
         }
     }
 
@@ -275,8 +272,10 @@ public class SpellManager : Singleton<SpellManager>
             Spell spell = learntSpells[oldName];
             learntSpells.Remove(oldName);
             learntSpells.Add(newName, spell);
+            VoiceInputSystemRecognissimo.Instance.Unregister(oldName);
+            VoiceInputSystemRecognissimo.Instance.Register(newName, TryCast);/*
             VoiceInputSystem.Instance.Unregister(oldName);
-            VoiceInputSystem.Instance.Register(newName, TryCast);
+            VoiceInputSystem.Instance.Register(newName, TryCast);*/
 
             if (saveData)
             {

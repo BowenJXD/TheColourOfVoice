@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18315fc734577314eac1f47a6efe4540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  duration: 1
+  speed: 8
+  duration: 2
   useRotation: 0
   doPenetrate: 0
   fourDirectional: 0
