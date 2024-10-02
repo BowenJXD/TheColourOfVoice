@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4a4ae6c6882c8c4ea18bcb7ba6046a3
+guid: bb037ea061150a341adebf36b9ac4335
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: C-BossWalk_0
+      name: C-BossWalkNew_0
       rect:
         serializedVersion: 2
         x: 32
@@ -105,20 +105,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 038fe979c19c43b44a64f24d351a16d9
-      internalID: 1333116843
+      spriteID: 87427c66b5e33c24ca2c4199d76af4fb
+      internalID: -1550376142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_1
+      name: C-BossWalkNew_1
       rect:
         serializedVersion: 2
         x: 160
@@ -126,20 +126,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35be1eda97a16e4fb9139672d44b7c6
-      internalID: -251014416
+      spriteID: 8cdcb9ac0e6a7d443ab23abe1777b84c
+      internalID: 1598173438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_2
+      name: C-BossWalkNew_2
       rect:
         serializedVersion: 2
         x: 288
@@ -147,20 +147,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 801dcd60fa0140e498de56bd3bd5a7a8
-      internalID: 2018615897
+      spriteID: a1fc0b251b21ad44fb925de6c3957bcc
+      internalID: -589348764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: C-BossWalk_3
+      name: C-BossWalkNew_3
       rect:
         serializedVersion: 2
         x: 416
@@ -168,14 +168,35 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a403cdacf2514e4180188b86162b959
-      internalID: 1339600112
+      spriteID: d84404a5718f2974184984b2c8edddcd
+      internalID: 967750391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-BossWalkNew_4
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ffdf154c1464d4469cb6408113e30f7
+      internalID: -1673756501
       vertices: []
       indices: 
       edges: []
@@ -191,17 +212,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      C-BossWalk_0: 1333116843
-      C-BossWalk_1: -251014416
-      C-BossWalk_10: 679103303
-      C-BossWalk_2: 2018615897
-      C-BossWalk_3: 1339600112
-      C-BossWalk_4: 31447124
-      C-BossWalk_5: 298229891
-      C-BossWalk_6: -1406386481
-      C-BossWalk_7: -690706503
-      C-BossWalk_8: -811415723
-      C-BossWalk_9: 952491163
+      C-BossWalkNew_0: -1550376142
+      C-BossWalkNew_1: 1598173438
+      C-BossWalkNew_10: 105487612
+      C-BossWalkNew_11: 1692501089
+      C-BossWalkNew_12: 1652639054
+      C-BossWalkNew_13: -747193192
+      C-BossWalkNew_2: -589348764
+      C-BossWalkNew_3: 967750391
+      C-BossWalkNew_4: -1673756501
+      C-BossWalkNew_5: -2129025430
+      C-BossWalkNew_6: 784556720
+      C-BossWalkNew_7: 1590047901
+      C-BossWalkNew_8: -1156028159
+      C-BossWalkNew_9: 1975225167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

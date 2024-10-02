@@ -10,6 +10,7 @@ public class HopeMechanic : LevelMechanic
 {
     [ReadOnly]
     public int phase = 1;
+    public Enemy bossPrefab;
     public ScoreBar scoreBar;
     public Health bossHealth;
     public Explosion explosion;
@@ -27,13 +28,13 @@ public class HopeMechanic : LevelMechanic
     public override void Init()
     {
         base.Init();
+        var boss = PoolManager.Instance.New(bossPrefab);
         scoreBar = FindObjectOfType<ScoreBar>();
         scoreBar.OnScoreChanged += OnScoreChanged;
         if (!bossHealth)
         {
-            var enemy = GameObject.FindWithTag("Enemy");
-            bossHealth = enemy.GetComponent<Health>();
-            enterPhaseEffect = enemy.GetComponent<EnterPhaseEffect>();
+            bossHealth = boss.GetComponent<Health>();
+            enterPhaseEffect = boss.GetComponent<EnterPhaseEffect>();
         }
         enemyGenerators = FindObjectsOfType<EnemyGenerator>(true).OrderBy(c => c.transform.GetSiblingIndex()).ToList();
         volume = FindObjectOfType<Volume>();

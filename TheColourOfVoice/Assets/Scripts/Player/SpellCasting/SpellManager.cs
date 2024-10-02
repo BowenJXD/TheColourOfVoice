@@ -51,6 +51,7 @@ public class SpellManager : Singleton<SpellManager>
     [ReadOnly] public Spell currentSpell;
     public List<Spell> allSpells;
     public SaveData saveData;
+    public FMODUnity.StudioEventEmitter emitter;
 
     private CastState _castState;
 
@@ -160,6 +161,11 @@ public class SpellManager : Singleton<SpellManager>
         defaultSpell.enabled = true;
     }
 
+    public void EndSpellCD(Spell spell)
+    {
+        emitter.Play();
+    }
+
     void TryCast(string text)
     {
         if (CastState == CastState.Null)
@@ -256,7 +262,7 @@ public class SpellManager : Singleton<SpellManager>
         if (learntSpells.ContainsKey(spell.triggerWords))
         {
             learntSpells.Remove(spell.triggerWords);
-            VoiceInputSystemRecognissimo.Instance.Unregister(spell.triggerWords);
+            VoiceInputSystem.Instance.Unregister(spell.triggerWords);
         }
     }
 
@@ -272,10 +278,8 @@ public class SpellManager : Singleton<SpellManager>
             Spell spell = learntSpells[oldName];
             learntSpells.Remove(oldName);
             learntSpells.Add(newName, spell);
-            VoiceInputSystemRecognissimo.Instance.Unregister(oldName);
-            VoiceInputSystemRecognissimo.Instance.Register(newName, TryCast);/*
             VoiceInputSystem.Instance.Unregister(oldName);
-            VoiceInputSystem.Instance.Register(newName, TryCast);*/
+            VoiceInputSystemRecognissimo.Instance.Register(newName, TryCast);
 
             if (saveData)
             {

@@ -45,16 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phase: 7
+  bossPrefab: {fileID: 3726434173144658944, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
   scoreBar: {fileID: 0}
   bossHealth: {fileID: 0}
   explosion: {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
-  phase2Score: 400
+  phase2Score: 1000
   phaseHealths:
-  - 80
-  - 60
+  - 70
   - 50
-  - 40
-  - 30
+  - 33
+  - 20
+  - 10
   enemyGenerators:
   - {fileID: 0}
   - {fileID: 0}

@@ -55,6 +55,7 @@ public class Spell : MonoBehaviour, ISetUp
 
     private void EndCD()
     {
+        SpellManager.Instance.EndSpellCD(this);
         SpellUIManager.Instance.OnSkillCDComplete(this);
     }
 

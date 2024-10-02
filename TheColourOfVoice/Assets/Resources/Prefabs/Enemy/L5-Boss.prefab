@@ -11,8 +11,12 @@ GameObject:
   - component: {fileID: 2955855981634536519}
   - component: {fileID: 725626739307797518}
   - component: {fileID: 2905978101538440341}
+  - component: {fileID: 1639530346732104514}
+  - component: {fileID: 9028200255335731363}
   - component: {fileID: 1287411414154921020}
   - component: {fileID: 2683859541735160307}
+  - component: {fileID: 7814201129011843825}
+  - component: {fileID: 3149236631046270554}
   m_Layer: 9
   m_Name: Laser
   m_TagString: Untagged
@@ -65,6 +69,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 1
   executing: 0
+--- !u!114 &1639530346732104514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840861085169084547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 9028200255335731363}
+--- !u!114 &9028200255335731363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840861085169084547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 486216513
+      Data2: 1162679724
+      Data3: -707677781
+      Data4: 160441911
+    Path: event:/Spells/Laser
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: CastState
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 100
 --- !u!114 &1287411414154921020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +173,55 @@ MonoBehaviour:
   doUseBBValues: 1
   doWaitForAllToDeinit: 0
   prefab: {fileID: 4166959021339073686, guid: de470b440fb11c946bc5bda968c358d0, type: 3}
+--- !u!114 &7814201129011843825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840861085169084547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 3149236631046270554}
+--- !u!114 &3149236631046270554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840861085169084547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 486216513
+      Data2: 1162679724
+      Data3: -707677781
+      Data4: 160441911
+    Path: event:/Spells/Laser
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: CastState
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 100
 --- !u!1 &1314485315600735632
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,9 +350,13 @@ GameObject:
   m_Component:
   - component: {fileID: 48584065721321314}
   - component: {fileID: 1968490650080594191}
+  - component: {fileID: 3732392377399390469}
+  - component: {fileID: 1173548634978451433}
   - component: {fileID: 1810830897209016207}
   - component: {fileID: 7005749953110068530}
   - component: {fileID: 5560800758237996501}
+  - component: {fileID: 6444489474546836281}
+  - component: {fileID: 4308480529976531729}
   m_Layer: 9
   m_Name: Asteroid
   m_TagString: Untagged
@@ -289,6 +395,55 @@ MonoBehaviour:
   executing: 0
   loop: 1
   executables: []
+--- !u!114 &3732392377399390469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 1173548634978451433}
+--- !u!114 &1173548634978451433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1282510512
+      Data2: 1234557823
+      Data3: -1559771765
+      Data4: 1553368118
+    Path: event:/Boss/Asteroid
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: EffectState
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1810830897209016207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +538,55 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.3, y: -0.3, z: 0}
+--- !u!114 &6444489474546836281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 4308480529976531729}
+--- !u!114 &4308480529976531729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090193379588456557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -211949483
+      Data2: 1082918787
+      Data3: -356967264
+      Data4: -1008581521
+    Path: event:/Boss/Fireball
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: EffectState
+    Value: 2
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4179412984294873342
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +771,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5792825331356728618}
   - component: {fileID: 8961112179618842977}
+  - component: {fileID: 2758983519890185842}
+  - component: {fileID: 4906021608058207306}
   - component: {fileID: 4670403173545348632}
+  - component: {fileID: 2383718636107195558}
+  - component: {fileID: 4385536589621404919}
   - component: {fileID: 4585525806267388075}
   m_Layer: 9
   m_Name: Charge
@@ -607,6 +815,55 @@ MonoBehaviour:
   executing: 0
   loop: 1
   executables: []
+--- !u!114 &2758983519890185842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511206393735882369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 4906021608058207306}
+--- !u!114 &4906021608058207306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511206393735882369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1266222263
+      Data2: 1188248496
+      Data3: -1822662481
+      Data4: -1909891878
+    Path: event:/Boss/Charge
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: EffectState
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &4670403173545348632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +888,55 @@ MonoBehaviour:
   randomness: 90
   snapping: 0
   fadeOut: 0
+--- !u!114 &2383718636107195558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511206393735882369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 4385536589621404919}
+--- !u!114 &4385536589621404919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511206393735882369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1266222263
+      Data2: 1188248496
+      Data3: -1822662481
+      Data4: -1909891878
+    Path: event:/Boss/Charge
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: EffectState
+    Value: 2
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &4585525806267388075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +959,10 @@ MonoBehaviour:
   speed: 20
   randomLocation: 0
   range: {x: 0, y: 0}
-  ani: {fileID: 0}
+  ani: {fileID: 1031312525226864346}
+  isRunning: 1
+  sprite: {fileID: 3375408586418638665}
+  flipSpriteX: 1
 --- !u!1 &7833403411091873741
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +974,8 @@ GameObject:
   - component: {fileID: 3194338401490866903}
   - component: {fileID: 1162569192626225059}
   - component: {fileID: 4692107952919176816}
+  - component: {fileID: 7572694330128581647}
+  - component: {fileID: 5412120477313816686}
   m_Layer: 9
   m_Name: Fireballs
   m_TagString: Untagged
@@ -735,6 +1046,55 @@ MonoBehaviour:
   doUseBBValues: 1
   doWaitForAllToDeinit: 0
   prefab: {fileID: 8393773426448386475, guid: d38b4801fefe5f344a2fc8da41121410, type: 3}
+--- !u!114 &7572694330128581647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833403411091873741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc5b78d5cce4b8da6e15e8e258ccafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 1
+  executing: 0
+  emitters:
+  - {fileID: 5412120477313816686}
+--- !u!114 &5412120477313816686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833403411091873741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1242251295
+      Data2: 1182142490
+      Data3: 184875695
+      Data4: -1403167654
+    Path: event:/Spells/Fireball
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: CastState
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 100
 --- !u!1 &8038709624918071118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1366,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2}
   m_Size: {x: 1, y: 1.2}
   m_Direction: 0
+--- !u!212 &3375408586418638665 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2842489379772589894, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
+  m_PrefabInstance: {fileID: 695051044671137807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3854973190385548149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4385042102656340858, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
@@ -1097,6 +1462,7 @@ MonoBehaviour:
   skip: 1
   executing: 0
   target: {fileID: 0}
+  useChaseTarget: 1
 --- !u!114 &5069800661035498740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,6 +1518,9 @@ MonoBehaviour:
   randomLocation: 1
   range: {x: 17, y: 7}
   ani: {fileID: 1031312525226864346}
+  isRunning: 0
+  sprite: {fileID: 3375408586418638665}
+  flipSpriteX: 1
 --- !u!114 &3428491858359018257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,10 +1554,10 @@ MonoBehaviour:
   executing: 0
   avoidLastExe: 1
   executables:
-  - {fileID: 8961112179618842977}
   - {fileID: 1162569192626225059}
   - {fileID: 725626739307797518}
   - {fileID: 1968490650080594191}
+  - {fileID: 8961112179618842977}
   selectedExe: {fileID: 0}
 --- !u!114 &442810661106803073
 MonoBehaviour:

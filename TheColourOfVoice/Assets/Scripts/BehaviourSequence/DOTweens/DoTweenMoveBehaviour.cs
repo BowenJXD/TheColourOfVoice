@@ -19,6 +19,9 @@ public class DoTweenMoveBehaviour : DoTweenBehaviour
     public Vector2 range = new Vector2(0, 0);
 
     public Animator ani;
+    public bool isRunning = false;
+    public SpriteRenderer sprite;
+    public bool flipSpriteX = false;
 
     protected override void OnStart()
     {
@@ -39,7 +42,11 @@ public class DoTweenMoveBehaviour : DoTweenBehaviour
         {
             ani.SetFloat("moveX", moveVector.x);
             ani.SetFloat("moveY", moveVector.y);
-            ani.SetBool("isMoving", true);
+            ani.SetBool(isRunning ? "isRunning" : "isMoving", true);
+        }
+        if (sprite)
+        {
+            sprite.flipX = flipSpriteX ? moveVector.x < 0 : sprite.flipX;
         }
     }
 
@@ -48,7 +55,7 @@ public class DoTweenMoveBehaviour : DoTweenBehaviour
         base.FinishExe();
         if (ani)
         {
-            ani.SetBool("isMoving", false);
+            ani.SetBool(isRunning ? "isRunning" : "isMoving", false);
         }
     }
 }
