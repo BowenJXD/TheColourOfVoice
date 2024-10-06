@@ -53,6 +53,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     {
         dialogueText.gameObject.SetActive(false);
         dialogueName.gameObject.SetActive(false);
+        GameObject.Find("Timeline_ani_skip_hint").SetActive(false);
         dialogueNextCursor.SetActive(false);
         dialoguePanelInitialPosition = mainPanel.GetComponent<RectTransform>().anchoredPosition;
         dialoguePanelInitialSize = mainPanel.GetComponent<RectTransform>().sizeDelta;
@@ -206,10 +207,10 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public void showDialogue(string dialogue,string name, int dialogueSize = 60)
     {
         //Debug.Log("Show dialogue");
-        //dialogueText.text = dialogue;
+        dialogueText.text = dialogue;
         dialogueText.gameObject.SetActive(true);
         dialogueName.gameObject.SetActive(true);
-        typingCoroutine = StartCoroutine(TypingText(dialogue));
+        //typingCoroutine = StartCoroutine(TypingText(dialogue));
         dialogueName.text = name;
         dialogueText.fontSize = dialogueSize;
     }
@@ -307,6 +308,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public void FinishedOpenningCG()
     {
         //Debug.Log("Finished CG");
+       
         playerIsAwake = true;
         mainPanel.SetActive(false);
     }
@@ -315,7 +317,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     {
         // 停止Timeline
         currentPlayableDirector.Stop();
-
+        
         // 切换到下一个场景
         FinishedOpenningCG();
         ChangeLevel();

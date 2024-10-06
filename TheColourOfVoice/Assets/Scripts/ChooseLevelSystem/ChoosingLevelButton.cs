@@ -97,6 +97,7 @@ public class ChoosingLevelButton : MonoBehaviour
    private void PlayTimeline()
    {
       playableDirector.Play();
+     GameObject.Find("Timeline_ani_skip_hint").SetActive(true);
    }
 
    /// <summary>
