@@ -205,7 +205,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// <param name="dialogue">传入的当前对话</param>
     public void showDialogue(string dialogue,string name, int dialogueSize = 60)
     {
-        Debug.Log("Show dialogue");
+        //Debug.Log("Show dialogue");
         //dialogueText.text = dialogue;
         dialogueText.gameObject.SetActive(true);
         dialogueName.gameObject.SetActive(true);

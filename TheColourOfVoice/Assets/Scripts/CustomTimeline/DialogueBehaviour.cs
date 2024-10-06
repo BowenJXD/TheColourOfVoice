@@ -59,13 +59,13 @@ public class DialogueBehaviour : PlayableBehaviour
         if (pauseScheduled)
         {
             //暂停TimeLine的播放
-            Debug.Log("Clip is stopped!");
+            //Debug.Log("Clip is stopped!");
             pauseScheduled = false;
             Level_PsyRoom.Instance.PauseTimeline(playableDirector);
         }
         else
         {
-            Debug.Log("Clip not stopped");
+            //Debug.Log("Clip not stopped");
             //Level_PsyRoom.Instance.ToggleDialogueBox(false);
         }
     }

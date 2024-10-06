@@ -69,7 +69,8 @@ public class ChoosingLevelButton : MonoBehaviour
 
    private void OnchoosingLevelButtonClicked()
    {
-      
+       PlayerPrefs.SetInt("levelIndex", currentCaseData.levelIndex);
+       Debug.Log("LevelIndex is " + currentCaseData.levelIndex);
        //TODO:这里注释的是打开timeline动画的部分
        if (currentCaseData.preLevelTimelineAsset == null)
        {
@@ -82,7 +83,8 @@ public class ChoosingLevelButton : MonoBehaviour
        GameObject.Find("ChooseLevelPanel").SetActive(false);
        //levelIndex = currentCaseData.levelIndex;
        
-       PlayerPrefs.SetInt("levelIndex", currentCaseData.levelIndex);
+       
+       
        //ChoosingLevelData.NEXT_LEVEL_CONFIG = levelIndex;
        /*if (levelIndex == 0)
        {
