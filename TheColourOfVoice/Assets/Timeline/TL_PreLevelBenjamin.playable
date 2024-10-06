@@ -34,7 +34,7 @@ MonoBehaviour:
     dialogueLine: A young man with silver short hair, wearing a cat-ear hat, stepped
       inside.
     dialogueSize: 60
-    requirePause: 0
+    requirePause: 1
 --- !u!114 &-6220267002937386153
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,7 +300,7 @@ MonoBehaviour:
     characterName: 8
     dialogueLine: Hello, are you the psychic witch?
     dialogueSize: 60
-    requirePause: 0
+    requirePause: 1
 --- !u!114 &-1442834398878315059
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -782,7 +782,7 @@ MonoBehaviour:
     dialogueLine: A young man with silver short hair, wearing a cat-ear hat, stepped
       inside.
     dialogueSize: 60
-    requirePause: 0
+    requirePause: 1
 --- !u!114 &-520876068500705304
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &62073814
 Transform:
   m_ObjectHideFlags: 0
@@ -1762,7 +1762,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -412310957, guid: f83cd12797a0c6f43bd79459d0d385e6, type: 3}
-  m_Type: 2
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2213,7 +2213,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fb7b6bad7c7ad8347bb445afefdd54e5, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -2294,6 +2294,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1a63761409e21204384bf668152ec571, type: 2}
     - {fileID: 11400000, guid: 2d1be3a5c07118644a79704ef3a10267, type: 2}
     - {fileID: 11400000, guid: 12c917922ecf60a43ade3076e5df5c84, type: 2}
+    - {fileID: 11400000, guid: f89f67d4145a67548aa8ab7d25a85ad7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2336,6 +2337,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: ChangeLevel
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!1 &985376014
 GameObject:
@@ -2984,7 +2999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Benjamin
+  m_text: LittleWitch
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3636,7 +3651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1279057538
 Transform:
   m_ObjectHideFlags: 0
@@ -4118,7 +4133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A young man with silver short hair, wearing a cat-ear hat, stepped inside.
+  m_text: "(I actually\uFF29"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}

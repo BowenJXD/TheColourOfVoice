@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class ChoosingLevelButton : MonoBehaviour
 {
-   public int levelIndex;
+   //public int levelIndex;
    public CaseData currentCaseData;
    [SerializeField,ReadOnly] private PlayableDirector playableDirector;
    public Button button;
@@ -80,7 +80,9 @@ public class ChoosingLevelButton : MonoBehaviour
        GameObject.Find("ChooseLevelPanel").SetActive(false);
        Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
        GameObject.Find("ChooseLevelPanel").SetActive(false);
-       levelIndex = currentCaseData.levelIndex;
+       //levelIndex = currentCaseData.levelIndex;
+       
+       PlayerPrefs.SetInt("levelIndex", currentCaseData.levelIndex);
        //ChoosingLevelData.NEXT_LEVEL_CONFIG = levelIndex;
        /*if (levelIndex == 0)
        {

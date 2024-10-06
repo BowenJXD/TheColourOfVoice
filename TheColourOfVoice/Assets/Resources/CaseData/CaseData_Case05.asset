@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4629f0a60288149816b964c433b89e, type: 3}
   m_Name: CaseData_Case05
   m_EditorClassIdentifier: 
-  patientName: 
-  patientAge: 
-  patintSymptoms: 
-  patientDescription: 
-  patientImage: {fileID: 21300000, guid: 183c35b28cd82374a87069b66e90aa01, type: 3}
+  patientName: Nionysus
+  patientAge: 19
+  patintSymptoms: 11
+  patientDescription: //
+  patientImage: {fileID: 21300000, guid: 53c0e97e8bebb1640999d1cf699564d3, type: 3}
   levelIndex: 5
+  preLevelTimelineAsset: {fileID: 11400000, guid: 84d644e834a4043468c74abcedd35e84, type: 2}
+  afterLevelTimelineAsset: {fileID: 0}

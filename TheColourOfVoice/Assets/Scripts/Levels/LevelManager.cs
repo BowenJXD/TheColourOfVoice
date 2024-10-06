@@ -24,6 +24,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     new void Awake()
     {
         levelIndex = PlayerPrefs.GetInt("levelIndex", levelIndex);
+        Debug.Log("LevelIndex is " + levelIndex);
         if (levelIndex < levelConfigs.Count)
         {
             ChangeConfig(levelIndex);
