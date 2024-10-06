@@ -2384,7 +2384,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 84d644e834a4043468c74abcedd35e84, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -2440,12 +2440,52 @@ PlayableDirector:
     value: {fileID: 1279057540}
   - key: {fileID: 6276305607959200844, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
     value: {fileID: 1279057537}
+  - key: {fileID: 6554542434753917890, guid: 90a19948919b6074496a577bf1f716d5, type: 2}
+    value: {fileID: 2107487811}
+  - key: {fileID: -5730996793223820153, guid: 90a19948919b6074496a577bf1f716d5, type: 2}
+    value: {fileID: 2107487810}
+  - key: {fileID: -3408196224693453213, guid: 90a19948919b6074496a577bf1f716d5, type: 2}
+    value: {fileID: 1255866208}
+  - key: {fileID: -4209985724675115063, guid: bf67eeb84e679aa4e850b9111da4480c, type: 2}
+    value: {fileID: 1279057540}
+  - key: {fileID: -8335836746955154299, guid: bf67eeb84e679aa4e850b9111da4480c, type: 2}
+    value: {fileID: 1279057537}
+  - key: {fileID: 1761500812484013873, guid: bf67eeb84e679aa4e850b9111da4480c, type: 2}
+    value: {fileID: 1255866208}
+  - key: {fileID: 1545388672362106707, guid: 54e3ae7b708a3c2428695ca41e4d20d3, type: 2}
+    value: {fileID: 1255866208}
+  - key: {fileID: -5343496600903967988, guid: 54e3ae7b708a3c2428695ca41e4d20d3, type: 2}
+    value: {fileID: 590818214}
+  - key: {fileID: 216731095971559708, guid: 54e3ae7b708a3c2428695ca41e4d20d3, type: 2}
+    value: {fileID: 590818212}
+  - key: {fileID: -2663359413036555645, guid: 23a810a254c5b2745905a9fcb9ba66b2, type: 2}
+    value: {fileID: 1255866208}
+  - key: {fileID: 7809755606752504910, guid: 23a810a254c5b2745905a9fcb9ba66b2, type: 2}
+    value: {fileID: 2021828284}
+  - key: {fileID: 740030708087414971, guid: 23a810a254c5b2745905a9fcb9ba66b2, type: 2}
+    value: {fileID: 2021828281}
+  - key: {fileID: -8255757053124715973, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}
+    value: {fileID: 1255866208}
+  - key: {fileID: 6195974634141012980, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}
+    value: {fileID: 1703682147}
+  - key: {fileID: -8010686400370556676, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}
+    value: {fileID: 1703682144}
   m_ExposedReferences:
     m_References:
+    - 34571e43623fb9f4c86353eab387fdd1: {fileID: 153875520}
+    - cbe59dc513ab8a24ea4562a5744f4aa7: {fileID: 153875520}
     - 052b62f680c486b4391510b25dcb45f0: {fileID: 153875520}
     - 96c3594a1bccc6743badd9b9787ac97d: {fileID: 1512859118}
+    - bb654d12230331f4687ae2d2e75bd1f7: {fileID: 568922650}
+    - be1bb3d47fcee5e4b93dafe432a5fd63: {fileID: 568922650}
+    - e97224a8c37986246bb5514f0e398968: {fileID: 153875520}
+    - 87e3032162068a24a94d3fa1af47b4ca: {fileID: 568922650}
     - 4fbaca45f6debc044a866ff4c31510e6: {fileID: 568922650}
+    - a52d95c9de9c3764aab237881fc1d76b: {fileID: 153875520}
     - eab88aa9fad3a7941b74d7eb5cb9fa9f: {fileID: 153875520}
+    - fc58859dd59ee8840808bc046877696f: {fileID: 568922650}
+    - 60e03520cf7d5734a8ada1343be43d69: {fileID: 568922650}
+    - 61cdc7031b537ea478cdef75806f12e3: {fileID: 153875520}
     - 1c418dc795ec6c743877550bf4dd81c5: {fileID: 153875520}
     - afb85dea5b8618e4c8956d1e1ee77580: {fileID: 153875520}
 --- !u!114 &925897102
@@ -3170,7 +3210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Narrator
+  m_text: LittleWitch
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4336,9 +4376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rushing in was a woman with long pink hair, dressed in a purple gown.
-
-'
+  m_text: ...Ow, ow, ow!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
@@ -4800,7 +4838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1703682145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4861,7 +4899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703682144}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.01, y: -1.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6833,7 +6871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021828281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7051,7 +7089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107487810}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1403026, y: -2.19, z: -212.81586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
