@@ -2384,7 +2384,7 @@ PlayableDirector:
   m_GameObject: {fileID: 925897099}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fb7b6bad7c7ad8347bb445afefdd54e5, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -2506,6 +2506,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2d1be3a5c07118644a79704ef3a10267, type: 2}
     - {fileID: 11400000, guid: 12c917922ecf60a43ade3076e5df5c84, type: 2}
     - {fileID: 11400000, guid: f89f67d4145a67548aa8ab7d25a85ad7, type: 2}
+    - {fileID: 11400000, guid: 26e81171bb1d1154abbdf4898a8ec9d7, type: 2}
+    - {fileID: 11400000, guid: 402320165999adc448c70202ade116d2, type: 2}
+    - {fileID: 11400000, guid: 18100aa9e4617d2419bb57e92c08ea7d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2562,6 +2565,48 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: ChangeLevel
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: ChangeLevel
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: ChangeLevel
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &985376014
 GameObject:
@@ -4376,7 +4421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...Ow, ow, ow!
+  m_text: (I actually fell asleep...)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
@@ -4838,7 +4883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1703682145
 SpriteRenderer:
   m_ObjectHideFlags: 0

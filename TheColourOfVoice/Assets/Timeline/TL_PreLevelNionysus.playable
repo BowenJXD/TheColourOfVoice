@@ -18,6 +18,22 @@ MonoBehaviour:
       things that humans pride themselves on are nothing but slaves to their senses."
     dialogueSize: 60
     requirePause: 1
+--- !u!114 &-8554646583882452898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 47.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 402320165999adc448c70202ade116d2, type: 2}
 --- !u!114 &-8399213237814345365
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,7 +707,7 @@ MonoBehaviour:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 0}
+  m_MarkerTrack: {fileID: 6533541002291458015}
 --- !u!114 &1114417865341809362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -815,6 +831,22 @@ MonoBehaviour:
     dialogueLine: "My name is Nioneisos. I\u2019m the you from another world."
     dialogueSize: 60
     requirePause: 1
+--- !u!114 &3531348774377151713
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 47.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 1a63761409e21204384bf668152ec571, type: 2}
 --- !u!114 &3624060051492821104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -956,6 +988,31 @@ MonoBehaviour:
       how the future is made!"
     dialogueSize: 60
     requirePause: 1
+--- !u!114 &6533541002291458015
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -8554646583882452898}
+    - {fileID: 3531348774377151713}
 --- !u!114 &6622917226242996175
 MonoBehaviour:
   m_ObjectHideFlags: 1
