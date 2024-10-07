@@ -36,6 +36,9 @@ public class SpellPanel : MonoBehaviour
     [SerializeField]
     private List<SubSpellPanelData> spellDataList;
    
+    public Animator animator; 
+    
+    public Transform parentTransform; 
 
     
     private void Awake()
@@ -48,20 +51,20 @@ public class SpellPanel : MonoBehaviour
             spellNameList.Add(kvp.Key);
             var spell = kvp.Value;
             SubSpellPanelData tempSpellData = new SubSpellPanelData(spell.spellImage,spell.cooldown, spell.spellDescription, spell.triggerWords);
-            CreateSubSpellPanelData(spell);
+            CreateSubSpellPanelData(spell,parentTransform);
             spellDataList.Add(tempSpellData);
 
         }
 
     }
 
-    private void CreateSubSpellPanelData(Spell spell) 
+    private void CreateSubSpellPanelData(Spell spell,Transform parent) 
     {
         SubSpellPanel sub =Instantiate(Resources.Load<SubSpellPanel>(PathDefines.SubSpellPanelPath));
-        sub.transform.SetParent(transform);
+        sub.transform.SetParent(parent);
         sub.transform.localScale = Vector3.one;
         RectTransform reactransform = sub.GetComponent<RectTransform>();
-        reactransform.anchoredPosition = new Vector3(54.53935f, -110.4518f, 0);
+        reactransform.anchoredPosition = new Vector3(54.53935f, -58.4f, 100f);
         subSpellPanelList.Add(sub.GetComponent<SubSpellPanel>());
         sub.spell = spell;
         sub.InitSubSpellPanel();
@@ -73,8 +76,11 @@ public class SpellPanel : MonoBehaviour
     /// </summary>
     public void OpenSpellPanel() 
     {
+        
         this.gameObject.SetActive(true);
-       // subSpellPanelList[0].gameObject.SetActive(true);
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        animator.SetTrigger("Open");
+        // subSpellPanelList[0].gameObject.SetActive(true);
         subSpellPanelList[0].OpenSubSpellPanel();
     }
 
