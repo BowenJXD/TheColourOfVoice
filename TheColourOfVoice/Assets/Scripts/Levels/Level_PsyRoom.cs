@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -17,6 +18,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public TextMeshProUGUI dialogueName;
     public GameObject choosingLevelPanel;
     public GameObject dialogueNextCursor;
+    
+    [SerializeField,ReadOnly] private PlayableDirector playableDirector;
     
     //睡觉相关的参数
     private int shakeCount = 0;
@@ -47,6 +50,18 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     {
         base.Awake();
         gameMode = GameMode.GamePlay;
+        
+        playableDirector = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
+        /*if (levelIndex == 0)
+        {
+           Debug.LogError("LevelIndex is not set");
+           return;
+        }*/
+        if (playableDirector == null)
+        {
+            Debug.LogError("PlayableDirector is not set");
+            return;
+        }
     }
 
     private void Start()
@@ -93,6 +108,29 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             }
         }
 
+    }
+    
+    public void PlayAftTimeLine()
+    {
+        /*foreach (var caseData in Resources.LoadAll<CaseData>("CaseData"))
+        {
+            caseDataList.Add(caseData);
+        }*/
+        int currentCaseIndex = PlayerPrefs.GetInt("levelIndex", 0);
+        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_" + currentCaseIndex);
+        if (caseData == null)
+        {
+            Debug.LogError("CaseData is null");
+            return;
+        }
+        playableDirector.playableAsset = caseData.afterLevelTimelineAsset;
+        Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
+    }
+    
+    private void PlayTimeline()
+    {
+        playableDirector.Play();
+        GameObject.Find("Timeline_ani_skip_hint").SetActive(true);
     }
 
     public void PauseTimeline(PlayableDirector playableDirector)

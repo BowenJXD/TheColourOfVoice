@@ -18,6 +18,7 @@ public class HopeMechanic : LevelMechanic
     public float[] phaseHealths;
     public List<EnemyGenerator> enemyGenerators;
     public Sprite bossSprite;
+    public float tileSaturation;
 
     private int damageCache;
     private EnterPhaseEffect enterPhaseEffect;
@@ -28,6 +29,7 @@ public class HopeMechanic : LevelMechanic
     public override void Init()
     {
         base.Init();
+        SplashGrid.Instance.tileSaturation = tileSaturation;
         var boss = PoolManager.Instance.New(bossPrefab);
         scoreBar = FindObjectOfType<ScoreBar>();
         scoreBar.OnScoreChanged += OnScoreChanged;
