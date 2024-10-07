@@ -18,8 +18,15 @@ public class ScoreBar : MonoBehaviour
     private Vector3 leftPosition = new Vector3(-717f, 73f, 0f);  
     private Vector3 rightPosition = new Vector3(717f, 73f, 0f);  
     [SerializeField] StarController starController; 
+    [SerializeField] List<Image> starList;
+
     Canvas canvas;
 
+    [SerializeField] public Image thousandImage;
+    [SerializeField] public Image hundredImage;
+    [SerializeField] public Image tenImage;
+    [SerializeField] public Image oneImage;
+    [SerializeField] public Sprite[] numberSprites; // 包含 0-9 数字的图片
     void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -72,10 +79,24 @@ public class ScoreBar : MonoBehaviour
         while (true) 
         {
             yield return new WaitForSeconds(1f); 
-            Initialize(splashGrid); 
+            Initialize(splashGrid);
+            UpdateScoreDisplay(splashGrid.PaintedCount);
         }
     }
+    void UpdateScoreDisplay(int PaintedCount)
+    {
+        // 计算各个位数
+        int thousand = PaintedCount / 1000;
+        int hundred = (PaintedCount / 100) % 10;
+        int ten = (PaintedCount / 10) % 10;
+        int one = PaintedCount % 10;
 
+        // 更新四个数字对应的图片
+        thousandImage.sprite = numberSprites[thousand];
+        hundredImage.sprite = numberSprites[hundred];
+        tenImage.sprite = numberSprites[ten];
+        oneImage.sprite = numberSprites[one];
+    }
     protected virtual void Initialize(SplashGrid splashGrid)
     {
         percentage = splashGrid.paintedPercentage;
@@ -118,10 +139,12 @@ public class ScoreBar : MonoBehaviour
             {
                 stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
                 stars[i].color = Color.white;  
+                starList[i].color = Color.white;
             }
             else
             {
                 stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar2");
+                starList[i].color = new Color(1f, 1f, 1f, 0.3f);
 
                 stars[i].color = new Color(1f, 1f, 1f, 0.3f);  
             }
