@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: SaveData
   m_EditorClassIdentifier: 
   levelsCompleted: 0
-  levelStars: 000000000000000000000000000000000000000000000000
+  levelStars: 0000000000000000000000000000000000000000
   spellTriggerWords:
   - Calm Down
   - Light
   - Fireball
   - Love You
-  - colorful voice
-  - Color Of Voice
+  - Color Voice
