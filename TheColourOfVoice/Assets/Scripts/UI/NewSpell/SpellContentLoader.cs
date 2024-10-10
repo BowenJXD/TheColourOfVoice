@@ -22,7 +22,7 @@ public class SpellContentLoader : MonoBehaviour
     
     private void Start()
     {
-        spellIndex = PlayerPrefs.GetInt("levelIndex", spellIndex);
+        spellIndex = PlayerPrefs.GetInt("levelIndex", spellIndex) + 1;
         var data = ResourceManager.Instance.LoadCSV(PathDefines.SpellConfig);
         var spellData = data[spellIndex.ToString()];
         spellName.text = spellData["Name"];

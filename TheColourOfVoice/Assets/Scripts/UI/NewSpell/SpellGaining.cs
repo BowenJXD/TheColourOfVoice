@@ -102,7 +102,6 @@ public class SpellGaining : MonoBehaviour
 
     void NextLevel()
     {
-        PlayerPrefs.SetInt("levelIndex", PlayerPrefs.GetInt("levelIndex") + 1);
         SaveDataManager.Instance.saveData.levelsCompleted
             = Math.Max(SaveDataManager.Instance.saveData.levelsCompleted, PlayerPrefs.GetInt("levelIndex"));
         SceneTransit.Instance.LoadTargetScene("PsyRoom");
