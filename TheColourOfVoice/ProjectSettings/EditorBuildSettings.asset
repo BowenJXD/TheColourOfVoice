@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: 59b0101aecbbaf44d86d5849d26cceec
+  - enabled: 1
+    path: Assets/Scenes/ColourBlindSetting.unity
+    guid: 3432e6197d37ad8408aaaf4c8318f555
   m_configObjects: {}

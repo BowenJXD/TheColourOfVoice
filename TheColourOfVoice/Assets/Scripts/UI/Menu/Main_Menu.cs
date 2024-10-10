@@ -19,7 +19,8 @@ public class Main_Menu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneTransit.Instance.LoadTargetScene("MainGame");
+        //SceneTransit.Instance.LoadTargetScene("ColourBlindSetting");
+        SceneManager.LoadScene("ColourBlindSetting");
         PlayerPrefs.SetInt("levelIndex", index);
     }
     
@@ -31,8 +32,6 @@ public class Main_Menu : MonoBehaviour
 
     public void NextLevel()
     {
-        var idx = PlayerPrefs.GetInt("levelIndex", index);
-        PlayerPrefs.SetInt("levelIndex", ++idx);
         SceneManager.LoadSceneAsync("NewSpell");
     }
 
