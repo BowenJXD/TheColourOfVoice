@@ -99,7 +99,7 @@ public class SpellGaining : MonoBehaviour
 
     void NextLevel()
     {
-        SaveDataManager.Instance.saveData.levelsCompleted++;
+        PlayerPrefs.SetInt("levelIndex", PlayerPrefs.GetInt("levelIndex", 1) + 1);
         SceneTransit.Instance.LoadTargetScene("PsyRoom");
     }
 }
