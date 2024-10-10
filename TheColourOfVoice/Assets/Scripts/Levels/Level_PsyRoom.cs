@@ -138,6 +138,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     private void ResetRoom()
     {
         sightLight.pointLightOuterRadius = 8.0f;
+        playerIsAwake = true;
     }
 
     private void PlayTimeline()
