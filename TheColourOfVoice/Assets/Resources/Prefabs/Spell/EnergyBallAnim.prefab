@@ -141,11 +141,12 @@ MonoBehaviour:
   duration: 100
   target: {fileID: 0}
   shakeType: 1
-  strength: 30
+  strength: 20
   vibrato: 10
   randomness: 90
   snapping: 1
-  fadeOut: 0
+  fadeOut: 1
+  reset: 1
 --- !u!1 &5746376196784695891
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,3 +255,4 @@ MonoBehaviour:
   randomness: 90
   snapping: 0
   fadeOut: 0
+  reset: 0

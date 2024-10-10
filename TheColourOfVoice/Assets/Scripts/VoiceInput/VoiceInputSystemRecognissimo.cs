@@ -32,6 +32,6 @@ public class VoiceInputSystemRecognissimo : Singleton<VoiceInputSystemRecognissi
     {
         base.OnDestroy();
         engine.Commands.Clear();
-        engine.StopProcessing();
+        // engine.StopProcessing();
     }
 }

@@ -165,6 +165,7 @@ MonoBehaviour:
   randomness: 90
   snapping: 0
   fadeOut: 0
+  reset: 0
 --- !u!114 &3192155277107551553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +203,6 @@ MonoBehaviour:
   strength: 30
   vibrato: 10
   randomness: 90
-  snapping: 0
+  snapping: 1
   fadeOut: 0
+  reset: 1

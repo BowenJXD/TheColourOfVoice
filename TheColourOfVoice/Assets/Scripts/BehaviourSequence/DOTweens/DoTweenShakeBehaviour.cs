@@ -22,6 +22,7 @@ public class DoTweenShakeBehaviour : DoTweenBehaviour
     public float randomness = 90;
     public bool snapping = false;
     public bool fadeOut = false;
+    public bool reset = false;
 
     protected override void SetUpTween()
     {
@@ -36,6 +37,23 @@ public class DoTweenShakeBehaviour : DoTweenBehaviour
                 break;
             case ShakeType.Scale:
                 tween.Append(target.DOShakeScale(duration, strength, vibrato, randomness, fadeOut));
+                break;
+        }
+        if (reset) tween.OnComplete(ResetFromTween).OnKill(ResetFromTween);
+    }
+
+    void ResetFromTween()
+    {
+        switch (shakeType)
+        {
+            case ShakeType.Position:
+                target.localPosition = Vector3.zero;
+                break;
+            case ShakeType.Rotation:
+                target.localRotation = Quaternion.identity;
+                break;
+            case ShakeType.Scale:
+                target.localScale = Vector3.one;
                 break;
         }
     }

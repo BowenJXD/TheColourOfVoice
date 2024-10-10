@@ -12367,7 +12367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 0d4e7f42eb12bad4abb4ac6745f7566f, type: 2}
+  config: {fileID: 11400000, guid: 05b74352f5122fc46bdd046183437368, type: 2}
   levelConfigs:
   - {fileID: 0}
   - {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
@@ -12375,12 +12375,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d533a188cbf597049893fcd8a0660065, type: 2}
   - {fileID: 11400000, guid: 9f4d8e0b88015454a97895c02e050171, type: 2}
   - {fileID: 11400000, guid: 05b74352f5122fc46bdd046183437368, type: 2}
-  levelIndex: 2
-  levelName: schizophrenia
-  levelColor: 2
-  tileSprite: {fileID: 21300000, guid: 8f30cc66aacc9b0498e2fbd2bbdd650d, type: 3}
-  enemyGenerator: {fileID: 7218613360977623393, guid: e70de52da47cf804eac1479c9a3a5745, type: 3}
-  mechanic: {fileID: 5998322813702647268, guid: 5b10a289b68f1164bb43ac578eac4706, type: 3}
+  levelIndex: 5
+  levelName: existential crisis
+  levelColor: 9
+  tileSprite: {fileID: 21300000, guid: 101506c42336aec448e0581a242526dc, type: 3}
+  enemyGenerator: {fileID: 0}
+  mechanic: {fileID: -7612144060942389891, guid: 5aff4eab374079a4092ca352b6ed8843, type: 3}
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
   popUpBubblePrefab: {fileID: 0}
@@ -14198,6 +14198,10 @@ PrefabInstance:
       propertyPath: spellPanel
       value: 
       objectReference: {fileID: 1934495125}
+    - target: {fileID: 6027034370660870858, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: reset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7164204222964191310, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14652,6 +14656,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f987662201a75494188ff28c771d54c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Verbose: 1
+  Language: en
+  Model: tiny
+  MaxDistance: 3
+  ExactMatch: 0
+  StartOnLoad: 0
+  Quality: 3
+  CallbackActions: []
+  CallbackNames: []
 --- !u!114 &982402581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26610,11 +26623,21 @@ MonoBehaviour:
   percentText: {fileID: 1160682291}
   starController: {fileID: 24929252}
   starList: []
-  thousandImage: {fileID: 0}
-  hundredImage: {fileID: 0}
-  tenImage: {fileID: 0}
-  oneImage: {fileID: 0}
-  numberSprites: []
+  thousandImage: {fileID: 2125485474}
+  hundredImage: {fileID: 1679921830}
+  tenImage: {fileID: 1239315513}
+  oneImage: {fileID: 1078917002}
+  numberSprites:
+  - {fileID: 1288908548, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: -880750842, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: -755013046, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: 1551443223, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: 486626515, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: -2132036843, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: 1599173208, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: 593774105, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: 15595338, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  - {fileID: -1329116305, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
 --- !u!4 &6588443803447997602
 Transform:
   m_ObjectHideFlags: 0

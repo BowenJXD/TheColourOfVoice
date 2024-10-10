@@ -33,6 +33,7 @@ public class ScoreBar : MonoBehaviour
         canvas.worldCamera = Camera.main;
         
         GameObject starPrefab = Resources.Load<GameObject>("Prefabs/Level/StarPrefabs");
+        // numberSprites = Resources.LoadAll<Sprite>("Fonts/pix_nums");
 
         if (starPrefab == null)
         {
@@ -40,7 +41,7 @@ public class ScoreBar : MonoBehaviour
             return;
         }
 
-        InitializeStars(starPrefab);
+        // InitializeStars(starPrefab);
         
         UpdateScore(0);
         StartCoroutine(UpdatePercentageEverySecond());
@@ -80,22 +81,24 @@ public class ScoreBar : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); 
             Initialize(splashGrid);
-            // UpdateScoreDisplay(splashGrid.PaintedCount);
+            UpdateScoreDisplay(splashGrid.PaintedCount);
         }
     }
     void UpdateScoreDisplay(int PaintedCount)
     {
+        Lebug.Log("PaintedCount: ", PaintedCount);
+        
         // 计算各个位数
-        int thousand = PaintedCount / 1000;
+        int thousand = (PaintedCount / 1000) % 10;
         int hundred = (PaintedCount / 100) % 10;
         int ten = (PaintedCount / 10) % 10;
         int one = PaintedCount % 10;
 
         // 更新四个数字对应的图片
-        thousandImage.sprite = numberSprites[thousand];
-        hundredImage.sprite = numberSprites[hundred];
-        tenImage.sprite = numberSprites[ten];
-        oneImage.sprite = numberSprites[one];
+        if (thousandImage) thousandImage.sprite = numberSprites[thousand];
+        if (hundredImage) hundredImage.sprite = numberSprites[hundred];
+        if (tenImage) tenImage.sprite = numberSprites[ten];
+        if (oneImage) oneImage.sprite = numberSprites[one];
     }
     protected virtual void Initialize(SplashGrid splashGrid)
     {

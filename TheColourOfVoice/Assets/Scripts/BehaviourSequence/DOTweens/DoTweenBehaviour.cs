@@ -39,4 +39,10 @@ public class DoTweenBehaviour : BehaviourNode
     protected virtual void SetUpTween()
     {
     }
+
+    public override void Deinit()
+    {
+        base.Deinit();
+        tween?.Kill();
+    }
 }

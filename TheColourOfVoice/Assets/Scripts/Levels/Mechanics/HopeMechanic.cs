@@ -11,6 +11,7 @@ public class HopeMechanic : LevelMechanic
     [ReadOnly]
     public int phase = 1;
     public Enemy bossPrefab;
+    [HideInInspector] public Enemy boss;
     public ScoreBar scoreBar;
     public Health bossHealth;
     public Explosion explosion;
@@ -30,7 +31,7 @@ public class HopeMechanic : LevelMechanic
     {
         base.Init();
         SplashGrid.Instance.tileSaturation = tileSaturation;
-        var boss = PoolManager.Instance.New(bossPrefab);
+        boss = PoolManager.Instance.New(bossPrefab);
         scoreBar = FindObjectOfType<ScoreBar>();
         scoreBar.OnScoreChanged += OnScoreChanged;
         if (!bossHealth)
