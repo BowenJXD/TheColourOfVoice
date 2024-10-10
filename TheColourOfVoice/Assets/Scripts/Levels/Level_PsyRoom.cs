@@ -357,6 +357,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         if (isNextLevelTutorial)
         {
             PlayerPrefs.SetInt("levelIndex", 0);
+            Lebug.Log("levelIndex", 0);
             SceneTransit.Instance.LoadTargetScene("Tutorial");
             return;
         }

@@ -21,6 +21,7 @@ public class Main_Menu : MonoBehaviour
     {
         //SceneTransit.Instance.LoadTargetScene("ColourBlindSetting");
         SceneManager.LoadScene("ColourBlindSetting");
+        index = SaveDataManager.Instance.saveData.levelsCompleted;
         PlayerPrefs.SetInt("levelIndex", index);
         Lebug.Log("levelIndex", index);
     }
