@@ -150,7 +150,7 @@ public class SpellManager : Singleton<SpellManager>
     
     void StartChanting()
     {
-        VoiceInputSystem.Instance.SetActive(true);
+        // VoiceInputSystem.Instance.SetActive(true);
         CastState = CastState.Chanting;
         coolDownTask = new LoopTask{ finishAction = EndCD, interval = cooldownTime};
     }

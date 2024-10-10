@@ -41,6 +41,7 @@ public class Tutorial : MonoBehaviour
         if (index == 1 && scoreBar.score >= 100)
         {
             SpellManager.Instance.LearnSpell(1);
+            VoiceInputSystemRecognissimo.Instance.engine.StartProcessing();
             tutorialTexts[index+1] = tutorialTexts[index+1].Replace("%s", SpellManager.Instance.allSpells[0].triggerWords);
             IncrementIndex();
             SpellManager.Instance.onCastStateChange += OnCastStateChange;

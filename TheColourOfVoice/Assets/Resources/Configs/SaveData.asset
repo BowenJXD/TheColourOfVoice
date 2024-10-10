@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec97a6882054264a966d8d21be4bdcb, type: 3}
   m_Name: SaveData
   m_EditorClassIdentifier: 
-  levelsCompleted: 0
+  levelsCompleted: -1
   levelStars: 0000000000000000000000000000000000000000
   spellTriggerWords:
-  - Calm Down
+  - Light
   - Light
   - Fireball
   - Light

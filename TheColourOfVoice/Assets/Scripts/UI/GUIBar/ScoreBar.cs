@@ -80,7 +80,7 @@ public class ScoreBar : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); 
             Initialize(splashGrid);
-            UpdateScoreDisplay(splashGrid.PaintedCount);
+            // UpdateScoreDisplay(splashGrid.PaintedCount);
         }
     }
     void UpdateScoreDisplay(int PaintedCount)

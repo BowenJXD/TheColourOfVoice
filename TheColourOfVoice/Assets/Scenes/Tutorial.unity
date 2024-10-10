@@ -10934,7 +10934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &280659001
 Transform:
   m_ObjectHideFlags: 0
@@ -11150,6 +11150,7 @@ Transform:
   - {fileID: 280659001}
   - {fileID: 1693904218}
   - {fileID: 1874047050}
+  - {fileID: 8652349705881885911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350341396
@@ -11742,6 +11743,9 @@ MonoBehaviour:
   UICanvas: {fileID: 286612306}
   myParticleSystem: {fileID: 0}
   StarController: {fileID: 1657941510}
+  targetOrthoSize: 10
+  zoomDuration: 1
+  zoomEase: 9
 --- !u!114 &421179005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11784,6 +11788,7 @@ MonoBehaviour:
   mechanic: {fileID: 0}
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
+  popUpBubblePrefab: {fileID: 0}
 --- !u!114 &421179008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12809,6 +12814,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 6433278730965310477, guid: 2d758179aa1f2e4428d0c0728038c29c, type: 3}
   randomRotationSegment: 4
   doChangeShapeForUnpaintedTiles: 0
+  tileSaturation: 1
   paintedPercentage: 0
 --- !u!4 &776967711
 Transform:
@@ -21114,6 +21120,8 @@ MonoBehaviour:
   spellNameUGUI: {fileID: 0}
   spellNameList: []
   spellDataList: []
+  animator: {fileID: 0}
+  parentTransform: {fileID: 0}
 --- !u!1 &1939611560
 GameObject:
   m_ObjectHideFlags: 0
@@ -22232,6 +22240,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3512f0813c1632b4fb6ff9b73aeb5506, type: 3}
+--- !u!114 &495202702452879243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432843117960412670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccaece4cd05475c983a7947d0907037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalSettings:
+    modelProvider: {fileID: 6510993741940736417}
+    speechSource: {fileID: 4321440243394373978}
+    autoStart: 0
+  lifecycleEvents:
+    started:
+      m_PersistentCalls:
+        m_Calls: []
+    finished:
+      m_PersistentCalls:
+        m_Calls: []
+    initializationFailed:
+      m_PersistentCalls:
+        m_Calls: []
+    runtimeFailed:
+      m_PersistentCalls:
+        m_Calls: []
+  settings:
+    commands: []
+    asapMode: 0
 --- !u!224 &767508791647179489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22255,6 +22295,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -24}
   m_SizeDelta: {x: 500.00012, y: 118.240234}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!1 &1432843117960412670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8652349705881885911}
+  - component: {fileID: 2828621593965391001}
+  - component: {fileID: 495202702452879243}
+  - component: {fileID: 6510993741940736417}
+  - component: {fileID: 4321440243394373978}
+  m_Layer: 0
+  m_Name: VoiceInputRecognissimo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2828621593965391001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432843117960412670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadea2c5c49e49989606592e18b6f1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engine: {fileID: 495202702452879243}
 --- !u!223 &3150647208034413481
 Canvas:
   m_ObjectHideFlags: 0
@@ -22391,6 +22464,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1120e686e8eeefb4986a60136b7d6733, type: 3}
+--- !u!114 &4321440243394373978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432843117960412670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287ca7c445144a2cb27e920ea15200eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordingSettings:
+    deviceName: 
+    timeSensitivity: 0.25
 --- !u!114 &6268389053724335968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22414,6 +22502,30 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &6510993741940736417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432843117960412670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266ce9b057b6440581c95db267c37bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 10
+  languageModels:
+  - language: 10
+    path: LanguageModels/en-US
+  - language: 15
+    path: LanguageModels/de-DE
+  - language: 14
+    path: LanguageModels/fr-FR
+  - language: 30
+    path: LanguageModels/ru-RU
+  - language: 34
+    path: LanguageModels/es-ES
 --- !u!114 &6542253588403801740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22432,6 +22544,12 @@ MonoBehaviour:
   score: 0
   percentText: {fileID: 1160682291}
   starController: {fileID: 0}
+  starList: []
+  thousandImage: {fileID: 0}
+  hundredImage: {fileID: 0}
+  tenImage: {fileID: 0}
+  oneImage: {fileID: 0}
+  numberSprites: []
 --- !u!1 &6994236539064309977
 GameObject:
   m_ObjectHideFlags: 0
@@ -22451,6 +22569,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &8652349705881885911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432843117960412670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 313932904}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
