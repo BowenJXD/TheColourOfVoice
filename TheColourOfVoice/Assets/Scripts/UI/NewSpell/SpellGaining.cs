@@ -99,6 +99,7 @@ public class SpellGaining : MonoBehaviour
 
     void NextLevel()
     {
-        SceneTransit.Instance.LoadTargetScene("MainGame");
+        SaveDataManager.Instance.saveData.levelsCompleted++;
+        SceneTransit.Instance.LoadTargetScene("PsyRoom");
     }
 }
