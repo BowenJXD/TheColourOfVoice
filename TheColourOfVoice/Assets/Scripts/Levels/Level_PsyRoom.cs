@@ -20,6 +20,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public GameObject dialogueNextCursor;
     
     [SerializeField,ReadOnly] private PlayableDirector playableDirector;
+    [Title("SaveData")] public SaveData saveData;
     
     //睡觉相关的参数
     private int shakeCount = 0;
@@ -335,6 +336,11 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// </summary>
     public void ChangeLevel(bool isNextLevelTutorial = false)
     {
+        if (saveData.levelsCompleted < 1)
+        {
+            isNextLevelTutorial = true;
+        }
+
         if (isNextLevelTutorial)
         {
             SceneTransit.Instance.LoadTargetScene("Tutorial");
