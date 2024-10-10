@@ -67,12 +67,22 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
 
     private void Start()
     {
+        //PlayerPrefs.SetInt("levelIndex", 2);
         dialogueText.gameObject.SetActive(false);
         dialogueName.gameObject.SetActive(false);
         GameObject.Find("Timeline_ani_skip_hint").SetActive(false);
         dialogueNextCursor.SetActive(false);
         dialoguePanelInitialPosition = mainPanel.GetComponent<RectTransform>().anchoredPosition;
         dialoguePanelInitialSize = mainPanel.GetComponent<RectTransform>().sizeDelta;
+
+        if (saveData.levelsCompleted > 0)
+        {
+            PlayAftTimeLine();
+        }
+        else
+        {
+            LittleWitchAwake();
+        }
     }
 
     private void Update()
@@ -118,7 +128,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
             caseDataList.Add(caseData);
         }*/
         int currentCaseIndex = PlayerPrefs.GetInt("levelIndex", 0);
-        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_" + currentCaseIndex);
+        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_Case0" + currentCaseIndex);
+        Debug.Log("CaseData: "+ currentCaseIndex);
         if (caseData == null)
         {
             Debug.LogError("CaseData is null");
