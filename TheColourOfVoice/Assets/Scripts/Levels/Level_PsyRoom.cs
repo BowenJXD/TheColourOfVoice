@@ -336,7 +336,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// </summary>
     public void ChangeLevel(bool isNextLevelTutorial = false)
     {
-        if (PlayerPrefs.GetInt("levelIndex") < 1)
+        if (saveData.levelsCompleted < 1)
         {
             isNextLevelTutorial = true;
         }
