@@ -67,7 +67,6 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
 
     private void Start()
     {
-        //PlayerPrefs.SetInt("levelIndex", 2);
         dialogueText.gameObject.SetActive(false);
         dialogueName.gameObject.SetActive(false);
         GameObject.Find("Timeline_ani_skip_hint").SetActive(false);
@@ -75,7 +74,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         dialoguePanelInitialPosition = mainPanel.GetComponent<RectTransform>().anchoredPosition;
         dialoguePanelInitialSize = mainPanel.GetComponent<RectTransform>().sizeDelta;
 
-        if (saveData.levelsCompleted > 0)
+        if (saveData.levelsCompleted >= 0)
         {
             PlayAftTimeLine();
         }
@@ -123,22 +122,24 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     public void PlayAftTimeLine()
     {
-        /*foreach (var caseData in Resources.LoadAll<CaseData>("CaseData"))
-        {
-            caseDataList.Add(caseData);
-        }*/
         int currentCaseIndex = PlayerPrefs.GetInt("levelIndex", 0);
         CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_Case0" + currentCaseIndex);
         Debug.Log("CaseData: "+ currentCaseIndex);
         if (caseData == null)
         {
-            Debug.LogError("CaseData is null");
+            //Debug.LogError("CaseData is null");
+            ResetRoom();
             return;
         }
         playableDirector.playableAsset = caseData.afterLevelTimelineAsset;
         Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
     }
-    
+
+    private void ResetRoom()
+    {
+        sightLight.pointLightOuterRadius = 8.0f;
+    }
+
     private void PlayTimeline()
     {
         playableDirector.Play();
@@ -347,13 +348,14 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     /// </summary>
     public void ChangeLevel(bool isNextLevelTutorial = false)
     {
-        if (saveData.levelsCompleted < 1)
+        if (saveData.levelsCompleted < 0)
         {
             isNextLevelTutorial = true;
         }
 
         if (isNextLevelTutorial)
         {
+            PlayerPrefs.SetInt("levelIndex", 0);
             SceneTransit.Instance.LoadTargetScene("Tutorial");
             return;
         }
