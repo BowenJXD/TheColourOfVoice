@@ -1,5 +1,6 @@
 ﻿public class TakeDamageCon : ConditionBehaviour
 {
+    public bool isBeforeDamage = false;
     private Health health;
 
     public override void SetUp()
@@ -10,11 +11,17 @@
     
     protected override void Init()
     {
-        health.TakeDamageAfter += _ => StartCoroutine(Execute());
+        if (isBeforeDamage) 
+            health.OnTakeDamage += _ => StartCoroutine(Execute());
+        else
+            health.TakeDamageAfter += _ => StartCoroutine(Execute());
     }
     
     protected override void Deinit()
     {
-        health.TakeDamageAfter -= _ => StartCoroutine(Execute());
+        if (isBeforeDamage) 
+            health.OnTakeDamage -= _ => StartCoroutine(Execute());
+        else
+            health.TakeDamageAfter -= _ => StartCoroutine(Execute());
     }
 }

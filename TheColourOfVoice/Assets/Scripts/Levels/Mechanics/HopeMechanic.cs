@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -17,9 +19,12 @@ public class HopeMechanic : LevelMechanic
     public Explosion explosion;
     public float phase2Score;
     public float[] phaseHealths;
-    public List<EnemyGenerator> enemyGenerators;
+    public List<EntityGenerator> enemyGenerators;
     public Sprite bossSprite;
     public float tileSaturation;
+    public CinemachineTargetGroup targetGroup;
+    public CinemachineImpulseSource impulseSource;
+    public EntityGenerator expGenerator;
 
     private int damageCache;
     private EnterPhaseEffect enterPhaseEffect;
@@ -39,7 +44,17 @@ public class HopeMechanic : LevelMechanic
             bossHealth = boss.GetComponent<Health>();
             enterPhaseEffect = boss.GetComponent<EnterPhaseEffect>();
         }
-        enemyGenerators = FindObjectsOfType<EnemyGenerator>(true).OrderBy(c => c.transform.GetSiblingIndex()).ToList();
+
+        if (!targetGroup)
+        {
+            targetGroup = FindObjectOfType<CinemachineTargetGroup>();
+        }
+        if (targetGroup)
+        {
+            targetGroup.AddMember(boss.transform, 0.5f, 1);
+        }
+        
+        enemyGenerators = bossHealth.GetComponentsInChildren<EntityGenerator>(true).OrderBy(c => c.transform.GetSiblingIndex()).ToList();
         volume = FindObjectOfType<Volume>();
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
@@ -51,6 +66,8 @@ public class HopeMechanic : LevelMechanic
         }
         levelDemo = FindObjectOfType<Level_demo>();
         levelDemo.SetChaosTimer(true);
+
+        expGenerator = GetComponentInChildren<EntityGenerator>(true);
         
         Game.Instance.OnNextUpdate += () => BossBanner.Instance.ShowBanner(bossSprite, "Nionysus", ColorManager.Instance.GetColor(PaintColor.Red), true);
     }
@@ -86,6 +103,9 @@ public class HopeMechanic : LevelMechanic
             case 7:
                 EnterPhase7();
                 return;
+            case 8:
+                EnterPhase8();
+                return;
         }
 
         if (explosion) 
@@ -110,9 +130,9 @@ public class HopeMechanic : LevelMechanic
             enemyGenerators[phase - 2].gameObject.SetActive(true);
         }
         
-        enterPhaseEffect.EnterPhase(phase);
+        enterPhaseEffect.EnterPhase(false);
     }
-    
+
     void EnterPhase2()
     {
         int count = 0;
@@ -156,7 +176,71 @@ public class HopeMechanic : LevelMechanic
         LevelManager.Instance.mechanic = obj;
     }
     
-    void EnterPhase7()
+    private void EnterPhase7()
+    {
+        /*
+         * 禁止boss动作
+         * 禁止玩家移动和攻击
+         * 播放爆炸特效
+         * 屏幕抖动
+         * 视角移动到boss身上
+         * 
+         * 特效结束后：
+         * 视角移回玩家身上
+         * 移回后：
+         * 恢复玩家移动，攻击变成主动攻击
+         * 添加bubble提示玩家按下攻击键
+         * boss受击后会抖动，受击10次后炸裂
+         * EnterPhase8
+         */
+        foreach (var enemy in FindObjectsOfType<Enemy>())
+        {
+            if (enemy.gameObject != bossHealth.gameObject)
+            {
+                enemy.Deinit();
+            }
+        }
+        
+        LevelManager.Instance.mechanic.Deinit();
+        LevelManager.Instance.mechanic = null;
+        
+        enterPhaseEffect.EnterPhase(true);
+        var player = GameObject.FindWithTag("Player");
+        var move = player.GetComponent<PlayerMovement>();
+        move.enabled = false;
+        var fire = player.GetComponentInChildren<Fire>(true);
+        fire.enabled = false;
+
+        expGenerator = GetComponentInChildren<EntityGenerator>(true);
+        expGenerator.spawnTransform = bossHealth.transform;
+        expGenerator.gameObject.SetActive(true);
+        expGenerator.enabled = true;
+        
+        CameraShakeManager.Instance.CameraShake(impulseSource);
+
+        CinemachineTargetGroup.Target[] targets = new CinemachineTargetGroup.Target[2];
+        Array.Copy(targetGroup.m_Targets, targets, 2);
+        targetGroup.RemoveMember(player.transform);
+        new LoopTask{interval = 3f, finishAction = () =>
+        {
+            targetGroup.m_Targets = targets;
+            move.enabled = true;
+            fire.enabled = true;
+            fire.SetAutoFire(false);
+            float damage = bossHealth.currentHealth / 10;
+            fire.onFire += bullet =>
+            {
+                if (bullet.TryGetComponent<Attack>(out var attack))
+                {
+                    attack.damage = damage;
+                }
+            };
+            bossHealth.damageCooldown = 0;
+            LevelManager.Instance.StartPopupBubble("BD7");
+        }}.Start();
+    }
+    
+    void EnterPhase8()
     {
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
@@ -167,7 +251,7 @@ public class HopeMechanic : LevelMechanic
             });
         }
         
-        enterPhaseEffect.EnterPhase(phase);
+        boss.Deinit();
     }
     
     private bool OnTilePainted(Painter obj)

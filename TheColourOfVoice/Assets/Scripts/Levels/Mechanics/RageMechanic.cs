@@ -158,6 +158,8 @@ public class RageMechanic : LevelMechanic
     
     public override void Deinit()
     {
+        ExitRageMode();
+        loopTask.Stop();
         OnEnterRage = null;
         OnExitRage = null;
     }

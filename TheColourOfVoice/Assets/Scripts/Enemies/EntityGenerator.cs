@@ -29,10 +29,10 @@ public struct TaskConfig
 /// Generate enemies based on task configs.
 /// The spawn position will be distributed in a circle around the player.
 /// </summary>
-public class EnemyGenerator : MonoBehaviour
+public class EntityGenerator : MonoBehaviour
 {
-	public List<Enemy> enemyPrefabs;
-	[NonSerialized] public List<Enemy> activeEnemies = new List<Enemy>();
+	public List<Entity> enemyPrefabs;
+	[NonSerialized] public List<Entity> activeEnemies = new List<Entity>();
 	
 	public List<TaskConfig> taskConfigs;
 	public int currentTaskIndex = 0;
@@ -105,7 +105,7 @@ public class EnemyGenerator : MonoBehaviour
 		{
 			return;
 		}
-		Enemy enemyPrefab = enemyPrefabs[enemyIndex];
+		Entity enemyPrefab = enemyPrefabs[enemyIndex];
 
 		var spawnPosition = GetSpawnPosition();
 		if (spawnCount > 1)
@@ -126,11 +126,11 @@ public class EnemyGenerator : MonoBehaviour
 	/// <summary>
 	/// Reset on disable
 	/// </summary>
-	public Action<Enemy> onSpawn;
+	public Action<Entity> onSpawn;
 
-	public Enemy Spawn(Enemy prefab, Vector3 position)
+	public Entity Spawn(Entity prefab, Vector3 position)
 	{
-		Enemy enemy = PoolManager.Instance.New(prefab);
+		Entity enemy = PoolManager.Instance.New(prefab);
 		enemy.transform.position = position;
 		activeEnemies.Add(enemy);
 		enemy.onDeinit += () =>

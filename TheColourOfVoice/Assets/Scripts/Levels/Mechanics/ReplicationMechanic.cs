@@ -7,7 +7,7 @@ public class ReplicationMechanic : LevelMechanic
 {
     public float triggerInterval;
     public float force;
-    List<Enemy> enemies;
+    List<Entity> enemies;
     LoopTask loopTask;
     private StudioEventEmitter emitter;
     
@@ -15,7 +15,7 @@ public class ReplicationMechanic : LevelMechanic
     {
         base.Init();
         emitter = GetComponent<StudioEventEmitter>();
-        enemies = LevelManager.Instance.enemyGenerator.enemyPrefabs;
+        enemies = LevelManager.Instance.entityGenerator.enemyPrefabs;
         loopTask = new LoopTask{loopAction = Replicate, interval = triggerInterval, loop = -1};
         loopTask.Start();
     }
@@ -27,9 +27,9 @@ public class ReplicationMechanic : LevelMechanic
             var entities = PoolManager.Instance.GetAll(enemy);
             if (entities.Count <= 0) continue;
             
-            Enemy randomEnemy = entities.GetRandomItem();
+            Entity randomEnemy = entities.GetRandomItem();
             Vector3 spawnPosition = randomEnemy.transform.position;
-            Enemy newEnemy = LevelManager.Instance.enemyGenerator.Spawn(enemy, spawnPosition);
+            Entity newEnemy = LevelManager.Instance.entityGenerator.Spawn(enemy, spawnPosition);
             
             if (force == 0) continue;
             if (!randomEnemy.TryGetComponent(out Rigidbody2D oldRb)) continue;
