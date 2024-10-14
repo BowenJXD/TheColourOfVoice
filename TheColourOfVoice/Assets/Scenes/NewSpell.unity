@@ -222,7 +222,7 @@ MonoBehaviour:
   spellName: {fileID: 1745565074}
   spellDescription: {fileID: 1678245917}
   spellCooldown: {fileID: 1468330680}
-  placeholder: {fileID: 1962215278}
+  placeholder: {fileID: 0}
   spellImage: {fileID: 908299803}
   trailRenderer: {fileID: 766821159}
   particleSystem: {fileID: 356514980}
@@ -6009,6 +6009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  inputWeight: 0.5
   target: {fileID: 1006118926}
   angularSpeed: 20
   stopRange: 1
@@ -7191,7 +7192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  Enter your desired trigger word... (max 50 chars)'
+  m_text: ' Enter your words and repeat them 3 times.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
   m_sharedMaterial: {fileID: 8544314857531662688, guid: 352edef50c3ff9141a110347a5c9919d, type: 2}
