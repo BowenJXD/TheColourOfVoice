@@ -126,30 +126,36 @@ public class ScoreBar : MonoBehaviour
     {
         //Debug.Log("Updating stars.");
         float[] scoreThresholds = starController.scoreThresholds;
-        for (int i = 0; i < stars.Count; i++)
+        for (int i = 0; i < starList.Count; i++)
         {
-            if (stars[i] == null)
+            if (starList[i] == null)
             {
                 Debug.LogError($"Star at index {i} is null.");
                 continue;
             }
+            /*
             float starPositionX = Mathf.Lerp(leftPosition.x, rightPosition.x, scoreThresholds[i] / maxScore);
 
             RectTransform starRect = stars[i].GetComponent<RectTransform>();
             starRect.anchoredPosition = new Vector3(starPositionX, leftPosition.y, 0f);
+            */
 
             if (score >= scoreThresholds[i])
             {
-                stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
-                stars[i].color = Color.white;  
+                /*stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
+                stars[i].color = Color.white;  */
                 starList[i].color = Color.white;
             }
             else
             {
+                /*
                 stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar2");
+                */
                 starList[i].color = new Color(1f, 1f, 1f, 0.3f);
 
+                /*
                 stars[i].color = new Color(1f, 1f, 1f, 0.3f);  
+            */
             }
         }
     }

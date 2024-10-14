@@ -15,8 +15,8 @@ MonoBehaviour:
   levelsCompleted: -1
   levelStars: 0000000000000000000000000000000000000000
   spellTriggerWords:
-  - Calm Down
+  - Hi
   - Light
-  - Fireball
+  - Hello
   - Love You
   - Color Voice

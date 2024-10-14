@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f109cfb1e14fcb8d3fb5f6811695af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIndex: 5
+  spellIndex: 0
   spellName: {fileID: 1745565074}
   spellDescription: {fileID: 1678245917}
   spellCooldown: {fileID: 1468330680}
@@ -6706,10 +6706,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 786451378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 503.45, y: -117.45}
-  m_SizeDelta: {x: 1006.9, y: 234.9}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678245917
 MonoBehaviour:
