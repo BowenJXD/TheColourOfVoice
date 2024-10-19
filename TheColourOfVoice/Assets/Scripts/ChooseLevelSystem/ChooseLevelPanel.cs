@@ -132,17 +132,19 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     {
         if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT)
         {
-            Debug.Log("Rect moving Left Slot");
+            //Debug.Log("Rect moving Left Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,leftslotPos);
         }else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT)
         {
-            Debug.Log("Rect moving Right Slot");
+            //Debug.Log("Rect moving Right Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,rightslotPos);
         }
+        
+        ResetChooseLevelPanelText();
     }
     
     public void OnPointerClickCase(GameObject caseObject)
@@ -187,6 +189,11 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         
     }
     
+    void ResetChooseLevelPanelText()
+    {
+        UpdateStateText(ChoosingLevelStateText.CHOOSE_CASE);
+    }
+    
     public void UpdateDisplay()
     { 
         int listCount = currentCaseList.Count;
@@ -216,6 +223,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     
     void UpdateChoosingLevelStateText(SlotType slotType,GameObject caseObject)
     {
+        Debug.Log("SlotType: "+slotType);
         switch (slotType)
         {
             case SlotType.LEFT_SLOT:
@@ -240,7 +248,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         }
     }
     
-    void UpdateStateText(string text)
+    public void UpdateStateText(string text)
     {
         stateText.text = text;
     }

@@ -1007,6 +1007,7 @@ GameObject:
   - component: {fileID: 926874071620130449}
   - component: {fileID: 1868039430190225813}
   - component: {fileID: 974566275200844130}
+  - component: {fileID: 6208639521523473885}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1116,6 +1117,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &6208639521523473885
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630264894836785910}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6819045575488164450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1359,7 @@ MonoBehaviour:
   patientSymptoms: {fileID: 4086115737989958379}
   patientDescription: {fileID: 3754465580005577861}
   patientImage: {fileID: 6244583699271502904}
+  levelState: 0
   colorSelectedAlpha: 0.7
   colorAlpha: 0.4
   duration: 0.2

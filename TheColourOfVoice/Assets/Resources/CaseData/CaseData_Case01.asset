@@ -20,3 +20,5 @@ MonoBehaviour:
   levelIndex: 1
   preLevelTimelineAsset: {fileID: 11400000, guid: 39d56f0db9b148e409155fbbd013967e, type: 2}
   afterLevelTimelineAsset: {fileID: 11400000, guid: 90a19948919b6074496a577bf1f716d5, type: 2}
+  levelFinished: 0
+  levelState: 1

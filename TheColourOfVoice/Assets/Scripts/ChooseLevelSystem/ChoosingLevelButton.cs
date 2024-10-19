@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 挂载在每关的选关按键上，用于进入关卡前的TimeLine动画播放
 /// </summary>
-public class ChoosingLevelButton : MonoBehaviour
+public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
 {
    //public int levelIndex;
    public CaseData currentCaseData;
@@ -177,5 +178,21 @@ public class ChoosingLevelButton : MonoBehaviour
       rect.anchoredPosition = new Vector2(609f, -172f);
       rect.sizeDelta = new Vector2(410f, 410f);
       caseSettlementIcon.GetComponent<Image>().color = new Color(1,1,1,0);
+   }
+
+   public void OnPointerEnter(PointerEventData eventData)
+   {
+      if (GetComponentInChildren<PatientCase>().slotType != SlotType.CURRENT_SLOT)
+      {
+         return;
+      }
+      if (GetComponentInChildren<PatientCase>().levelState == LevelState.Locked)
+      {
+       ChooseLevelPanel.Instance.UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.LOCKED);
+      }else if (GetComponentInChildren<PatientCase>().levelState == LevelState.Unlocked)
+      {
+         ChooseLevelPanel.Instance. UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.ENTER_LEVEL);
+      }
+      else ChooseLevelPanel.Instance.UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.FINISHED);
    }
 }
