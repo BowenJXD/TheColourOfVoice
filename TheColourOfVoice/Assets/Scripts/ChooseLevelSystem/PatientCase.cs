@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
@@ -32,7 +33,8 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public float colorSelectedAlpha = 0.7f;
     public float colorAlpha = 0.4f;
     public float duration = 0.2f;
-
+    [Title("关卡完成评分图标")]
+    public GameObject caseSettlementIcon;
 
     public void InstantiateCase(CaseData caseData,SlotType patientSlotType)
     {
@@ -64,4 +66,36 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
         Debug.Log("Pointer click");
         ChooseLevelPanel.Instance.OnPointerClickCase(transform.parent.gameObject);
     }
+    
+    /// <summary>
+    /// 生成关卡结算图标
+    /// </summary>
+    /// <param name="caseIconName"></param>
+    public void InitCaseSettlementIcon(string caseIconName)
+    {
+        //生成Icon的部分
+        ResetIcon();
+        string iconArtPath = "Arts/CaseSettlementIcon/" + caseIconName;
+        Sprite iconSprite = Resources.Load<Sprite>(iconArtPath);
+        caseSettlementIcon.GetComponent<Image>().sprite = iconSprite;
+        caseSettlementIcon.SetActive(true);
+        //动效
+        RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
+        caseSettlementIcon.GetComponent<Image>().DOFade(1, 0.5f);
+        rect.DOAnchorPos(new Vector2(494f, -215f), 0.5f);
+        rect.DOSizeDelta(new Vector2(267.5f, 267.5f), 0.5f);
+    }
+   
+    /// <summary>
+    /// 重置Icon
+    /// </summary>
+    public void ResetIcon()
+    {
+        caseSettlementIcon.SetActive(false);
+        RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
+        rect.anchoredPosition = new Vector2(609f, -172f);
+        rect.sizeDelta = new Vector2(410f, 410f);
+        caseSettlementIcon.GetComponent<Image>().color = new Color(1,1,1,0);
+    }
+
 }

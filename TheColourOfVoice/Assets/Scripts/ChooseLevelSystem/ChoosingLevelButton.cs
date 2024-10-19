@@ -16,8 +16,9 @@ public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
    public CaseData currentCaseData;
    [SerializeField,ReadOnly] private PlayableDirector playableDirector;
    public Button button;
-   [Title("关卡完成评分图标")]
-   public GameObject caseSettlementIcon;
+   
+   [Title("选关面板的提示词")]
+   public GameObject chooseLevelPanelText;
    private void Awake()
    {
       if (button!=null)
@@ -70,12 +71,38 @@ public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
       // 执行初始化逻辑
       //InitializeScene(levelIndex);
    }
-
+   
+   /// <summary>
+   /// 晃动效果
+   /// </summary>
+   Tweener tween;
+   private void Shake(GameObject target,float powerX, float powerY)
+   {
+      if (tween != null && tween.IsActive()) return;
+      tween = target.transform.DOShakePosition(1f, new Vector3(powerX, powerY, 0f), 10, 180, false)
+         .SetLoops(1, LoopType.Incremental).OnComplete(() => tween = null);
+   }
+   
+   /// <summary>
+   /// 按钮点击事件
+   /// </summary>
    private void OnchoosingLevelButtonClicked()
    {
        PlayerPrefs.SetInt("levelIndex", currentCaseData.levelIndex);
-       Lebug.Log("levelIndex", currentCaseData.levelIndex);
-       Debug.Log("LevelIndex is " + currentCaseData.levelIndex);
+       //Lebug.Log("levelIndex", currentCaseData.levelIndex);
+       //Debug.Log("LevelIndex is " + currentCaseData.levelIndex);
+       if (currentCaseData.levelState == LevelState.Locked || currentCaseData.levelState == LevelState.Good || currentCaseData.levelState == LevelState.Perfect
+           || currentCaseData.levelState == LevelState.Pass)
+       {
+          //Debug.LogError("Level is locked");
+          if (chooseLevelPanelText == null)
+          {
+             chooseLevelPanelText = ChooseLevelPanel.Instance.stateText.gameObject;
+          }
+          Shake(chooseLevelPanelText, 10f, 10f);
+          return;
+       }
+      
        //TODO:这里注释的是打开timeline动画的部分
        if (currentCaseData.preLevelTimelineAsset == null)
        {
@@ -124,6 +151,7 @@ public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
      // GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
    }
 
+   /*
    private void UpdateCaseState()
    {
       switch (currentCaseData.levelState)
@@ -148,38 +176,9 @@ public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
           break;
       }
    }
+   */
    
-   /// <summary>
-   /// 生成关卡结算图标
-   /// </summary>
-   /// <param name="caseIconName"></param>
-   private void InitCaseSettlementIcon(string caseIconName)
-   {
-      //生成Icon的部分
-      ResetIcon();
-      string iconArtPath = "Arts/CaseSettlementIcon/" + caseIconName;
-      Sprite iconSprite = Resources.Load<Sprite>(iconArtPath);
-      caseSettlementIcon.GetComponent<Image>().sprite = iconSprite;
-      caseSettlementIcon.SetActive(true);
-      //动效
-      RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
-      caseSettlementIcon.GetComponent<Image>().DOFade(1, 0.5f);
-      rect.DOAnchorPos(new Vector2(494f, -215f), 0.5f);
-      rect.DOSizeDelta(new Vector2(267.5f, 267.5f), 0.5f);
-   }
-   
-   /// <summary>
-   /// 重置Icon
-   /// </summary>
-   private void ResetIcon()
-   {
-      caseSettlementIcon.SetActive(false);
-      RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
-      rect.anchoredPosition = new Vector2(609f, -172f);
-      rect.sizeDelta = new Vector2(410f, 410f);
-      caseSettlementIcon.GetComponent<Image>().color = new Color(1,1,1,0);
-   }
-
+ 
    public void OnPointerEnter(PointerEventData eventData)
    {
       if (GetComponentInChildren<PatientCase>().slotType != SlotType.CURRENT_SLOT)

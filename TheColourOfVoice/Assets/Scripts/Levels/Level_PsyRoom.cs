@@ -400,13 +400,6 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     private void SkipTimeLine()
     {
-        /*// 停止Timeline
-        currentPlayableDirector.Stop();
-        
-        // 切换到下一个场景
-        FinishedOpenningCG();
-        ChangeLevel();*/
-        
         if (playableDirector != null)
         {
             // 将时间设置为 Timeline 的总时长，即跳到结尾

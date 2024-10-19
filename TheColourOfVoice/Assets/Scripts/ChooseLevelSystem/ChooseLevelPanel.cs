@@ -63,8 +63,19 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         MoveCase(currentCaseList[0],currentSlotPos,1,SlotType.CURRENT_SLOT,true);
         MoveCase(currentCaseList[^1],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
         MoveCase(currentCaseList[1],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+        
+        UpdateCaseIconStateText();
     }
-    
+
+    private void OnEnable()
+    {
+        if (currentCaseList.Count == 0)
+        {
+            return;
+        }
+        UpdateCaseIconStateText();
+    }
+
     void InstantiateCase(RectTransform rectTransform,CaseData caseData,SlotType slotType)
     {
         GameObject tempCaseObject = Instantiate(Resources.Load<GameObject>("Prefabs/CaseTest"),transform);
@@ -253,5 +264,44 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         stateText.text = text;
     }
     
+    public void UpdateCaseIconStateText()
+    {
+        List<int> levelStars = Level_PsyRoom.Instance.saveData.levelStars;
+        for (int i = 0; i < levelStars.Count; i++)
+        {
+            switch (levelStars[i])
+            {
+                case 1:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Pass;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PASS");
+                    break;
+                case 2:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Good;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("GOOD");
+                    break;
+                case 3:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Perfect;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PERFECT");
+                    break;
+                case 0:
+                    if (i<=0)
+                    {
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                    }else if (levelStars[i - 1] == 0)
+                    {   
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Locked;
+                    }else
+                    {
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                    }
+                    break;
+                    default:
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        break;
+            }
+            
+        }
+        
+    }
     
 }

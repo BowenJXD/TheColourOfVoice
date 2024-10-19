@@ -592,7 +592,7 @@ MonoBehaviour:
   currentCaseData: {fileID: 0}
   playableDirector: {fileID: 0}
   button: {fileID: 974566275200844130}
-  caseSettlementIcon: {fileID: 2512676293371070764}
+  chooseLevelPanelText: {fileID: 0}
 --- !u!1 &4948339479498025070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1363,7 @@ MonoBehaviour:
   colorSelectedAlpha: 0.7
   colorAlpha: 0.4
   duration: 0.2
+  caseSettlementIcon: {fileID: 2512676293371070764}
 --- !u!1 &7047516391444050074
 GameObject:
   m_ObjectHideFlags: 0
