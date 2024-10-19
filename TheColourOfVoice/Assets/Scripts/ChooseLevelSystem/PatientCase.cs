@@ -28,6 +28,7 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public TextMeshProUGUI patientSymptoms;
     public TextMeshProUGUI patientDescription;
     public Image patientImage;
+    public LevelState levelState;
     public float colorSelectedAlpha = 0.7f;
     public float colorAlpha = 0.4f;
     public float duration = 0.2f;
@@ -41,6 +42,7 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
         patientDescription.text = caseData.patientDescription;
         patientImage.sprite = caseData.patientImage;
         this.slotType = patientSlotType;
+        levelState = caseData.levelState;
         button.gameObject.SetActive(false);
     }
    

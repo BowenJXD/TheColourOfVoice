@@ -2,12 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 
 
 public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
 {
+    public struct ChoosingLevelStateText
+    {
+        public const string CHOOSE_CASE = "Select a patient...";
+        public const string FINISHED = "Finished";
+        public const string ENTER_LEVEL = "Enter Level";
+        public const string FlIP_LEFT = "Flip Left";
+        public const string FLIP_RIGHT = "Flip Right";
+        public const string LOCKED = "Locked";
+    }
+
     //各个Case的数据
     public List<CaseData> caseDataList;
     public List<GameObject> currentCaseList; //当前可以显示的所有Case
@@ -22,6 +34,9 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     public float duration = 0.2f;
     //private bool casePanelIsMoving = false;
     
+    [Title("ChoosingLevelPanel State text")]
+    public TMP_Text stateText;
+
     //循环结构的参数
     private int currentIndex = 0;
     private void Awake()
@@ -110,6 +125,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             DoTweenMoveRectTransfrom(tempRect,rightPeekSlot);
         }
         
+        UpdateChoosingLevelStateText(caseObject.GetComponentInChildren<PatientCase>().slotType,caseObject);
     }
     
     public void OnpointerExitCase(GameObject caseObject)
@@ -197,4 +213,38 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             }
         }
     }
+    
+    void UpdateChoosingLevelStateText(SlotType slotType,GameObject caseObject)
+    {
+        switch (slotType)
+        {
+            case SlotType.LEFT_SLOT:
+                UpdateStateText(ChoosingLevelStateText.FlIP_LEFT);
+                break;
+            case SlotType.RIGHT_SLOT:
+                UpdateStateText(ChoosingLevelStateText.FLIP_RIGHT);
+                break;
+            case SlotType.CURRENT_SLOT:
+                if (caseObject.GetComponentInChildren<PatientCase>().levelState == LevelState.Locked)
+                {
+                    UpdateStateText(ChoosingLevelStateText.LOCKED);
+                }else if (caseObject.GetComponentInChildren<PatientCase>().levelState == LevelState.Unlocked)
+                {
+                    UpdateStateText(ChoosingLevelStateText.ENTER_LEVEL);
+                }
+                else UpdateStateText(ChoosingLevelStateText.FINISHED);
+                break;
+            default:
+                UpdateStateText(ChoosingLevelStateText.CHOOSE_CASE);
+                break;
+        }
+    }
+    
+    void UpdateStateText(string text)
+    {
+        stateText.text = text;
+    }
+    
+    
+    //SaveDataManager.Instance.saveData.levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1]
 }

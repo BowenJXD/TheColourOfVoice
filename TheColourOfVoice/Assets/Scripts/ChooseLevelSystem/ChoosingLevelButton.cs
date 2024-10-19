@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -14,6 +15,8 @@ public class ChoosingLevelButton : MonoBehaviour
    public CaseData currentCaseData;
    [SerializeField,ReadOnly] private PlayableDirector playableDirector;
    public Button button;
+   [Title("关卡完成评分图标")]
+   public GameObject caseSettlementIcon;
    private void Awake()
    {
       if (button!=null)
@@ -118,5 +121,61 @@ public class ChoosingLevelButton : MonoBehaviour
    {
       Debug.Log("Initializing LevelConfig");
      // GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
+   }
+
+   private void UpdateCaseState()
+   {
+      switch (currentCaseData.levelState)
+      {
+         
+         case LevelState.Locked:
+            
+            break;
+         case LevelState.Unlocked:
+            
+            break;
+         case LevelState.Pass:
+            InitCaseSettlementIcon("PASS");
+            break;
+         case LevelState.Good:
+            InitCaseSettlementIcon("GOOD");
+            break;
+         case LevelState.Perfect:
+            InitCaseSettlementIcon("PERFECT");
+            break;
+         default:
+          break;
+      }
+   }
+   
+   /// <summary>
+   /// 生成关卡结算图标
+   /// </summary>
+   /// <param name="caseIconName"></param>
+   private void InitCaseSettlementIcon(string caseIconName)
+   {
+      //生成Icon的部分
+      ResetIcon();
+      string iconArtPath = "Arts/CaseSettlementIcon/" + caseIconName;
+      Sprite iconSprite = Resources.Load<Sprite>(iconArtPath);
+      caseSettlementIcon.GetComponent<Image>().sprite = iconSprite;
+      caseSettlementIcon.SetActive(true);
+      //动效
+      RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
+      caseSettlementIcon.GetComponent<Image>().DOFade(1, 0.5f);
+      rect.DOAnchorPos(new Vector2(494f, -215f), 0.5f);
+      rect.DOSizeDelta(new Vector2(267.5f, 267.5f), 0.5f);
+   }
+   
+   /// <summary>
+   /// 重置Icon
+   /// </summary>
+   private void ResetIcon()
+   {
+      caseSettlementIcon.SetActive(false);
+      RectTransform rect = caseSettlementIcon.GetComponent<RectTransform>();
+      rect.anchoredPosition = new Vector2(609f, -172f);
+      rect.sizeDelta = new Vector2(410f, 410f);
+      caseSettlementIcon.GetComponent<Image>().color = new Color(1,1,1,0);
    }
 }
