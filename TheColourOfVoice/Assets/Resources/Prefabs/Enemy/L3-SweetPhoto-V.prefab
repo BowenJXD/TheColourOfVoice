@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDecay: 1
   isRage: 0
-  multiplier: 3
+  multiplier: 2
 --- !u!95 &6144696378330077734
 Animator:
   serializedVersion: 5

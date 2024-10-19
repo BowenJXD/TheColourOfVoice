@@ -162,6 +162,7 @@ MonoBehaviour:
   randomness: 90
   snapping: 1
   fadeOut: 0
+  reset: 0
 --- !u!1 &964382252843251400
 GameObject:
   m_ObjectHideFlags: 0
@@ -15671,6 +15672,7 @@ MonoBehaviour:
   shootingInterval: 0.3
   rb: {fileID: 2664940203796196856}
   recoil: 0
+  autoFire: 1
   ps: {fileID: 3140214773932902265}
 --- !u!1 &3316224132156739773
 GameObject:
@@ -15797,7 +15799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  inputWeight: 10
+  inputWeight: 65
   inDialogueArea: 0
   rotatingTransform: {fileID: 7875169839693260514}
   fourDirectional: 0
@@ -15951,6 +15953,7 @@ MonoBehaviour:
   executables:
   - {fileID: 4627527496927842432}
   - {fileID: 1297494638756764403}
+  isBeforeDamage: 0
 --- !u!114 &4627527496927842432
 MonoBehaviour:
   m_ObjectHideFlags: 0
