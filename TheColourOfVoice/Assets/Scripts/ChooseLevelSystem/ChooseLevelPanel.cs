@@ -254,5 +254,4 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     }
     
     
-    //SaveDataManager.Instance.saveData.levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1]
 }

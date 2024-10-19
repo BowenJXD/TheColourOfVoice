@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -6550232435703706810}
+    - {fileID: -2472178813622732595}
 --- !u!114 &-3408196224693453213
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +502,22 @@ MonoBehaviour:
     dialogueLine: "It\u2019s over. How do you feel?"
     dialogueSize: 60
     requirePause: 1
+--- !u!114 &-2472178813622732595
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 8.65
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: afa05a1cc125af74c90a9136b1228f27, type: 2}
 --- !u!114 &-2272402452452035634
 MonoBehaviour:
   m_ObjectHideFlags: 1

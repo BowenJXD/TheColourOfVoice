@@ -2509,6 +2509,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 26e81171bb1d1154abbdf4898a8ec9d7, type: 2}
     - {fileID: 11400000, guid: 402320165999adc448c70202ade116d2, type: 2}
     - {fileID: 11400000, guid: 18100aa9e4617d2419bb57e92c08ea7d, type: 2}
+    - {fileID: 11400000, guid: afa05a1cc125af74c90a9136b1228f27, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2600,6 +2601,20 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
           m_MethodName: ChangeLevel
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318686243}
+          m_TargetAssemblyTypeName: Level_PsyRoom, Assembly-CSharp
+          m_MethodName: OnfinishedAftTimeLine
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4204,6 +4219,7 @@ MonoBehaviour:
   dialogueName: {fileID: 1170709955}
   choosingLevelPanel: {fileID: 1902046342}
   dialogueNextCursor: {fileID: 1673799658}
+  skipHint: {fileID: 1976754257}
   playableDirector: {fileID: 0}
   saveData: {fileID: 11400000, guid: 45c45652935fc3045895ca6430131b77, type: 2}
   playerIsAwake: 0
