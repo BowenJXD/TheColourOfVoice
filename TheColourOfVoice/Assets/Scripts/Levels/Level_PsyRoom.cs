@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Level_PsyRoom : Singleton<Level_PsyRoom>
@@ -39,6 +40,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public PlayableDirector currentPlayableDirector;
     
     [Title("Character Portraits")] public List<Sprite> characterPortraits;
+    public GameObject LittleWitchPortrait;
+    public GameObject CharacterPortrait;
     
     //Glitch打字效果的一些参数
     private Coroutine typingCoroutine;
@@ -276,6 +279,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         dialogueText.text = "";
         mainPanel.GetComponent<RectTransform>().anchoredPosition = dialoguePanelInitialPosition;
         mainPanel.GetComponent<RectTransform>().sizeDelta = dialoguePanelInitialSize;
+        LittleWitchPortrait.SetActive(false);
+        CharacterPortrait.SetActive(false);
     }
   
 
@@ -301,6 +306,50 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         //typingCoroutine = StartCoroutine(TypingText(dialogue));
         dialogueName.text = name;
         dialogueText.fontSize = dialogueSize;
+
+        if (name == "LittleWitch")
+        {
+            ResetPortrait();
+            LittleWitchPortrait.GetComponent<Image>().sprite = characterPortraits[0];
+            LittleWitchPortrait.SetActive(true);
+        }else if (name == "Ava")
+        {
+            ResetPortrait();
+            CharacterPortrait.GetComponent<Image>().sprite = characterPortraits[1];
+            CharacterPortrait.SetActive(true);
+        }else if (name == "Benjamin")
+        {
+            ResetPortrait();
+            CharacterPortrait.GetComponent<Image>().sprite = characterPortraits[2];
+            CharacterPortrait.SetActive(true);
+        }
+        else if (name == "Chloe")
+        {
+            ResetPortrait();
+            CharacterPortrait.GetComponent<Image>().sprite = characterPortraits[3];
+            CharacterPortrait.SetActive(true);
+        }else if (name == "Ron")
+        {
+            ResetPortrait();
+            CharacterPortrait.GetComponent<Image>().sprite = characterPortraits[4];
+            CharacterPortrait.SetActive(true);
+        }
+        else if (name == "Nioneisos")
+        {
+            ResetPortrait();
+            CharacterPortrait.GetComponent<Image>().sprite = characterPortraits[5];
+            CharacterPortrait.SetActive(true);
+        }
+        else
+        {
+            ResetPortrait();
+        }
+    }
+    
+    private void  ResetPortrait()
+    {
+        LittleWitchPortrait.SetActive(false);
+        CharacterPortrait.SetActive(false);
     }
 
     /// <summary>
