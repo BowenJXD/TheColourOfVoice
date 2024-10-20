@@ -148,7 +148,7 @@ public class ScoreBar : MonoBehaviour
             oneImage.sprite = numberSprites[one];
             AnimateImage(oneImage);
         }
-        UpdateMaterialParameter();
+        //UpdateMaterialParameter();
     }
 
     public void AnimateImage(Image targetImage)

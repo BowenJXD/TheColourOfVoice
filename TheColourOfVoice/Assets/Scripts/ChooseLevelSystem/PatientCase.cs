@@ -24,6 +24,7 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public SlotType slotType;
     private bool casePanelIsMoving = false;
     //数据
+    public CaseData patientCaseData;
     public TextMeshProUGUI patientName;
     public TextMeshProUGUI patientAge;
     public TextMeshProUGUI patientSymptoms;
@@ -38,6 +39,7 @@ public class PatientCase : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
 
     public void InstantiateCase(CaseData caseData,SlotType patientSlotType)
     {
+        patientCaseData = caseData;
         patientName.text = caseData.patientName;
         patientAge.text = caseData.patientAge;
         patientSymptoms.text = caseData.patintSymptoms;

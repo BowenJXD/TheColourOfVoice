@@ -274,25 +274,31 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
                 case 1:
                     currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Pass;
                     currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PASS");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Pass;
                     break;
                 case 2:
                     currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Good;
                     currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("GOOD");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Good;
                     break;
                 case 3:
                     currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Perfect;
                     currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PERFECT");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Perfect;
                     break;
                 case 0:
                     if (i<=0)
                     {
                         currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Unlocked;
                     }else if (levelStars[i - 1] == 0)
                     {   
                         currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Locked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Locked;
                     }else
                     {
                         currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Unlocked;
                     }
                     break;
                     default:

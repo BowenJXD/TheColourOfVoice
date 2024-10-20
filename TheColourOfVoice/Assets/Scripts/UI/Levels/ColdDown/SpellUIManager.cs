@@ -32,6 +32,7 @@ public class SpellUIManager : Singleton<SpellUIManager>
     /// <param name="spell">技能</param>
     public void OnSkillCDComplete(Spell spell)
     {
+        Debug.Log("OnSkillCDComplete");
         if (spellUIDictionary.TryGetValue(spell, out var spellUI))
         {
             GameObject spellCdCompleteFlash = spellUI.transform.Find("CoolDownFlash(Clone)").gameObject;
