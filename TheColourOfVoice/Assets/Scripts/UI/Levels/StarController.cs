@@ -14,7 +14,7 @@ public class StarController : MonoBehaviour
     void Awake()
     {
         var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
-        var levelIndex = PlayerPrefs.GetInt("levelIndex", 1);
+        var levelIndex = PlayerPrefs.GetInt("levelIndex", LevelManager.Instance.levelIndex);
         var levelData = data[levelIndex.ToString()];
         scoreThresholds = new float[3];
         

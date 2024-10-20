@@ -201,6 +201,9 @@ public class HopeMechanic : LevelMechanic
             }
         }
         
+        string[] texts = {"BD1", "BD2", "BD3", "BD4", "BD5", "BD6"};
+        texts.OrderBy(s => s).ToArray();
+        
         LevelManager.Instance.mechanic.Deinit();
         LevelManager.Instance.mechanic = null;
         

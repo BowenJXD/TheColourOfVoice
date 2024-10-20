@@ -21,6 +21,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     
     public GameObject backgroundParticleParent;
     public FMODUnity.StudioEventEmitter emitter;
+    public ScoreBar scoreBar;
 
     new void Awake()
     {
@@ -114,6 +115,11 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
                 main.startColor = startColor;
                 ps.Play();
             }
+        }
+
+        if (scoreBar)
+        {
+            scoreBar.targetMaterial.SetColor(scoreBar.targetMaterialColorName, ColorManager.Instance.GetColor(levelColor));
         }
     }
     

@@ -42,7 +42,8 @@ public class ScoreBar : MonoBehaviour
     public GameObject targetTilesTitle; 
     private RectTransform targetTitleRect;
     public float fastSpeed = 1f;     
-    public float slowSpeed = 1.5f; 
+    public float slowSpeed = 1.5f;
+    public bool doSlide = true;
     [SerializeField] public Image slidethousandImage;
     [SerializeField] public Image slidehundredImage;
     [SerializeField] public Image slidetenImage;
@@ -73,7 +74,7 @@ public class ScoreBar : MonoBehaviour
         try
         {
             var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
-            var levelIndex = PlayerPrefs.GetInt("levelIndex", 1);
+            var levelIndex = PlayerPrefs.GetInt("levelIndex", LevelManager.Instance.levelIndex);
             var levelData = data[levelIndex.ToString()];
             maxScore = float.Parse(levelData["3"]);
         }
@@ -163,7 +164,7 @@ public class ScoreBar : MonoBehaviour
             AnimateImage(oneImage);
         }
 
-        if (PaintedCount -(500* timer) >= 0)
+        if (PaintedCount -(500* timer) >= 0 && doSlide)
         {
             slidethousandImage.sprite = thousandImage.sprite;
             slidehundredImage.sprite = hundredImage.sprite;

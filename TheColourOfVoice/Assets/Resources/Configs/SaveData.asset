@@ -15,8 +15,8 @@ MonoBehaviour:
   levelsCompleted: -1
   levelStars: 0000000000000000000000000000000000000000
   spellTriggerWords:
-  - Hi
+  - Calm Down
   - Light
-  - Fire
+  - Fireball
   - Love
   - Hope

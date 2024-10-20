@@ -11,7 +11,7 @@ public class Tutorial : MonoBehaviour
     {
         "Use WASD to move.",
         "The more you paint, the faster the score grows. \nTry to get a score of 100.",
-        "Try to say %s to the microphone.",
+        "Normal attack does not deal much damage.\nSo try to say %s to the microphone to cast a spell!",
         "Click to release the energy ball.",
         "Enemies are disturbing, but they are optional. \nTry get a score of 1000."
     };
