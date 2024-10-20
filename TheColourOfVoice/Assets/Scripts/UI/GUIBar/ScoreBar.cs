@@ -4,6 +4,8 @@ using TMPro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class ScoreBar : MonoBehaviour
 {
@@ -27,6 +29,15 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] public Image tenImage;
     [SerializeField] public Image oneImage;
     [SerializeField] public Sprite[] numberSprites; // 包含 0-9 数字的图片
+    
+    [Title("流光材质")] public Material targetMaterial;
+    public string targetMaterialColorName = "_Color02";
+    private Color targetColor;
+    private float minColorTiles = 0f;
+    private float maxColorTiles = 4000f;
+    private float minFloatValue = -3f;
+    private float maxFloatValue = 3f;
+    
     void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -59,7 +70,12 @@ public class ScoreBar : MonoBehaviour
             Debug.LogError(e);
         }
     }
-    
+
+    private void Start()
+    {
+        targetColor = targetMaterial.GetColor(targetMaterialColorName);
+    }
+
     //初始化星星
     void InitializeStars(GameObject starPrefab)
     {
@@ -73,6 +89,20 @@ public class ScoreBar : MonoBehaviour
         }
 
         if (starController) UpdateStars();
+    }
+    
+    void UpdateMaterialParameter()
+    {
+        // 将分数从 [minScore, maxScore] 映射到 [minFloatValue, maxFloatValue]
+        float mappedValue = Mathf.Lerp(minFloatValue, maxFloatValue, Mathf.InverseLerp(minColorTiles, maxScore, splashGrid.PaintedCount));
+        
+        // 更新材质的 float 参数
+        if (targetMaterial != null)
+        {
+            //targetMaterial.SetFloat(targetMaterialColorName, mappedValue);
+            Color currentColor = targetColor* mappedValue;
+            targetMaterial.SetColor(targetMaterialColorName, currentColor);
+        }
     }
 
     IEnumerator UpdatePercentageEverySecond()
@@ -95,11 +125,54 @@ public class ScoreBar : MonoBehaviour
         int one = PaintedCount % 10;
 
         // 更新四个数字对应的图片
-        if (thousandImage) thousandImage.sprite = numberSprites[thousand];
-        if (hundredImage) hundredImage.sprite = numberSprites[hundred];
-        if (tenImage) tenImage.sprite = numberSprites[ten];
-        if (oneImage) oneImage.sprite = numberSprites[one];
+        if (thousandImage)
+        {
+            thousandImage.sprite = numberSprites[thousand];
+            AnimateImage(thousandImage);
+        }
+
+        if (hundredImage)
+        {
+            hundredImage.sprite = numberSprites[hundred];
+            AnimateImage(hundredImage);
+        }
+
+        if (tenImage)
+        {
+            tenImage.sprite = numberSprites[ten];
+            AnimateImage(tenImage);
+        }
+
+        if (oneImage)
+        {
+            oneImage.sprite = numberSprites[one];
+            AnimateImage(oneImage);
+        }
+        UpdateMaterialParameter();
     }
+
+    public void AnimateImage(Image targetImage)
+    {
+        // 初始缩放比例
+        float originalScale = 1f;
+
+        // 目标缩放比例，表示变大多少
+        float targetScale = 1.5f;
+
+        // 动画持续时间
+        float duration = 0.3f;
+
+        // 变大到目标比例，然后缩回原始比例
+        targetImage.rectTransform.DOScale(targetScale, duration)
+            .SetEase(Ease.OutQuad)     
+            .OnComplete(() =>          
+            {
+                // 缩回到原始比例
+                targetImage.rectTransform.DOScale(originalScale, duration)
+                    .SetEase(Ease.InQuad); 
+            });
+    }
+
     protected virtual void Initialize(SplashGrid splashGrid)
     {
         percentage = splashGrid.paintedPercentage;
