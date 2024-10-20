@@ -38,6 +38,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public GameMode gameMode;
     public PlayableDirector currentPlayableDirector;
     
+    [Title("Character Portraits")] public List<Sprite> characterPortraits;
+    
     //Glitch打字效果的一些参数
     private Coroutine typingCoroutine;
     public float typingSpeed = 0.07f;
