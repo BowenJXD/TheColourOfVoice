@@ -13,6 +13,9 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp
 
     public Blackboard blackboard;
 
+    /// <summary>
+    /// Reset on trigger
+    /// </summary>
     public Action OnFinish;
     
     public virtual IEnumerator Execute()
@@ -23,6 +26,7 @@ public abstract class ConditionBehaviour : MonoBehaviour, ISetUp
             if (executable.enabled) yield return executable.Execute(blackboard);
         }
         OnFinish?.Invoke();
+        OnFinish = null;
     }
 
     public bool IsSet { get; set; }

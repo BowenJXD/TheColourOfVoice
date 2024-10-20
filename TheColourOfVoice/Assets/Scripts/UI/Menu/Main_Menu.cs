@@ -19,8 +19,11 @@ public class Main_Menu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneTransit.Instance.LoadTargetScene("MainGame");
+        //SceneTransit.Instance.LoadTargetScene("ColourBlindSetting");
+        SceneManager.LoadScene("ColourBlindSetting");
+        index = SaveDataManager.Instance.saveData.levelsCompleted;
         PlayerPrefs.SetInt("levelIndex", index);
+        Lebug.Log("levelIndex", index);
     }
     
     public void PlayNavi()  
@@ -31,8 +34,6 @@ public class Main_Menu : MonoBehaviour
 
     public void NextLevel()
     {
-        var idx = PlayerPrefs.GetInt("levelIndex", index);
-        PlayerPrefs.SetInt("levelIndex", ++idx);
         SceneManager.LoadSceneAsync("NewSpell");
     }
 

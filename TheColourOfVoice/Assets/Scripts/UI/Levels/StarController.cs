@@ -69,6 +69,6 @@ public class StarController : MonoBehaviour
             }
         }
 
-        Resources.Load<SaveData>(PathDefines.SaveData).levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1] = starCount;
+        SaveDataManager.Instance.saveData.levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1] = starCount;
     }
 }

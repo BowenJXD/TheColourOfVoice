@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &739803640097298410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2277423287813296817}
+  - component: {fileID: 8872020238253216882}
+  m_Layer: 0
+  m_Name: ExpGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2277423287813296817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739803640097298410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2530652855800820485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8872020238253216882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739803640097298410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b3abd180f243acbbd892a2afd2699c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
+  taskConfigs:
+  - amounts: 0c000000
+    duration: 3
+  currentTaskIndex: 0
+  minDistance: 1
+  maxDistance: 6
+  distributionVariationInterval: 5
+  minDistribution: 30
+  maxDistributionVariation: 60
+  spawnCount: 2
+  spawnInterval: 0.2
+  spawnTransform: {fileID: 0}
 --- !u!1 &8672248077252338477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2530652855800820485}
   - component: {fileID: -7612144060942389891}
+  - component: {fileID: 4490675991535968064}
   m_Layer: 0
   m_Name: L5-Mechanic
   m_TagString: Untagged
@@ -29,7 +88,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2277423287813296817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-7612144060942389891
@@ -44,18 +104,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be97391cd54d4d5a972d21aa37e3b161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: 7
+  phase: 8
   bossPrefab: {fileID: 3726434173144658944, guid: 2892b04ecbc4ad0488f29122823de256, type: 3}
+  boss: {fileID: 0}
   scoreBar: {fileID: 0}
   bossHealth: {fileID: 0}
   explosion: {fileID: -1823337538987632028, guid: bc5dd5a26eca8db40916047d7d19f6a0, type: 3}
-  phase2Score: 1000
+  phase2Score: 200
   phaseHealths:
   - 70
   - 50
   - 33
   - 20
   - 10
+  - 0
   enemyGenerators:
   - {fileID: 0}
   - {fileID: 0}
@@ -64,4 +126,60 @@ MonoBehaviour:
   - {fileID: 0}
   bossSprite: {fileID: 22371522, guid: dbf6098e0d06a8a4685e4c510839c307, type: 3}
   tileSaturation: 0.7
+  targetGroup: {fileID: 0}
+  impulseSource: {fileID: 4490675991535968064}
+  expGenerator: {fileID: 8872020238253216882}
   rageMechanic: {fileID: -2400236107960218809, guid: 1f072146b86288440be589ce0611f9fb, type: 3}
+--- !u!114 &4490675991535968064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672248077252338477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}

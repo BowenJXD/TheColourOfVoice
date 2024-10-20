@@ -268,6 +268,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2512676293371070764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6953170153588208263}
+  - component: {fileID: 2269122412653626597}
+  - component: {fileID: 5370988421712341855}
+  m_Layer: 5
+  m_Name: CaseSettlementIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6953170153588208263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512676293371070764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2157872085010239073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 609, y: -172}
+  m_SizeDelta: {x: 410, y: 410}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2269122412653626597
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512676293371070764}
+  m_CullTransparentMesh: 1
+--- !u!114 &5370988421712341855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512676293371070764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d88b0809a5c211e4f9f8d462c4596aef, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3450003308226608597
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +519,7 @@ RectTransform:
   - {fileID: 3836373979309904185}
   - {fileID: 5048884821177165509}
   - {fileID: 628220925072180213}
+  - {fileID: 6953170153588208263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -513,9 +589,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c52b5f4ab563946873e72fea658c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 0
   currentCaseData: {fileID: 0}
+  playableDirector: {fileID: 0}
   button: {fileID: 974566275200844130}
+  chooseLevelPanelText: {fileID: 0}
 --- !u!1 &4948339479498025070
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +1007,7 @@ GameObject:
   - component: {fileID: 926874071620130449}
   - component: {fileID: 1868039430190225813}
   - component: {fileID: 974566275200844130}
+  - component: {fileID: 6208639521523473885}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1039,6 +1117,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &6208639521523473885
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630264894836785910}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6819045575488164450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1269,9 +1359,11 @@ MonoBehaviour:
   patientSymptoms: {fileID: 4086115737989958379}
   patientDescription: {fileID: 3754465580005577861}
   patientImage: {fileID: 6244583699271502904}
+  levelState: 0
   colorSelectedAlpha: 0.7
   colorAlpha: 0.4
   duration: 0.2
+  caseSettlementIcon: {fileID: 2512676293371070764}
 --- !u!1 &7047516391444050074
 GameObject:
   m_ObjectHideFlags: 0

@@ -5162,8 +5162,9 @@ MonoBehaviour:
   duration: 10
   target: {fileID: 0}
   shakeType: 1
-  strength: 38.15
-  vibrato: 7
-  randomness: 88.71
+  strength: 30
+  vibrato: 10
+  randomness: 90
   snapping: 0
   fadeOut: 0
+  reset: 1

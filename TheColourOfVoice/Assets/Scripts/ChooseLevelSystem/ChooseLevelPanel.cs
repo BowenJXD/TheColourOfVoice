@@ -2,12 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 
 
 public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
 {
+    public struct ChoosingLevelStateText
+    {
+        public const string CHOOSE_CASE = "Select a patient...";
+        public const string FINISHED = "Finished";
+        public const string ENTER_LEVEL = "Enter Level";
+        public const string FlIP_LEFT = "Flip Left";
+        public const string FLIP_RIGHT = "Flip Right";
+        public const string LOCKED = "Locked";
+    }
+
     //各个Case的数据
     public List<CaseData> caseDataList;
     public List<GameObject> currentCaseList; //当前可以显示的所有Case
@@ -22,6 +34,9 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
     public float duration = 0.2f;
     //private bool casePanelIsMoving = false;
     
+    [Title("ChoosingLevelPanel State text")]
+    public TMP_Text stateText;
+
     //循环结构的参数
     private int currentIndex = 0;
     private void Awake()
@@ -48,8 +63,19 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         MoveCase(currentCaseList[0],currentSlotPos,1,SlotType.CURRENT_SLOT,true);
         MoveCase(currentCaseList[^1],leftslotPos,colorAlpha,SlotType.LEFT_SLOT);
         MoveCase(currentCaseList[1],rightslotPos,colorAlpha,SlotType.RIGHT_SLOT);
+        
+        UpdateCaseIconStateText();
     }
-    
+
+    private void OnEnable()
+    {
+        if (currentCaseList.Count == 0)
+        {
+            return;
+        }
+        UpdateCaseIconStateText();
+    }
+
     void InstantiateCase(RectTransform rectTransform,CaseData caseData,SlotType slotType)
     {
         GameObject tempCaseObject = Instantiate(Resources.Load<GameObject>("Prefabs/CaseTest"),transform);
@@ -110,23 +136,26 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             DoTweenMoveRectTransfrom(tempRect,rightPeekSlot);
         }
         
+        UpdateChoosingLevelStateText(caseObject.GetComponentInChildren<PatientCase>().slotType,caseObject);
     }
     
     public void OnpointerExitCase(GameObject caseObject)
     {
         if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.LEFT_SLOT)
         {
-            Debug.Log("Rect moving Left Slot");
+            //Debug.Log("Rect moving Left Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,leftslotPos);
         }else if (caseObject.GetComponentInChildren<PatientCase>().slotType == SlotType.RIGHT_SLOT)
         {
-            Debug.Log("Rect moving Right Slot");
+            //Debug.Log("Rect moving Right Slot");
             caseObject.GetComponent<CanvasGroup>().alpha = colorAlpha;
             RectTransform tempRect = caseObject.GetComponent<RectTransform>();
             DoTweenMoveRectTransfrom(tempRect,rightslotPos);
         }
+        
+        ResetChooseLevelPanelText();
     }
     
     public void OnPointerClickCase(GameObject caseObject)
@@ -171,6 +200,11 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
         
     }
     
+    void ResetChooseLevelPanelText()
+    {
+        UpdateStateText(ChoosingLevelStateText.CHOOSE_CASE);
+    }
+    
     public void UpdateDisplay()
     { 
         int listCount = currentCaseList.Count;
@@ -197,4 +231,83 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
             }
         }
     }
+    
+    void UpdateChoosingLevelStateText(SlotType slotType,GameObject caseObject)
+    {
+        Debug.Log("SlotType: "+slotType);
+        switch (slotType)
+        {
+            case SlotType.LEFT_SLOT:
+                UpdateStateText(ChoosingLevelStateText.FlIP_LEFT);
+                break;
+            case SlotType.RIGHT_SLOT:
+                UpdateStateText(ChoosingLevelStateText.FLIP_RIGHT);
+                break;
+            case SlotType.CURRENT_SLOT:
+                if (caseObject.GetComponentInChildren<PatientCase>().levelState == LevelState.Locked)
+                {
+                    UpdateStateText(ChoosingLevelStateText.LOCKED);
+                }else if (caseObject.GetComponentInChildren<PatientCase>().levelState == LevelState.Unlocked)
+                {
+                    UpdateStateText(ChoosingLevelStateText.ENTER_LEVEL);
+                }
+                else UpdateStateText(ChoosingLevelStateText.FINISHED);
+                break;
+            default:
+                UpdateStateText(ChoosingLevelStateText.CHOOSE_CASE);
+                break;
+        }
+    }
+    
+    public void UpdateStateText(string text)
+    {
+        stateText.text = text;
+    }
+    
+    public void UpdateCaseIconStateText()
+    {
+        List<int> levelStars = Level_PsyRoom.Instance.saveData.levelStars;
+        for (int i = 0; i < levelStars.Count; i++)
+        {
+            switch (levelStars[i])
+            {
+                case 1:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Pass;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PASS");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Pass;
+                    break;
+                case 2:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Good;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("GOOD");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Good;
+                    break;
+                case 3:
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Perfect;
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().InitCaseSettlementIcon("PERFECT");
+                    currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Perfect;
+                    break;
+                case 0:
+                    if (i<=0)
+                    {
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Unlocked;
+                    }else if (levelStars[i - 1] == 0)
+                    {   
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Locked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Locked;
+                    }else
+                    {
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().patientCaseData.levelState = LevelState.Unlocked;
+                    }
+                    break;
+                    default:
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        break;
+            }
+            
+        }
+        
+    }
+    
 }

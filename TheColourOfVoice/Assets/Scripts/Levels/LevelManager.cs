@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class LevelManager : Singleton<LevelManager>, ISetUp
 {
@@ -15,7 +16,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     [ReadOnly] public string levelName;
     [ReadOnly] public PaintColor levelColor;
     [ReadOnly] public Sprite tileSprite;
-    [ReadOnly] public EnemyGenerator enemyGenerator;
+    [FormerlySerializedAs("enemyGenerator")] [ReadOnly] public EntityGenerator entityGenerator;
     [ReadOnly] public LevelMechanic mechanic;
     
     public GameObject backgroundParticleParent;
@@ -77,7 +78,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
             levelName = cfg.levelName;
             levelColor = cfg.levelColor;
             tileSprite = cfg.tileSprite;
-            enemyGenerator = cfg.enemyGenerator;
+            entityGenerator = cfg.entityGenerator;
             mechanic = cfg.mechanic;
         }
     }
@@ -93,13 +94,13 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
             TextPainter.Instance.text = levelName;
             TextPainter.Instance.color = levelColor;
         }
-        if (enemyGenerator)
+        if (entityGenerator)
         {
-            Instantiate(enemyGenerator, transform);
+            Instantiate(entityGenerator, transform);
         }
         if (mechanic)
         {
-            Instantiate(mechanic, transform);
+            mechanic = Instantiate(mechanic, transform);
             mechanic.Init();
         }
         if (backgroundParticleParent)

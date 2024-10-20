@@ -31,6 +31,11 @@ public class Health : MonoBehaviour, ISetUp
         if (damageCooldown > 0)
             damageCooldownTask = new LoopTask { interval = damageCooldown, loop = 1, finishAction = ResetCD };
     }
+
+    /// <summary>
+    /// Reset when disable
+    /// </summary>
+    public Action<float> OnTakeDamage;
     
     /// <summary>
     /// Reset when disable
@@ -78,6 +83,7 @@ public class Health : MonoBehaviour, ISetUp
     /// <returns>True if the damage is applied.</returns>
     public bool TakeDamage(float damage)
     {
+        OnTakeDamage?.Invoke(damage);
         damage *= (1 - defence);
         if (invincible || damage <= 0) return false;
         
@@ -121,6 +127,8 @@ public class Health : MonoBehaviour, ISetUp
     private void OnDisable()
     {
         TakeDamageAfter = null;
+        OnTakeDamage = null;
+        OnHealthChanged = null;
         if (damageCooldownTask.isPlaying)
         {
             damageCooldownTask.Stop();

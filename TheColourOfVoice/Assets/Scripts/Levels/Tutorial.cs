@@ -31,6 +31,8 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) EndTutorial();
+        
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         if (index == 0 && (inputX != 0 || inputY != 0))
@@ -41,6 +43,7 @@ public class Tutorial : MonoBehaviour
         if (index == 1 && scoreBar.score >= 100)
         {
             SpellManager.Instance.LearnSpell(1);
+            VoiceInputSystemRecognissimo.Instance.engine.StartProcessing();
             tutorialTexts[index+1] = tutorialTexts[index+1].Replace("%s", SpellManager.Instance.allSpells[0].triggerWords);
             IncrementIndex();
             SpellManager.Instance.onCastStateChange += OnCastStateChange;

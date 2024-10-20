@@ -1,6 +1,8 @@
 using System;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,12 +10,15 @@ using UnityEngine.UI;
 /// <summary>
 /// 挂载在每关的选关按键上，用于进入关卡前的TimeLine动画播放
 /// </summary>
-public class ChoosingLevelButton : MonoBehaviour
+public class ChoosingLevelButton : MonoBehaviour,IPointerEnterHandler
 {
    //public int levelIndex;
    public CaseData currentCaseData;
    [SerializeField,ReadOnly] private PlayableDirector playableDirector;
    public Button button;
+   
+   [Title("选关面板的提示词")]
+   public GameObject chooseLevelPanelText;
    private void Awake()
    {
       if (button!=null)
@@ -66,11 +71,38 @@ public class ChoosingLevelButton : MonoBehaviour
       // 执行初始化逻辑
       //InitializeScene(levelIndex);
    }
-
+   
+   /// <summary>
+   /// 晃动效果
+   /// </summary>
+   Tweener tween;
+   private void Shake(GameObject target,float powerX, float powerY)
+   {
+      if (tween != null && tween.IsActive()) return;
+      tween = target.transform.DOShakePosition(1f, new Vector3(powerX, powerY, 0f), 10, 180, false)
+         .SetLoops(1, LoopType.Incremental).OnComplete(() => tween = null);
+   }
+   
+   /// <summary>
+   /// 按钮点击事件
+   /// </summary>
    private void OnchoosingLevelButtonClicked()
    {
        PlayerPrefs.SetInt("levelIndex", currentCaseData.levelIndex);
-       Debug.Log("LevelIndex is " + currentCaseData.levelIndex);
+       //Lebug.Log("levelIndex", currentCaseData.levelIndex);
+       //Debug.Log("LevelIndex is " + currentCaseData.levelIndex);
+       if (currentCaseData.levelState == LevelState.Locked || currentCaseData.levelState == LevelState.Good || currentCaseData.levelState == LevelState.Perfect
+           || currentCaseData.levelState == LevelState.Pass)
+       {
+          //Debug.LogError("Level is locked");
+          if (chooseLevelPanelText == null)
+          {
+             chooseLevelPanelText = ChooseLevelPanel.Instance.stateText.gameObject;
+          }
+          Shake(chooseLevelPanelText, 10f, 10f);
+          return;
+       }
+      
        //TODO:这里注释的是打开timeline动画的部分
        if (currentCaseData.preLevelTimelineAsset == null)
        {
@@ -117,5 +149,49 @@ public class ChoosingLevelButton : MonoBehaviour
    {
       Debug.Log("Initializing LevelConfig");
      // GameObject.Find("LevelManager").GetComponent<LevelManager>().ChangeConfig(levelConfigIndex);
+   }
+
+   /*
+   private void UpdateCaseState()
+   {
+      switch (currentCaseData.levelState)
+      {
+         
+         case LevelState.Locked:
+            
+            break;
+         case LevelState.Unlocked:
+            
+            break;
+         case LevelState.Pass:
+            InitCaseSettlementIcon("PASS");
+            break;
+         case LevelState.Good:
+            InitCaseSettlementIcon("GOOD");
+            break;
+         case LevelState.Perfect:
+            InitCaseSettlementIcon("PERFECT");
+            break;
+         default:
+          break;
+      }
+   }
+   */
+   
+ 
+   public void OnPointerEnter(PointerEventData eventData)
+   {
+      if (GetComponentInChildren<PatientCase>().slotType != SlotType.CURRENT_SLOT)
+      {
+         return;
+      }
+      if (GetComponentInChildren<PatientCase>().levelState == LevelState.Locked)
+      {
+       ChooseLevelPanel.Instance.UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.LOCKED);
+      }else if (GetComponentInChildren<PatientCase>().levelState == LevelState.Unlocked)
+      {
+         ChooseLevelPanel.Instance. UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.ENTER_LEVEL);
+      }
+      else ChooseLevelPanel.Instance.UpdateStateText(ChooseLevelPanel.ChoosingLevelStateText.FINISHED);
    }
 }

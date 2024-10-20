@@ -91,6 +91,13 @@ public class RageMechanic : LevelMechanic
             if (enemy.TryGetComponent(out BuffOwner buffOwner))
             {
                 buffOwner.ApplyBuff(burningBuff);
+                buffOwner.OnBuffReceived += (buff) =>
+                {
+                    if (buff is FreezeBuff freezeBuff)
+                    {
+                        FinishRage(enemy);
+                    }
+                };
             }
         }
         if (enemy.TryGetComponent(out Health health))
@@ -136,10 +143,23 @@ public class RageMechanic : LevelMechanic
         {
             health.invincible = false;
         }
+
+        if (enemy.TryGetComponent(out BuffOwner owner))
+        {
+            owner.OnBuffReceived -= (buff) =>
+            {
+                if (buff is FreezeBuff freezeBuff)
+                {
+                    FinishRage(enemy);
+                }
+            };
+        }
     }
     
     public override void Deinit()
     {
+        ExitRageMode();
+        loopTask.Stop();
         OnEnterRage = null;
         OnExitRage = null;
     }

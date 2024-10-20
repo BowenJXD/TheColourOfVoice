@@ -18,8 +18,10 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     public TextMeshProUGUI dialogueName;
     public GameObject choosingLevelPanel;
     public GameObject dialogueNextCursor;
+    [Title("SkipHint")] public GameObject skipHint;
     
     [SerializeField,ReadOnly] private PlayableDirector playableDirector;
+    [Title("SaveData")] public SaveData saveData;
     
     //睡觉相关的参数
     private int shakeCount = 0;
@@ -35,6 +37,8 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     }
     public GameMode gameMode;
     public PlayableDirector currentPlayableDirector;
+    
+    [Title("Character Portraits")] public List<Sprite> characterPortraits;
     
     //Glitch打字效果的一些参数
     private Coroutine typingCoroutine;
@@ -52,11 +56,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         gameMode = GameMode.GamePlay;
         
         playableDirector = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
-        /*if (levelIndex == 0)
-        {
-           Debug.LogError("LevelIndex is not set");
-           return;
-        }*/
+        
         if (playableDirector == null)
         {
             Debug.LogError("PlayableDirector is not set");
@@ -72,6 +72,15 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         dialogueNextCursor.SetActive(false);
         dialoguePanelInitialPosition = mainPanel.GetComponent<RectTransform>().anchoredPosition;
         dialoguePanelInitialSize = mainPanel.GetComponent<RectTransform>().sizeDelta;
+
+        if (saveData.levelsCompleted >= 0)
+        {
+            PlayAftTimeLine();
+        }
+        else
+        {
+            LittleWitchAwake();
+        }
     }
 
     private void Update()
@@ -90,7 +99,7 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
         if (Input.GetKeyDown(KeyCode.Escape) && choosingLevelPanel.activeSelf)
         {
             choosingLevelPanel.SetActive(false);
-        }
+        }else
 
         if (Input.GetKeyDown(KeyCode.Escape) && currentPlayableDirector.state == PlayState.Playing)
         {
@@ -112,21 +121,62 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     public void PlayAftTimeLine()
     {
-        /*foreach (var caseData in Resources.LoadAll<CaseData>("CaseData"))
-        {
-            caseDataList.Add(caseData);
-        }*/
+        ResetRoom();
         int currentCaseIndex = PlayerPrefs.GetInt("levelIndex", 0);
-        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_" + currentCaseIndex);
+        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_Case0" + currentCaseIndex);
+        Debug.Log("CaseData: "+ currentCaseIndex);
         if (caseData == null)
         {
-            Debug.LogError("CaseData is null");
+            //Debug.LogError("CaseData is null");
+            ResetRoom();
             return;
         }
         playableDirector.playableAsset = caseData.afterLevelTimelineAsset;
         Level_PsyRoom.Instance.ShowDialoguePanel(PlayTimeline);
     }
     
+    /// <summary>
+    /// AftTimeLine播放完毕后的回调函数,重置房间的光效
+    /// </summary>
+    public void OnfinishedAftTimeLine()
+    {
+        //Debug.Log("Finished CG");
+        ResetRoom();
+        
+    }
+
+    /// <summary>
+    /// 根据这关的完成星星数来设置关卡完成的icon
+    /// </summary>
+    public void SettleLevelCompleteIcon()
+    {
+        //获得关卡Index
+        int currentCaseIndex = PlayerPrefs.GetInt("levelIndex", 0);
+        CaseData caseData = Resources.Load<CaseData>("CaseData/CaseData_Case0" + currentCaseIndex);
+        Debug.Log("CaseData: "+ currentCaseIndex);
+        if (caseData == null)
+        {
+            //Debug.LogError("CaseData is null");
+            ResetRoom();
+            return;
+        }
+        
+        //获得关卡完成的星星数
+        int currentLevelStatCount = SaveDataManager.Instance.saveData.levelStars[currentCaseIndex - 1];
+        Debug.Log("currentLevelStatCount: "+ currentLevelStatCount);
+        
+        choosingLevelPanel.SetActive(true);
+        
+    }
+
+    private void ResetRoom()
+    {
+        sightLight.pointLightOuterRadius = 8.0f;
+        sunShaftlight.intensity = 10.0f;
+        skipHint.SetActive(false);
+        playerIsAwake = true;
+    }
+
     private void PlayTimeline()
     {
         playableDirector.Play();
@@ -323,20 +373,19 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     }
 
     /// <summary>
-    /// TODO：播放打字音效
-    /// </summary>
-    void PlayTypingSound()
-    {
-        
-    }
-    
-    /// <summary>
     /// 切换关卡
     /// </summary>
     public void ChangeLevel(bool isNextLevelTutorial = false)
     {
+        if (saveData.levelsCompleted < 0)
+        {
+            isNextLevelTutorial = true;
+        }
+
         if (isNextLevelTutorial)
         {
+            PlayerPrefs.SetInt("levelIndex", 0);
+            Lebug.Log("levelIndex", 0);
             SceneTransit.Instance.LoadTargetScene("Tutorial");
             return;
         }
@@ -353,11 +402,13 @@ public class Level_PsyRoom : Singleton<Level_PsyRoom>
     
     private void SkipTimeLine()
     {
-        // 停止Timeline
-        currentPlayableDirector.Stop();
-        
-        // 切换到下一个场景
-        FinishedOpenningCG();
-        ChangeLevel();
+        if (playableDirector != null)
+        {
+            // 将时间设置为 Timeline 的总时长，即跳到结尾
+            playableDirector.time = playableDirector.duration;
+
+            // 立即评估（Evaluate）以跳转到设置的时间
+            playableDirector.Evaluate();
+        }
     }
 }

@@ -25,7 +25,7 @@ public class AnimEntity : Entity
         base.Init();
         if (TryGetComponent(out Animator ani))
         {
-            animDuration = ani.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            animDuration = ani.GetCurrentAnimatorClipInfo(0)[0].clip.length / ani.speed;
             if (deinitOnAnimEnd)
             {
                 Invoke(nameof(Deinit), animDuration);

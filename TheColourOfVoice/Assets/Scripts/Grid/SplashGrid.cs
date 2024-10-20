@@ -72,8 +72,8 @@ public class SplashGrid : Singleton<SplashGrid>
 
     public void Init()
     {
-        //var sps = AssetDatabase.LoadAllAssetsAtPath(PathDefines.SplashSprites).OfType<Sprite>();
-        var sps = Resources.LoadAll<Sprite>("Arts/GridTile/SplashPSD");
+        //var sps = AssetDatabase.LoadAllAssetsAtPath().OfType<Sprite>();
+        var sps = Resources.LoadAll<Sprite>(PathDefines.SplashSprites);
         tileSprites = new Sprite[16];
         foreach (var sp in sps)
         {

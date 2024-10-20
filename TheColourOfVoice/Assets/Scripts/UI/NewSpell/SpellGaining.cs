@@ -79,7 +79,7 @@ public class SpellGaining : MonoBehaviour
                     chaseMovement.OnEnterRange = null;
                     chaseMovement.enabled = false;
                     gameObject.SetActive(false);
-                    NextLevel();
+                    if (doInvisibleNextLevel) NextLevel();
                 };
                 break;
         }
@@ -94,11 +94,16 @@ public class SpellGaining : MonoBehaviour
     private void OnDisable()
     {
         if (doInvisibleNextLevel)
+        {
             NextLevel();
+            doInvisibleNextLevel = false;
+        }
     }
 
     void NextLevel()
     {
-        SceneTransit.Instance.LoadTargetScene("MainGame");
+        SaveDataManager.Instance.saveData.levelsCompleted
+            = Math.Max(SaveDataManager.Instance.saveData.levelsCompleted, PlayerPrefs.GetInt("levelIndex"));
+        SceneTransit.Instance.LoadTargetScene("PsyRoom");
     }
 }

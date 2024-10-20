@@ -14,6 +14,7 @@ public class Fire : MonoBehaviour, ISetUp
     public float recoil;
     protected Vector2 mousePos;
     protected Vector2 direction;
+    public bool autoFire = true;
     
     LoopTask shootTask;
     
@@ -68,6 +69,10 @@ public class Fire : MonoBehaviour, ISetUp
     {
         //获得鼠标位置的世界坐标
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (!autoFire && Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
     //发射子弹
@@ -117,5 +122,14 @@ public class Fire : MonoBehaviour, ISetUp
     {
         bulletPrefab = newBullet;
         PoolManager.Instance.Register(bulletPrefab);
+    }
+    
+    public void SetAutoFire(bool newAutoFire)
+    {
+        autoFire = newAutoFire;
+        if (autoFire)
+            shootTask.Resume();
+        else
+            shootTask.Pause();
     }
 }

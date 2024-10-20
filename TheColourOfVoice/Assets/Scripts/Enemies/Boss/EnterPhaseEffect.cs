@@ -5,13 +5,13 @@ public class EnterPhaseEffect : ConditionBehaviour
     public Health bossHealth;
     public ConditionBehaviour bossBehaviour;
     
-    public void EnterPhase(int phase)
+    public void EnterPhase(bool stop)
     {
         bossHealth.invincible = true;
         bossBehaviour.StopAllCoroutines();
         OnFinish = () =>
         {
-            bossBehaviour.StartCoroutine(bossBehaviour.Execute());
+            if (!stop) bossBehaviour.StartCoroutine(bossBehaviour.Execute());
             bossHealth.invincible = false;
         };
         StartCoroutine(Execute());

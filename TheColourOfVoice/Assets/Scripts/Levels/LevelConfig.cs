@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "LevelConfig", menuName = "ScriptableObjects/LevelConfig")]
 public class LevelConfig : ScriptableObject
@@ -7,6 +8,6 @@ public class LevelConfig : ScriptableObject
     public string levelName;
     public PaintColor levelColor;
     public Sprite tileSprite;
-    public EnemyGenerator enemyGenerator;
+    [FormerlySerializedAs("enemyGenerator")] public EntityGenerator entityGenerator;
     public LevelMechanic mechanic;
 }

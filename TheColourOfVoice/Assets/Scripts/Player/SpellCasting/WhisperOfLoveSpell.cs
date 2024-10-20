@@ -65,10 +65,10 @@ public class WhisperOfLoveSpell : Spell
                 buffOwner.ApplyBuff(buff);
                 if (upgraded)
                 {
-                    if (buffOwner.TryGetComponent(out ChaseMovement chase))
+                    if (buffOwner.TryGetComponent(out ChaseMovement chase) 
+                        && LevelManager.Instance.mechanic is HopeMechanic hope)
                     {
-                        GameObject boss = GameObject.Find("L5-Boss");
-                        if (boss) chase.target = boss;
+                        chase.target = hope.boss.gameObject;
                     }
 
                     if (buffOwner.TryGetComponentInChildren(out Attack attack))
