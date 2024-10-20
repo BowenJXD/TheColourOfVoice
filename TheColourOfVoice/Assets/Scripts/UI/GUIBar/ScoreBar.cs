@@ -38,6 +38,18 @@ public class ScoreBar : MonoBehaviour
     private float minFloatValue = -3f;
     private float maxFloatValue = 3f;
     
+    [Title("滑动Title")]
+    public GameObject targetTilesTitle; 
+    private RectTransform targetTitleRect;
+    public float fastSpeed = 1f;     
+    public float slowSpeed = 1.5f; 
+    [SerializeField] public Image slidethousandImage;
+    [SerializeField] public Image slidehundredImage;
+    [SerializeField] public Image slidetenImage;
+    [SerializeField] public Image slideoneImage;
+    
+    private int timer = 1;
+    
     void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -74,6 +86,8 @@ public class ScoreBar : MonoBehaviour
     private void Start()
     {
         targetColor = targetMaterial.GetColor(targetMaterialColorName);
+        targetTitleRect = targetTilesTitle.GetComponent<RectTransform>();
+        SlideImage();
     }
 
     //初始化星星
@@ -117,7 +131,7 @@ public class ScoreBar : MonoBehaviour
     void UpdateScoreDisplay(int PaintedCount)
     {
         Lebug.Log("PaintedCount: ", PaintedCount);
-        
+        Debug.Log("PaintedCount: " + PaintedCount);
         // 计算各个位数
         int thousand = (PaintedCount / 1000) % 10;
         int hundred = (PaintedCount / 100) % 10;
@@ -148,6 +162,16 @@ public class ScoreBar : MonoBehaviour
             oneImage.sprite = numberSprites[one];
             AnimateImage(oneImage);
         }
+
+        if (PaintedCount -(500* timer) >= 0)
+        {
+            slidethousandImage.sprite = thousandImage.sprite;
+            slidehundredImage.sprite = hundredImage.sprite;
+            slidetenImage.sprite = tenImage.sprite;
+            slideoneImage.sprite = oneImage.sprite;
+            SlideImage();
+            timer++;
+        }
         //UpdateMaterialParameter();
     }
 
@@ -171,6 +195,35 @@ public class ScoreBar : MonoBehaviour
                 targetImage.rectTransform.DOScale(originalScale, duration)
                     .SetEase(Ease.InQuad); 
             });
+    }
+    
+    void SlideImage()
+    {
+        // 创建一个序列
+        Sequence sequence = DOTween.Sequence();
+
+        // 计算起始位置和目标位置
+        Vector3 startPosition = new Vector3(-428.0f,247f,0);  // Start
+        Vector3 midPosition = new Vector3(140f,247f,0);         // Mid
+        Vector3 endPosition = new Vector3(783f,247f,0);     // End
+
+        // 设置起始位置
+        targetTitleRect.anchoredPosition = startPosition;
+
+        // 添加进入屏幕的快速滑动动画
+        sequence.Append(targetTitleRect.DOAnchorPos(midPosition, fastSpeed)
+            .SetEase(Ease.OutCubic));  // 快速滑动，并缓慢减速到屏幕内
+
+        // 添加在屏幕内缓慢滑动的动画
+        /*sequence.Append(targetTitleRect.DOAnchorPos(new Vector2(midPosition.x + 200, midPosition.y), slowSpeed)
+            .SetEase(Ease.Linear));    // 匀速滑动一段时间*/
+
+        // 添加离开屏幕的快速滑动动画
+        sequence.Append(targetTitleRect.DOAnchorPos(endPosition, fastSpeed)
+            .SetEase(Ease.InCubic));   // 快速滑动并加速离开屏幕
+
+        // 播放序列动画
+        sequence.Play();
     }
 
     protected virtual void Initialize(SplashGrid splashGrid)
