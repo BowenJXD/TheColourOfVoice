@@ -12434,7 +12434,7 @@ MonoBehaviour:
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
   player: {fileID: 461082845}
   skip: 1
-  totalTime: 3
+  totalTime: 120
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}
   myParticleSystem: {fileID: 0}
@@ -29407,7 +29407,7 @@ MonoBehaviour:
   fillImageScore: {fileID: 590291735}
   splashGrid: {fileID: 776967710}
   maxScore: 4500
-  score: 1920
+  score: 0
   percentText: {fileID: 1160682291}
   starController: {fileID: 24929252}
   starList:
@@ -29431,7 +29431,7 @@ MonoBehaviour:
   - {fileID: -1329116305, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
   targetMaterial: {fileID: 2100000, guid: 54a5627d89b60e2498590f798b002904, type: 2}
   targetMaterialColorName: _Color02
-  targetTilesTitle: {fileID: 0}
+  targetTilesTitle: {fileID: 403523602}
   fastSpeed: 1
   slowSpeed: 1.5
   doSlide: 1
