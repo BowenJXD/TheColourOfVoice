@@ -29429,6 +29429,16 @@ MonoBehaviour:
   - {fileID: 593774105, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
   - {fileID: 15595338, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
   - {fileID: -1329116305, guid: 6045e16bdbba7504994e4b215ee4804d, type: 3}
+  targetMaterial: {fileID: 2100000, guid: 54a5627d89b60e2498590f798b002904, type: 2}
+  targetMaterialColorName: _Color02
+  targetTilesTitle: {fileID: 0}
+  fastSpeed: 1
+  slowSpeed: 1.5
+  doSlide: 1
+  slidethousandImage: {fileID: 0}
+  slidehundredImage: {fileID: 0}
+  slidetenImage: {fileID: 0}
+  slideoneImage: {fileID: 0}
 --- !u!4 &6588443803447997602
 Transform:
   m_ObjectHideFlags: 0
