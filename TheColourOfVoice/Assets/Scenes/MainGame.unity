@@ -29435,10 +29435,10 @@ MonoBehaviour:
   fastSpeed: 1
   slowSpeed: 1.5
   doSlide: 1
-  slidethousandImage: {fileID: 0}
-  slidehundredImage: {fileID: 0}
-  slidetenImage: {fileID: 0}
-  slideoneImage: {fileID: 0}
+  slidethousandImage: {fileID: 801840064}
+  slidehundredImage: {fileID: 1240111918}
+  slidetenImage: {fileID: 1023749369}
+  slideoneImage: {fileID: 1120839652}
 --- !u!4 &6588443803447997602
 Transform:
   m_ObjectHideFlags: 0
