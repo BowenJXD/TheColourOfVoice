@@ -11,6 +11,10 @@ public class StarController : MonoBehaviour
     [SerializeField] ScoreBar scoreBar;
     [SerializeField] TMP_Text percentText;
     public int starcount;
+
+    [SerializeField] private Material highlightMaterial; 
+    [SerializeField] private Material defaultMaterial;   
+
     void Awake()
     {
         var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
@@ -41,11 +45,14 @@ public class StarController : MonoBehaviour
         {
             star.overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
             star.color = new Color(1f, 1f, 1f); 
+            star.material = highlightMaterial;
         }
         else
         {
             star.overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar2");
             star.color = new Color(0.5f, 0.5f, 0.5f); 
+            star.material = defaultMaterial;
+
         }
     }
 
