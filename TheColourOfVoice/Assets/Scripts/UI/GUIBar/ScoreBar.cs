@@ -30,6 +30,7 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] public Image oneImage;
     [SerializeField] public Sprite[] numberSprites; // 包含 0-9 数字的图片
     
+    /*
     [Title("流光材质")] public Material targetMaterial;
     public string targetMaterialColorName = "_Color02";
     private Color targetColor;
@@ -48,6 +49,7 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] public Image slidehundredImage;
     [SerializeField] public Image slidetenImage;
     [SerializeField] public Image slideoneImage;
+    */
     
     private int timer = 1;
     
@@ -86,8 +88,8 @@ public class ScoreBar : MonoBehaviour
 
     private void Start()
     {
-        targetColor = targetMaterial.GetColor(targetMaterialColorName);
-        targetTitleRect = targetTilesTitle.GetComponent<RectTransform>();
+        /*targetColor = targetMaterial.GetColor(targetMaterialColorName);
+        targetTitleRect = targetTilesTitle.GetComponent<RectTransform>();*/
         SlideImage();
     }
 
@@ -106,7 +108,7 @@ public class ScoreBar : MonoBehaviour
         if (starController) UpdateStars();
     }
     
-    void UpdateMaterialParameter()
+    /*void UpdateMaterialParameter()
     {
         // 将分数从 [minScore, maxScore] 映射到 [minFloatValue, maxFloatValue]
         float mappedValue = Mathf.Lerp(minFloatValue, maxFloatValue, Mathf.InverseLerp(minColorTiles, maxScore, splashGrid.PaintedCount));
@@ -118,7 +120,7 @@ public class ScoreBar : MonoBehaviour
             Color currentColor = targetColor* mappedValue;
             targetMaterial.SetColor(targetMaterialColorName, currentColor);
         }
-    }
+    }*/
 
     IEnumerator UpdatePercentageEverySecond()
     {
@@ -164,7 +166,7 @@ public class ScoreBar : MonoBehaviour
             AnimateImage(oneImage);
         }
 
-        if (PaintedCount -(500* timer) >= 0 && doSlide)
+        /*if (PaintedCount -(500* timer) >= 0 && doSlide)
         {
             slidethousandImage.sprite = thousandImage.sprite;
             slidehundredImage.sprite = hundredImage.sprite;
@@ -172,7 +174,7 @@ public class ScoreBar : MonoBehaviour
             slideoneImage.sprite = oneImage.sprite;
             SlideImage();
             timer++;
-        }
+        }*/
         //UpdateMaterialParameter();
     }
 
@@ -208,6 +210,7 @@ public class ScoreBar : MonoBehaviour
         Vector3 midPosition = new Vector3(140f,247f,0);         // Mid
         Vector3 endPosition = new Vector3(783f,247f,0);     // End
 
+        /*
         // 设置起始位置
         targetTitleRect.anchoredPosition = startPosition;
 
@@ -217,11 +220,12 @@ public class ScoreBar : MonoBehaviour
 
         // 添加在屏幕内缓慢滑动的动画
         /*sequence.Append(targetTitleRect.DOAnchorPos(new Vector2(midPosition.x + 200, midPosition.y), slowSpeed)
-            .SetEase(Ease.Linear));    // 匀速滑动一段时间*/
+            .SetEase(Ease.Linear));    // 匀速滑动一段时间#1#
 
         // 添加离开屏幕的快速滑动动画
         sequence.Append(targetTitleRect.DOAnchorPos(endPosition, fastSpeed)
             .SetEase(Ease.InCubic));   // 快速滑动并加速离开屏幕
+            */
 
         // 播放序列动画
         sequence.Play();
@@ -342,5 +346,10 @@ public class ScoreBar : MonoBehaviour
     Vector2 Wobble(float time)
     {
         return new Vector2(Mathf.Sin(time * 330f), Mathf.Cos(time * 250f)) * 25f; 
+    }
+    
+    public float GetScore()
+    {
+        return score;
     }
 }

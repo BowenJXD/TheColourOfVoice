@@ -119,7 +119,9 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
 
         if (scoreBar)
         {
+            /*
             scoreBar.targetMaterial.SetColor(scoreBar.targetMaterialColorName, ColorManager.Instance.GetColor(levelColor));
+        */
         }
     }
     

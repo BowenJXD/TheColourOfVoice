@@ -10,7 +10,7 @@ public class StarController : MonoBehaviour
     public float[] scoreThresholds; 
     [SerializeField] ScoreBar scoreBar;
     [SerializeField] TMP_Text percentText;
-    
+    public int starcount;
     void Awake()
     {
         var data = ResourceManager.Instance.LoadCSV(PathDefines.StarScores);
@@ -68,7 +68,7 @@ public class StarController : MonoBehaviour
                 SetStarColor(stars[i].GetComponent<Image>(), false);
             }
         }
-
+        starcount= starCount;
         SaveDataManager.Instance.saveData.levelStars[PlayerPrefs.GetInt("levelIndex", 1) - 1] = starCount;
     }
 }

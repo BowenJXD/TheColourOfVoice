@@ -32,7 +32,6 @@ public class GameEventManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            /*if (Time.timeScale == 0 && !PauseUI.gameObject.activeSelf) return;*/
             // prevent opening the spell panel when the game is paused
             if (!PauseUI.gameObject.activeSelf && !isUImoving)
             {
@@ -63,14 +62,7 @@ public class GameEventManager : MonoBehaviour
 
             });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
-        //rectTransform.anchoredPosition = new Vector2(0, 0);
-        /*rectTransform.DOAnchorPos(new Vector2(0,0),1f).SetEase(Ease.OutBounce).SetUpdate(true).onComplete = () =>
-        {
-            
-            isUImoving = false;
-            StarUI.SetActive(true);
-            myParticleSystem.Play();
-        };*/
+
     }
 
     void PausePanelEnd()
@@ -85,12 +77,7 @@ public class GameEventManager : MonoBehaviour
 
         });
         PauseUI.TryGetComponent(out RectTransform rectTransform);
-        /*rectTransform.DOAnchorPos(new Vector2(0,400),1f).SetEase(Ease.OutBounce).onComplete = () =>
-        {
-            PauseUI.gameObject.SetActive(false);
-            Time.timeScale = 1;
-            isUImoving = false;
-        };*/
+
     }
 
 
