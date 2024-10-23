@@ -12434,7 +12434,7 @@ MonoBehaviour:
   week6SequenceEventExcutor: {fileID: 11400000, guid: 4f787965b1a4e36418ecb9432a583256, type: 2}
   player: {fileID: 461082845}
   skip: 1
-  totalTime: 120
+  totalTime: 3
   text: {fileID: 1650146107}
   UICanvas: {fileID: 286612306}
   myParticleSystem: {fileID: 0}
@@ -12508,6 +12508,7 @@ MonoBehaviour:
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
   scoreBar: {fileID: 6542253588403801740}
+  levelDemo: {fileID: 0}
   popUpBubblePrefab: {fileID: 0}
 --- !u!114 &421179008
 MonoBehaviour:
@@ -29407,7 +29408,7 @@ MonoBehaviour:
   fillImageScore: {fileID: 590291735}
   splashGrid: {fileID: 776967710}
   maxScore: 4500
-  score: 0
+  score: 2000
   percentText: {fileID: 1160682291}
   starController: {fileID: 24929252}
   starList:
