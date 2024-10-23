@@ -45,9 +45,9 @@ public class Level_demo : MonoBehaviour
 
     void Start()
     {
-        player.GetComponent<PlayerMovement>().enabled = false;
+        /*player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponentInChildren<Fire>().enabled = false;
-        Time.timeScale = 0;
+        Time.timeScale = 0;*/
         
         // 确保 ratingImage 一开始是隐藏的
         ratingImage.gameObject.SetActive(false);
@@ -152,8 +152,8 @@ public class Level_demo : MonoBehaviour
             .SetUpdate(true)
             .OnComplete(callback.Invoke);
     }
-    
-    void ShowEndLevelUI()
+
+    public void ShowEndLevelUI()
     {
         StarController.GetComponent<StarController>().UpdateStars();
         if (playerUI != null)

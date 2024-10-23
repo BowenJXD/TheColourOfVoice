@@ -22,6 +22,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
     public GameObject backgroundParticleParent;
     public FMODUnity.StudioEventEmitter emitter;
     public ScoreBar scoreBar;
+    public Level_demo levelDemo;
 
     new void Awake()
     {
@@ -120,10 +121,23 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
         if (scoreBar)
         {
             scoreBar.targetMaterial.SetColor(scoreBar.targetMaterialColorName, ColorManager.Instance.GetColor(levelColor));
+            scoreBar.OnScoreChanged += EndLevelOnScoreReached;
+        }
+
+        if (!levelDemo)
+        {
+            levelDemo = GetComponent<Level_demo>();
         }
     }
-    
- 
+
+    void EndLevelOnScoreReached(float newPercentage)
+    {
+        if (Math.Abs(scoreBar.score - scoreBar.maxScore) < 0.1f)
+        {
+            Time.timeScale = 0;
+            if (levelDemo) levelDemo.EndLevel(() => levelDemo.ShowEndLevelUI());
+        }
+    }
     
     [Header("PopUp Bubble"),ReadOnly] public PopUpBubble popUpBubblePrefab;
     

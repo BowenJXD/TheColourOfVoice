@@ -1,16 +1,17 @@
+/*
 /**
 * UnityVersion: 2018.3.10f1
 * FileName:     ImageSlicer.cs
 * Author:       TYQ
 * CreateTime:   2019/04/19 00:04:26
 * Description:  
-*/
+#1#
 /*
 * Author：
 * Date：2019/01/30 10:24:22 
 * Desc：图集切割器 （针对Multiple格式的图片）
 * 操作方式：选中图片，选择编辑器的 Assets/ImageSlicer/Process to Sprites菜单
-*/
+#1#
 
 using UnityEngine;
 using System.Collections;
@@ -58,3 +59,4 @@ public static class ImageSlicer
         }
     }
 }
+*/

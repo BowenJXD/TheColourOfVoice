@@ -49,16 +49,16 @@ MonoBehaviour:
   - {fileID: 2165421628396892490, guid: 592f255ecb3e0e245a03033f06d54767, type: 3}
   - {fileID: 7303643893266698455, guid: 04f9585b7dcc5f44fa1f0dc7551acdaf, type: 3}
   taskConfigs:
-  - amounts: 0400000003000000
-    duration: 30
+  - amounts: 0300000002000000
+    duration: 20
   - amounts: 
-    duration: 30
-  - amounts: 020000000400000001000000
-    duration: 30
+    duration: 20
+  - amounts: 010000000300000001000000
+    duration: 20
   - amounts: 
-    duration: 30
-  - amounts: 010000000300000003000000
-    duration: 30
+    duration: 20
+  - amounts: 000000000200000002000000
+    duration: 20
   - amounts: 
     duration: 30
   currentTaskIndex: 0
@@ -67,4 +67,6 @@ MonoBehaviour:
   distributionVariationInterval: 1
   minDistribution: 60
   maxDistributionVariation: 120
+  spawnCount: 1
+  spawnInterval: 0
   spawnTransform: {fileID: 827953531902757924}
