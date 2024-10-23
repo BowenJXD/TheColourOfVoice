@@ -47,11 +47,9 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4027698038478995893, guid: f8ab7985ec202e245a920fc7fe2cb80e, type: 3}
   taskConfigs:
-  - amounts: 0a000000
-    duration: 60
   - amounts: 08000000
     duration: 60
-  - amounts: 0a000000
+  - amounts: 08000000
     duration: 40
   currentTaskIndex: 0
   minDistance: 20
