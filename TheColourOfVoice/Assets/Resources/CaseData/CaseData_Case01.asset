@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patientName: Ava
   patientAge: 21
-  patintSymptoms: Depression
-  patientDescription: 
+  patintSymptoms: Dysthymia
+  patientDescription: Due to some... personal reasons, I really hope someone can
+    help me...
   patientImage: {fileID: 21300000, guid: 72712e0bce356694eac9ea36f2e94f26, type: 3}
   levelIndex: 1
   preLevelTimelineAsset: {fileID: 11400000, guid: 39d56f0db9b148e409155fbbd013967e, type: 2}

@@ -302,7 +302,7 @@ public class ChooseLevelPanel : Singleton<ChooseLevelPanel>
                     }
                     break;
                     default:
-                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Unlocked;
+                        currentCaseList[i].GetComponentInChildren<PatientCase>().levelState = LevelState.Locked;
                         break;
             }
             
