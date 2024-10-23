@@ -152,8 +152,8 @@ public class Level_demo : MonoBehaviour
             .SetUpdate(true)
             .OnComplete(callback.Invoke);
     }
-    
-    void ShowEndLevelUI()
+
+    public void ShowEndLevelUI()
     {
         StarController.GetComponent<StarController>().UpdateStars();
         if (playerUI != null)
