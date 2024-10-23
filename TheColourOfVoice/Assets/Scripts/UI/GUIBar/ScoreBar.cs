@@ -22,6 +22,7 @@ public class ScoreBar : MonoBehaviour
     [SerializeField] StarController starController; 
     [SerializeField] List<Image> starList;
 
+    private bool[] starStatus = new bool[3];
     Canvas canvas;
 
     [SerializeField] public Image thousandImage;
@@ -249,6 +250,8 @@ public class ScoreBar : MonoBehaviour
         if (starController) UpdateStars();
     }
 
+    
+    
     void UpdateStars()
     {
         //Debug.Log("Updating stars.");
@@ -272,6 +275,13 @@ public class ScoreBar : MonoBehaviour
                 /*stars[i].overrideSprite = Resources.Load<Sprite>("Arts/UI/MarkStar/MarkStar1");
                 stars[i].color = Color.white;  */
                 starList[i].color = Color.white;
+                if (starStatus[i] == false)
+                {
+                    starList[i].transform.DOScale(1.5f, 0.5f).SetEase(Ease.OutBounce);
+
+                    starList[i].transform.DOScale(1f, 0.5f).SetEase(Ease.OutBounce).SetDelay(0.5f);
+                }
+                starStatus[i] = true;
             }
             else
             {
@@ -287,6 +297,9 @@ public class ScoreBar : MonoBehaviour
         }
     }
 
+
+
+    
     void UpdateUI()
     {
         if (fillImageScore != null)

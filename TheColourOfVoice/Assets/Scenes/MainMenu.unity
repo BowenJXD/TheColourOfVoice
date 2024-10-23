@@ -3781,7 +3781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1184171151
 Transform:
   m_ObjectHideFlags: 0
@@ -5126,7 +5126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1588944828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5146,12 +5146,19 @@ MonoBehaviour:
   dialogueName: {fileID: 0}
   choosingLevelPanel: {fileID: 0}
   dialogueNextCursor: {fileID: 0}
+  skipHint: {fileID: 0}
   playableDirector: {fileID: 0}
+  saveData: {fileID: 0}
   playerIsAwake: 0
   sightLight: {fileID: 0}
   sunShaftlight: {fileID: 0}
+  paperOutline: {fileID: 0}
+  interval: 0.5
   gameMode: 1
   currentPlayableDirector: {fileID: 0}
+  characterPortraits: []
+  LittleWitchPortrait: {fileID: 0}
+  CharacterPortrait: {fileID: 0}
   typingSpeed: 0.07
   glitchFrames: 3
 --- !u!4 &1588944829

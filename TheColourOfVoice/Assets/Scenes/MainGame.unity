@@ -273,9 +273,9 @@ MonoBehaviour:
   - {fileID: 1605186364}
   score: 0
   scoreThresholds:
-  - 2500
-  - 3500
-  - 4500
+  - 1000
+  - 1500
+  - 2000
   scoreBar: {fileID: 6542253588403801740}
   percentText: {fileID: 1160682291}
   starcount: 0
@@ -12509,6 +12509,7 @@ MonoBehaviour:
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
   scoreBar: {fileID: 6542253588403801740}
+  levelDemo: {fileID: 0}
   popUpBubblePrefab: {fileID: 0}
 --- !u!114 &421179008
 MonoBehaviour:
@@ -14979,6 +14980,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 177915995075319070, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3316224132156739773, guid: 30fd1e7adda538f44b970fada1e23991, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -15590,7 +15595,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -101, y: -74}
-  m_SizeDelta: {x: 74.6, y: 22.5}
+  m_SizeDelta: {x: 147.5, y: 22.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961952943
 MonoBehaviour:
