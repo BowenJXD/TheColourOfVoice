@@ -11492,6 +11492,7 @@ RectTransform:
   - {fileID: 1616219486}
   - {fileID: 1650146106}
   - {fileID: 767508791647179489}
+  - {fileID: 1971306310}
   - {fileID: 1593002398}
   - {fileID: 12213110}
   - {fileID: 24929250}
@@ -12491,7 +12492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b4007ed86d4a7c897f19c3cba95a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
+  config: {fileID: 11400000, guid: 0d4e7f42eb12bad4abb4ac6745f7566f, type: 2}
   levelConfigs:
   - {fileID: 0}
   - {fileID: 11400000, guid: d4c754df7c6a98440b71bb4896d78d93, type: 2}
@@ -12499,12 +12500,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d533a188cbf597049893fcd8a0660065, type: 2}
   - {fileID: 11400000, guid: 9f4d8e0b88015454a97895c02e050171, type: 2}
   - {fileID: 11400000, guid: 05b74352f5122fc46bdd046183437368, type: 2}
-  levelIndex: 1
-  levelName: dysthymia
-  levelColor: 5
-  tileSprite: {fileID: 21300000, guid: 24ac7801f79ccf6439c8bbb8feb4055f, type: 3}
-  entityGenerator: {fileID: 3808112070387729887, guid: 670b4f67b37b09046a996e2c044ee487, type: 3}
-  mechanic: {fileID: 0}
+  levelIndex: 2
+  levelName: schizophrenia
+  levelColor: 2
+  tileSprite: {fileID: 21300000, guid: 8f30cc66aacc9b0498e2fbd2bbdd650d, type: 3}
+  entityGenerator: {fileID: 7218613360977623393, guid: e70de52da47cf804eac1479c9a3a5745, type: 3}
+  mechanic: {fileID: 5998322813702647268, guid: 5b10a289b68f1164bb43ac578eac4706, type: 3}
   backgroundParticleParent: {fileID: 753415076}
   emitter: {fileID: 0}
   scoreBar: {fileID: 6542253588403801740}
@@ -12585,11 +12586,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 712863313}
+  m_Father: {fileID: 2041196864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16.00003}
+  m_AnchoredPosition: {x: 107.00001, y: 48.000023}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &441736106
@@ -14055,7 +14056,7 @@ RectTransform:
   m_LocalScale: {x: 0.9125, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 441736105}
+  - {fileID: 2041196864}
   m_Father: {fileID: 1971306310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -19399,7 +19400,6 @@ RectTransform:
   - {fileID: 1888527100}
   - {fileID: 1442652944}
   - {fileID: 746943301}
-  - {fileID: 1971306310}
   - {fileID: 544027546}
   - {fileID: 1226060737}
   - {fileID: 935247425}
@@ -20168,7 +20168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1666683220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20233,7 +20233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1971306311}
         m_TargetAssemblyTypeName: SpellPanel, Assembly-CSharp
         m_MethodName: LastPage
         m_Mode: 1
@@ -27186,11 +27186,11 @@ RectTransform:
   - {fileID: 712863313}
   - {fileID: 238220113}
   - {fileID: 444136033}
-  m_Father: {fileID: 1593002398}
+  m_Father: {fileID: 286612310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 645.8599, y: 224.99997}
+  m_AnchoredPosition: {x: 645.86017, y: 224.99994}
   m_SizeDelta: {x: 308.27, y: 399.856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971306311
@@ -27210,7 +27210,7 @@ MonoBehaviour:
   spellNameList: []
   spellDataList: []
   animator: {fileID: 1971306312}
-  parentTransform: {fileID: 441736105}
+  parentTransform: {fileID: 2041196864}
 --- !u!95 &1971306312
 Animator:
   serializedVersion: 5
@@ -27529,6 +27529,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2041196863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041196864}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2041196864
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041196863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 441736105}
+  m_Father: {fileID: 712863313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -107, y: -32}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2060460039
 GameObject:
   m_ObjectHideFlags: 0
@@ -27850,7 +27886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2137875446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27915,7 +27951,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1971306311}
         m_TargetAssemblyTypeName: SpellPanel, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
