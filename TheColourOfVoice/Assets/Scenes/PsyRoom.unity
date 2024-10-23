@@ -2361,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &896159531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4377,6 +4377,8 @@ MonoBehaviour:
   playerIsAwake: 0
   sightLight: {fileID: 2012320896}
   sunShaftlight: {fileID: 707192889}
+  paperOutline: {fileID: 1198017285}
+  interval: 1
   gameMode: 1
   currentPlayableDirector: {fileID: 925897101}
   characterPortraits:

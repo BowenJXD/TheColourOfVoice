@@ -15,8 +15,11 @@ MonoBehaviour:
   patientName: 'Benjamin '
   patientAge: 25
   patintSymptoms: Schizophrenia
-  patientDescription: //TODO Schizophrenia
+  patientDescription: I've heard you're a powerful witch, and now there's something
+    only you can do. I really hope you can help me...
   patientImage: {fileID: 21300000, guid: cb53740f1f7cb4a478afe96b9b96efac, type: 3}
   levelIndex: 2
   preLevelTimelineAsset: {fileID: 11400000, guid: 0f8e10c7865afe449819d69f94ead884, type: 2}
   afterLevelTimelineAsset: {fileID: 11400000, guid: bf67eeb84e679aa4e850b9111da4480c, type: 2}
+  levelFinished: 0
+  levelState: 0
