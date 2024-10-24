@@ -132,7 +132,7 @@ public class LevelManager : Singleton<LevelManager>, ISetUp
 
     void EndLevelOnScoreReached(float newPercentage)
     {
-        if (Math.Abs(scoreBar.score - scoreBar.maxScore) < 0.1f)
+        if (Math.Abs(scoreBar.score - scoreBar.maxScore) < 0.1f && mechanic is not HopeMechanic)
         {
             Time.timeScale = 0;
             if (levelDemo) levelDemo.EndLevel(() => levelDemo.ShowEndLevelUI());
