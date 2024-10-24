@@ -11746,6 +11746,19 @@ MonoBehaviour:
   targetOrthoSize: 10
   zoomDuration: 1
   zoomEase: 9
+  numberSprites: []
+  thousandImage: {fileID: 0}
+  hundredImage: {fileID: 0}
+  tenImage: {fileID: 0}
+  oneImage: {fileID: 0}
+  scoreBar: {fileID: 0}
+  resultText: {fileID: 0}
+  ratingImage: {fileID: 0}
+  UIScore: {fileID: 0}
+  UIStar: {fileID: 0}
+  rate1: {fileID: 0}
+  rate2: {fileID: 0}
+  rate3: {fileID: 0}
 --- !u!114 &421179005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15124,6 +15137,9 @@ MonoBehaviour:
   - 4500
   scoreBar: {fileID: 6542253588403801740}
   percentText: {fileID: 134859985}
+  starcount: 0
+  highlightMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1667629688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9006129395860818742, guid: 3512f0813c1632b4fb6ff9b73aeb5506, type: 3}
