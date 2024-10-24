@@ -230,7 +230,7 @@ public class HopeMechanic : LevelMechanic
             move.enabled = true;
             fire.enabled = true;
             fire.SetAutoFire(false);
-            float damage = bossHealth.currentHealth / 10;
+            float damage = bossHealth.currentHealth / 7;
             fire.onFire += bullet =>
             {
                 if (bullet.TryGetComponent<Attack>(out var attack))

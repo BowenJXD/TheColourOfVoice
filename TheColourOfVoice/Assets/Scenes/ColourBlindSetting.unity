@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec7aee1de2e44a7bed7ecc87aad63d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: PlayerNavi
+  SceneName: Opening
   GlobalVolume: {fileID: 504561092}
 --- !u!1 &578808444
 GameObject:

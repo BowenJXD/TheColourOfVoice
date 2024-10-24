@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColourBlindSetting.unity
     guid: 3432e6197d37ad8408aaaf4c8318f555
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 14dbfd90e7303484b96890eb0e03c8a6
   m_configObjects: {}
