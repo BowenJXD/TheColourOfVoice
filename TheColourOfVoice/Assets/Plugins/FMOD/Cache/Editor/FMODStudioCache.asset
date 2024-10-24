@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8677717636702962177
+--- !u!114 &-9108837243337714117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,190 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/Spliting
+  m_Name: event:/Background
   m_EditorClassIdentifier: 
-  Path: event:/Combat/Spliting
+  Path: event:/Background
   Guid:
-    Data1: 1941853756
-    Data2: 1295960442
-    Data3: -659542854
-    Data4: 1988801245
+    Data1: -1079905987
+    Data2: 1220331498
+    Data3: -355114072
+    Data4: -312815846
   Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 100
-  Length: 0
---- !u!114 &-7577501922418635400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Fireball/CastState
-  m_EditorClassIdentifier: 
-  Name: CastState
-  StudioPath: 
-  Min: 0
-  Max: 3
-  Default: 1
-  ID:
-    data1: 1936912282
-    data2: 3362153638
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Casting
-  - ReleaseReady
-  - Released
-  Exists: 1
---- !u!114 &-5523619774937488781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spells/Laser
-  m_EditorClassIdentifier: 
-  Path: event:/Spells/Laser
-  Guid:
-    Data1: 486216513
-    Data2: 1162679724
-    Data3: -707677781
-    Data4: 160441911
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 2842896561020977745}
-  MinDistance: 1
-  MaxDistance: 100
-  Length: 0
---- !u!114 &-4176427832679093330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Score
-  m_EditorClassIdentifier: 
-  Path: event:/Score
-  Guid:
-    Data1: 1008117773
-    Data2: 1273079498
-    Data3: -1654850410
-    Data4: -513824870
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
+  - {fileID: 441536812925806243}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 3593147250531979576}
+  - {fileID: 8018458496684823151}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3005700183838078337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Charge/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
---- !u!114 &-2661344188850943278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/BurnEffect
-  m_EditorClassIdentifier: 
-  Path: event:/Combat/BurnEffect
-  Guid:
-    Data1: -98573174
-    Data2: 1175135204
-    Data3: 201060755
-    Data4: -922940365
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 8550905067467293018}
-  MinDistance: 1
-  MaxDistance: 100
-  Length: 0
---- !u!114 &-1851274352252270643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/Faint
-  m_EditorClassIdentifier: 
-  Path: event:/Combat/Faint
-  Guid:
-    Data1: -1220270738
-    Data2: 1079730729
-    Data3: -1091958090
-    Data4: 1891356859
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-1748321852899982710
+--- !u!114 &-7676827947135513878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,132 +48,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1812
   Exists: 1
---- !u!114 &-1563920646822479160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spells/Light
-  m_EditorClassIdentifier: 
-  Path: event:/Spells/Light
-  Guid:
-    Data1: 1711437459
-    Data2: 1245780769
-    Data3: -2078742873
-    Data4: 1014559375
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 3004731302599002209}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -1748321852899982710}
-  - {fileID: 2767100926582231373}
-  EditorEvents:
-  - {fileID: -4176427832679093330}
-  - {fileID: 4431497419024575223}
-  - {fileID: -8677717636702962177}
-  - {fileID: 657195128897659667}
-  - {fileID: 4059531673500898336}
-  - {fileID: -5523619774937488781}
-  - {fileID: 4510710435554378631}
-  - {fileID: -1851274352252270643}
-  - {fileID: -2661344188850943278}
-  - {fileID: -1563920646822479160}
-  - {fileID: 4189104083604345973}
-  - {fileID: 7511152895427737612}
-  - {fileID: 8815447700434022862}
-  - {fileID: 544284241032026403}
-  - {fileID: 5973706064704650858}
-  - {fileID: 3849956905158974294}
-  - {fileID: 6066799919917119483}
-  - {fileID: 7324228226441088870}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 2767100926582231373}
-  StringsBanks:
-  - {fileID: -1748321852899982710}
-  cacheTime: 638653795701026252
-  cacheVersion: 131619
---- !u!114 &544284241032026403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Charge
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Charge
-  Guid:
-    Data1: -1266222263
-    Data2: 1188248496
-    Data3: -1822662481
-    Data4: -1909891878
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -3005700183838078337}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &657195128897659667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Background
-  m_EditorClassIdentifier: 
-  Path: event:/Background
-  Guid:
-    Data1: -1079905987
-    Data2: 1220331498
-    Data3: -355114072
-    Data4: -312815846
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 4583855277430376827}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &2309872003357064489
+--- !u!114 &-6611236912008476192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,7 +75,7 @@ MonoBehaviour:
   - Start
   - End
   Exists: 1
---- !u!114 &2733364254146568342
+--- !u!114 &-6558459827783824206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,25 +84,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Fireball/EffectState
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Charge
   m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
---- !u!114 &2767100926582231373
+  Path: event:/Boss/Charge
+  Guid:
+    Data1: -1266222263
+    Data2: 1188248496
+    Data3: -1822662481
+    Data4: -1909891878
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5656383965611722949}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6168152876677976116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,18 +112,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Combat/FreezeEffect
   m_EditorClassIdentifier: 
-  Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638653795701006314
-  FileSizes:
-  - Name: Desktop
-    Value: 12011872
-  Exists: 1
---- !u!114 &2842896561020977745
+  Path: event:/Combat/FreezeEffect
+  Guid:
+    Data1: 451666157
+    Data2: 1263156647
+    Data3: -1966304589
+    Data4: 2132335781
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4927055953759208882}
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 0
+--- !u!114 &-5636763505349811004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,59 +159,7 @@ MonoBehaviour:
   - ReleaseReady
   - Released
   Exists: 1
---- !u!114 &3004731302599002209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Light/CastState
-  m_EditorClassIdentifier: 
-  Name: CastState
-  StudioPath: 
-  Min: 0
-  Max: 3
-  Default: 1
-  ID:
-    data1: 1936912282
-    data2: 3362153638
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Casting
-  - ReleaseReady
-  - Released
-  Exists: 1
---- !u!114 &3593147250531979576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Score/Score
-  m_EditorClassIdentifier: 
-  Name: Score
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 481623496
-    data2: 571138268
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &3849956905158974294
+--- !u!114 &-4577909197884235354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -502,79 +169,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Fireball
+  m_Name: event:/Spells/Fireball
   m_EditorClassIdentifier: 
-  Path: event:/Boss/Fireball
+  Path: event:/Spells/Fireball
   Guid:
-    Data1: -211949483
-    Data2: 1082918787
-    Data3: -356967264
-    Data4: -1008581521
+    Data1: -1242251295
+    Data2: 1182142490
+    Data3: 184875695
+    Data4: -1403167654
   Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 2733364254146568342}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4059531673500898336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Explosion
-  m_EditorClassIdentifier: 
-  Path: event:/Explosion
-  Guid:
-    Data1: 1829692223
-    Data2: 1082364160
-    Data3: -2126648655
-    Data4: 1203272207
-  Banks:
-  - {fileID: 2767100926582231373}
+  - {fileID: 441536812925806243}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4837992024308171301}
   MinDistance: 1
   MaxDistance: 100
   Length: 0
---- !u!114 &4189104083604345973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/Splited
-  m_EditorClassIdentifier: 
-  Path: event:/Combat/Splited
-  Guid:
-    Data1: -794766921
-    Data2: 1123744298
-    Data3: 2065751487
-    Data4: -201098256
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4371699199747498468
+--- !u!114 &-3393887114618058359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -602,7 +215,7 @@ MonoBehaviour:
   - Enemy2
   - Enemy3
   Exists: 1
---- !u!114 &4431497419024575223
+--- !u!114 &-2134321248095264746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,25 +225,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/Hurt
+  m_Name: event:/Score
   m_EditorClassIdentifier: 
-  Path: event:/Combat/Hurt
+  Path: event:/Score
   Guid:
-    Data1: -2054867144
-    Data2: 1338472936
-    Data3: 1225566360
-    Data4: 1916180986
+    Data1: 1008117773
+    Data2: 1273079498
+    Data3: -1654850410
+    Data4: -513824870
   Banks:
-  - {fileID: 2767100926582231373}
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -447790430660720588}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2109162855590912102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spells/Laser
+  m_EditorClassIdentifier: 
+  Path: event:/Spells/Laser
+  Guid:
+    Data1: 486216513
+    Data2: 1162679724
+    Data3: -707677781
+    Data4: 160441911
+  Banks:
+  - {fileID: 441536812925806243}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
-  - {fileID: 4371699199747498468}
+  - {fileID: -5636763505349811004}
   MinDistance: 1
   MaxDistance: 100
   Length: 0
---- !u!114 &4510710435554378631
+--- !u!114 &-608399263142561225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,24 +281,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spells/PopSound
+  m_Name: event:/Combat/BurnEffect
   m_EditorClassIdentifier: 
-  Path: event:/Spells/PopSound
+  Path: event:/Combat/BurnEffect
   Guid:
-    Data1: 1849323850
-    Data2: 1291442353
-    Data3: 1578106559
-    Data4: -1889710865
+    Data1: -98573174
+    Data2: 1175135204
+    Data3: 201060755
+    Data4: -922940365
   Banks:
-  - {fileID: 2767100926582231373}
+  - {fileID: 441536812925806243}
   IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3292695376917779901}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 0
---- !u!114 &4583855277430376827
+--- !u!114 &-447790430660720588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,103 +309,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Background/LevelIndex
+  m_Name: parameter:/Score/Score
   m_EditorClassIdentifier: 
-  Name: LevelIndex
+  Name: Score
   StudioPath: 
   Min: 0
-  Max: 6
+  Max: 1
   Default: 0
   ID:
-    data1: 4204757073
-    data2: 3599546663
-  Type: 1
+    data1: 481623496
+    data2: 571138268
+  Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &5973706064704650858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Asteroid
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Asteroid
-  Guid:
-    Data1: -1282510512
-    Data2: 1234557823
-    Data3: -1559771765
-    Data4: 1553368118
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 2309872003357064489}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &6066799919917119483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/CD
-  m_EditorClassIdentifier: 
-  Path: event:/CD
-  Guid:
-    Data1: -255739260
-    Data2: 1291119203
-    Data3: -732717891
-    Data4: -620935748
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7261885150111944194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/FreezeEffect/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
---- !u!114 &7324228226441088870
+--- !u!114 &-163171085108858842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -782,7 +342,7 @@ MonoBehaviour:
     Data3: 1385017262
     Data4: -1376650558
   Banks:
-  - {fileID: 2767100926582231373}
+  - {fileID: 441536812925806243}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -790,7 +350,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &7511152895427737612
+--- !u!114 &-40485200350620696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -800,25 +360,168 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spells/Fireball
+  m_Name: event:/Explosion
   m_EditorClassIdentifier: 
-  Path: event:/Spells/Fireball
+  Path: event:/Explosion
   Guid:
-    Data1: -1242251295
-    Data2: 1182142490
-    Data3: 184875695
-    Data4: -1403167654
+    Data1: 1829692223
+    Data2: 1082364160
+    Data3: -2126648655
+    Data4: 1203272207
   Banks:
-  - {fileID: 2767100926582231373}
+  - {fileID: 441536812925806243}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -7577501922418635400}
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 100
   Length: 0
---- !u!114 &8550905067467293018
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -7676827947135513878}
+  - {fileID: 441536812925806243}
+  EditorEvents:
+  - {fileID: -2134321248095264746}
+  - {fileID: 5143866050727849934}
+  - {fileID: 9071133869290490244}
+  - {fileID: -9108837243337714117}
+  - {fileID: -40485200350620696}
+  - {fileID: -2109162855590912102}
+  - {fileID: -6558459827783824206}
+  - {fileID: 8795248336703965476}
+  - {fileID: 5480049855141986194}
+  - {fileID: 9015237207867183788}
+  - {fileID: 7073549023068931354}
+  - {fileID: 7872322514718592800}
+  - {fileID: -608399263142561225}
+  - {fileID: 2139584384857019279}
+  - {fileID: -163171085108858842}
+  - {fileID: 4766656515141514198}
+  - {fileID: -4577909197884235354}
+  - {fileID: -6168152876677976116}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 441536812925806243}
+  StringsBanks:
+  - {fileID: -7676827947135513878}
+  cacheTime: 638653795701026252
+  cacheVersion: 131619
+--- !u!114 &441536812925806243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638653795701006314
+  FileSizes:
+  - Name: Desktop
+    Value: 12011872
+  Exists: 1
+--- !u!114 &1267702465608580262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Light/CastState
+  m_EditorClassIdentifier: 
+  Name: CastState
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 1
+  ID:
+    data1: 1936912282
+    data2: 3362153638
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Casting
+  - ReleaseReady
+  - Released
+  Exists: 1
+--- !u!114 &1315880027287312177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fireball/EffectState
+  m_EditorClassIdentifier: 
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
+--- !u!114 &2139584384857019279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spells/Light
+  m_EditorClassIdentifier: 
+  Path: event:/Spells/Light
+  Guid:
+    Data1: 1711437459
+    Data2: 1245780769
+    Data3: -2078742873
+    Data4: 1014559375
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1267702465608580262}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3292695376917779901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -845,7 +548,7 @@ MonoBehaviour:
   - Start
   - End
   Exists: 1
---- !u!114 &8815447700434022862
+--- !u!114 &4766656515141514198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -855,21 +558,318 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Combat/FreezeEffect
+  m_Name: event:/Combat/Splited
   m_EditorClassIdentifier: 
-  Path: event:/Combat/FreezeEffect
+  Path: event:/Combat/Splited
   Guid:
-    Data1: 451666157
-    Data2: 1263156647
-    Data3: -1966304589
-    Data4: 2132335781
+    Data1: -794766921
+    Data2: 1123744298
+    Data3: 2065751487
+    Data4: -201098256
   Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 1
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4837992024308171301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fireball/CastState
+  m_EditorClassIdentifier: 
+  Name: CastState
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 1
+  ID:
+    data1: 1936912282
+    data2: 3362153638
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Casting
+  - ReleaseReady
+  - Released
+  Exists: 1
+--- !u!114 &4927055953759208882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FreezeEffect/EffectState
+  m_EditorClassIdentifier: 
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
+--- !u!114 &5143866050727849934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Combat/Hurt
+  m_EditorClassIdentifier: 
+  Path: event:/Combat/Hurt
+  Guid:
+    Data1: -2054867144
+    Data2: 1338472936
+    Data3: 1225566360
+    Data4: 1916180986
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters:
-  - {fileID: 7261885150111944194}
+  - {fileID: -3393887114618058359}
+  MinDistance: 1
+  MaxDistance: 100
+  Length: 0
+--- !u!114 &5480049855141986194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Asteroid
+  m_EditorClassIdentifier: 
+  Path: event:/Boss/Asteroid
+  Guid:
+    Data1: -1282510512
+    Data2: 1234557823
+    Data3: -1559771765
+    Data4: 1553368118
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6611236912008476192}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5656383965611722949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Charge/EffectState
+  m_EditorClassIdentifier: 
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
+--- !u!114 &7073549023068931354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Combat/Faint
+  m_EditorClassIdentifier: 
+  Path: event:/Combat/Faint
+  Guid:
+    Data1: -1220270738
+    Data2: 1079730729
+    Data3: -1091958090
+    Data4: 1891356859
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7872322514718592800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CD
+  m_EditorClassIdentifier: 
+  Path: event:/CD
+  Guid:
+    Data1: -255739260
+    Data2: 1291119203
+    Data3: -732717891
+    Data4: -620935748
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8018458496684823151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Background/LevelIndex
+  m_EditorClassIdentifier: 
+  Name: LevelIndex
+  StudioPath: 
+  Min: 0
+  Max: 6
+  Default: 0
+  ID:
+    data1: 4204757073
+    data2: 3599546663
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8795248336703965476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spells/PopSound
+  m_EditorClassIdentifier: 
+  Path: event:/Spells/PopSound
+  Guid:
+    Data1: 1849323850
+    Data2: 1291442353
+    Data3: 1578106559
+    Data4: -1889710865
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9015237207867183788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Fireball
+  m_EditorClassIdentifier: 
+  Path: event:/Boss/Fireball
+  Guid:
+    Data1: -211949483
+    Data2: 1082918787
+    Data3: -356967264
+    Data4: -1008581521
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1315880027287312177}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9071133869290490244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Combat/Spliting
+  m_EditorClassIdentifier: 
+  Path: event:/Combat/Spliting
+  Guid:
+    Data1: 1941853756
+    Data2: 1295960442
+    Data3: -659542854
+    Data4: 1988801245
+  Banks:
+  - {fileID: 441536812925806243}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 100
   Length: 0
