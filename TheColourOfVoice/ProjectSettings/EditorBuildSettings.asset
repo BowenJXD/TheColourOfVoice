@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EndGame.unity
     guid: 1389505dd79e13e47a591269b178fbcc
   - enabled: 1
-    path: Assets/Scenes/PlayerNavi.unity
+    path: Assets/Scenes/Opening.unity
     guid: 044285e8f152ef347a4b6229b8e5c2cc
   - enabled: 1
     path: Assets/Scenes/NewSpell.unity

@@ -40,12 +40,13 @@ public class SpellGaining : MonoBehaviour
 
     void OnRegister(string input)
     {
-        if (triggerWords != "") VoiceInputSystem.Instance.Unregister(triggerWords);
-        VoiceInputSystem.Instance.Register(input, OnCall);
+        if (triggerWords != "") VoiceInputSystemRecognissimo.Instance.Unregister(triggerWords);
+        VoiceInputSystemRecognissimo.Instance.Register(input, OnCall);
+        VoiceInputSystemRecognissimo.Instance.engine.StartProcessing();
         triggerWords = input;
     }
 
-    void OnCall(PhraseRecognizedEventArgs args)
+    void OnCall(string text)
     {
         callCount++;
         isAnimating = true;

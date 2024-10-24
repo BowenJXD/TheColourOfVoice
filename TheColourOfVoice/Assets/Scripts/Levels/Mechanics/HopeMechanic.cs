@@ -250,7 +250,7 @@ public class HopeMechanic : LevelMechanic
             levelDemo.EndLevel(() =>
             {
                 DOTween.To(() => colorAdjustments.postExposure.value, x => colorAdjustments.postExposure.value = x, 8, 2)
-                    .OnComplete(Application.Quit);
+                    .OnComplete(() => SceneTransit.Instance.LoadTargetScene("Ending"));
             });
         }
         

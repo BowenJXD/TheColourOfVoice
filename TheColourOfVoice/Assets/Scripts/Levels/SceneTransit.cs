@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneTransit : Singleton<SceneTransit>
 {
     public string loadingSceneName = "Loading";
-    public float minimumLoadTime = 3.0f;
+    public float minimumLoadTime = 2.0f;
     public Slider progressBar;
     
     public void LoadTargetScene(string targetSceneName)

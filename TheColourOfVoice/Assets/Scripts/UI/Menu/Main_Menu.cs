@@ -28,7 +28,7 @@ public class Main_Menu : MonoBehaviour
     
     public void PlayNavi()  
     {
-        SceneManager.LoadSceneAsync("PlayerNavi");
+        SceneManager.LoadSceneAsync("Opening");
 
     }
 

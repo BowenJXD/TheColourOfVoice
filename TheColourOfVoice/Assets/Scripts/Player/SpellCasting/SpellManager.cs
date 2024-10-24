@@ -191,6 +191,12 @@ public class SpellManager : Singleton<SpellManager>
             Debug.LogWarning($"Spell {text} is in cooldown.");
             return;
         }
+
+        if (Time.timeScale == 0)
+        {
+            Debug.LogWarning("Time is paused.");
+            return;
+        }
             
         CastConfig config = new CastConfig
         {

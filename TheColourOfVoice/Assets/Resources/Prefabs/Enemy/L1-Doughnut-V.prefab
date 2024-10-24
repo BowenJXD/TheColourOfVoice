@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4385042102656340858, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       propertyPath: maxHealth
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5416483287231550087, guid: 0d85f92afd49170469e768305e20ba91, type: 3}
       propertyPath: m_LocalPosition.x

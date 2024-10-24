@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 2823674844197799568}
   - component: {fileID: 6390868703132723950}
   - component: {fileID: 2318447807423738792}
-  - component: {fileID: 1069012560573345933}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -171,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   duration: 0.1
+  useRotation: 0
   doPenetrate: 0
   fourDirectional: 0
 --- !u!114 &3193460567996462691
@@ -198,10 +198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dc676af05f4ea2be36aaaa2f70b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.2
+  damage: 0
   damageCD: 1
   resetCDOnExit: 1
-  knockBack: 0
+  knockBack: 3
   rb: {fileID: 0}
 --- !u!114 &-8025040907022103349
 MonoBehaviour:
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   waitTime: 0
   waitForSequenceToFinish: 1
 --- !u!114 &2823674844197799568
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  next: 0
+  executing: 0
   prefab: {fileID: 7179938763103737207, guid: 4611adf54a2db1e439f346223a86c997, type: 3}
   painter: {fileID: 0}
   attacker: {fileID: 0}
@@ -294,16 +294,3 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1069012560573345933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6144049354887091650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 246846f457d548338b3320713bb1ede0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sp: {fileID: 4458191982595523264}

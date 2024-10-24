@@ -55,33 +55,6 @@ MonoBehaviour:
   - ReleaseReady
   - Released
   Exists: 1
---- !u!114 &-5761803632268373518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Asteroid/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
 --- !u!114 &-5523619774937488781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,33 +83,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 100
   Length: 0
---- !u!114 &-4707284438915880882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Charge/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
 --- !u!114 &-4176427832679093330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +111,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3744874809929835369
+--- !u!114 &-3005700183838078337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,24 +120,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/CD
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Charge/EffectState
   m_EditorClassIdentifier: 
-  Path: event:/CD
-  Guid:
-    Data1: -255739260
-    Data2: 1291119203
-    Data3: -732717891
-    Data4: -620935748
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
 --- !u!114 &-2661344188850943278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +208,7 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638650692007272669
+  lastModified: 638653795701026252
   FileSizes:
   - Name: Desktop
     Value: 1812
@@ -324,18 +270,46 @@ MonoBehaviour:
   - {fileID: 4189104083604345973}
   - {fileID: 7511152895427737612}
   - {fileID: 8815447700434022862}
-  - {fileID: 5810241034265966544}
-  - {fileID: 8087286692872217010}
-  - {fileID: 6593980437162028565}
-  - {fileID: -3744874809929835369}
-  - {fileID: 3209139488474429263}
+  - {fileID: 544284241032026403}
+  - {fileID: 5973706064704650858}
+  - {fileID: 3849956905158974294}
+  - {fileID: 6066799919917119483}
+  - {fileID: 7324228226441088870}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2767100926582231373}
   StringsBanks:
   - {fileID: -1748321852899982710}
-  cacheTime: 638650692007272669
+  cacheTime: 638653795701026252
   cacheVersion: 131619
+--- !u!114 &544284241032026403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Charge
+  m_EditorClassIdentifier: 
+  Path: event:/Boss/Charge
+  Guid:
+    Data1: -1266222263
+    Data2: 1188248496
+    Data3: -1822662481
+    Data4: -1909891878
+  Banks:
+  - {fileID: 2767100926582231373}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -3005700183838078337}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &657195128897659667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +338,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2309872003357064489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Asteroid/EffectState
+  m_EditorClassIdentifier: 
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
+--- !u!114 &2733364254146568342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fireball/EffectState
+  m_EditorClassIdentifier: 
+  Name: EffectState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1087238371
+    data2: 611683575
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Start
+  - End
+  Exists: 1
 --- !u!114 &2767100926582231373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,10 +407,10 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638650692007262670
+  lastModified: 638653795701006314
   FileSizes:
   - Name: Desktop
-    Value: 11950848
+    Value: 12011872
   Exists: 1
 --- !u!114 &2842896561020977745
 MonoBehaviour:
@@ -440,33 +468,6 @@ MonoBehaviour:
   - ReleaseReady
   - Released
   Exists: 1
---- !u!114 &3209139488474429263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Shield
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Shield
-  Guid:
-    Data1: -327390818
-    Data2: 1099002162
-    Data3: 1385017262
-    Data4: -1376650558
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &3593147250531979576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +492,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3849956905158974294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Fireball
+  m_EditorClassIdentifier: 
+  Path: event:/Boss/Fireball
+  Guid:
+    Data1: -211949483
+    Data2: 1082918787
+    Data3: -356967264
+    Data4: -1008581521
+  Banks:
+  - {fileID: 2767100926582231373}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2733364254146568342}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4059531673500898336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +681,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &5810241034265966544
+--- !u!114 &5973706064704650858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -662,25 +691,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Charge
+  m_Name: event:/Boss/Asteroid
   m_EditorClassIdentifier: 
-  Path: event:/Boss/Charge
+  Path: event:/Boss/Asteroid
   Guid:
-    Data1: -1266222263
-    Data2: 1188248496
-    Data3: -1822662481
-    Data4: -1909891878
+    Data1: -1282510512
+    Data2: 1234557823
+    Data3: -1559771765
+    Data4: 1553368118
   Banks:
   - {fileID: 2767100926582231373}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -4707284438915880882}
+  - {fileID: 2309872003357064489}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6593980437162028565
+--- !u!114 &6066799919917119483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -690,21 +719,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Fireball
+  m_Name: event:/CD
   m_EditorClassIdentifier: 
-  Path: event:/Boss/Fireball
+  Path: event:/CD
   Guid:
-    Data1: -211949483
-    Data2: 1082918787
-    Data3: -356967264
-    Data4: -1008581521
+    Data1: -255739260
+    Data2: 1291119203
+    Data3: -732717891
+    Data4: -620935748
   Banks:
   - {fileID: 2767100926582231373}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: 7920081340344469777}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -735,6 +763,33 @@ MonoBehaviour:
   - Start
   - End
   Exists: 1
+--- !u!114 &7324228226441088870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss/Shield
+  m_EditorClassIdentifier: 
+  Path: event:/Boss/Shield
+  Guid:
+    Data1: -327390818
+    Data2: 1099002162
+    Data3: 1385017262
+    Data4: -1376650558
+  Banks:
+  - {fileID: 2767100926582231373}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7511152895427737612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,61 +817,6 @@ MonoBehaviour:
   - {fileID: -7577501922418635400}
   MinDistance: 1
   MaxDistance: 100
-  Length: 0
---- !u!114 &7920081340344469777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Fireball/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
---- !u!114 &8087286692872217010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Asteroid
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Asteroid
-  Guid:
-    Data1: -1282510512
-    Data2: 1234557823
-    Data3: -1559771765
-    Data4: 1553368118
-  Banks:
-  - {fileID: 2767100926582231373}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -5761803632268373518}
-  MinDistance: 1
-  MaxDistance: 20
   Length: 0
 --- !u!114 &8550905067467293018
 MonoBehaviour:
