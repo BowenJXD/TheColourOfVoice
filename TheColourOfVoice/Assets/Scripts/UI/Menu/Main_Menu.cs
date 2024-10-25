@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class Main_Menu : MonoBehaviour
 {
     static int index = 1;
+    public static bool isInputDisabled = false;  // 静态标志位，决定是否允许输入
+
     // Update is called once per frame
     void Update()
     {
-        // 检测玩家是否按下了任意键
-        if (Input.anyKeyDown&&SceneManager.GetActiveScene().name == "MainMenu")
+        // 仅在输入没有被禁用时才允许处理输入
+        if (!isInputDisabled && Input.anyKeyDown && SceneManager.GetActiveScene().name == "MainMenu")
         {
             // 切换到游戏场景
             PlayGame();
