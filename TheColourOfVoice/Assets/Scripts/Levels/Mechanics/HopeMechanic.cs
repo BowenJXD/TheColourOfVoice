@@ -230,7 +230,7 @@ public class HopeMechanic : LevelMechanic
             move.enabled = true;
             fire.enabled = true;
             fire.SetAutoFire(false);
-            float damage = bossHealth.currentHealth / 10;
+            float damage = bossHealth.currentHealth / 7;
             fire.onFire += bullet =>
             {
                 if (bullet.TryGetComponent<Attack>(out var attack))
@@ -250,7 +250,7 @@ public class HopeMechanic : LevelMechanic
             levelDemo.EndLevel(() =>
             {
                 DOTween.To(() => colorAdjustments.postExposure.value, x => colorAdjustments.postExposure.value = x, 8, 2)
-                    .OnComplete(Application.Quit);
+                    .OnComplete(() => SceneTransit.Instance.LoadTargetScene("Ending"));
             });
         }
         
