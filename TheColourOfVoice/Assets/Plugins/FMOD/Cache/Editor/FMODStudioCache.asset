@@ -43,66 +43,11 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638653795701026252
+  lastModified: 638530410455991967
   FileSizes:
   - Name: Desktop
-    Value: 1812
+    Value: 1588
   Exists: 1
---- !u!114 &-6611236912008476192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Asteroid/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
---- !u!114 &-6558459827783824206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Charge
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Charge
-  Guid:
-    Data1: -1266222263
-    Data2: 1188248496
-    Data3: -1822662481
-    Data4: -1909891878
-  Banks:
-  - {fileID: 441536812925806243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 5656383965611722949}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-6168152876677976116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +74,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 4927055953759208882}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-5636763505349811004
 MonoBehaviour:
@@ -185,7 +130,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 4837992024308171301}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-3393887114618058359
 MonoBehaviour:
@@ -269,7 +214,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: -5636763505349811004}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-608399263142561225
 MonoBehaviour:
@@ -297,7 +242,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 3292695376917779901}
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &-447790430660720588
 MonoBehaviour:
@@ -323,33 +268,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-163171085108858842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Shield
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Shield
-  Guid:
-    Data1: -327390818
-    Data2: 1099002162
-    Data3: 1385017262
-    Data4: -1376650558
-  Banks:
-  - {fileID: 441536812925806243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-40485200350620696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +293,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -399,15 +317,10 @@ MonoBehaviour:
   - {fileID: -9108837243337714117}
   - {fileID: -40485200350620696}
   - {fileID: -2109162855590912102}
-  - {fileID: -6558459827783824206}
   - {fileID: 8795248336703965476}
-  - {fileID: 5480049855141986194}
-  - {fileID: 9015237207867183788}
   - {fileID: 7073549023068931354}
-  - {fileID: 7872322514718592800}
   - {fileID: -608399263142561225}
   - {fileID: 2139584384857019279}
-  - {fileID: -163171085108858842}
   - {fileID: 4766656515141514198}
   - {fileID: -4577909197884235354}
   - {fileID: -6168152876677976116}
@@ -416,7 +329,7 @@ MonoBehaviour:
   - {fileID: 441536812925806243}
   StringsBanks:
   - {fileID: -7676827947135513878}
-  cacheTime: 638653795701026252
+  cacheTime: 638530410455991967
   cacheVersion: 131619
 --- !u!114 &441536812925806243
 MonoBehaviour:
@@ -433,10 +346,10 @@ MonoBehaviour:
   Path: Assets/Audio/TheColourOfVoice/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638653795701006314
+  lastModified: 638530410455971790
   FileSizes:
   - Name: Desktop
-    Value: 12011872
+    Value: 3826208
   Exists: 1
 --- !u!114 &1267702465608580262
 MonoBehaviour:
@@ -465,33 +378,6 @@ MonoBehaviour:
   - Casting
   - ReleaseReady
   - Released
-  Exists: 1
---- !u!114 &1315880027287312177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Fireball/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
   Exists: 1
 --- !u!114 &2139584384857019279
 MonoBehaviour:
@@ -656,63 +542,8 @@ MonoBehaviour:
   Parameters:
   - {fileID: -3393887114618058359}
   MinDistance: 1
-  MaxDistance: 100
-  Length: 0
---- !u!114 &5480049855141986194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Asteroid
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Asteroid
-  Guid:
-    Data1: -1282510512
-    Data2: 1234557823
-    Data3: -1559771765
-    Data4: 1553368118
-  Banks:
-  - {fileID: 441536812925806243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -6611236912008476192}
-  MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5656383965611722949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Charge/EffectState
-  m_EditorClassIdentifier: 
-  Name: EffectState
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1087238371
-    data2: 611683575
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Start
-  - End
-  Exists: 1
 --- !u!114 &7073549023068931354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,33 +562,6 @@ MonoBehaviour:
     Data2: 1079730729
     Data3: -1091958090
     Data4: 1891356859
-  Banks:
-  - {fileID: 441536812925806243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7872322514718592800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/CD
-  m_EditorClassIdentifier: 
-  Path: event:/CD
-  Guid:
-    Data1: -255739260
-    Data2: 1291119203
-    Data3: -732717891
-    Data4: -620935748
   Banks:
   - {fileID: 441536812925806243}
   IsStream: 0
@@ -818,34 +622,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &9015237207867183788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss/Fireball
-  m_EditorClassIdentifier: 
-  Path: event:/Boss/Fireball
-  Guid:
-    Data1: -211949483
-    Data2: 1082918787
-    Data3: -356967264
-    Data4: -1008581521
-  Banks:
-  - {fileID: 441536812925806243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 1315880027287312177}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &9071133869290490244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,5 +647,5 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 20
   Length: 0
