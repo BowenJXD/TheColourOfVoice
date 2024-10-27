@@ -12,34 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
   m_Name: ChannelMixer
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   redOutRedIn:
     m_OverrideState: 1
-    m_Value: 56.7
+    m_Value: 100
   redOutGreenIn:
     m_OverrideState: 1
-    m_Value: 43.3
+    m_Value: 0
   redOutBlueIn:
     m_OverrideState: 1
     m_Value: 0
   greenOutRedIn:
-    m_OverrideState: 1
-    m_Value: 55.8
+    m_OverrideState: 0
+    m_Value: 0
   greenOutGreenIn:
-    m_OverrideState: 1
-    m_Value: 44.2
+    m_OverrideState: 0
+    m_Value: 100
   greenOutBlueIn:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   blueOutRedIn:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   blueOutGreenIn:
-    m_OverrideState: 1
-    m_Value: 24.2
+    m_OverrideState: 0
+    m_Value: 0
   blueOutBlueIn:
-    m_OverrideState: 1
-    m_Value: 75.8
+    m_OverrideState: 0
+    m_Value: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,33 +50,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Protanopia
+  m_Name: DeuteranopiaProfile
   m_EditorClassIdentifier: 
   components:
   - {fileID: 7174424329947802338}
   - {fileID: 8230139682458250423}
   - {fileID: -2535459212731523873}
-  - {fileID: 4041957204045525775}
---- !u!114 &4041957204045525775
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e021b4c809a781e468c2988c016ebbea, type: 3}
-  m_Name: ColorLookup
-  m_EditorClassIdentifier: 
-  active: 0
-  texture:
-    m_OverrideState: 1
-    m_Value: {fileID: 11700000, guid: eb1cde00b61a48146962174196163cf0, type: 2}
-    dimension: 1
-  contribution:
-    m_OverrideState: 1
-    m_Value: 1
 --- !u!114 &7174424329947802338
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -131,7 +110,7 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
+          inSlope: 1
           outSlope: 1
           tangentMode: 0
           weightedMode: 0
@@ -141,7 +120,7 @@ MonoBehaviour:
           time: 1
           value: 1
           inSlope: 1
-          outSlope: 0
+          outSlope: 1
           tangentMode: 0
           weightedMode: 0
           inWeight: 0

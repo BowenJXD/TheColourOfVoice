@@ -10,6 +10,7 @@ public class HealthUIManager : MonoBehaviour
     public GameObject heartPrefab;  
     public Transform heartContainer;  
     private List<GameObject> hearts = new List<GameObject>();
+    public Material heartMaterial;
 
     private float currentHealth;
     private float maxHealth;
@@ -67,7 +68,7 @@ public class HealthUIManager : MonoBehaviour
             }
 
             heartImage.color = i < currentHealth ? Color.white : Color.clear;
-
+            heartImage.material = heartMaterial;
         }
 
         Debug.Log("Total hearts created: " + hearts.Count);
