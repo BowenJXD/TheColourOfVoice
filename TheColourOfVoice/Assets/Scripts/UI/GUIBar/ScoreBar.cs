@@ -92,14 +92,14 @@ public class ScoreBar : MonoBehaviour
         SlideImage();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             score = maxScore;
             Debug.Log("Score set to max.");
         }
-    }
+    }*/
 
     //初始化星星
     void InitializeStars(GameObject starPrefab)

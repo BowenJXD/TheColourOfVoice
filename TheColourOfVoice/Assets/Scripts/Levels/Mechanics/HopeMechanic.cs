@@ -28,7 +28,7 @@ public class HopeMechanic : LevelMechanic
 
     private int damageCache;
     private EnterPhaseEffect enterPhaseEffect;
-    Volume volume;
+    public Volume volume;
     Level_demo levelDemo;
     public RageMechanic rageMechanic;
     
@@ -53,9 +53,12 @@ public class HopeMechanic : LevelMechanic
         {
             targetGroup.AddMember(boss.transform, 0.5f, 1);
         }
-        
+
+        if (!volume)
+        {
+            volume = GameObject.Find("PostProcessing").GetComponent<Volume>();
+        }
         enemyGenerators = bossHealth.GetComponentsInChildren<EntityGenerator>(true).OrderBy(c => c.transform.GetSiblingIndex()).ToList();
-        volume = FindObjectOfType<Volume>();
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
             DOTween.To(() => colorAdjustments.saturation.value, x => colorAdjustments.saturation.value = x, -90, 2);
@@ -245,6 +248,13 @@ public class HopeMechanic : LevelMechanic
     
     void EnterPhase8()
     {
+        foreach (SplashTile tile in SplashGrid.Instance.tiles)
+        {
+            if (tile.Color == PaintColor.Black)
+            {
+                tile.PaintTile(PaintColor.White);
+            }
+        }
         if (volume.profile.TryGet(out ColorAdjustments colorAdjustments))
         {
             levelDemo.EndLevel(() =>

@@ -16,7 +16,7 @@ MonoBehaviour:
   patientAge: 26
   patintSymptoms: Paranoia
   patientDescription: Damn it, they're still watching me
-  patientImage: {fileID: 21300000, guid: 83edc1ec56ebc8f409525f649a15b5f4, type: 3}
+  patientImage: {fileID: 21300000, guid: 183c35b28cd82374a87069b66e90aa01, type: 3}
   levelIndex: 4
   preLevelTimelineAsset: {fileID: 11400000, guid: 73d877a13ddc2a243b165c5ceb97b51b, type: 2}
   afterLevelTimelineAsset: {fileID: 11400000, guid: b1bdb3091d7f9484f8d6dfe550b005b7, type: 2}

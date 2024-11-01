@@ -31,7 +31,7 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) EndTutorial();
+        // if (Input.GetKeyDown(KeyCode.Alpha1)) EndTutorial();
         
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");

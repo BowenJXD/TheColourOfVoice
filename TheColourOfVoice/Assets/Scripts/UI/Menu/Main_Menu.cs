@@ -22,7 +22,7 @@ public class Main_Menu : MonoBehaviour
     public void PlayGame()
     {
         //SceneTransit.Instance.LoadTargetScene("ColourBlindSetting");
-        SceneManager.LoadScene("ColourBlindSetting");
+        SceneManager.LoadScene("Opening");
         index = SaveDataManager.Instance.saveData.levelsCompleted;
         PlayerPrefs.SetInt("levelIndex", index);
         Lebug.Log("levelIndex", index);

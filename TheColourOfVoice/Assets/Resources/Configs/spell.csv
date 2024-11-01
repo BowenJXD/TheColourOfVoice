@@ -1,12 +1,8 @@
 id,Name,Cooldown,NeedCasting,ThemeColour,Description,LogoPath,Default
-1,The Calming Laser,4,TRUE,Blue,"Casts a laser beam that freezes enemies.
-The longer the casting time, the bigger the beam would be.",Logo-TheCalmingLaser,calm down
-2,The Glowing Confidence,20,FALSE,Yellow,"Speeds you up. Makes you invincible. Paints the tiles you enter.
-The louder you shout the spell, the longer the buff would last.",Logo-TheGlowingConfidence,let there be light
-3,The Burning Passion,16,TRUE,Red,"Casts a fireball.
-The longer the casting time, the longer the fireball would last.",Logo-TheBurningPassion,fireball is coming
-4,The Whisper of Love,12,TRUE,Magenta,"Casts a heart that mesmerises enemies, making it fight for you.
-The softer you speak the spell, the longer the buff would last.",Logo-TheWhisperOfLove,i love you you love me
-5,The Rainbow of Hope,15,FALSE,Rainbow,"Fires the trigger words character by character, in rainbow colour.",Logo-TheRainbowOfHope,may the colour of my voice heal your pain
+1,The Calming Laser,4,TRUE,Blue,Casts a laser beam that freezes enemies.,Logo-TheCalmingLaser,calm down
+2,The Glowing Confidence,20,FALSE,Yellow,Speeds you up. Makes you invincible and attacks enemies touched. Paints the tiles you enter.,Logo-TheGlowingConfidence,let there be light
+3,The Burning Passion,16,TRUE,Red,Casts a fireball. Would ignite flammable enemies.,Logo-TheBurningPassion,fireball is coming
+4,The Whisper of Love,12,TRUE,Magenta,"Casts a heart that mesmerises enemies, making it fight for you.",Logo-TheWhisperOfLove,i love you you love me
+5,The Rainbow of Hope,15,FALSE,Rainbow,"Fires the trigger words character by character, turns black tiles to white.",Logo-TheRainbowOfHope,may the colour of my voice heal your pain
 6,The Mark of Sincere Words,12,FALSE,Cyan,"Brands the trigger words on the map. 
 The branded tiles slow enemies down, and block their bullets.",Logo-TheMarkOfSincereWords,thank you
