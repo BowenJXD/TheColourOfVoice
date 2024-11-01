@@ -322,7 +322,7 @@ public class Level_demo : MonoBehaviour
         }
         else if (starCount == 3)
         {
-            resultText.text = "PREFECT";
+            resultText.text = "PERFECT";
         }
         else
         {
